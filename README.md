@@ -14,6 +14,7 @@ This webshop project is a collaborative effort by Reutlingen University students
   - HTML5
   - CSS3
   - JavaScript
+  - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 - **Backend:**
   - [php](www.php.net)
