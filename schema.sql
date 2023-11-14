@@ -16,7 +16,7 @@ CREATE TABLE products (
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
-    passwort DECIMAL(10, 2) NOT NULL,
+    passwort VARCHAR(20),
     vorname TEXT,
     nachname VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
