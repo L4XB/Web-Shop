@@ -6,20 +6,23 @@ Welcome to the README for our student webshop group project! This document serve
 
 ## Project Description
 
-This webshop project is a collaborative effort by [Your University Name] students. The goal is to design and implement a fully functional e-commerce platform. The webshop will allow users to browse products, add them to their cart, and proceed through the checkout process.
+This webshop project is a collaborative effort by Reutlingen University students. The goal is to design and implement a fully functional e-commerce platform. The webshop will e.g. allow users to browse products, add them to their cart, and proceed through the checkout process.
 
 ## Technologies Used
 
 - **Frontend:**
   - HTML5
   - CSS3
-  - JavaScript (ES6+)
-  - [React](https://reactjs.org/) for the user interface
+  - JavaScript
 
 - **Backend:**
-  - [Node.js](https://nodejs.org/)
-  - [Express](https://expressjs.com/) for the server
-  - [MongoDB](https://www.mongodb.com/) for the database
+  - [php](www.php.net)
+  - [SQL](www.mysql.com) for the database
+  - [Apache](apache.org)
+  - [XAMP](www.apachefriends.org)
+
+<script>
+/*
 
 ## Getting Started
 
@@ -29,7 +32,7 @@ To set up the project locally, follow these steps:
 2. Navigate to the project directory: `cd <project-directory>`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
-5. Open your web browser and visit `http://localhost:3000`
+5. Open your web browser and visit `http://localhost`
 
 ## Project Structure
 
@@ -41,6 +44,8 @@ To set up the project locally, follow these steps:
   - **`/routes`**: Express route handlers.
   - **`/models`**: MongoDB data models.
   - **`/config`**: Configuration files.
+*/
+</script>
 
 ## Contributing
 
