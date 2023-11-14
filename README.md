@@ -21,7 +21,7 @@ This webshop project is a collaborative effort by Reutlingen University students
   - [Apache](apache.org)
   - [XAMP](www.apachefriends.org)
 
-<script>
+
 /*
 
 ## Getting Started
@@ -45,7 +45,7 @@ To set up the project locally, follow these steps:
   - **`/models`**: MongoDB data models.
   - **`/config`**: Configuration files.
 */
-</script>
+
 
 ## Contributing
 
