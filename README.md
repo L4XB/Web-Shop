@@ -54,13 +54,13 @@ We welcome contributions from all team members. To contribute, follow these step
 
 ## Issues and Bugs
 
-If you encounter any issues or find bugs, please open an issue on the [GitHub repository](<link-to-repository-issues>).
+If you encounter any issues or find bugs, please open an issue on the [GitHub repository](https://github.com/L4XB/webShop/pulls ).
 
 ## Team Members
 
-- [Student 1][link-to-profile](https://github.com/L4XB)
-- [Student 2][link-to-profile](https://github.com/QWellCOD)
-- [Student 3][link-to-profile](https://github.com/moechtegernmoench)
+- [Lukas Buck][link-to-profile](https://github.com/L4XB)
+- [QW_ellCODe][link-to-profile](https://github.com/QWellCOD)
+- [moechtegernmoench][link-to-profile](https://github.com/moechtegernmoench)
 
 ## License
 
