@@ -1,4 +1,4 @@
-Student Webshop Group Project
+# Student Webshop Group Project
 Overview
 
 Welcome to the README for our student webshop group project! This document serves as a guide for the development team and provides essential information about the project.
