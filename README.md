@@ -18,7 +18,7 @@ Technologies Used
         Express for the server
         MongoDB for the database
 
-Getting Started
+## Getting Started
 
 To set up the project locally, follow these steps:
 
