@@ -58,9 +58,9 @@ If you encounter any issues or find bugs, please open an issue on the [GitHub re
 
 ## Team Members
 
-- [Lukas Buck]([link-to-profile](https://github.com/L4XB))
-- [QW_ellCODe]([link-to-profile](https://github.com/QWellCOD))
-- [moechtegernmoench]([link-to-profile](https://github.com/moechtegernmoench))
+- ([Lukas Buck][link-to-profile](https://github.com/L4XB))
+- ([QW_ellCODe][link-to-profile](https://github.com/QWellCOD))
+- ([moechtegernmoench][link-to-profile](https://github.com/moechtegernmoench))
 
 ## License
 
