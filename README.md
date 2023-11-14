@@ -39,7 +39,7 @@ If you encounter any issues or find bugs, please open an issue on the [GitHub re
 
 ## Team Members
 
-- [Lukas Buck](https://github.com/L4XB)
+- [L4XB](https://github.com/L4XB)
 - [moechtegernmoench](https://github.com/moechtegernmoench)
 - [QW_ellCODe](https://github.com/QWellCOD)
 
