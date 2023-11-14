@@ -58,9 +58,9 @@ If you encounter any issues or find bugs, please open an issue on the [GitHub re
 
 ## Team Members
 
-- [Student 1](link-to-profile)
-- [Student 2](link-to-profile)
-- [Student 3](link-to-profile)
+- [Student 1][link-to-profile](https://github.com/L4XB)
+- [Student 2][link-to-profile](https://github.com/QWellCOD)
+- [Student 3][link-to-profile](https://github.com/moechtegernmoench)
 
 ## License
 
