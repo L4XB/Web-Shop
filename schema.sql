@@ -15,9 +15,9 @@ CREATE TABLE products (
 //UserTable
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(50) NOT NULL,
     passwort VARCHAR(20),
-    vorname TEXT,
+    vorname VARCHAR(50),
     nachname VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 );
