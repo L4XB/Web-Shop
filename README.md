@@ -22,31 +22,6 @@ This webshop project is a collaborative effort by Reutlingen University students
   - [XAMP](www.apachefriends.org)
 
 
-/*
-
-## Getting Started
-
-To set up the project locally, follow these steps:
-
-1. Clone the repository: `git clone <repository-url>`
-2. Navigate to the project directory: `cd <project-directory>`
-3. Install dependencies: `npm install`
-4. Start the development server: `npm start`
-5. Open your web browser and visit `http://localhost`
-
-## Project Structure
-
-- **`/src`**: Contains the source code for the frontend.
-  - **`/components`**: React components.
-  - **`/styles`**: Stylesheets.
-  - **`/pages`**: Individual pages for the webshop (e.g., Home, Product Detail, Cart).
-- **`/server`**: Contains the backend code.
-  - **`/routes`**: Express route handlers.
-  - **`/models`**: MongoDB data models.
-  - **`/config`**: Configuration files.
-*/
-
-
 ## Contributing
 
 We welcome contributions from all team members. To contribute, follow these steps:
