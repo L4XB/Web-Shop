@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                window.location.href = '../views/dashboard.php';
+                window.location.href = '../views/products.php';
             } else {
                 alert('Login fehlgeschlagen. Überprüfe deine Benutzerdaten.');
             }

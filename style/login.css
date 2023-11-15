@@ -8,11 +8,25 @@ body {
     height: 100vh;
 }
 
-.container {
+.container-body {
+    display: flex;
+    width: 95%;
+    height: 95vh;
+}
+
+#container-left-side {
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 90vh;
+    width: 50%;
+}
+
+#container-right-side {
+    height: 90vh;
+    width: 50%;
+    background-color: rgb(217, 185, 4);
 }
 
 form {

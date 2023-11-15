@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="../style/dashboard.css">
+    <link rel="stylesheet" href="../style/products.css">
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
     <script>
