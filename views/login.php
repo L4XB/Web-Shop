@@ -34,10 +34,7 @@
                     <br>
 
                 </form>
-
                 <button>SignUp</button>
-
-
             </div>
         </div>
         <!--right Side-->
