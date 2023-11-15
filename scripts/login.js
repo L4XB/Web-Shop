@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('loginForm');
+    const errorMessage = document.getElementById('error-message');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -14,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 window.location.href = '../views/products.php';
             } else {
-                alert('Login fehlgeschlagen. Überprüfe deine Benutzerdaten.');
+                errorMessage.textContent = 'falsche E-mail oder Passwort, bitte überprüfe deine Eingabe.';
             }
         })
         .catch(error => {

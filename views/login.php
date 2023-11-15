@@ -28,6 +28,7 @@
                     <label for="Password">Password*</label>
                     <input placeholder="Geben Sie Ihr Passwort hier ein" type="password" id="password" name="password"
                         required>
+                    <div id="error-message" style="color: red;"></div>
                     <br>
                     <br>
                     <button type="submit">Login</button>

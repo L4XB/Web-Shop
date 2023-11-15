@@ -60,7 +60,8 @@ input {
     border: 1px solid;
     border-color: rgb(220, 220, 220);
     background-color: rgb(229, 229, 229);
-    font-size: 20px;
+    font-size: 16px;
+    height: 30px;
 }
 
 input::placeholder {
@@ -86,4 +87,11 @@ button:hover {
 .signUp {
     text-align: center;
     padding-top: 10px;
+}
+
+#error-message {
+    color: red;
+    text-align: center;
+    font-size: 14px;
+
 }
