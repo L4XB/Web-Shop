@@ -19,19 +19,21 @@
     <div class="container-body">
         <!--left Side-->
         <div id="container-left-side">
-            <form id="loginForm" action="../services/userProvider/login.php" method="POST">
-                <h2>Login</h2>
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
-                <label for="password">Password:</label>
-                <input type="password" id="password" name="password" required>
-                <button type="submit">Login</button>
-            </form>
-            <p id="signUp"><a href="signUp.php">SignUp</a></p>
+            <div id="container-left-side-items">
+                <form id="loginForm" action="../services/userProvider/login.php" method="POST">
+                    <h2>Login</h2>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Login</button>
+                </form>
+                <p id="signUp"><a href="signUp.php">SignUp</a></p>
+            </div>
         </div>
         <!--right Side-->
         <div id="container-right-side">
-
+            <img height="550px" src="../assets/images/inf-logo.png" alt="">
         </div>
 
     </div>

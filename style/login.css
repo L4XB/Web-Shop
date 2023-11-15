@@ -11,22 +11,33 @@ body {
 .container-body {
     display: flex;
     width: 95%;
-    height: 95vh;
+    height: 90vh;
 }
 
 #container-left-side {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
     height: 90vh;
     width: 50%;
+    display: flex;
 }
 
 #container-right-side {
     height: 90vh;
     width: 50%;
-    background-color: rgb(217, 185, 4);
+    background-color: rgba(217, 157, 4, 0.923);
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#container-left-side-items {
+    width: 50%;
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: auto;
 }
 
 form {
