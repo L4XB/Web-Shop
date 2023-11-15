@@ -28,3 +28,19 @@ h1 {
     border-top: 2px solid rgb(195, 195, 195);
     width: 85%;
 }
+
+#bottom-options {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#back-to-login {
+    color: rgb(229, 174, 22);
+    text-decoration-color: rgb(229, 174, 22);
+    text-decoration: none;
+}
+
+#back-to-login:hover {
+    color: rgb(229, 205, 22);
+}
