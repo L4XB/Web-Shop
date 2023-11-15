@@ -14,4 +14,17 @@ label {
 
 #rejectText {
     color: black;
+    text-decoration-color: black;
+    padding-left: 55px;
+}
+
+h1 {
+    padding-bottom: 30px;
+}
+
+.thin-black-line {
+    margin-top: 50px;
+    border: none;
+    border-top: 2px solid rgb(195, 195, 195);
+    width: 85%;
 }

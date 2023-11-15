@@ -49,14 +49,19 @@
                     </div>
                     <br>
                     <br>
+                    <br>
                     <div class="form-row">
-                        <a href="">
-                            <p id="rejectText">abbrechen</p>
+                        <a id="rejectText" href="">
+                            <p>abbrechen</p>
                         </a>
 
                         <button style="width: 50%;" type="submit">Weiter</button>
                     </div>
+
+
                 </form>
+                <hr class="thin-black-line">
+
             </div>
         </div>
         <!--right Side-->
