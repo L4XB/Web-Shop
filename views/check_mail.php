@@ -16,7 +16,14 @@
 </head>
 
 <body>
+    <div class="container-body">
+        <div id="container-left-side">
 
+        </div>
+        <div id="container-right-side">
+            <img height="550px" src="../assets/images/inf-logo.png" alt="">
+        </div>
+    </div>
 </body>
 
 </html>
