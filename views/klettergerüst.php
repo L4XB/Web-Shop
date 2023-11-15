@@ -14,21 +14,18 @@
 </head>
 
 <body>
-<<<<<<< HEAD:views/klettergerüst.html
 <header class="p-3 bg-dark text-white">
     <nav>  
     <div class="container">
-=======
+
     <header class="p-3 bg-dark text-white">
         <div class="container">
->>>>>>> 224bf24b3812de829601f6ff37a3ad8675dd00f4:views/klettergerüst.php
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
                     <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
                         <use xlink:href="#bootstrap"></use>
                     </svg>
                 </a>
-<<<<<<< HEAD:views/klettergerüst.html
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
@@ -36,15 +33,12 @@
                     <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">About</a></li>
                 </ul>
-=======
                 <li>
                     <a href="#" class="nav-link text-secondary">
                         <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
                         Home
                     </a>
                     </li>
->>>>>>> 224bf24b3812de829601f6ff37a3ad8675dd00f4:views/klettergerüst.php
-
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <input type="search" class="form-control form-control-dark" placeholder="Search..."
                         aria-label="Search" id="s1">
@@ -77,11 +71,9 @@
                     <button type="button" class="btn btn-warning">Sign-up</button>
                 </div>
             </div>
-<<<<<<< HEAD:views/klettergerüst.html
     </div>
     </nav>  
     </header>
-    
     <footer class="footer">
         <div class="container">
             <div class="row">
@@ -100,15 +92,8 @@
                   </div>
             </div>
     </footer>
-    
-=======
         </div>
-    </header>
-
-
-
->>>>>>> 224bf24b3812de829601f6ff37a3ad8675dd00f4:views/klettergerüst.php
-    
+    </header>  
 </body>
 
 </html>

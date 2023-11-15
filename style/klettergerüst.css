@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 .footer {
     position: fixed;
     bottom: 1%;
@@ -8,16 +8,10 @@
     text-align: center;
     border-radius: 18px;
   }
-
 .footerbutton{
     border: none;
   background-color: inherit;
   padding: 14px 28px;
   font-size: 16px;
   cursor: pointer;
-  display: inline-block;
-=======
-#s1 {
-    padding-right: 50px;
->>>>>>> 224bf24b3812de829601f6ff37a3ad8675dd00f4
-}
+  display: inline-block;}
