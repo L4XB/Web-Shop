@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <!--Box where left and right box take place-->
     <div class="container-body">
         <!--left Side-->
