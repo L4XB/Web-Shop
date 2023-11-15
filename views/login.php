@@ -22,13 +22,22 @@
             <div id="container-left-side-items">
                 <form id="loginForm" action="../services/userProvider/login.php" method="POST">
                     <h2>Login</h2>
-                    <label for="username">Username:</label>
-                    <input type="text" id="username" name="username" required>
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" name="password" required>
+                    <label for="Email">E-mail*</label>
+                    <input placeholder="Geben Sie Ihre E-mail Adresse hier ein" type="text" id="username"
+                        name="username" required>
+                    <label for="Password">Password*</label>
+                    <input placeholder="Geben Sie Ihr Passwort hier ein" type="password" id="password" name="password"
+                        required>
+                    <br>
+                    <br>
                     <button type="submit">Login</button>
+                    <br>
+
                 </form>
-                <p id="signUp"><a href="signUp.php">SignUp</a></p>
+
+                <button>SignUp</button>
+
+
             </div>
         </div>
         <!--right Side-->

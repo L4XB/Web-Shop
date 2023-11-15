@@ -32,8 +32,12 @@ body {
     align-items: center;
 }
 
+#container-right-side:hover {
+    background-color: rgb(247, 188, 26)
+}
+
 #container-left-side-items {
-    width: 50%;
+    width: 35%;
     margin-left: auto;
     margin-top: auto;
     margin-bottom: auto;
@@ -52,19 +56,31 @@ label {
 input {
     padding: 8px;
     margin-bottom: 16px;
+    border-radius: 10px;
+    border: 1px solid;
+    border-color: rgb(220, 220, 220);
+    background-color: rgb(229, 229, 229);
+    font-size: 20px;
+}
+
+input::placeholder {
+    font-size: 14px;
 }
 
 button {
     padding: 10px;
-    background-color: #4caf50;
+    background-color: rgb(229, 174, 22);
     color: #fff;
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    border-radius: 35px;
+    width: 100%;
+    font-size: 19px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: rgb(247, 188, 26)
 }
 
 .signUp {
