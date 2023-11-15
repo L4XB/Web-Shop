@@ -17,9 +17,9 @@
         <!--left Side-->
         <div id="container-left-side">
             <form id="signUpForm" method="post" action="signUp.php">
-                <div class="form-row">
+                <div class="form-field">
                     <label for="email">E-Mail:</label>
-                    <input type="email" id="email" name="email" required>
+                    <input style="width: 200%;" type="email" id="email" name="email" required>
                 </div>
                 <div class="form-row">
                     <div class="form-field">
@@ -36,15 +36,14 @@
                 <div class="form-row">
                     <div class="form-field">
                         <label for="password">Passwort:</label>
-                        <input style="width: 100%;" type="password" id="password" name="password" required>
+                        <input style="width: 200%;" type="password" id="password" name="password" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <label for="phonePrefix">Telefonnummer:</label>
-                    <select id="phonePrefix" name="phonePrefix" style="width: 20%;">
-                        <!-- Fügen Sie hier die Optionen für die Vorwahlen hinzu -->
-                    </select>
-                    <input type="tel" id="phoneNumber" name="phoneNumber" style="width: 80%;" required>
+                    <div class="form-field">
+                        <label for="password">Telefonnummer:</label>
+                        <input type="tel" id="phoneNumber" name="phoneNumber" style="width: 200%;" required>
+                    </div>
                 </div>
                 <div class="form-row">
                     <button type="submit">Weiter</button>
