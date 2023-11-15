@@ -22,7 +22,7 @@
         <div id="container-left-side">
             <div id="container-left-side-items">
                 <form id="loginForm" action="../services/userProvider/login.php" method="POST">
-                    <h2>Login</h2>
+                    <h1>Login</h1>
                     <label for="Email">E-mail*</label>
                     <input placeholder="Geben Sie Ihre E-mail Adresse hier ein" type="text" id="username"
                         name="username" required>

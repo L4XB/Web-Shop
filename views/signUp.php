@@ -16,39 +16,48 @@
     <div class="container-body">
         <!--left Side-->
         <div id="container-left-side">
-            <form id="signUpForm" method="post" action="signUp.php">
-                <div class="form-field">
-                    <label for="email">E-Mail:</label>
-                    <input style="width: 200%;" type="email" id="email" name="email" required>
-                </div>
-                <div class="form-row">
+            <div id="container-left-side-items">
+                <form id="signUpForm" method="post" action="signUp.php">
+                    <h1>Account erstellen</h1>
                     <div class="form-field">
-                        <label for="firstName">Vorname:</label>
-                        <input type="text" id="firstName" name="firstName" style="width: 90%;" required>
+                        <label for="email">E-Mail:</label>
+                        <input placeholder="Geben Sie Ihre E-mail ein" style="width: 200%;" type="email" id="email"
+                            name="email" required>
                     </div>
-                    <div class="form-field">
+                    <br>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="firstName">Vorname:</label>
+                            <input placeholder="Geben Sie Ihren Vornamen ein" type="text" id="firstName"
+                                name="firstName" style="width: 90%;" required>
+                        </div>
+                        <div class="form-field">
 
-                        <label for="lastName">Nachname:</label>
-                        <input type="text" id="lastName" name="lastName" style="width: 90%;" required>
-                    </div>
+                            <label for="lastName">Nachname:</label>
+                            <input placeholder="Geben Sie Ihren Nachnamen ein" type="text" id="lastName" name="lastName"
+                                style="width: 90%;" required>
+                        </div>
 
-                </div>
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="password">Passwort:</label>
-                        <input style="width: 200%;" type="password" id="password" name="password" required>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-field">
-                        <label for="password">Telefonnummer:</label>
-                        <input type="tel" id="phoneNumber" name="phoneNumber" style="width: 200%;" required>
+                    <br>
+                    <div class="form-row">
+                        <div class="form-field">
+                            <label for="password">Telefonnummer:</label>
+                            <input placeholder="Geben Sie Ihren Telefonnummer ein" type="tel" id="phoneNumber"
+                                name="phoneNumber" style="width: 200%;" required>
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <button type="submit">Weiter</button>
-                </div>
-            </form>
+                    <br>
+                    <br>
+                    <div class="form-row">
+                        <a href="">
+                            <p id="rejectText">abbrechen</p>
+                        </a>
+
+                        <button style="width: 50%;" type="submit">Weiter</button>
+                    </div>
+                </form>
+            </div>
         </div>
         <!--right Side-->
         <div id="container-right-side">
