@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../style/style.css">
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
-    <link href="extern/bootstrap-5.3.2-dist/css/bootstrap.min.css" rel="stylesheet"
+    <link href="bootstrap\css\bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
@@ -42,6 +42,7 @@
                 </div>
             </div>
         </div>
+        <div></div>
     </header>
 
 </body>
