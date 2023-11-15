@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../style/signUp.css">
     <link rel="stylesheet" href="../style/login.css">
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
+
+    <!--Scripts-->
+    <script src="../scripts/navigation.js"></script>
 </head>
 
 <body>
@@ -17,7 +20,7 @@
         <!--left Side-->
         <div id="container-left-side">
             <div id="container-left-side-items">
-                <form id="signUpForm" method="post" action="signUp.php">
+                <form id="signUpFormSignUp" method="post" action="signUp.php">
                     <h1>Account erstellen</h1>
                     <div class="form-field">
                         <label for="email">E-Mail:</label>
@@ -55,7 +58,7 @@
                             <p>abbrechen</p>
                         </a>
 
-                        <button style="width: 50%;" type="submit">Weiter</button>
+                        <button style="width: 50%;" type="submis">Weiter</button>
                     </div>
 
                     <hr class="thin-black-line">
