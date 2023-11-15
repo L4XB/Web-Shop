@@ -5,4 +5,6 @@ function navigateToSignUpPage(){
 function navigateToCheckMailPage(){
     console.log("Hallo")
     window.location.href = '../views/check_mail.php';
+    
+    console.log("Test")
 }
