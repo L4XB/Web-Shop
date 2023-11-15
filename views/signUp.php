@@ -51,16 +51,21 @@
                     <br>
                     <br>
                     <div class="form-row">
-                        <a id="rejectText" href="">
+                        <a id="rejectText" href="login.php">
                             <p>abbrechen</p>
                         </a>
 
                         <button style="width: 50%;" type="submit">Weiter</button>
                     </div>
 
-
+                    <hr class="thin-black-line">
+                    <div id="bottom-options">
+                        <p>Sie haben schon einen Account?</p>
+                        <a style="text-decoration: none;" href="login.php">
+                            <p id="back-to-login">Login</p>
+                        </a>
+                    </div>
                 </form>
-                <hr class="thin-black-line">
 
             </div>
         </div>
