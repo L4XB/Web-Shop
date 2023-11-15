@@ -12,6 +12,7 @@
 
     <!--Scripts-->
     <script src="../scripts/login.js"></script>
+    <script src="../scripts/navigation.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
                     <br>
 
                 </form>
-                <button>SignUp</button>
+                <button onclick="navigateToSignUpPage()">SignUp</button>
             </div>
         </div>
         <!--right Side-->
