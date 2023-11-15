@@ -1,0 +1,13 @@
+label {
+    display: block;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-field {
+    width: 48%;
+    /* Etwas weniger als 50%, um Platz für den Abstand zwischen den Feldern zu lassen */
+}
