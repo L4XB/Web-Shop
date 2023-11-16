@@ -2,10 +2,14 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-global $emailUser;
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit'])) {
+        session_start();
+
+        // Abrufen der Variable aus der Session
+        $emailUser = $_SESSION['emailUser'];
         $numberOne = $_POST['numberOne'];
         $numberTwo = $_POST['numberTwo'];
         $numberThree = $_POST['numberThree'];

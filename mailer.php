@@ -18,8 +18,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $email = $_POST['email'];
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
-        global $emailUser;
-        $emailUser = $email;
+        session_start();
+
+        // Speichern der Variable in der Session
+        $_SESSION['emailUser'] = $email;
         header('Location: views/check_mail.php');
 
         // Konfiguration für OAuth2
