@@ -7,7 +7,10 @@ use League\OAuth2\Client\Grant\RefreshToken;
 
 // Include PHPMailer autoload.php and other required libraries
 require 'vendor/autoload.php';
+require 'services/userProvider/codeVerification.php';
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 // Konfiguration für OAuth2
 $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
 $clientSecret = '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';
@@ -42,7 +45,7 @@ $code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
 $mail->addAddress('lukas.buck@e-mail.de', 'Lukas');
 $mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
 $mail->setFrom('inf.fachschaft@gmail.com', 'Fach');
-$mail->Subject = 'Subject of the Email';
+$mail->Subject = 'Online-Shop Fachschaft Informatik';
 
 $mail->Body = "<!DOCTYPE html>
 <html lang='en'>
@@ -75,35 +78,32 @@ $mail->Body = "<!DOCTYPE html>
 </head>
 <body>
     <header>
+        <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
         <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
-        <p style='    font-size: 25px;
-        font-weight: bold;color:white;'>Dein Code:</p>
-        <p style='    font-size: 35px;
-        font-weight: bold;color: white;'>$code</p>
-
+        <h2 style='color: black;'>Dein Code:<u>$code</u></h2>
     </header>
 
     <section>
-        <h2>Lieber [NAME],</h2>
+        <h2>Hi Felix,</h2>
         <p>
-            Wir freuen uns über deine Anmeldung!
+            Wir freuen uns ueber deine Anmeldung!
         </p>
 
         <p>
-            Jetzt musst du nur noch deinen Code auf unserer <a href=''>Webseite</a> eingeben und schon kann es los gehen.
+            Jetzt musst du nur noch deinen Code auf unserer <a href='../../index.html'>Webseite</a> eingeben und schon kann es los gehen.
         </p>
 
         <p>Bis bald dein Fachschaftsteam!</p>
     </section>
 
     <footer>
-        <p>kontaktiere uns: contact@example.com | Phone: (123) 456-7890</p>
+        <p>kontaktiere uns: inf.fachschaft@gmail.com | Phone: (123) 456-7890</p>
     </footer>
 </body>
 </html>";
 
 try {
-    //   updateVerificationCode($code, "test@mail.com");
+    updateVerificationCode($code, "test@mail.com");
     $mail->send();
     echo 'Email sent successfully';
 } catch (Exception $e) {

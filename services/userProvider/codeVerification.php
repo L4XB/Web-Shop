@@ -20,15 +20,13 @@ function updateVerificationCode($code, $email)
 
     // Ausführen der Anweisung
     if ($stmt->execute()) {
-        $response = ['success' => true];
+        echo "Verification code updated successfully.";
     } else {
-        $response = ['success' => false, 'error' => $stmt->error];
+        echo "Error updating verification code: " . $stmt->error;
     }
 
     // Schließen der Anweisung und der Verbindung
     $stmt->close();
     $conn->close();
-
-    return $response;
 }
 ?>
