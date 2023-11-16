@@ -38,8 +38,8 @@
                     <li class="me-2"><a href="profil.php" class="nav-link px-2 text-white">Profil</a></li>
                   </ul>
                 <!-- Login/Signout -->
-                  <button type="button" class="btn btn-outline-light me-2">Login</button>
-                  <button type="button" class="btn btn-warning">Sign-up</button>
+                  <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+                  <a href="signUp.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
                 </div>
 
             </div>
