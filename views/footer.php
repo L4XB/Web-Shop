@@ -20,13 +20,13 @@
             <div class="row">
                 <div class="col">
                   </div>
-                  <div class="col-2">
+                  <div class="col-2" style="text-align: right;">
                   <a class="footerlink" href="doku.php"><img height="20px" src="../database/images/doku.png"> Doku</a>
                   </div>
                   <div class="col-2">
                   <a class="footerlink" href="devteam.php"><img height="30px" src="../database/images/git.png"> DevTeam</a>
                   </div>
-                  <div class="col-2">
+                  <div class="col-2" style="text-align: left;">
                   <a class="footerlink" href="kontakt.php"><img height="20px" src="../database/images/kontakt.png">  Kontakt</a>
                   </div>
                   <div class="col">
