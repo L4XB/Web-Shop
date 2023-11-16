@@ -8,46 +8,54 @@ use League\OAuth2\Client\Grant\RefreshToken;
 // Include PHPMailer autoload.php and other required libraries
 require 'vendor/autoload.php';
 require 'services/userProvider/codeVerification.php';
+require 'services/userProvider/signUp.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-// Konfiguration für OAuth2
-$clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
-$clientSecret = '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';
-$refreshToken = '1//09GrOaCu_rtKsCgYIARAAGAkSNwF-L9Iru4Y9uwphWk9YEYL_oi7KEjocFwBeLlyQkPsMoA9YyqcJmcrrsu2M4yEg7Gt-eW50VLQ';
 
-$provider = new Google([
-    'clientId' => $clientId,
-    'clientSecret' => $clientSecret,
-]);
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['submit'])) {
+        header('Location: views/check_mail.php');
+        $email = $_POST['email'];
+        $firstName = $_POST['firstName'];
+        $lastName = $_POST['lastName'];
+        // Konfiguration für OAuth2
+        $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
+        $clientSecret = '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';
+        $refreshToken = '1//09GrOaCu_rtKsCgYIARAAGAkSNwF-L9Iru4Y9uwphWk9YEYL_oi7KEjocFwBeLlyQkPsMoA9YyqcJmcrrsu2M4yEg7Gt-eW50VLQ';
 
-$grant = new RefreshToken();
-$token = $provider->getAccessToken($grant, ['refresh_token' => $refreshToken]);
+        $provider = new Google([
+            'clientId' => $clientId,
+            'clientSecret' => $clientSecret,
+        ]);
 
-// Konfiguration für PHPMailer
-$mail = new PHPMailer(true);
-$mail->isSMTP();
-$mail->Host = 'smtp.gmail.com';
-$mail->SMTPAuth = true;
-$mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-$mail->Port = 587; // Port should be 587 for TLS
-$mail->AuthType = 'XOAUTH2';
-$mail->isHTML(true);
+        $grant = new RefreshToken();
+        $token = $provider->getAccessToken($grant, ['refresh_token' => $refreshToken]);
 
-$mail->setOAuth(new OAuth([
-    'provider' => $provider,
-    'clientId' => $clientId,
-    'clientSecret' => $clientSecret,
-    'refreshToken' => $refreshToken,
-    'userName' => 'inf.fachschaft@gmail.com',
-]));
-$code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
-$mail->addAddress('lukas.buck@e-mail.de', 'Lukas');
-$mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
-$mail->setFrom('inf.fachschaft@gmail.com', 'Fach');
-$mail->Subject = 'Online-Shop Fachschaft Informatik';
+        // Konfiguration für PHPMailer
+        $mail = new PHPMailer(true);
+        $mail->isSMTP();
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+        $mail->Port = 587; // Port should be 587 for TLS
+        $mail->AuthType = 'XOAUTH2';
+        $mail->isHTML(true);
 
-$mail->Body = "<!DOCTYPE html>
+        $mail->setOAuth(new OAuth([
+            'provider' => $provider,
+            'clientId' => $clientId,
+            'clientSecret' => $clientSecret,
+            'refreshToken' => $refreshToken,
+            'userName' => 'inf.fachschaft@gmail.com',
+        ]));
+        $code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
+        $mail->addAddress("$email", 'Lukas');
+        $mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
+        $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft');
+        $mail->Subject = 'Online-Shop Fachschaft Informatik';
+
+        $mail->Body = "<!DOCTYPE html>
 <html lang='en'>
 <head>
     <meta charset='UTF-8'>
@@ -84,7 +92,7 @@ $mail->Body = "<!DOCTYPE html>
     </header>
 
     <section>
-        <h2>Hi Felix,</h2>
+        <h2>Hi $firstName,</h2>
         <p>
             Wir freuen uns ueber deine Anmeldung!
         </p>
@@ -102,12 +110,16 @@ $mail->Body = "<!DOCTYPE html>
 </body>
 </html>";
 
-try {
-    updateVerificationCode($code, "test@mail.com");
-    $mail->send();
-    echo 'Email sent successfully';
-} catch (Exception $e) {
-    echo 'Email could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        try {
+            createUser($email, $lastName, $firstName, "");
+            updateVerificationCode($code, "test@mail.com");
+            $mail->send();
+            echo 'Email sent successfully';
+        } catch (Exception $e) {
+            echo 'Email could not be sent. Mailer Error: ', $mail->ErrorInfo;
+        }
+
+    }
 }
 
 ?>
