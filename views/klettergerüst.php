@@ -40,12 +40,7 @@
                         </svg>
                         Home
                     </a>
-<<<<<<< HEAD
                     </li>
-=======
-                </li>
-
->>>>>>> 12d744bf1a367c4c57e7dc1d2d1bbcf3b0d6c865
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <input type="search" class="form-control form-control-dark" placeholder="Search..."
                         aria-label="Search" id="s1">
@@ -87,20 +82,10 @@
     </div>
     </nav>  
     </header>
-<<<<<<< HEAD
-=======
-
-
-
-
-
-
->>>>>>> 12d744bf1a367c4c57e7dc1d2d1bbcf3b0d6c865
     <footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="col">
-<<<<<<< HEAD
                   </div>
                   <div class="col-2">
                     <img src="C:\xampp\htdocs\web\webShop\database\images\pngwing.com (1).png"><button class="footerbutton">Doku</button>
@@ -117,23 +102,6 @@
     </footer>
         </div>
     </header>  
-=======
-                </div>
-                <div class="col-2">
-                    <img src="C:\xampp\htdocs\web\webShop\database\images\pngwing.com (1).png"><button
-                        class="footerbutton">Doku</button>
-                </div>
-                <div class="col-2">
-                    <img src=""><button class="footerbutton">DevTeam</button>
-                </div>
-                <div class="col-2">
-                    <img src=""><button class="footerbutton">Kontakt</button>
-                </div>
-                <div class="col">
-                </div>
-            </div>
-    </footer>
->>>>>>> 12d744bf1a367c4c57e7dc1d2d1bbcf3b0d6c865
 </body>
 
 </html>
