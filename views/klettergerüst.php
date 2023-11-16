@@ -20,12 +20,12 @@
                 <!-- Logo -->
                 <div class="col-md-2">
                   <div>
-                    <a href="startseite.php"><img style="width:169px; hight:87px" src="../assets/images/fsi_logo_header.png" alt="logo" class="logo"></a>
+                    <a href="homepage.php"><img style="width:169px; hight:87px" src="../assets/images/fsi_logo_header.png" alt="logo" class="logo"></a>
                   </div>
                 </div>
                 <!-- Searchbar -->
-                <div class="col-md-8">
-                  <form>
+                <div class="col-md-8 d-flex align-items-center">
+                  <form class="w-100">
                     <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
                   </form>
                 </div>
