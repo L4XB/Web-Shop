@@ -5,12 +5,11 @@
 
 .footer {
     position: fixed;
-    bottom: 1%;
+    bottom: 0;
     width: 100%;
     background-color: lightslategray;
     color: white;
     text-align: center;
-    border-radius: 18px;
 }
 
 .footerlink {
