@@ -1,3 +1,22 @@
 #s1 {
     padding-right: 50px;
 }
+
+.footer {
+    position: fixed;
+    bottom: 1%;
+    width: 100%;
+    background-color: lightslategray;
+    color: white;
+    text-align: center;
+    border-radius: 18px;
+}
+
+.footerbutton {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}

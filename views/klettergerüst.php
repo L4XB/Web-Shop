@@ -24,10 +24,12 @@
                 </a>
                 <li>
                     <a href="#" class="nav-link text-secondary">
-                        <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#home"></use></svg>
+                        <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                            <use xlink:href="#home"></use>
+                        </svg>
                         Home
                     </a>
-                    </li>
+                </li>
 
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                     <input type="search" class="form-control form-control-dark" placeholder="Search..."
@@ -37,22 +39,28 @@
                 <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small">
 
                     <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#table"></use></svg>
-                        Artikelübersicht
-                    </a>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                <use xlink:href="#table"></use>
+                            </svg>
+                            Artikelübersicht
+                        </a>
                     </li>
                     <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#grid"></use></svg>
-                        Warenkorb
-                    </a>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                <use xlink:href="#grid"></use>
+                            </svg>
+                            Warenkorb
+                        </a>
                     </li>
                     <li>
-                    <a href="#" class="nav-link text-white">
-                        <svg class="bi d-block mx-auto mb-1" width="24" height="24"><use xlink:href="#people-circle"></use></svg>
-                        Profil
-                    </a>
+                        <a href="#" class="nav-link text-white">
+                            <svg class="bi d-block mx-auto mb-1" width="24" height="24">
+                                <use xlink:href="#people-circle"></use>
+                            </svg>
+                            Profil
+                        </a>
                     </li>
                 </ul>
 
@@ -66,9 +74,28 @@
 
 
 
-    
+
+
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col-2">
+                    <img src="C:\xampp\htdocs\web\webShop\database\images\pngwing.com (1).png"><button
+                        class="footerbutton">Doku</button>
+                </div>
+                <div class="col-2">
+                    <img src=""><button class="footerbutton">DevTeam</button>
+                </div>
+                <div class="col-2">
+                    <img src=""><button class="footerbutton">Kontakt</button>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+    </footer>
 </body>
 
 </html>
-
-
