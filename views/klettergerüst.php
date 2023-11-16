@@ -26,7 +26,7 @@
                 <!-- Searchbar -->
                 <div class="col-md-8 d-flex align-items-center">
                   <form class="w-100">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                    <input type="search" class="form-control form-control-dark" placeholder="Produktsuche..." aria-label="Search">
                   </form>
                 </div>
                 <!-- Buttons -->

@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../style/products.css">
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <script>
 
         document.getElementById('dashboard-Button').addEventListener('click', function () {
@@ -17,25 +20,14 @@
 </head>
 
 <body>
+    <?php include 'klettergerüst.php'; ?>
+        <br>
 
-    <div id="main_content">
-        <div id="headNavBar">
-            <!--Left Logo Nav Bar-->
-            <img id="img-head" style="height: 8vh;"
-                src="https://cdn.discordapp.com/attachments/1098331063064993906/1173660218626953216/image.png?ex=6564c341&is=65524e41&hm=f13bfb44e34dc17d597c19816e52024ace0ca3ba37bc85d6bcc0f922efd3255b&"
-                alt="">
-            <div id="dashboard-Button"></div>
-        </div>
-    </div>
-    <h1 id="headLineTextStyle">Artikelübersicht</h1>
-    <?php
-    include("../services/productProvider/loadAllProducts.php");
-
-    ?>
-    <div id="footer">
-
-
-    </div>
+            <h1 id="headLineTextStyle">Artikelübersicht</h1>
+            <?php
+            include("../services/productProvider/loadAllProducts.php");
+            ?>
+    
 
 </body>
 
