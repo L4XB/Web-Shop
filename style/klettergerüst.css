@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+#s1 {
+    padding-right: 50px;
+}
+>>>>>>> 12d744bf1a367c4c57e7dc1d2d1bbcf3b0d6c865
 
 .footer {
     position: fixed;
@@ -7,6 +13,7 @@
     color: white;
     text-align: center;
     border-radius: 18px;
+<<<<<<< HEAD
   }
 .footerbutton{
     border: none;
@@ -15,3 +22,15 @@
   font-size: 16px;
   cursor: pointer;
   display: inline-block;}
+=======
+}
+
+.footerbutton {
+    border: none;
+    background-color: inherit;
+    padding: 14px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: inline-block;
+}
+>>>>>>> 12d744bf1a367c4c57e7dc1d2d1bbcf3b0d6c865

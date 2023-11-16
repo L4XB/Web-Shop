@@ -9,7 +9,7 @@
 
 <body>
     <?php
-    include("../services/mailer/mailer.php");
+    include("../mailer.php");
 
     ?>
 </body>
