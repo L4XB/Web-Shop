@@ -112,7 +112,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             createUser($email, $lastName, $firstName, "");
-            updateVerificationCode($code, "test@mail.com");
+            updateVerificationCode($code, $email);
             $mail->send();
             echo 'Email sent successfully';
         } catch (Exception $e) {
