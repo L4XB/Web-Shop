@@ -15,10 +15,15 @@ ini_set('display_errors', 1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit'])) {
-        header('Location: views/check_mail.php');
         $email = $_POST['email'];
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
+        session_start();
+
+        // Speichern der Variable in der Session
+        $_SESSION['emailUser'] = $email;
+        header('Location: views/check_mail.php');
+
         // Konfiguration für OAuth2
         $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
         $clientSecret = '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';
