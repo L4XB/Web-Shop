@@ -13,9 +13,8 @@ function createUser($email, $name, $firstName, $password)
     if ($conn->connect_error) {
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
-
     // Vorbereiten und Binden
-    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort) VALUES (?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort, isVerified) VALUES (?, ?, ?, ?, 'false')");
     $stmt->bind_param("ssss", $email, $name, $firstName, $password);
 
     // Ausführen der Anweisung
