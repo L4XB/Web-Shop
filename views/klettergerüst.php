@@ -45,21 +45,19 @@
             </div>
         </div>
     </header>
-
-
-    <footer class="footer p-3 bg-dark text-white">
+    <footer class="footer">
         <div class="container">
-            <div class="row d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <div class="row">
                 <div class="col">
                   </div>
-                  <div class="col-2">
-                    <img src=".../assets/images/git.png"><button class="footerbutton">Doku</button>
+                  <div class="col-2" style="text-align: right;">
+                  <a class="footerlink" href="doku.php"><img height="20px" src="../database/images/doku.png"> Doku</a>
                   </div>
                   <div class="col-2">
-                    <img src=""><button class="footerbutton">DevTeam</button>
+                  <a class="footerlink" href="devteam.php"><img height="30px" src="../database/images/git.png"> DevTeam</a>
                   </div>
-                  <div class="col-2">
-                    <img src=""><button class="footerbutton">Kontakt</button>
+                  <div class="col-2" style="text-align: left;">
+                  <a class="footerlink" href="kontakt.php"><img height="20px" src="../database/images/kontakt.png">  Kontakt</a>
                   </div>
                   <div class="col">
                   </div>
