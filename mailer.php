@@ -39,9 +39,11 @@ $mail->setOAuth(new OAuth([
     'userName' => 'inf.fachschaft@gmail.com',
 ]));
 $code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
+$mail->addAddress('lukas.buck@e-mail.de', 'Lukas');
 $mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
 $mail->setFrom('inf.fachschaft@gmail.com', 'Fach');
 $mail->Subject = 'Subject of the Email';
+
 $mail->Body = "<!DOCTYPE html>
 <html lang='en'>
 <head>
@@ -56,8 +58,8 @@ $mail->Body = "<!DOCTYPE html>
             padding: 0;
         }
         header {
-            background-color: #007bff;
-            color: #ffffff;
+            background-color: rgb(247, 188, 26);
+            color: #000000;
             text-align: center;
             padding: 20px;
         }
@@ -73,40 +75,35 @@ $mail->Body = "<!DOCTYPE html>
 </head>
 <body>
     <header>
-        <h1>Your Business Name</h1>
-        <p>Welcome to our business!</p>
+        <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
+        <p style='    font-size: 25px;
+        font-weight: bold;color:white;'>Dein Code:</p>
+        <p style='    font-size: 35px;
+        font-weight: bold;color: white;'>$code</p>
+
     </header>
 
     <section>
-        <h2>Dear [Recipient],</h2>
+        <h2>Lieber [NAME],</h2>
         <p>
-            We hope this email finds you well. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Nullam sed lorem ac est posuere facilisis vel eu lorem. Integer in ex et libero commodo
-            fringilla a nec velit.
+            Wir freuen uns über deine Anmeldung!
         </p>
 
         <p>
-            Sed tincidunt nisi et facilisis ullamcorper. Mauris nec augue nec orci tincidunt vestibulum.
-            Fusce sed fermentum mauris. In hac habitasse platea dictumst. Ut auctor tristique elit,
-            nec condimentum orci tempor ac.
+            Jetzt musst du nur noch deinen Code auf unserer <a href=''>Webseite</a> eingeben und schon kann es los gehen.
         </p>
 
-        <p>
-            Proin sit amet justo vel purus facilisis rhoncus. Integer auctor massa at ante tincidunt,
-            vel blandit sapien efficitur. Suspendisse potenti. Vestibulum euismod ex vel dapibus lacinia.
-        </p>
-
-        <p>Thank you for choosing us!</p>
+        <p>Bis bald dein Fachschaftsteam!</p>
     </section>
 
     <footer>
-        <p>Contact us: contact@example.com | Phone: (123) 456-7890</p>
+        <p>kontaktiere uns: contact@example.com | Phone: (123) 456-7890</p>
     </footer>
 </body>
 </html>";
 
 try {
-
+    //   updateVerificationCode($code, "test@mail.com");
     $mail->send();
     echo 'Email sent successfully';
 } catch (Exception $e) {
