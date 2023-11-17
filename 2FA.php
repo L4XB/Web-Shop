@@ -14,7 +14,7 @@ function createSecret()
     return $secret;
 
 }
-function create2faQrCode($secret)
+function getQRCode($secret)
 {
     $ga = new PHPGangsta_GoogleAuthenticator();
     $qrCodeUrl = $ga->getQRCodeGoogleUrl('INF-Webshop', $secret);
