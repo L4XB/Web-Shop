@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
     <!-- CSS -->
     <link rel="stylesheet" href="../style/homepage.css">
@@ -28,7 +29,7 @@
                 <p>Herzlich Wilkommen {Anrede!}{Name!}, Ihr letzter Besuch war am: {Datum!}{Uhrzeit!}</p>
             </span>
         </div>
-
+        <!-- Carousel -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

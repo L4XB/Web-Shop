@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#myCarousel').carousel({
-        interval: 2000, // Changes every 2 seconds
+        interval: 4000, // Changes every 4 seconds
         pause: false // Disable automatic pausing
     });
 

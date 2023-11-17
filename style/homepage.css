@@ -1,3 +1,4 @@
+/* Platzierung des Karoussels in der Mitte der Seite */
 #fa-items {
     display: flex;
     justify-content: center;
@@ -22,6 +23,17 @@
     /* Automatische Anpassung der Höhe */
 }
 
+.carousel-item {
+    height: 400px; /* Adjust this value to suit your needs */
+}
+
+.carousel-item img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
 .carousel-indicators li {
     /* Hintergrundfarbe der Indikatoren */
     color: black;
@@ -38,3 +50,13 @@
 .preload-img {
     display: none; /* Verstecke die Bilder zunächst */
   }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* Change this to your desired color */
+}
+
+.carousel-indicators li {
+    background-color: black; /* Change this to your desired color */
+}
+
