@@ -1,5 +1,5 @@
 <?php
-
+require '2FA.php';
 
 function generatePassword()
 {
@@ -33,9 +33,10 @@ function createUser($email, $name, $firstName, $password)
     session_start();
     $_SESSION['clearPassword'] = $passwordGeneratetd;
     $hashedPassword = hash('sha256', $passwordGeneratetd);
+    $twoFASecret = createSecret();
     // Vorbereiten und Binden
-    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort, isVerified) VALUES (?, ?, ?, ?, 'false')");
-    $stmt->bind_param("ssss", $email, $name, $firstName, $hashedPassword);
+    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort,2FASecret,isVerified) VALUES (?, ?, ?, ?, ?, 'false')");
+    $stmt->bind_param("sssss", $email, $name, $firstName, $hashedPassword, $twoFASecret);
 
     // Ausführen der Anweisung
     if ($stmt->execute()) {

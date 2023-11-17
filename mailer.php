@@ -5,6 +5,9 @@ use PHPMailer\PHPMailer\OAuth;
 use League\OAuth2\Client\Provider\Google;
 use League\OAuth2\Client\Grant\RefreshToken;
 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Include PHPMailer autoload.php and other required libraries
 require 'vendor/autoload.php';
 require 'services/userProvider/codeVerification.php';
