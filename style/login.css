@@ -95,3 +95,11 @@ button:hover {
     font-size: 14px;
 
 }
+
+#fa-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}

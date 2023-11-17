@@ -1,8 +1,8 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-require_once 'vendor/phpgangsta/googleauthenticator/PHPGangsta/GoogleAuthenticator.php';
-require 'vendor/autoload.php';
+require_once '../../vendor/phpgangsta/googleauthenticator/PHPGangsta/GoogleAuthenticator.php';
+require '../../vendor/autoload.php';
 
 
 function createSecret()
