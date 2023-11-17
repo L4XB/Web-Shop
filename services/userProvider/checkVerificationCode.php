@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($codeFromDb == $codeFromInput) {
             echo "Der eingegebene Code ist korrekt.";
             updateVerificationStatus();
-            header('Location: ../../views/2FA.php');
+            header('Location: ../../views/login.php');
         } else {
             echo "Der eingegebene Code ist nicht korrekt.";
             echo $codeFromInput;
