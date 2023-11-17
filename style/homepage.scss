@@ -1,33 +1,32 @@
+$carousel-control-width: 15%;
+$carousel-control-opacity: .5;
+$carousel-control-hover-opacity: .9;
+$carousel-control-transition: opacity .15s ease;
 
-$carousel-control-width:             15%;
-$carousel-control-opacity:           .5;
-$carousel-control-hover-opacity:     .9;
-$carousel-control-transition:        opacity .15s ease;
-
-$carousel-indicator-width:           30px;
-$carousel-indicator-height:          3px;
+$carousel-indicator-width: 30px;
+$carousel-indicator-height: 3px;
 $carousel-indicator-hit-area-height: 10px;
-$carousel-indicator-spacer:          3px;
-$carousel-indicator-opacity:         .5;
+$carousel-indicator-spacer: 3px;
+$carousel-indicator-opacity: .5;
 
-$carousel-indicator-active-opacity:  1;
-$carousel-indicator-transition:      opacity .6s ease;
+$carousel-indicator-active-opacity: 1;
+$carousel-indicator-transition: opacity .6s ease;
 
-$carousel-caption-width:             70%;
+$carousel-caption-width: 70%;
 
-$carousel-caption-padding-y:         1.25rem;
-$carousel-caption-spacer:            1.25rem;
+$carousel-caption-padding-y: 1.25rem;
+$carousel-caption-spacer: 1.25rem;
 
-$carousel-control-icon-width:        2rem;
+$carousel-control-icon-width: 2rem;
 
 
 
-$carousel-transition-duration:       .6s;
-$carousel-transition:                transform $carousel-transition-duration ease-in-out; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
+$carousel-transition-duration: .6s;
+$carousel-transition: transform $carousel-transition-duration ease-in-out; // Define transform transition first if using multiple transitions (e.g., `transform 2s ease, opacity .5s ease-out`)
 
 //Dark Theme SCSS Variables
 
-$carousel-dark-control-icon-filter:  invert(1) grayscale(100);
+$carousel-dark-control-icon-filter: invert(1) grayscale(100);
 
 
 // Container max widths
@@ -38,4 +37,3 @@ $container-max-widths: (
   xl: 1140px,
   xxl: 1320px
 );
-
