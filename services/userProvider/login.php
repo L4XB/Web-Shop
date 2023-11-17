@@ -9,19 +9,22 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-} else {
-
 }
 
-/////////////////
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
     $hashedPassword = hash('sha256', $password);
+    // Vorbereiten und Binden
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND passwort = ?");
+    $stmt->bind_param("ss", $username, $hashedPassword);
 
-    $sql = "SELECT * FROM users WHERE email = '$username' AND passwort = '$hashedPassword'";
-    $result = $conn->query($sql);
+    // Ausführen der Anweisung
+    $stmt->execute();
+
+    // Ergebnis abrufen
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         $response = ['success' => true];
@@ -32,7 +35,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
     echo json_encode($response);
 
-
+    // Schließen der Anweisung und der Verbindung
+    $stmt->close();
 }
 $conn->close();
 ?>

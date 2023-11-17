@@ -2,6 +2,7 @@
     "require": {
         "phpmailer/phpmailer": "^6.8",
         "league/oauth2-google": "^4.0",
-        "google/auth": "^1.32"
+        "google/auth": "^1.32",
+        "phpgangsta/googleauthenticator": "dev-master"
     }
 }
