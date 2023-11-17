@@ -10,7 +10,8 @@
 
 </head>
 <body>
-
+    <?php include 'klettergerüst.php'; ?>
+    <br>
     <h1>Not developed yet</h1>
     
 </body>
