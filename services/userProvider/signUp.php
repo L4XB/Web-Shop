@@ -1,4 +1,19 @@
 <?php
+
+
+function generatePassword()
+{
+    $length = 10;
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()';
+    $charactersLength = strlen($characters);
+    $randomPassword = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomPassword .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomPassword;
+}
+
+
 function createUser($email, $name, $firstName, $password)
 {
     $servername = "localhost";
@@ -13,9 +28,12 @@ function createUser($email, $name, $firstName, $password)
     if ($conn->connect_error) {
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
+
+    $passwordGeneratetd = generatePassword();
+    $hashedPassword = hash('sha256', $passwordGeneratetd);
     // Vorbereiten und Binden
     $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort, isVerified) VALUES (?, ?, ?, ?, 'false')");
-    $stmt->bind_param("ssss", $email, $name, $firstName, $password);
+    $stmt->bind_param("ssss", $email, $name, $firstName, $hashedPassword);
 
     // Ausführen der Anweisung
     if ($stmt->execute()) {
