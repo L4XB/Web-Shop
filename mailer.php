@@ -94,7 +94,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
         <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
         <h2 style='color: black;'>Dein Code : <u>$code</u></h2>
-        <h2>Dein Passwort : $passwordClear</h2>
+        <h2>Dein Passwort : <u>$passwordClear</u></h2>
     </header>
 
     <section>
