@@ -5,20 +5,48 @@ require_once 'vendor/phpgangsta/googleauthenticator/PHPGangsta/GoogleAuthenticat
 require 'vendor/autoload.php';
 
 
+function createSecret()
+{
+    $ga = new PHPGangsta_GoogleAuthenticator();
+    $secret = $ga->createSecret();
+    echo "Secret is: " . $secret . "\n\n";
 
-$ga = new PHPGangsta_GoogleAuthenticator();
-$secret = $ga->createSecret();
-echo "Secret is: " . $secret . "\n\n";
+    return $secret;
 
-$qrCodeUrl = $ga->getQRCodeGoogleUrl('INF-Webshop', $secret);
-echo "Google Charts URL for the QR-Code: " . $qrCodeUrl . "\n\n";
-
-$oneCode = $ga->getCode($secret);
-echo "Checking Code '$oneCode' and Secret '$secret':\n";
-
-$checkResult = $ga->verifyCode($secret, $oneCode, 2);    // 2 = 2*30sec clock tolerance
-if ($checkResult) {
-    echo 'OK';
-} else {
-    echo 'FAILED';
 }
+function create2faQrCode($secret)
+{
+    $ga = new PHPGangsta_GoogleAuthenticator();
+    $qrCodeUrl = $ga->getQRCodeGoogleUrl('INF-Webshop', $secret);
+    echo "Google Charts URL for the QR-Code: " . $qrCodeUrl . "\n\n";
+
+    return $qrCodeUrl;
+
+}
+
+function isCodeValid($secret, $oneCode)
+{
+    $ga = new PHPGangsta_GoogleAuthenticator();
+    $checkResult = $ga->verifyCode($secret, $oneCode, 2);    // 2 = 2*30sec clock tolerance
+    if ($checkResult) {
+        return true;
+    } else {
+        return false;
+    }
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
