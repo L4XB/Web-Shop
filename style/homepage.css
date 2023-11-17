@@ -5,3 +5,36 @@
     flex-direction: column;
     width: 100%;
 }
+
+/* Benutzerdefinierte CSS-Stile */
+.carousel {
+    max-width: 800px;
+    /* Maximale Breite des Sliders */
+    margin: auto;
+    max-height: 300px;
+    /* Zentrierung des Sliders */
+}
+
+.carousel img {
+    width: auto;
+    /* Maximale Breite für Bilder im Slider */
+    height: 300px;
+    /* Automatische Anpassung der Höhe */
+}
+
+.carousel-indicators li {
+    /* Hintergrundfarbe der Indikatoren */
+    color: black;
+    /* Randfarbe der Indikatoren */
+}
+
+/* Farbanpassungen für die Pfeile */
+.carousel-control-prev,
+.carousel-control-next {
+    color: grey;
+    /* Farbe der Pfeile */
+}
+
+.preload-img {
+    display: none; /* Verstecke die Bilder zunächst */
+  }
