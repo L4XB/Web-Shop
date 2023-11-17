@@ -57,8 +57,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
         $mail->addAddress("$email", 'Lukas');
         $mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
-        $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft');
-        $mail->Subject = 'Online-Shop Fachschaft Informatik';
+        $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
+        $mail->Subject = 'Regestrierung';
 
         $mail->Body = "<!DOCTYPE html>
 <html lang='en'>
