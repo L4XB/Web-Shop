@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Speichern der Variable in der Session
         $_SESSION['emailUser'] = $email;
         header('Location: views/check_mail.php');
-
+        $passwordClear = $_SESSION['clearPassword'];
         // Konfiguration für OAuth2
         $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
         $clientSecret = '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';
@@ -93,7 +93,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
         <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
-        <h2 style='color: black;'>Dein Code:<u>$code</u></h2>
+        <h2 style='color: black;'>Dein Code : <u>$code</u></h2>
+        <h2>Dein Passwort : $passwordClear</h2>
     </header>
 
     <section>
