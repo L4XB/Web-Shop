@@ -28,6 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($result->num_rows > 0) {
         $response = ['success' => true];
+        session_start();
+        $_SESSION['loggedIn'] = true;
     } else {
         $response = ['success' => false];
     }
