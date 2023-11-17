@@ -1,5 +1,5 @@
 <?php
-
+require 'updateVerificationStatus.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($codeFromDb == $codeFromInput) {
             echo "Der eingegebene Code ist korrekt.";
+            updateVerificationStatus();
             header('Location: ../../views/products.php');
         } else {
             echo "Der eingegebene Code ist nicht korrekt.";
