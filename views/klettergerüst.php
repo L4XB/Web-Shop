@@ -34,11 +34,11 @@
         <!-- Buttons -->
         <div class="col-md-2">
           <ul class="d-flex list-unstyled"
-            style="<?php echo isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true ? 'justify-content: center !important;' : ''; ?>">
+            style=" <?php echo isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true ? 'height:100%; ' : ''; ?>">
             <li class="me-2"><a href="products.php" class="nav-link px-2 text-white">Artikelübersicht</a></li>
             <li class="me-2"><a href="favorits.php" class="nav-link px-2 text-white">Favoriten</a></li>
             <li class="me-2"><a href="shoppingCart.php" class="nav-link px-2 text-white">Warenkorb</a></li>
-            <li class="me-2"><a href="profil.php" class="nav-link px-2 text-white">Profil</a></li>
+
           </ul>
           <!-- Login/Signout -->
           <?php
@@ -46,9 +46,21 @@
           if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true):
             ?>
             <!-- Login und SignUp Buttons -->
-            <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
-            <a href="signUp.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
-          <?php endif; ?>
+            <div style="padding-left: 10px;">
+              <a href="login.php"><button type="button" class="btn btn-outline-light me-2">Login</button></a>
+              <a href="signUp.php"><button type="button" class="btn btn-warning">Sign-up</button></a>
+            </div>
+            <?php
+          else:
+            ?>
+            <!-- Anderer Button -->
+            <div style="padding-left: 10px;">
+              <a href="profil.php"><button type="button" class="btn btn-outline-light me-2">
+                  Profil</button></a>
+            </div>
+            <?php
+          endif;
+          ?>
 
         </div>
 
