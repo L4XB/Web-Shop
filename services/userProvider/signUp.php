@@ -32,9 +32,11 @@ function createUser($email, $name, $firstName, $password)
     $passwordGeneratetd = generatePassword();
     session_start();
     $_SESSION['clearPassword'] = $passwordGeneratetd;
-    $hashedPassword = hash('sha256', $passwordGeneratetd);
     $twoFASecret = createSecret();
     $_SESSION['secretKey'] = $twoFASecret;
+    $_SESSION['loggedIn'] = true;
+    $_SESSION['clearPassword'] = $passwordGeneratetd;
+    $hashedPassword = hash('sha256', $passwordGeneratetd);
     // Vorbereiten und Binden
     $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort,2FASecret,isVerified) VALUES (?, ?, ?, ?, ?, 'false')");
     $stmt->bind_param("sssss", $email, $name, $firstName, $hashedPassword, $twoFASecret);

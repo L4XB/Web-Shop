@@ -55,7 +55,7 @@
             ?>
             <!-- Anderer Button -->
             <div style="padding-left: 10px;">
-              <a href="profil.php"><button type="button" class="btn btn-outline-light me-2">
+              <a href="profil.php"><button type="button" class="btn btn-warning">
                   Profil</button></a>
             </div>
             <?php

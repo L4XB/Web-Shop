@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Speichern der Variable in der Session
         $_SESSION['emailUser'] = $email;
         header('Location: views/check_mail.php');
-        $passwordClear = $_SESSION['clearPassword'];
+
         // Konfiguration für OAuth2
         $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
         $clientSecret = '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';
@@ -63,64 +63,66 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
         $mail->Subject = 'Regestrierung';
 
-        $mail->Body = "<!DOCTYPE html>
-<html lang='en'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>Your Business Email</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background-color: rgb(247, 188, 26);
-            color: #000000;
-            text-align: center;
-            padding: 20px;
-        }
-        section {
-            padding: 20px;
-        }
-        footer {
-            background-color: #f8f9fa;
-            padding: 10px;
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
-        <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
-        <h2 style='color: black;'>Dein Code : <u>$code</u></h2>
-        <h2>Dein Passwort : <u>$passwordClear</u></h2>
-    </header>
 
-    <section>
-        <h2>Hi $firstName,</h2>
-        <p>
-            Wir freuen uns ueber deine Anmeldung!
-        </p>
-
-        <p>
-            Jetzt musst du nur noch deinen Code auf unserer <a href='../../index.html'>Webseite</a> eingeben und schon kann es los gehen.
-        </p>
-
-        <p>Bis bald dein Fachschaftsteam!</p>
-    </section>
-
-    <footer>
-        <p>kontaktiere uns: inf.fachschaft@gmail.com | Phone: (123) 456-7890</p>
-    </footer>
-</body>
-</html>";
 
         try {
             createUser($email, $lastName, $firstName, "");
+            $passwordClear = $_SESSION['clearPassword'];
+            $mail->Body = "<!DOCTYPE html>
+            <html lang='en'>
+            <head>
+                <meta charset='UTF-8'>
+                <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+                <title>Your Business Email</title>
+                <style>
+                    body {
+                        font-family: Arial, sans-serif;
+                        line-height: 1.6;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    header {
+                        background-color: rgb(247, 188, 26);
+                        color: #000000;
+                        text-align: center;
+                        padding: 20px;
+                    }
+                    section {
+                        padding: 20px;
+                    }
+                    footer {
+                        background-color: #f8f9fa;
+                        padding: 10px;
+                        text-align: center;
+                    }
+                </style>
+            </head>
+            <body>
+                <header>
+                    <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
+                    <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
+                    <h2 style='color: black;'>Dein Code : <u>$code</u></h2>
+                    <h2>Dein Passwort : <u>$passwordClear</u></h2>
+                </header>
+            
+                <section>
+                    <h2>Hi $firstName,</h2>
+                    <p>
+                        Wir freuen uns ueber deine Anmeldung!
+                    </p>
+            
+                    <p>
+                        Jetzt musst du nur noch deinen Code auf unserer <a href='../../index.html'>Webseite</a> eingeben und schon kann es los gehen.
+                    </p>
+            
+                    <p>Bis bald dein Fachschaftsteam!</p>
+                </section>
+            
+                <footer>
+                    <p>kontaktiere uns: inf.fachschaft@gmail.com | Phone: (123) 456-7890</p>
+                </footer>
+            </body>
+            </html>";
             updateVerificationCode($code, $email);
             $mail->send();
             echo 'Email sent successfully';
