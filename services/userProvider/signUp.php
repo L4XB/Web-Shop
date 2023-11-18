@@ -36,6 +36,7 @@ function createUser($email, $name, $firstName, $password)
     $_SESSION['secretKey'] = $twoFASecret;
     $_SESSION['loggedIn'] = true;
     $_SESSION['clearPassword'] = $passwordGeneratetd;
+    $_SESSION['email'] = $email;
     $hashedPassword = hash('sha256', $passwordGeneratetd);
     $currentTimestamp = date('Y-m-d H:i:s');
     // Vorbereiten und Binden

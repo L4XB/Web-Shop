@@ -31,7 +31,9 @@
                 <div id="error-message" style="color: red;"></div>
                 <br>
                 <br>
-                <button type="submit">Weiter</button>
+                <form action="check_2fa.php" method="post" style="width: 100%;">
+                    <button style="width:100%;" type="submit">Weiter</button>
+                </form>
                 <br>
 
 
