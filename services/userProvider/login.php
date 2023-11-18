@@ -1,4 +1,5 @@
 <?php
+include '2fa.php';
 //Server Connection
 $servername = "localhost";
 $username = "root";
@@ -27,7 +28,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        $response = ['success' => true];
         session_start();
         $_SESSION['loggedIn'] = true;
 
@@ -42,12 +42,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['name'] = $user['vorname'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
+
+        if (is2FAEnabled()) {
+            header('Location: ../../views/check_2fa.php');
+        } else {
+            header('Location: ../../views/homepage.php');
+        }
     } else {
-        $response = ['success' => false];
     }
 
-    header('Content-Type: application/json');
-    echo json_encode($response);
+
 
     // Schließen der Anweisung und der Verbindung
     $stmt->close();

@@ -11,7 +11,6 @@
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
     <!--Scripts-->
-    <script src="../scripts/login.js"></script>
     <script src="../scripts/navigation.js"></script>
 </head>
 

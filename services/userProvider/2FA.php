@@ -80,12 +80,11 @@ function enable2FA()
     if ($conn->connect_error) {
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
-    session_start();
 
     $email = $_SESSION['email'];
-    $sql = "UPDATE users SET use2FA = true WHERE id = ?";
+    $sql = "UPDATE users SET use2FA = true WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $email);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
 }
 
@@ -104,9 +103,9 @@ function is2FAEnabled()
     session_start();
 
     $email = $_SESSION['email'];
-    $sql = "SELECT use2FA FROM users WHERE id = ?";
+    $sql = "SELECT use2FA FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $email);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
