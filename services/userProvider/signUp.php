@@ -37,9 +37,10 @@ function createUser($email, $name, $firstName, $password)
     $_SESSION['loggedIn'] = true;
     $_SESSION['clearPassword'] = $passwordGeneratetd;
     $hashedPassword = hash('sha256', $passwordGeneratetd);
+    $currentTimestamp = date('Y-m-d H:i:s');
     // Vorbereiten und Binden
-    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort,2FASecret,isVerified) VALUES (?, ?, ?, ?, ?, 'false')");
-    $stmt->bind_param("sssss", $email, $name, $firstName, $hashedPassword, $twoFASecret);
+    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort,2FASecret,isVerified,lastLogIn) VALUES (?, ?, ?, ?, ?, 'false',?)");
+    $stmt->bind_param("ssssss", $email, $name, $firstName, $hashedPassword, $twoFASecret, $currentTimestamp);
 
     // Ausführen der Anweisung
     if ($stmt->execute()) {

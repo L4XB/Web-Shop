@@ -30,6 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $response = ['success' => true];
         session_start();
         $_SESSION['loggedIn'] = true;
+
+        // Aktualisieren des lastLogIn Timestamps
+        $currentTimestamp = date('Y-m-d H:i:s');
+        $updateStmt = $conn->prepare("UPDATE users SET lastLogIn = ? WHERE email = ?");
+        $updateStmt->bind_param("ss", $currentTimestamp, $username);
+        $updateStmt->execute();
+        $updateStmt->close();
     } else {
         $response = ['success' => false];
     }
