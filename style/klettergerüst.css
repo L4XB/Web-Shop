@@ -16,3 +16,6 @@
     text-decoration: none;
 }
 
+.center-buttons {
+    justify-content: center;
+}

@@ -39,9 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         if ($codeFromDb == $codeFromInput) {
+            $_SESSION['loggedIn'] = true;
             echo "Der eingegebene Code ist korrekt.";
             updateVerificationStatus();
-            header('Location: ../../views/login.php');
+            header('Location: ../../views/homepage.php');
         } else {
             echo "Der eingegebene Code ist nicht korrekt.";
             echo $codeFromInput;
