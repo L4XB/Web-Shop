@@ -26,7 +26,21 @@
         <div class="d-flex align-items-center">
             <span>
                 <h1>FSI Merchstore</h1>
-                <p>Herzlich Wilkommen {Anrede!}{Name!}, Ihr letzter Besuch war am: {Datum!}{Uhrzeit!}</p>
+
+                <?php
+                session_start();
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    $name = $_SESSION['name'];
+                    $lastLogIn = $_SESSION['lastLogIn'];
+
+                    // Aufteilen des Datums und der Uhrzeit
+                    $lastLogInDateTime = new DateTime($lastLogIn);
+                    $date = $lastLogInDateTime->format('d-m-Y');
+                    $time = $lastLogInDateTime->format('H:i');
+                    echo "<p>Herzlich Willkommen, $name! Ihr letzter Besuch war am: $date um $time</p>";
+                }
+                ?>
+
             </span>
         </div>
         <!-- Carousel -->
@@ -46,7 +60,8 @@
                     <img src="../assets/images/carousel/FSI_Hoody_Hinten.png" class=" d-block w-100" alt="Slide 2">
                 </div>
                 <div class="carousel-item">
-                    <img src="../assets/images/carousel/FSI_INFormatiger_Tasche.png" class=" d-block w-100" alt="Slide 3">
+                    <img src="../assets/images/carousel/FSI_INFormatiger_Tasche.png" class=" d-block w-100"
+                        alt="Slide 3">
                 </div>
                 <!-- Weitere Slides hier hinzufügen -->
             </div>
@@ -59,7 +74,7 @@
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-        </div>        
+        </div>
     </div>
 </body>
 

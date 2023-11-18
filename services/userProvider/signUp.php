@@ -45,6 +45,18 @@ function createUser($email, $name, $firstName, $password)
     // Ausführen der Anweisung
     if ($stmt->execute()) {
         echo "New user created successfully.";
+
+        // Abfrage der Benutzerdaten
+        $userStmt = $conn->prepare("SELECT vorname, lastLogIn FROM users WHERE email = ?");
+        $userStmt->bind_param("s", $email);
+        $userStmt->execute();
+        $userResult = $userStmt->get_result();
+        if ($userResult->num_rows > 0) {
+            $user = $userResult->fetch_assoc();
+            $_SESSION['name'] = $user['vorname'];
+            $_SESSION['lastLogIn'] = $user['lastLogIn'];
+        }
+        $userStmt->close();
     } else {
         echo "Error creating user: " . $stmt->error;
     }

@@ -37,6 +37,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateStmt->bind_param("ss", $currentTimestamp, $username);
         $updateStmt->execute();
         $updateStmt->close();
+
+        $user = $result->fetch_assoc();
+        $_SESSION['name'] = $user['vorname'];
+        $_SESSION['lastLogIn'] = $user['lastLogIn'];
     } else {
         $response = ['success' => false];
     }
