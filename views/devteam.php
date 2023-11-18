@@ -30,7 +30,7 @@
                     <img src="../assets/images/devteam/dev_lukas.jpg" class="card-img-top" alt="Developer 1">
                     <div class="card-body">
                         <h5 class="card-title">Lukas Buck: <a href="https://github.com/L4XB">L4XB</a></h5>
-                        <p class="card-text">Oh, Lukas, der mutige König des versehentlichen Selbstvergessens - er
+                        <p class="card-text">Lukas, der mutige König des versehentlichen Selbstvergessens - er
                             beherrscht die hohe Kunst, den USB-Stecker nie richtig herum einzustecken und findet stets
                             neue Wege, um mit seinem Schuh an der Türschwelle hängenzubleiben. Seine furchtlose Mission,
                             immer die Fernbedienung zu suchen, während sie in seiner Hand liegt, ist eine Huldigung an
