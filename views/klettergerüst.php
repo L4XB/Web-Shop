@@ -54,9 +54,13 @@
           else:
             ?>
             <!-- Anderer Button -->
-            <div style="padding-left: 10px;">
-              <a href="profil.php"><button type="button" class="btn btn-warning">
-                  Profil</button></a>
+            <div style="padding-left: 10px; display: flex;">
+              <a href="profil.php">
+                <button type="button" class="btn btn-outline-light me-2">Profil</button>
+              </a>
+              <form action="../services/userProvider/logout.php" method="post" style="margin: 0;">
+                <button type="submit" class="btn btn-warning">Logout</button>
+              </form>
             </div>
             <?php
           endif;

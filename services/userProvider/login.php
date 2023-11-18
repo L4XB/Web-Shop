@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $user = $result->fetch_assoc();
         $_SESSION['name'] = $user['vorname'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
+        $_SESSION['email'] = $username;
     } else {
         $response = ['success' => false];
     }

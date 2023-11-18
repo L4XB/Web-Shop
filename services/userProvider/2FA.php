@@ -4,7 +4,6 @@ ini_set('display_errors', 1);
 
 require realpath('/Applications/XAMPP/xamppfiles/projekte/loginTesting/vendor/autoload.php');
 
-
 function createSecret()
 {
     $ga = new PHPGangsta_GoogleAuthenticator();
@@ -12,15 +11,14 @@ function createSecret()
     echo "Secret is: " . $secret . "\n\n";
 
     return $secret;
-
 }
+
 function getQRCode($secret)
 {
     $ga = new PHPGangsta_GoogleAuthenticator();
     $qrCodeUrl = $ga->getQRCodeGoogleUrl('INF-Webshop', $secret);
 
     return $qrCodeUrl;
-
 }
 
 function isCodeValid($secret, $oneCode)
@@ -33,4 +31,42 @@ function isCodeValid($secret, $oneCode)
         return false;
     }
 }
+
+function get2FASecret()
+{
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webshop";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+    session_start();
+
+    $email = $_SESSION['email'];
+    // Vorbereiten der SQL-Anweisung
+    $stmt = $conn->prepare("SELECT 2FASecret FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+
+    // Ausführen der Anweisung
+    $stmt->execute();
+
+    // Ergebnisse abrufen
+    $result = $stmt->get_result();
+    if ($result->num_rows > 0) {
+        $user = $result->fetch_assoc();
+        $stmt->close(); // Close the statement
+        $conn->close(); // Close the connection
+        return $user['2FASecret'];
+    } else {
+        $stmt->close(); // Close the statement
+        $conn->close(); // Close the connection
+        return null;
+    }
+}
+
+
 ?>

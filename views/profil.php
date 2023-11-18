@@ -15,14 +15,7 @@
     <?php include 'klettergerüst.php'; ?>
     <br>
     <h1>Not developed yet</h1>
-    <?php
-    session_start();
-    if ($_SESSION['loggedIn'] === true) {
-        $_SESSION['loggedIn'] = false;
-        header('Location: profil.php');
-        exit;
-    }
-    ?>
+
 
 </body>
 

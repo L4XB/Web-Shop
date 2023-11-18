@@ -13,9 +13,8 @@
 
 <body>
     <?php
-    session_start();
     include "../services/userProvider/2FA.php";
-    $twoFASecret = $_SESSION['secretKey'];
+    $twoFASecret = get2FASecret();
     $qrCode = getQRCode($twoFASecret)
         ?>
     <div class="container-body">

@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                window.location.href = '../views/products.php';
+                window.location.href = '../views/homepage.php';
             } else {
                 errorMessage.textContent = 'falsche E-mail oder Passwort, bitte überprüfe deine Eingabe.';
             }
