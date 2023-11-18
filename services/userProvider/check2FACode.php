@@ -16,6 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Überprüfen des Codes mit der Methode isCodeValid
     if (isCodeValid($secret, $code)) {
         // Wenn der Code gültig ist, leiten Sie auf die Homepage um
+        session_start();
+        $_SESSION['2FAAktiv'] = true;
         header('Location: ../../views/homepage.php');
         exit;
     } else {

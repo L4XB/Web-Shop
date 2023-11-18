@@ -14,7 +14,12 @@
 <body>
     <?php include 'klettergerüst.php'; ?>
     <br>
-    <h1>Not developed yet</h1>
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <form action="2FA.php" method="post" style="margin: 0;">
+            <form action="2FA.php" method="post" style="margin: 0;">
+                <button type="submit" class="btn btn-warning">2FA Aktivieren</button>
+            </form>
+    </div>
 
 
 </body>
