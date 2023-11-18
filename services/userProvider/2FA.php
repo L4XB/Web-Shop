@@ -88,6 +88,26 @@ function enable2FA()
     $stmt->execute();
 }
 
+function disable2FA()
+{
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webshop";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+
+    $email = $_SESSION['email'];
+    $sql = "UPDATE users SET use2FA = false WHERE email = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+}
+
 function is2FAEnabled()
 {
     $servername = "localhost";
@@ -100,7 +120,6 @@ function is2FAEnabled()
     if ($conn->connect_error) {
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
-    session_start();
 
     $email = $_SESSION['email'];
     $sql = "SELECT use2FA FROM users WHERE email = ?";

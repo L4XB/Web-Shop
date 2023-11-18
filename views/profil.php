@@ -15,10 +15,19 @@
     <?php include 'klettergerüst.php'; ?>
     <br>
     <div style="display: flex; justify-content: center; align-items: center;">
-        <form action="2FA.php" method="post" style="margin: 0;">
-            <form action="2FA.php" method="post" style="margin: 0;">
-                <button type="submit" class="btn btn-warning">2FA Aktivieren</button>
-            </form>
+        <?php
+        include '../services/userProvider/2FA.php';
+        // Aufruf der Methode is2FAEnabled
+        if (is2FAEnabled()) {
+            echo '<form action="../services/userProvider/disable2FA.php" method="post" style="margin: 0;">
+                    <button type="submit" class="btn btn-warning">2FA Deaktivieren</button>
+                  </form>';
+        } else {
+            echo '<form action="2FA.php" method="post" style="margin: 0;">
+                    <button type="submit" class="btn btn-warning">2FA Aktivieren</button>
+                  </form>';
+        }
+        ?>
     </div>
 
 
