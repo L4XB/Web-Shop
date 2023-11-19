@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 18. Nov 2023 um 13:19
+-- Erstellungszeit: 19. Nov 2023 um 15:31
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -65,16 +65,10 @@ CREATE TABLE `users` (
   `verificationCode` int(6) DEFAULT NULL,
   `isVerified` varchar(5) DEFAULT '0',
   `2FASecret` varchar(16) DEFAULT NULL,
-  `lastLogIn` datetime DEFAULT NULL
+  `lastLogIn` datetime DEFAULT NULL,
+  `use2FA` tinyint(1) NOT NULL,
+  `isFirstLogin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Daten für Tabelle `users`
---
-
-INSERT INTO `users` (`id`, `email`, `passwort`, `vorname`, `nachname`, `created_at`, `verificationCode`, `isVerified`, `2FASecret`, `lastLogIn`) VALUES
-(1, 'test@mail.com', '1234', 'Lukas', 'Buck', '2023-11-12 12:34:50', 513251, 'false', NULL, NULL),
-(39, 'lukas.buck@e-mail.de', 'bfabf12aae541b67857cb356b57c252a6ff51d35b0963442891a36e46d131e0b', 'Lukas', 'Buck', '2023-11-18 12:08:13', 627575, 'true', 'DSY3ERFWWAOMP7WU', '2023-11-18 13:08:13');
 
 --
 -- Indizes der exportierten Tabellen
@@ -107,7 +101,7 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
