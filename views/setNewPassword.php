@@ -16,7 +16,7 @@
     <div class="container-body">
         <div id="container-left-side">
             <div id="container-left-side-items">
-                <form id="signUpForm" method="post" action="">
+                <form id="signUpForm" method="post" action="../services/userProvider/updatePassword.php">
                     <h1>Erstellen Sie ein Passwort</h1>
                     <p>Mit diesem Passwort können Sie sich in Zukunft in Ihr Benutzerprofil bei uns einloggen. </p>
                     <br>

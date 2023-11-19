@@ -70,12 +70,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
 
-
-        if (is2FAEnabled()) {
-            header('Location: ../../views/check_2fa.php');
+        if (isFirstLogin()) {
+            header('Location: ../../views/setNewPassword.php');
         } else {
-            header('Location: ../../views/homepage.php');
+            if (is2FAEnabled()) {
+                header('Location: ../../views/check_2fa.php');
+            } else {
+                header('Location: ../../views/homepage.php');
+            }
         }
+
     } else {
     }
 
