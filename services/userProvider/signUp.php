@@ -40,7 +40,7 @@ function createUser($email, $name, $firstName, $password)
     $hashedPassword = hash('sha256', $passwordGeneratetd);
     $currentTimestamp = date('Y-m-d H:i:s');
     // Vorbereiten und Binden
-    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort,2FASecret,isVerified,lastLogIn, use2FA) VALUES (?, ?, ?, ?, ?, false,?,false)");
+    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort,2FASecret,isVerified,lastLogIn, use2FA, isFirstLogin) VALUES (?, ?, ?, ?, ?, false,?,false,true)");
     $stmt->bind_param("ssssss", $email, $name, $firstName, $hashedPassword, $twoFASecret, $currentTimestamp);
 
     // Ausführen der Anweisung
