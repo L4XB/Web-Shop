@@ -20,22 +20,27 @@ $result = $conn->query($sql);
 // Überprüfen, ob Ergebnisse vorhanden sind
 if ($result->num_rows > 0) {
     // Produkte in Produktkarten anzeigen
-    echo '<div class="product-container">';
+    echo '<div class="product-container" >';
     while ($row = $result->fetch_assoc()) {
-        echo '<div class="product-card-text">';
-        echo '<div class="product-card">';
+        echo '<div class="product-card-text" >';
+        echo '<div class="product-card" onclick="redirectToPage()">';
 
         echo '<img id="product_images" src="' . $row['product_image'] . '" alt="">';
         echo "<div id='add-to-cart-button'></div>";
         echo "<div id='add-to-cart-wishlist'></div>";
         echo '</div>';
 
-        echo '<h2 style="color:black;">' . $row['product_name'] . '</h2>';
-        echo '<h1>' . $row['price'] . ' €</h1>';
+        echo '<h4 style="color:black;">' . $row['product_name'] . '</h2>';
+        echo '<h3>' . $row['price'] . ' €</h1>';
         echo '<p>zzgl. Versandkosten</p>';
         echo '</div>';
     }
     echo '</div>';
+    echo '<script>
+        function redirectToPage() {
+            window.location.href = "../views/productDetails.php";
+        }
+        </script>';
 } else {
     echo "Keine Produkte gefunden.";
 }
