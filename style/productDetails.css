@@ -44,7 +44,6 @@
 }
 
 #details-products {
-
     height: 100%;
     width: 75%;
 }
@@ -79,7 +78,7 @@
     align-items: center;
     width: 45px;
     height: 45px;
-    border-radius: 50%;
+    border-radius: 60%;
     font-size: 20px;
     cursor: pointer;
 }
@@ -87,8 +86,6 @@
 #minus:hover,
 #plus:hover {
     background-color: rgba(64, 64, 64, 0.867);
-    height: 46px;
-    width: 46px;
 
 }
 
@@ -103,4 +100,53 @@
     background-color: #212529;
     color: white;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+#actions {
+    height: 32%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 90%;
+    padding-right: 30px;
+
+}
+
+.button {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 70px;
+    background-color: #212529;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgba(64, 64, 64, 0.867);
+}
+
+.icon {
+    font-size: 24px;
+    color: white;
+}
+
+#button1 {
+    margin-left: 40px;
+}
+
+#button2 {
+    margin-left: 10px;
+}
+
+#button1:hover i {
+    color: rgb(254, 77, 77);
+    font-size: 30px;
+}
+
+#button2:hover i {
+    color: rgb(229, 174, 22);
+    font-size: 30px;
 }

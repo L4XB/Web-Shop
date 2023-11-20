@@ -10,6 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/productDetails.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('minus').addEventListener('click', function () {
@@ -42,11 +43,20 @@
                     <div id="details-products-data">
 
                     </div>
-                    <div id="counter">
-                        <div id="minus">-</div>
-                        <div id="number">1</div>
-                        <div id="plus">+</div>
+                    <div id="actions">
+                        <div id="counter">
+                            <div id="minus">-</div>
+                            <div id="number">1</div>
+                            <div id="plus">+</div>
+                        </div>
+                        <div class="button" id="button1">
+                            <i class="icon fas fa-heart"></i>
+                        </div>
+                        <div class="button" id="button2">
+                            <i class="icon fas fa-shopping-cart"></i>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
