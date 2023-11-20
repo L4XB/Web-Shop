@@ -23,7 +23,7 @@ if ($result->num_rows > 0) {
     echo '<div class="product-container" >';
     while ($row = $result->fetch_assoc()) {
         echo '<div class="product-card-text" >';
-        echo '<div class="product-card" onclick="redirectToPage()">';
+        echo '<div class="product-card" data-product-id="' . $row['product_id'] . '" onclick="redirectToPage(event)">';
 
         echo '<img id="product_images" src="' . $row['product_image'] . '" alt="">';
         echo "<div id='add-to-cart-button'></div>";
@@ -38,7 +38,8 @@ if ($result->num_rows > 0) {
     echo '</div>';
     echo '<script>
         function redirectToPage() {
-            window.location.href = "../views/productDetails.php";
+            var productId = event.currentTarget.getAttribute("data-product-id");
+            window.location.href = "../views/productDetails.php?id=" + productId;
         }
         </script>';
 } else {

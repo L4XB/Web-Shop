@@ -31,15 +31,23 @@
 </head>
 
 <body>
-    <?php include 'klettergerüst.php'; ?>
+
+    <?php
+    include 'klettergerüst.php';
+    require '../services/productProvider/loadSpecificProductData.php';
+    ?>
     <div id="content-divs">
         <div id="black-top-box">
             <div id="black-top-box-items">
                 <div id="product-card">
-
+                    <img style="    width: 400px;
+    max-height: 45vh;
+    position: relative;" src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
                 </div>
                 <div id="details-products">
-                    <p id="product-name">{Product Name}</p>
+                    <p id="product-name">
+                        <?php echo htmlspecialchars(getProductName()); ?>
+                    </p>
                     <div id="details-products-data">
 
                     </div>
