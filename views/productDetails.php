@@ -17,7 +17,14 @@
     <?php include 'klettergerüst.php'; ?>
     <div id="content-divs">
         <div id="black-top-box">
+            <div id="black-top-box-items">
+                <div id="product-card">
 
+                </div>
+                <div id="details-products">
+                    <p id="product-name">{Product Name}</p>
+                </div>
+            </div>
         </div>
         <div id="white-bottom-box">
 

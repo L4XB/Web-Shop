@@ -12,9 +12,45 @@
     margin-top: 5vh;
     border-radius: 10px;
     background-color: #212529;
-    position: absolute;
 }
 
 #white-bottom-box {
     width: 95%;
+}
+
+#black-top-box-items {
+    width: 70%;
+    height: 60vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+}
+
+#product-card {
+    display: flex;
+    background-color: rgb(212, 212, 212);
+    width: 30%;
+    border: 1px solid #ccc;
+    padding: 30px;
+    margin-right: 30px;
+    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
+
+}
+
+#details-products {
+    background-color: green;
+    height: 100%;
+    width: 75%;
+}
+
+#product-name {
+    font-size: 65px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
