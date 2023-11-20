@@ -40,8 +40,8 @@
         <div id="black-top-box">
             <div id="black-top-box-items">
                 <div id="product-card">
-                    <img style="    width: 400px;
-    max-height: 45vh;
+                    <img style="    width: 500px;
+    max-height: 55vh;
     position: relative;" src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
                 </div>
                 <div id="details-products">
