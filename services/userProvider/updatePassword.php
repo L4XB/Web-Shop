@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($newPassword === $confirmPassword) {
         $hashedPassword = hash('sha256', $newPassword);
         session_start();
-
+        $_SESSION['loggedIn'] = true;
         $sql = "UPDATE users SET passwort = ? WHERE email = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $hashedPassword, $_SESSION['email']);
