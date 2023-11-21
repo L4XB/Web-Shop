@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
-    require realpath('../..//vendor/autoload.php');
+    require realpath('C:/xampp/htdocs/webShop/vendor/autoload.php');
 } else if (strtoupper(substr(PHP_OS, 0, 6)) === 'DARWIN') {
     require realpath('/Applications/XAMPP/xamppfiles/projekte/loginTesting/vendor/autoload.php');
 } else {
