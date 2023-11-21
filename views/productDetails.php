@@ -28,6 +28,36 @@
             });
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var dropdown = document.getElementById("dropdown-content");
+            var btn = document.getElementById("dropbtn");
+            var arrow = btn.getElementsByTagName("i")[0];
+
+            btn.onclick = function () {
+                if (dropdown.style.display === "block") {
+                    dropdown.style.display = "none";
+                    btn.classList.remove('open');
+                    dropdown.classList.remove('open');
+                    arrow.className = "arrow down";
+                } else {
+                    dropdown.style.display = "block";
+                    btn.classList.add('open');
+                    dropdown.classList.add('open');
+                    arrow.className = "arrow up";
+                }
+            }
+
+            window.selectSize = function (size) {
+                btn.firstChild.nodeValue = "Größe: " + size;
+                dropdown.style.display = "none";
+                arrow.className = "arrow down";
+                btn.classList.remove('open');
+                dropdown.classList.remove('open');
+            }
+        });
+    </script>
 </head>
 
 <body>
@@ -52,6 +82,15 @@
 
                     </div>
                     <div id="actions">
+                        <div class="dropdown">
+                            <button class="dropbtn" id="dropbtn">Größe wählen <i class="arrow down"></i></button>
+                            <div class="dropdown-content" id="dropdown-content">
+                                <a href="#" onclick="selectSize('S')">S</a>
+                                <a href="#" onclick="selectSize('M')">M</a>
+                                <a href="#" onclick="selectSize('L')">L</a>
+                                <a href="#" onclick="selectSize('XL')">XL</a>
+                            </div>
+                        </div>
                         <div id="counter">
                             <div id="minus">-</div>
                             <div id="number">1</div>
