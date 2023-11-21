@@ -28,7 +28,6 @@
                 <h1>FSI Merchstore</h1>
 
                 <?php
-                session_start();
                 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
                     $name = $_SESSION['name'];
                     $lastLogIn = $_SESSION['lastLogIn'];
