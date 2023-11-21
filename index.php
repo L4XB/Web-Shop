@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <?php
+    session_start();
+    $_SESSION['loggedIn'] = false;
+    session_destroy();
+    ?>
 </body>
 
 </html>
