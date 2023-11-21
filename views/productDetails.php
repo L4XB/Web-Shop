@@ -79,18 +79,26 @@
                         <?php echo htmlspecialchars(getProductName()); ?>
                     </p>
                     <div id="details-products-data">
+                        <div id="details-products-data-content">
 
+                        </div>
+                        <div id="details-products-data-functions">
+                            <div class="dropdown">
+                                <button class="dropbtn" id="dropbtn">Größe wählen <i class="arrow down"></i></button>
+                                <div class="dropdown-content" id="dropdown-content">
+                                    <a href="#" onclick="selectSize('S')">S</a>
+                                    <a href="#" onclick="selectSize('M')">M</a>
+                                    <a href="#" onclick="selectSize('L')">L</a>
+                                    <a href="#" onclick="selectSize('XL')">XL</a>
+                                </div>
+                            </div>
+                            <p id="product-price">
+                                <?php echo htmlspecialchars(getProductPrice()) . " €"; ?>
+                            </p>
+                        </div>
                     </div>
                     <div id="actions">
-                        <div class="dropdown">
-                            <button class="dropbtn" id="dropbtn">Größe wählen <i class="arrow down"></i></button>
-                            <div class="dropdown-content" id="dropdown-content">
-                                <a href="#" onclick="selectSize('S')">S</a>
-                                <a href="#" onclick="selectSize('M')">M</a>
-                                <a href="#" onclick="selectSize('L')">L</a>
-                                <a href="#" onclick="selectSize('XL')">XL</a>
-                            </div>
-                        </div>
+
                         <div id="counter">
                             <div id="minus">-</div>
                             <div id="number">1</div>
