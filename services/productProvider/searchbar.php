@@ -23,11 +23,11 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 
 //Producte anzeigen
 if ($result->num_rows > 0) {
+
     // Produkte in Produktkarten anzeigen
     echo "Produkte gefunden.";
     echo '<div class="product-container" >';
     foreach ($products as $row) {
-        echo "Hallo.";
         echo '<div class="product-card-text" >';
         echo '<div class="product-card" data-product-id="' . $row['product_id'] . '" onclick="redirectToPage(event)">';
 
