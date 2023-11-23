@@ -143,12 +143,12 @@
 
 #button1:hover i {
     color: rgb(254, 77, 77);
-    font-size: 30px;
+    font-size: 33px;
 }
 
 #button2:hover i {
     color: rgb(229, 174, 22);
-    font-size: 30px;
+    font-size: 33px;
 }
 
 .dropdown {
