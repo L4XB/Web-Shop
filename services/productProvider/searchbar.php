@@ -24,8 +24,10 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 //Producte anzeigen
 if ($result->num_rows > 0) {
     // Produkte in Produktkarten anzeigen
+    echo "Produkte gefunden.";
     echo '<div class="product-container" >';
-    while ($row = $result->fetch_assoc()) {
+    foreach ($products as $row) {
+        echo "Hallo.";
         echo '<div class="product-card-text" >';
         echo '<div class="product-card" data-product-id="' . $row['product_id'] . '" onclick="redirectToPage(event)">';
 
@@ -34,14 +36,14 @@ if ($result->num_rows > 0) {
         echo "<div id='add-to-cart-wishlist'></div>";
         echo '</div>';
 
-        echo '<h4 style="color:black;">' . $row['product_name'] . '</h2>';
-        echo '<h3>' . $row['price'] . ' €</h1>';
+        echo '<h4 style="color:black;">' . $row['product_name'] . '</h4>';
+        echo '<h3>' . $row['price'] . ' €</h3>';
         echo '<p>zzgl. Versandkosten</p>';
         echo '</div>';
     }
     echo '</div>';
     echo '<script>
-        function redirectToPage() {
+        function redirectToPage(event) {
             var productId = event.currentTarget.getAttribute("data-product-id");
             window.location.href = "../views/productDetails.php?id=" + productId;
         }
