@@ -42,7 +42,7 @@
         </div>
         <!-- Searchbar -->
         <div class="col-md-8 d-flex align-items-center">
-          <form class="w-100" action="../services/productProvider/searchbar.php" method="get">
+          <form class="w-100" action="search.php" method="get">
             <input type="search" name="search" class="form-control form-control-dark" placeholder="Produktsuche..."
               aria-label="Search">
           </form>

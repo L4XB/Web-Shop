@@ -25,7 +25,6 @@ $products = $result->fetch_all(MYSQLI_ASSOC);
 if ($result->num_rows > 0) {
 
     // Produkte in Produktkarten anzeigen
-    echo "Produkte gefunden.";
     echo '<div class="product-container" >';
     foreach ($products as $row) {
         echo '<div class="product-card-text" >';
