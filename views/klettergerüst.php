@@ -11,6 +11,22 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      var button2 = document.getElementById("button2");
+      var badge = document.querySelector(".badge");
+
+      // Verstecke den Info-Kreis, wenn die Seite geladen wird und der Wert 0 ist
+      badge.style.display = badge.textContent > 0 ? "inline" : "none";
+
+      button2.onclick = function () {
+        var badgeValue = parseInt(badge.textContent, 10);
+        badgeValue++;
+        badge.textContent = badgeValue;
+        badge.style.display = badgeValue > 0 ? "inline" : "none";
+      }
+    });
+  </script>
 </head>
 
 <body>
@@ -40,7 +56,7 @@
             <li class="me-2">
               <a href="shoppingCart.php" class="nav-link px-2 text-white position-relative">
                 Warenkorb
-                <span class="badge">3</span>
+                <span class="badge">0</span>
               </a>
             </li>
 

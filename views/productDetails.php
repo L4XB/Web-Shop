@@ -58,6 +58,18 @@
             }
         });
     </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            var button2 = document.getElementById("button2");
+            var badge = document.querySelector(".badge");
+
+            button2.onclick = function () {
+                var badgeValue = parseInt(badge.textContent, 10);
+                badge.textContent = badgeValue + 1;
+            }
+        });
+    </script>
 </head>
 
 <body>
