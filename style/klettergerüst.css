@@ -19,3 +19,18 @@
 .center-buttons {
     justify-content: center;
 }
+
+.badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: rgb(197, 145, 0);
+    color: white;
+    font-size: 14px;
+}
+
+.position-relative {
+    position: relative;
+}
