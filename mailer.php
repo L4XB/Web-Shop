@@ -126,10 +126,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             updateVerificationCode($code, $email);
             $mail->send();
             echo 'Email sent successfully';
+            print "Successfully";
         } catch (Exception $e) {
             echo 'Email could not be sent. Mailer Error: ', $mail->ErrorInfo;
+            print "Error";
         }
-
+        print "Successfully";
     }
 }
 
