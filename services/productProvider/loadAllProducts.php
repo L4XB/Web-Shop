@@ -17,6 +17,7 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
 
+
 // Überprüfen, ob Ergebnisse vorhanden sind
 if ($result->num_rows > 0) {
     // Produkte in Produktkarten anzeigen
