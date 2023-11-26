@@ -23,7 +23,7 @@
     </div>
     <div class="row">
         <!--Rand-->
-        <div class="col-3"></div>
+        <div class="col-2"></div>
             
             <div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;"><img src="../database/images/pin.png" style="height: 50%;"></div>
             
@@ -32,47 +32,56 @@
                 <p class="text">$var:Adresse</p>
             </div>
             
+            <div class="col-1" style="border-bottom: solid; border-width:thin; border-color: lightgrey;"></div>
+
             <div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
             <button type="button" class="btn btn-secondary"><img src="../database/images/pen.png" style="height: 2.5vh;" >Lieferadresse ändern</button>
             </div>
-        
+
         <!--Rand-->    
-        <div class="col-3"></div>
+        <div class="col-2"></div>
     </div>
     <div class="row">
         <!--Rand-->
-        <div class="col-3"></div>
+        <div class="col-2"></div>
             
             <div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;"><img src="../database/images/pin.png" style="height: 50%;"></div>
             
             <div class="col-3" style="border-bottom: solid; border-width:thin; border-color: lightgrey;">
                 <p class="light-text">Liefertermin</p>
-                <p class="text">$var:Liefertermin</p>
+                <p class="text">$var:Termin</p>
             </div>
             
+            <div class="col-1" style="border-bottom: solid; border-width:thin; border-color: lightgrey;"></div>
+
             <div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-            <button type="button" class="btn btn-secondary"><p><img src="../database/images/pen.png" style="height: 2.5vh;" >Liefertermin ändern</p></button>
+            <button type="button" class="btn btn-secondary"><img src="../database/images/pen.png" style="height: 2.5vh;" >Liefertermin ändern</button>
             </div>
-        
+
         <!--Rand-->    
-        <div class="col-3"></div>
+        <div class="col-2"></div>
     </div>
 
-    
+
+    <!--<?php
+    include("../services/productProvider/loadAllProducts.php");
+    ?>-->
+
     <!--warenkorb insert-->
     <div class="row">
         <!--Rand-->
         <div class="col-3"></div>
             
-            <div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;"><img src="../database/images/pin.png" style="height: 50%;"></div>
-            
-            <div class="col-3" style="border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <p class="light-text">Liefertermin</p>
-                <p class="text">$var:Liefertermin</p>
+            <div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;background-color:green;">
+            <button class="delete"><img src="../database/images/trash.png" style="height: 30%;"></button>
             </div>
             
-            <div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-            <button type="button" class="btn btn-secondary"><p><img src="../database/images/pen.png" style="height: 2.5vh;" >Liefertermin ändern</p></button>
+            <div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;background-color:blue;">
+            <button class="delete"><img src="../database/images/trash.png" style="height: 30%;"></button>
+            </div>
+
+            <div class="col-2" style="background-color: brown;">
+                
             </div>
         
         <!--Rand-->    
