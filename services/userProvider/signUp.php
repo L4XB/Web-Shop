@@ -44,7 +44,11 @@ function getOSFromUser()
 
 function getScreenResolution()
 {
-
+    if (isset($_SESSION['resolution'])) {
+        return $_SESSION['resolution'];
+    } else {
+        return 'Unknown';
+    }
 }
 
 
