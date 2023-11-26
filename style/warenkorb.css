@@ -12,3 +12,42 @@
     height: 150%;
 }
 
+#minus:hover,
+#plus:hover {
+    background-color: rgba(64, 64, 64, 0.867);
+
+}
+
+#number {
+    background-color: white;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+#minus,
+#plus {
+    background-color: #212529;
+    color: white;
+    box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
+}
+
+#counter {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 200px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+}
+
+#counter div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 60%;
+    font-size: 20px;
+    cursor: pointer;
+}

@@ -12,40 +12,37 @@ if ($conn->connect_error) {
 } else {
 
 }
-
-/////////////////
-$sql = "SELECT * FROM products";
+session_start();
+$UserID=$_SESSION['UserID'];
+$sql = "SELECT * FROM ShoppingCart
+        WHERE userID=$UserID";
 $result = $conn->query($sql);
 
-// Überprüfen, ob Ergebnisse vorhanden sind
 if ($result->num_rows > 0) {
-    // Produkte in Produktkarten anzeigen
-    echo '<div class="product-container" >';
-    while ($row = $result->fetch_assoc()) {
-        echo '<div class="product-card-text" >';
-        echo '<div class="product-card" data-product-id="' . $row['product_id'] . '" onclick="redirectToPage(event)">';
+while ($row = $result->fetch_assoc()) {
+        //Warenkorb insert
+        echo '<div class="row">';
 
-        echo '<img id="product_images" src="' . $row['product_image'] . '" alt="">';
-        echo "<div id='add-to-cart-button'></div>";
-        echo "<div id='add-to-cart-wishlist'></div>";
-        echo '</div>';
+        echo '<div class="col-2"></div>';    
+            
+        echo '<div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;"><button class="delete"><img src="../database/images/trash.png" style="height: 30%;"></button></div>';
 
-        echo '<h4 style="color:black;">' . $row['product_name'] . '</h2>';
-        echo '<h3>' . $row['price'] . ' €</h1>';
-        echo '<p>zzgl. Versandkosten</p>';
+        echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;"><img src="' . $row['product_image'] . '" alt=""></div>';
+            
+        echo '<div class="col-2" style="border-bottom: solid; border-width:thin; border-color: lightgrey;"><p class="light-text">' . $row['product_name'] . '</p><p class="text">' . $row['product_shortdescription'] . '</p></div>';    
+            
+        echo '<div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;"><div id="counter"><div id="minus">-</div><div id="number">1</div><div id="plus">+</div></div></div>';
+            
+        echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;"><p>' . $row['product_price'] . '</p></div>';
+            
+        echo '<div class="col-2"></div>';
+
         echo '</div>';
-    }
-    echo '</div>';
-    echo '<script>
-        function redirectToPage() {
-            var productId = event.currentTarget.getAttribute("data-product-id");
-            window.location.href = "../views/productDetails.php?id=" + productId;
-        }
-        </script>';
-} else {
+}}
+else {
     echo "Keine Artikel im Warenkorb.";
 }
 
 // Verbindung schließen
-$conn->close();
-?>
+$conn->close();?>
+    

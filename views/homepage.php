@@ -16,6 +16,18 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="../scripts/homepage.js"></script>
+    <script>
+        window.onload = function () {
+            var width = window.screen.width;
+            var height = window.screen.height;
+            var resolution = width + 'x' + height;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'saveResolution.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('resolution=' + resolution);
+        }
+    </script>
 
 </head>
 

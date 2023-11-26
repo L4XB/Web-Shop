@@ -13,6 +13,44 @@ function generatePassword()
     return $randomPassword;
 }
 
+function getOSFromUser()
+{
+    $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+    if (strpos($user_agent, 'Windows NT 10.0') !== false) {
+        return 'Windows 10';
+    } elseif (strpos($user_agent, 'Windows NT 6.3') !== false) {
+        return 'Windows 8.1';
+    } elseif (strpos($user_agent, 'Windows NT 6.2') !== false) {
+        return 'Windows 8';
+    } elseif (strpos($user_agent, 'Windows NT 6.1') !== false) {
+        return 'Windows 7';
+    } elseif (strpos($user_agent, 'Windows NT 6.0') !== false) {
+        return 'Windows Vista';
+    } elseif (strpos($user_agent, 'Windows NT 5.1') !== false) {
+        return 'Windows XP';
+    } elseif (strpos($user_agent, 'Windows NT 5.0') !== false) {
+        return 'Windows 2000';
+    } elseif (strpos($user_agent, 'Mac') !== false) {
+        return 'Mac';
+    } elseif (strpos($user_agent, 'Linux') !== false) {
+        return 'Linux';
+    } elseif (strpos($user_agent, 'Unix') !== false) {
+        return 'Unix';
+    } else {
+        return 'Unknown';
+    }
+}
+
+function getScreenResolution()
+{
+    if (isset($_SESSION['resolution'])) {
+        return $_SESSION['resolution'];
+    } else {
+        return 'Unknown';
+    }
+}
+
 
 function createUser($email, $name, $firstName, $password)
 {
