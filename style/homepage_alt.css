@@ -1,0 +1,62 @@
+/* Platzierung des Karoussels in der Mitte der Seite */
+#fa-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Benutzerdefinierte CSS-Stile */
+.carousel {
+    max-width: 800px;
+    /* Maximale Breite des Sliders */
+    margin: auto;
+    max-height: 400px;
+    /* Zentrierung des Sliders */
+}
+
+.carousel img {
+    width: auto;
+    /* Maximale Breite für Bilder im Slider */
+    height: 300px;
+    /* Automatische Anpassung der Höhe */
+}
+
+.carousel-item {
+    height: 400px; /* Adjust this value to suit your needs */
+}
+
+.carousel-item img {
+    height: 100%;
+    width: auto;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.carousel-indicators li {
+    /* Hintergrundfarbe der Indikatoren */
+    color: black;
+    /* Randfarbe der Indikatoren */
+}
+
+/* Farbanpassungen für die Pfeile */
+.carousel-control-prev,
+.carousel-control-next {
+    color: grey;
+    /* Farbe der Pfeile */
+}
+
+.preload-img {
+    display: none; /* Verstecke die Bilder zunächst */
+  }
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black; /* Change this to your desired color */
+}
+
+.carousel-indicators li {
+    background-color: black; /* Change this to your desired color */
+}
+

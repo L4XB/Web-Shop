@@ -11,14 +11,14 @@
     <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- CSS -->
-    
+    <link rel="stylesheet" href="../style/homepage.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../scripts/homepage.js"></script>
+
 
     <script>
         window.onload = function () {
@@ -68,31 +68,31 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item">
-                        <img class="first-slide" img src="..//assets/images/homepage/fsi_banner.png" alt="First slide">
+                        <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide">
                         <div class="container">
-                            <div class="carousel-caption text-left">
-                                <span style="color:#1E1E1E"><h1>DevTeam</h1></span>
-                                <span style="color:#1E1E1E"><p>Lerne die Entwickler des FSI Shops kennen!</p></span>
+                            <div class="carousel-caption text-left text-color">
+                                <h1>DevTeam</h1>
+                                <p>Lerne die Entwickler des FSI Shops kennen!</p>
                                 <p><a class="btn btn-warning" href="devteam.php" role="button">Visit</a></p>
                             </div>
                         </div>
                     </div>
                 <div class="carousel-item active">
-                    <img class="second-slide" img src="..//assets/images/homepage/fsi_banner.png" alt="Second slide">
+                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide">
                     <div class="container">
-                        <div class="carousel-caption">
-                            <span style="color:#1E1E1E"><h1>Herzlich Willkommen</h1></span>
-                            <span style="color:#1E1E1E"><p>Hier findest du den besten Merch der Hochschule Reutlingen!</p></span>
+                        <div class="carousel-caption text-color">
+                            <h1>Herzlich Willkommen</h1>
+                            <p>Hier findest du den besten Merch der Hochschule Reutlingen!</p>
                             <p><a class="btn btn-warning" href="products.php" role="button">Artikelübersicht</a></p>
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" img src="..//assets/images/homepage/fsi_banner.png" alt="Third slide">
+                    <img class="third-slide" img src="..//assets/images/homepage/ banner.png" alt="Third slide">
                     <div class="container">
-                        <div class="carousel-caption text-right">
-                            <span style="color:#1E1E1E"><h1>Dokumentation</h1></span>
-                            <span style="color:#1E1E1E"><p>Du interresierst dich für die Entstehung des Webshops?</p></span>
+                        <div class="carousel-caption text-right text-color">
+                            <h1>Dokumentation</h1>
+                            <p>Du interresierst dich für die Entstehung des Webshops?</p>
                             <p><a class="btn btn-warning" href="doku.php" role="button">check out</a></p>
                         </div>
                     </div>

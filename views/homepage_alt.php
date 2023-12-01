@@ -8,7 +8,7 @@
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="../style/homepage.css">
+    <link rel="stylesheet" href="../style/homepage_alt.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- JS -->
