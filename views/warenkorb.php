@@ -79,14 +79,17 @@
         <div class="col-2"></div>
     </div>
 
+    <!--warenkorb insert-->
 
     <!--<?php
     include("../services/productProvider/loadAllProducts.php");
     ?>-->
 
-    <!--warenkorb insert-->
-    <div class="row">
-        <!--Rand-->
+    
+    <!--Ziel Div eine Warenkorbposition
+
+        <div class="row">
+        
             <div class="col-2"></div>
             
             <div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
@@ -112,11 +115,9 @@
 
             <div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
                 <p>Price</p>
-            </div>
-
-        <!--Rand-->    
+            </div> 
         <div class="col-2"></div>
-    </div>    
+    </div>    -->
 </div>
 </body>
 </html>
