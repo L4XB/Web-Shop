@@ -79,6 +79,12 @@
         <div class="col-2"></div>
     </div>
 
+    <div class="row container-fluid justify-content-end">
+        <div class="col-2">
+            <button type="button" class="btn btn-warning" onclick="window.location.href = 'checkout.php';">weiter zur Kasse</button>
+        </div>
+    </div>
+
     <!--warenkorb insert-->
 
     <!--<?php
