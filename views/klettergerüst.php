@@ -54,7 +54,7 @@
             <li class="me-2"><a href="products.php" class="nav-link px-2 text-white">Artikelübersicht</a></li>
             <li class="me-2"><a href="favorits.php" class="nav-link px-2 text-white">Favoriten</a></li>
             <li class="me-2">
-              <a href="shoppingCart.php" class="nav-link px-2 text-white position-relative">
+              <a href="warenkorb.php" class="nav-link px-2 text-white position-relative">
                 Warenkorb
                 <span class="badge">0</span>
               </a>
