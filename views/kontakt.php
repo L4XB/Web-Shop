@@ -28,7 +28,7 @@
             <h1>Kontakt</h1>
             <p>Wir versuchen, jede Anfrage schnellstmöglich zu beantworten!</p>
             <br>
-
+            <!--die Krokodilmäuler verändern sich beim öffnen noch nicht falls uns langweilig ist haha-->
             <p data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false" aria-controls="collapse1">
                 > Wie kann ich etwas zurücksenden oder umtauschen?
             </p>
@@ -84,7 +84,7 @@
                     <input type="betreff" class="form-control" id="betreffInput" placeholder="Was ist dein Anliegen? Kurzfassung">
                 </div>
                 <div class="form-group">
-                <label for="InputNachricht">Example textarea</label>
+                <label for="InputNachricht">Nachricht</label>
                 <textarea class="form-control" id="nachrichtInput" placeholder="Deine Nachricht an uns!" rows="6"></textarea>
                 </div>
                 
