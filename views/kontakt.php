@@ -87,6 +87,10 @@
                 <label for="InputNachricht">Nachricht</label>
                 <textarea class="form-control" id="nachrichtInput" placeholder="Deine Nachricht an uns!" rows="6"></textarea>
                 </div>
+                <div class="form-group">
+                    <label for="InputNummer">Deine Bestell- oder Rechnungsnummer</label>
+                    <input type="nummer" class="form-control" id="nummerInput">
+                </div>
                 
                 <br>
                 <button type="submit" class="btn btn-primary">Submit</button>
