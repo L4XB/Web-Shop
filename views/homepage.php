@@ -68,7 +68,7 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item">
-                        <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide">
+                        <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide" style="width: 100%; height:40vh;">
                         <div class="container">
                             <div class="carousel-caption text-left text-color">
                                 <h1>DevTeam</h1>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 <div class="carousel-item active">
-                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide">
+                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide" style="width: 100%; height:40vh;">
                     <div class="container">
                         <div class="carousel-caption text-color">
                             <h1>Herzlich Willkommen</h1>
@@ -88,7 +88,7 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" img src="..//assets/images/homepage/banner.png" alt="Third slide">
+                    <img class="third-slide" img src="..//assets/images/homepage/banner.png" alt="Third slide" style="width: 100%; height:40vh;">
                     <div class="container">
                         <div class="carousel-caption text-right text-color">
                             <h1>Dokumentation</h1>
