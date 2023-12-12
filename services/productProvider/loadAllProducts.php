@@ -26,12 +26,11 @@ if ($result->num_rows > 0) {
         echo '<div class="product-card-text" >';
         echo '<div class="product-card" data-product-id="' . $row['productID'] . '" onclick="redirectToPage(event)">';
 
-        echo '<img id="product_images" src="' . $row['product_image'] . '" alt="">';
+        echo '<img id="product_images" src="../assets/images/produkts/' . $row['pathName'] . '.png" alt="">';
         echo "<div id='add-to-cart-button'></div>";
         echo "<div id='add-to-cart-wishlist'></div>";
         echo '</div>';
-
-        echo '<h4 style="color:black;">' . $row['product_name'] . '</h2>';
+        echo '<h4 style="color:black;">' . $row['productName'] . '</h2>';
         echo '<h3>' . $row['price'] . ' €</h1>';
         echo '<p>zzgl. Versandkosten</p>';
         echo '</div>';
