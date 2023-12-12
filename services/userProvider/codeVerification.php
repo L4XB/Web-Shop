@@ -4,7 +4,7 @@ function updateVerificationCode($code, $email)
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     // Erstellen der Verbindung
     $conn = new mysqli($servername, $username, $password, $dbname);

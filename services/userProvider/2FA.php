@@ -43,7 +43,7 @@ function get2FASecret()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -79,7 +79,7 @@ function enable2FA()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -99,7 +99,7 @@ function disable2FA()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -119,7 +119,7 @@ function is2FAEnabled()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

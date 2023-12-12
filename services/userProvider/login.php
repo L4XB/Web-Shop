@@ -43,7 +43,7 @@ if ($conn->connect_error) {
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    $username = $_POST['username'];
+    $username = $_POST['email'];
     $password = $_POST['password'];
     $hashedPassword = hash('sha256', $password);
     // Vorbereiten und Binden

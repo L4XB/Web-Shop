@@ -18,12 +18,12 @@ ini_set('display_errors', 1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit'])) {
-
+        session_start();
 
         $email = $_POST['email'];
         $firstName = $_POST['firstName'];
         $lastName = $_POST['lastName'];
-        session_start();
+
 
         // Speichern der Variable in der Session
         $_SESSION['emailUser'] = $email;
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         try {
-            createUser($email, $lastName, $firstName, "");
+            createUser($email, "", $lastName, $firstName);
             $passwordClear = $_SESSION['clearPassword'];
             $mail->Body = "<!DOCTYPE html>
             <html lang='en'>

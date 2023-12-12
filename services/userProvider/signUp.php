@@ -80,27 +80,32 @@ function createUser($email, $password, $firstName, $lastName)
     $currentTimestamp = date('Y-m-d H:i:s');
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO users (email, password, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, 'unknown', 'unknown', ?, false, true, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, 'unknown', 'unknown', ?, false, true, ?)");
     $stmt->bind_param("ssssss", $email, $hashedPassword, $firstName, $lastName, $currentTimestamp, $twoFASecret);
+    try {
+        if ($stmt->execute()) {
+            echo "New user created successfully.";
 
-    // Execute statement
-    if ($stmt->execute()) {
-        echo "New user created successfully.";
+            // Query user data
+            $userStmt = $conn->prepare("SELECT firstName, lastLogin FROM users WHERE email = ?");
+            $userStmt->bind_param("s", $email);
+            $userStmt->execute();
+            $userResult = $userStmt->get_result();
+            if ($userResult->num_rows > 0) {
+                $user = $userResult->fetch_assoc();
+                $_SESSION['name'] = $user['firstName'];
+                $_SESSION['lastLogIn'] = $user['lastLogin'];
+            }
+            $userStmt->close();
+        } else {
 
-        // Query user data
-        $userStmt = $conn->prepare("SELECT firstName, lastLogin FROM users WHERE email = ?");
-        $userStmt->bind_param("s", $email);
-        $userStmt->execute();
-        $userResult = $userStmt->get_result();
-        if ($userResult->num_rows > 0) {
-            $user = $userResult->fetch_assoc();
-            $_SESSION['name'] = $user['firstName'];
-            $_SESSION['lastLogIn'] = $user['lastLogin'];
+            echo "Error creating user: " . $stmt->error;
         }
-        $userStmt->close();
-    } else {
-        echo "Error creating user: " . $stmt->error;
+    } catch (Exception $e) {
+        echo $e;
     }
+    // Execute statement
+
 
 
     // Close statement and connection
