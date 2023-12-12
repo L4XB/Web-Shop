@@ -127,16 +127,16 @@
                 </div>
 
             </div>
-            <div id="product-description-container">
+            <!-- <div id="product-description-container">
 
             </div>
             <div id="placeholder">
 
-            </div>
+            </div> -->
         </div>
-        <div id="white-bottom-box">
+        <!-- <div id="white-bottom-box">
 
-        </div>
+        </div> -->
     </div>
 
 </body>

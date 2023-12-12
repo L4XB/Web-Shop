@@ -52,56 +52,58 @@ function getScreenResolution()
 }
 
 
-function createUser($email, $name, $firstName, $password)
+function createUser($email, $password, $firstName, $lastName)
 {
     $servername = "localhost";
     $username = "root";
-    $dbpassword = ""; // Ändern Sie den Variablennamen, um Konflikte zu vermeiden
+    $dbpassword = ""; // Change the variable name to avoid conflicts
     $dbname = "webShop";
 
-    // Erstellen der Verbindung
+    // Create connection
     $conn = new mysqli($servername, $username, $dbpassword, $dbname);
 
-    // Überprüfen der Verbindung
+    // Check connection
     if ($conn->connect_error) {
-        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+        die("Connection failed: " . $conn->connect_error);
     }
 
-    $passwordGeneratetd = generatePassword();
+    $passwordGenerated = generatePassword();
     session_start();
-    $_SESSION['clearPassword'] = $passwordGeneratetd;
+    $_SESSION['clearPassword'] = $passwordGenerated;
     $twoFASecret = createSecret();
     $_SESSION['secretKey'] = $twoFASecret;
     $_SESSION['loggedIn'] = true;
-    $_SESSION['clearPassword'] = $passwordGeneratetd;
+    $_SESSION['clearPassword'] = $passwordGenerated;
     $_SESSION['email'] = $email;
-    $hashedPassword = hash('sha256', $passwordGeneratetd);
+    $hashedPassword = hash('sha256', $passwordGenerated);
     $currentTimestamp = date('Y-m-d H:i:s');
-    // Vorbereiten und Binden
-    $stmt = $conn->prepare("INSERT INTO users (email, nachname, vorname, passwort,2FASecret,isVerified,lastLogIn, use2FA, isFirstLogin) VALUES (?, ?, ?, ?, ?, false,?,false,true)");
-    $stmt->bind_param("ssssss", $email, $name, $firstName, $hashedPassword, $twoFASecret, $currentTimestamp);
 
-    // Ausführen der Anweisung
+    // Prepare and bind
+    $stmt = $conn->prepare("INSERT INTO users (email, password, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, 'unknown', 'unknown', ?, false, true, ?)");
+    $stmt->bind_param("ssssss", $email, $hashedPassword, $firstName, $lastName, $currentTimestamp, $twoFASecret);
+
+    // Execute statement
     if ($stmt->execute()) {
         echo "New user created successfully.";
 
-        // Abfrage der Benutzerdaten
-        $userStmt = $conn->prepare("SELECT vorname, lastLogIn FROM users WHERE email = ?");
+        // Query user data
+        $userStmt = $conn->prepare("SELECT firstName, lastLogin FROM users WHERE email = ?");
         $userStmt->bind_param("s", $email);
         $userStmt->execute();
         $userResult = $userStmt->get_result();
         if ($userResult->num_rows > 0) {
             $user = $userResult->fetch_assoc();
-            $_SESSION['name'] = $user['vorname'];
-            $_SESSION['lastLogIn'] = $user['lastLogIn'];
+            $_SESSION['name'] = $user['firstName'];
+            $_SESSION['lastLogIn'] = $user['lastLogin'];
         }
         $userStmt->close();
     } else {
         echo "Error creating user: " . $stmt->error;
     }
 
-    // Schließen der Anweisung und der Verbindung
+    // Close statement and connection
     $stmt->close();
     $conn->close();
 }
+
 ?>
