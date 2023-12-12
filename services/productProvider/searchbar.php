@@ -12,7 +12,7 @@ if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
 
-$stmt = $conn->prepare("SELECT * FROM products WHERE product_name LIKE ?");
+$stmt = $conn->prepare("SELECT * FROM products WHERE productName LIKE ?");
 $stmt->bind_param("s", $param_searchTerm);
 
 $param_searchTerm = "%" . $searchTerm . "%";
@@ -28,14 +28,14 @@ if ($result->num_rows > 0) {
     echo '<div class="product-container" >';
     foreach ($products as $row) {
         echo '<div class="product-card-text" >';
-        echo '<div class="product-card" data-product-id="' . $row['product_id'] . '" onclick="redirectToPage(event)">';
+        echo '<div class="product-card" data-product-id="' . $row['productID'] . '" onclick="redirectToPage(event)">';
 
-        echo '<img id="product_images" src="' . $row['product_image'] . '" alt="">';
+        echo '<img id="../../assets/images/produkts/' . $row['pathName'] . '.png" alt="">';
         echo "<div id='add-to-cart-button'></div>";
         echo "<div id='add-to-cart-wishlist'></div>";
         echo '</div>';
 
-        echo '<h4 style="color:black;">' . $row['product_name'] . '</h4>';
+        echo '<h4 style="color:black;">' . $row['productName'] . '</h4>';
         echo '<h3>' . $row['price'] . ' €</h3>';
         echo '<p>zzgl. Versandkosten</p>';
         echo '</div>';
