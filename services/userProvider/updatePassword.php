@@ -32,7 +32,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("s", $_SESSION['email']);
         $stmt->execute();
 
-        session_destroy();
 
         echo "Passwort erfolgreich aktualisiert.";
         if (is2FAEnabled()) {
