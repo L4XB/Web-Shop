@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 25. Nov 2023 um 16:33
+-- Erstellungszeit: 12. Dez 2023 um 13:33
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -63,6 +63,21 @@ CREATE TABLE `products` (
   `pathName` varchar(255) DEFAULT NULL,
   `description` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `products`
+--
+
+INSERT INTO `products` (`productID`, `productName`, `price`, `size`, `fit`, `pathName`, `description`) VALUES
+(1, 'Product1', 19.99, 'M', 'Regular', '', 'Description for Product1'),
+(2, 'Product2', 29.99, 'L', 'Slim Fit', '', 'Description for Product2'),
+(3, 'Product3', 39.99, 'S', 'Loose Fit', '', 'Description for Product3'),
+(4, 'Product4', 49.99, 'XL', 'Regular', '', 'Description for Product4'),
+(5, 'Product5', 59.99, 'M', 'Slim Fit', '', 'Description for Product5'),
+(6, 'Product6', 69.99, 'L', 'Loose Fit', '', 'Description for Product6'),
+(7, 'Product7', 79.99, 'S', 'Regular', '', 'Description for Product7'),
+(8, 'Product8', 89.99, 'XL', 'Slim Fit', '', 'Description for Product8'),
+(9, 'Product9', 99.99, 'M', 'Loose Fit', '', 'Description for Product9');
 
 -- --------------------------------------------------------
 
@@ -176,7 +191,7 @@ ALTER TABLE `history`
 -- AUTO_INCREMENT für Tabelle `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT für Tabelle `shoppingCart`

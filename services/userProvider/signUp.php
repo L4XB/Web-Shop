@@ -1,6 +1,7 @@
 <?php
 require '2FA.php';
 
+
 function generatePassword()
 {
     $length = 10;
@@ -57,7 +58,7 @@ function createUser($email, $password, $firstName, $lastName)
     $servername = "localhost";
     $username = "root";
     $dbpassword = ""; // Change the variable name to avoid conflicts
-    $dbname = "webShop";
+    $dbname = "webShopFSI";
 
     // Create connection
     $conn = new mysqli($servername, $username, $dbpassword, $dbname);
@@ -101,7 +102,9 @@ function createUser($email, $password, $firstName, $lastName)
         echo "Error creating user: " . $stmt->error;
     }
 
+
     // Close statement and connection
+    session_destroy();
     $stmt->close();
     $conn->close();
 }
