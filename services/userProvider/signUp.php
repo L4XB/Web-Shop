@@ -57,7 +57,7 @@ function createUser($email, $name, $firstName, $password)
     $servername = "localhost";
     $username = "root";
     $dbpassword = ""; // Ändern Sie den Variablennamen, um Konflikte zu vermeiden
-    $dbname = "webshop";
+    $dbname = "webShop";
 
     // Erstellen der Verbindung
     $conn = new mysqli($servername, $username, $dbpassword, $dbname);
