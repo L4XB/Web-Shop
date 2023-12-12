@@ -26,6 +26,37 @@ function isFirstLogin()
 
     return $user['isFirstLogin'] == 1;
 }
+function setFirstLoginToFalse($email)
+{
+    //Server Connection
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+
+    // Vorbereiten und Binden
+    $stmt = $conn->prepare("UPDATE users SET isFirstLogin = false WHERE email = ?");
+    $stmt->bind_param("s", $email);
+
+    // Ausführen der Anweisung
+    $stmt->execute();
+
+    // Überprüfen, ob das Update erfolgreich war
+    if ($stmt->affected_rows === 0) {
+        exit('Keine Zeilen aktualisiert');
+    } else {
+        echo 'Das Feld isFirstLogin wurde erfolgreich auf false gesetzt';
+    }
+
+    $stmt->close();
+    $conn->close();
+}
 
 
 include '2fa.php';
@@ -74,6 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isFirstLogin()) {
             header('Location: ../../views/setNewPassword.php');
+            setFirstLoginToFalse($username);
         } else {
             if (is2FAEnabled()) {
                 header('Location: ../../views/check_2fa.php');
