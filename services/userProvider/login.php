@@ -8,7 +8,7 @@ function isFirstLogin()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -33,7 +33,7 @@ include '2fa.php';
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "webshop";
+$dbname = "webShopFSI";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -59,10 +59,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows > 0) {
         session_start();
         $_SESSION['loggedIn'] = true;
+        session_destroy();
 
         // Aktualisieren des lastLogIn Timestamps
         $currentTimestamp = date('Y-m-d H:i:s');
-        $updateStmt = $conn->prepare("UPDATE users SET lastLogIn = ? WHERE email = ?");
+        $updateStmt = $conn->prepare("UPDATE users SET lastLogin = ? WHERE email = ?");
         $updateStmt->bind_param("ss", $currentTimestamp, $username);
         $updateStmt->execute();
         $updateStmt->close();
