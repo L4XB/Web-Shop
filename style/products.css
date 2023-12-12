@@ -1,24 +1,43 @@
 .product-container {
-    align-items: center;
-    overflow-x: auto;
-    height: 70vh;
+    display: flex;
+    flex-wrap: wrap; /* Allow the items to wrap to the next line */
+    justify-content: center; /* Align items at the start */
+    align-items: center; /* Center items vertically */
+    overflow-y: auto; /* y for vertical scroll */
+    /*height: 70vh;*/
+    min-height: 70vh;
     margin-left: 7%;
     margin-right: auto;
-    display: flex;
+    margin-bottom: 20px;
 }
 
 .product-card {
     display: flex;
+    flex-direction: column; /* Stack item content vertically */
     background-color: rgba(212, 212, 212, 0.786);
-    width: 400px;
     border: 1px solid #ccc;
     padding: 30px;
-    margin-right: 30px;
+    margin-bottom: 30px;
     border-radius: 15px;
     align-items: center;
     justify-content: center;
     height: 45vh;
+    margin-right: 30px; /* Add some margin to the right of each item */
+    flex: 1 0 100%; /* By default, take 100% of the row */
+}
 
+/* For screens larger than 768px, show 2 items per row */
+@media (min-width: 768px) {
+    .product-card {
+        flex: 1 0 48%; /* Take 48% of the row (leaving a bit for margins) */
+    }
+}
+
+/* For screens larger than 1080px, show 3 items per row */
+@media (min-width: 1080px) {
+    .product-card {
+        flex: 1 0 30%; /* Take 30% of the row */
+    }
 }
 
 .product-card h1 {
@@ -44,10 +63,10 @@ h1 {
 
 
 #product_images {
-    width: 400px;
-    max-height: 45vh;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Use 'cover' if you want to fill the container while maintaining aspect ratio */
     position: relative;
-
 }
 
 #heading {
@@ -72,7 +91,7 @@ h1 {
 }
 
 #headLineTextStyle {
-    margin-left: 200px;
+    margin-left: 300px;
     font-size: 45px
 }
 

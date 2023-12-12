@@ -27,8 +27,11 @@
 <body>
     <?php include 'klettergerüst.php'; ?>
     <br>
+    
+    <div>
+        <h1 id="headLineTextStyle" style="text-align: left; padding-left: 10px;">Artikelübersicht</h1>
+    </div>
 
-    <h1 id="headLineTextStyle">Artikelübersicht</h1>
     <?php
     include("../services/productProvider/loadAllProducts.php");
     ?>

@@ -82,9 +82,7 @@
         <div id="black-top-box">
             <div id="black-top-box-items">
                 <div id="product-card">
-                    <img style="    width: 110%;
-    max-height: 55vh;
-    position: relative;" src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
+                    <img style="width: 110%; max-height: 55vh; position: relative;" src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
                 </div>
                 <div id="details-products">
                     <p id="product-name">
@@ -92,7 +90,7 @@
                     </p>
                     <div id="details-products-data">
                         <div id="details-products-data-content">
-
+                        
                         </div>
                         <div id="details-products-data-functions">
                             <div class="dropdown">
