@@ -15,7 +15,7 @@ function isFirstLogin()
     if ($conn->connect_error) {
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
-    session_start();
+
     $email = $_SESSION['email'];
     $sql = "SELECT isFirstLogin FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
@@ -23,7 +23,7 @@ function isFirstLogin()
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-    session_destroy();
+
     return $user['isFirstLogin'] == 1;
 }
 
@@ -42,7 +42,7 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
+    session_start();
     $username = $_POST['email'];
     $password = $_POST['password'];
     $hashedPassword = hash('sha256', $password);
@@ -57,9 +57,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        session_start();
+
         $_SESSION['loggedIn'] = true;
-        session_destroy();
 
         // Aktualisieren des lastLogIn Timestamps
         $currentTimestamp = date('Y-m-d H:i:s');

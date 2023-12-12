@@ -81,7 +81,7 @@ function createUser($email, $password, $firstName, $lastName)
 
     // Prepare and bind
     $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, 'unknown', 'unknown', ?, false, true, ?)");
-    $stmt->bind_param("sssssss", $email, $hashedPassword, $firstName, $lastName, $currentTimestamp, $twoFASecret, $currentTimestamp);
+    $stmt->bind_param("sssssss", $email, $hashedPassword, $lastName, $firstName, $currentTimestamp, $twoFASecret, $currentTimestamp);
     try {
         if ($stmt->execute()) {
             echo "New user created successfully.";
@@ -109,7 +109,7 @@ function createUser($email, $password, $firstName, $lastName)
 
 
     // Close statement and connection
-    session_destroy();
+
     $stmt->close();
     $conn->close();
 }

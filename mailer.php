@@ -18,7 +18,6 @@ ini_set('display_errors', 1);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit'])) {
-        session_start();
 
         $email = $_POST['email'];
         $firstName = $_POST['firstName'];
@@ -132,7 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             print "Error";
         }
         print "Successfully";
-        session_destroy();
+
         header('Location: views/homepage.php');
     }
 }
