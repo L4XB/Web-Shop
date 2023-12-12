@@ -4,7 +4,7 @@ $searchTerm = $_GET['search'];
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "webshop";
+$dbname = "webShopFSI";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 

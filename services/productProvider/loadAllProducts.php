@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "webshop";
+$dbname = "webShopFSI";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -24,7 +24,7 @@ if ($result->num_rows > 0) {
     echo '<div class="product-container" >';
     while ($row = $result->fetch_assoc()) {
         echo '<div class="product-card-text" >';
-        echo '<div class="product-card" data-product-id="' . $row['product_id'] . '" onclick="redirectToPage(event)">';
+        echo '<div class="product-card" data-product-id="' . $row['productID'] . '" onclick="redirectToPage(event)">';
 
         echo '<img id="product_images" src="' . $row['product_image'] . '" alt="">';
         echo "<div id='add-to-cart-button'></div>";

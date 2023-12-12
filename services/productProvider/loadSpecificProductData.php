@@ -5,7 +5,7 @@ function getProductName()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     // Überprüfen Sie, ob der Query-Parameter 'id' gesetzt ist.
     if (isset($_GET['id'])) {
@@ -19,7 +19,7 @@ function getProductName()
         }
 
         // Erstellen Sie die SQL-Abfrage.
-        $sql = "SELECT product_name FROM products WHERE product_id = ?";
+        $sql = "SELECT productName FROM products WHERE productID = ?";
 
         // Bereiten Sie die SQL-Abfrage vor.
         $stmt = $conn->prepare($sql);
@@ -51,7 +51,7 @@ function getProductImage()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     // Überprüfen Sie, ob der Query-Parameter 'id' gesetzt ist.
     if (isset($_GET['id'])) {
@@ -65,7 +65,7 @@ function getProductImage()
         }
 
         // Erstellen Sie die SQL-Abfrage.
-        $sql = "SELECT product_image FROM products WHERE product_id = ?";
+        $sql = "SELECT pathName FROM products WHERE productID = ?";
 
         // Bereiten Sie die SQL-Abfrage vor.
         $stmt = $conn->prepare($sql);
@@ -86,7 +86,7 @@ function getProductImage()
         $stmt->close();
         $conn->close();
 
-        return $productImage;
+        return "../assets/images/produkts/" . $productImage . ".png";
     }
 }
 
@@ -96,7 +96,7 @@ function getProductPrice()
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "webshop";
+    $dbname = "webShopFSI";
 
     // Überprüfen Sie, ob der Query-Parameter 'id' gesetzt ist.
     if (isset($_GET['id'])) {
@@ -110,7 +110,7 @@ function getProductPrice()
         }
 
         // Erstellen Sie die SQL-Abfrage.
-        $sql = "SELECT price FROM products WHERE product_id = ?";
+        $sql = "SELECT price FROM products WHERE productID = ?";
 
         // Bereiten Sie die SQL-Abfrage vor.
         $stmt = $conn->prepare($sql);
