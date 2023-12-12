@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Speichern der Variable in der Session
         $_SESSION['emailUser'] = $email;
-        header('Location: views/check_mail.php');
+
 
         // Konfiguration für OAuth2
         $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
@@ -103,7 +103,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <header>
                     <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
                     <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
-                    <h2 style='color: black;'>Dein Code : <u>$code</u></h2>
                     <h2>Dein Passwort : <u>$passwordClear</u></h2>
                 </header>
             
@@ -125,7 +124,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </footer>
             </body>
             </html>";
-            updateVerificationCode($code, $email);
             $mail->send();
             echo 'Email sent successfully';
             print "Successfully";
@@ -135,6 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
         print "Successfully";
         session_destroy();
+        header('Location: views/homepage.php');
     }
 }
 
