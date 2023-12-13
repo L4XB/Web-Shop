@@ -51,7 +51,7 @@
   }
 
   // SQL-Abfrage, um die Anzahl der Elemente im Warenkorb zu ermitteln
-  $stmt = $conn->prepare("SELECT COUNT(*) AS count FROM shoppingCart WHERE userID = ? GROUP BY productID");
+  $stmt = $conn->prepare("SELECT COUNT(DISTINCT productID) AS count FROM shoppingCart WHERE userID = ?");
   $stmt->bind_param("i", $userId);
   $stmt->execute();
   $result = $stmt->get_result();
