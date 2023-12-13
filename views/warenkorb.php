@@ -91,6 +91,9 @@
             <div class="col-2"></div>
         </div>
 
+        <?php
+        include("../services/userProvider/load_shopping_cart_items.php");
+        ?>
         <div class="row container-fluid justify-content-end">
             <div class="col-2">
                 <button type="button" class="btn btn-warning" onclick="window.location.href = 'checkout.php';">weiter
@@ -100,9 +103,7 @@
 
         <!--warenkorb insert-->
 
-        <!--<?php
-        include("../services/productProvider/loadAllProducts.php");
-        ?>-->
+
 
 
 
