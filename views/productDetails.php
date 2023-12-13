@@ -14,18 +14,47 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
+            var favorited = false;
             $("#button1").click(function () {
-                $.ajax({
-                    url: "../services/userProvider/add_favorit.php",
-                    type: "post",
-                    data: {
-                        productId: <?php echo $_GET['id']; ?>,
-                        userId: <?php echo 1; ?>
-                    },
-                    success: function (response) {
-                        alert(response);
-                    }
-                });
+                if (!favorited) {
+                    // Führen Sie die Funktion zum Hinzufügen des Favoriten aus
+                    $.ajax({
+                        url: "../services/userProvider/add_favorit.php",
+                        type: "post",
+                        data: {
+                            productId: <?php echo $_GET['id']; ?>,
+                            userId: <?php echo 1; ?>
+                        },
+                        success: function (response) {
+
+                            // Ändern Sie das Icon zu rot
+                            $("#button1").find('i').css({
+                                'color': 'rgb(254, 77, 77)',
+                                'font-size': '33px'
+                            });
+                        }
+                    });
+                } else {
+                    // Führen Sie die Funktion zum Entfernen des Favoriten aus
+                    $.ajax({
+                        url: "../services/userProvider/remove_favorit.php",
+                        type: "post",
+                        data: {
+                            productId: <?php echo $_GET['id']; ?>,
+                            userId: <?php echo 1; ?>
+                        },
+                        success: function (response) {
+
+                            // Ändern Sie das Icon zurück zu weiß
+                            $("#button1").find('i').css({
+                                'color': 'white',
+                                'font-size': '24px'
+                            });
+                        }
+                    });
+                }
+                // Wechseln Sie den Zustand
+                favorited = !favorited;
             });
         });
     </script>

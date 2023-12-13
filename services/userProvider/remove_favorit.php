@@ -2,7 +2,7 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 session_start();
-function addNewFavorite($productId, $userId)
+function removeFavorite($productId, $userId)
 {
     $servername = "localhost";
     $username = "root";
@@ -15,19 +15,17 @@ function addNewFavorite($productId, $userId)
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
 
-    $stmt = $conn->prepare("INSERT INTO favorites (userID, productID) VALUES (?, ?)");
-    $stmt->bind_param("ii", $userId, $productId);
+    $stmt = $conn->prepare("DELETE FROM favorites WHERE productId = ? AND userId = ?");
+    $stmt->bind_param("ii", $productId, $userId);
 
     if ($stmt->execute()) {
+        echo "Favorit erfolgreich entfernt";
     } else {
-        echo "Fehler beim Hinzufügen des Favoriten: " . $stmt->error;
+        echo "Fehler beim Entfernen des Favoriten: " . $stmt->error;
     }
 
     $stmt->close();
     $conn->close();
 }
-
-
-addNewFavorite($_POST['productId'], $_SESSION['userId']);
-
+removeFavorite($_POST['productId'], $_SESSION['userId']);
 ?>
