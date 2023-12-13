@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,9 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
     <link rel="stylesheet" href="../style/warenkorb.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('minus').addEventListener('click', function () {
@@ -24,6 +29,30 @@
                 var number = document.getElementById('number');
                 var currentValue = parseInt(number.innerText);
                 number.innerText = currentValue + 1;
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(".delete").click(function () {
+                var productId = $(this).data('productid');
+                $.ajax({
+                    url: "../services/userProvider/delete_product.php",
+                    type: "post",
+                    data: {
+                        userId: <?php echo $_SESSION['userId']; ?>,
+                        productId: productId
+                    },
+                    success: function (response) {
+                        // Führen Sie hier Code aus, der ausgeführt werden soll, wenn die Anfrage erfolgreich war
+
+                        location.reload(); // Aktualisieren Sie die Seite, um die Änderungen anzuzeigen
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+
+                    }
+                });
             });
         });
     </script>
