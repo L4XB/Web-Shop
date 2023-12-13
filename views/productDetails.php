@@ -11,6 +11,24 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/productDetails.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#button1").click(function () {
+                $.ajax({
+                    url: "../services/userProvider/add_favorit.php",
+                    type: "post",
+                    data: {
+                        productId: <?php echo $_GET['id']; ?>,
+                        userId: <?php echo 1; ?>
+                    },
+                    success: function (response) {
+                        alert(response);
+                    }
+                });
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('minus').addEventListener('click', function () {
@@ -77,12 +95,16 @@
     <?php
     include 'klettergerüst.php';
     require '../services/productProvider/loadSpecificProductData.php';
+    require '../services/userProvider/favorites.php';
+    session_start();
+
     ?>
     <div id="content-divs">
         <div id="black-top-box">
             <div id="black-top-box-items">
                 <div id="product-card">
-                    <img style="width: 110%; max-height: 55vh; position: relative;" src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
+                    <img style="width: 110%; max-height: 55vh; position: relative;"
+                        src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
                 </div>
                 <div id="details-products">
                     <p id="product-name">
@@ -90,7 +112,7 @@
                     </p>
                     <div id="details-products-data">
                         <div id="details-products-data-content">
-                        
+
                         </div>
                         <div id="details-products-data-functions">
                             <div class="dropdown">
