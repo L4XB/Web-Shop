@@ -193,6 +193,29 @@ session_start();
             }
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            $("#button2").click(function () {
+                var amount = $("#number").text();
+                $.ajax({
+                    url: "../services/userProvider/add_to_cart.php",
+                    type: "post",
+                    data: {
+                        productId: <?php echo $_GET['id']; ?>,
+                        userId: <?php echo $_SESSION['userId']; ?>,
+                        amount: amount
+                    },
+                    success: function (response) {
+                        // Führen Sie hier Code aus, der ausgeführt werden soll, wenn die Anfrage erfolgreich war
+                        alert("Produkt wurde zum Warenkorb hinzugefügt");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
