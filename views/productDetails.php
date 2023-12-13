@@ -63,6 +63,28 @@ session_start();
                     'font-size': '24px'
                 });
             }
+
+            // Fügen Sie einen Hover-Effekt hinzu
+            $("#button1").hover(function () {
+                // Beim Hovern: Machen Sie das Icon größer und rot
+                $(this).find('i').css({
+                    'color': 'rgb(254, 77, 77)',
+                    'font-size': '33px'
+                });
+            }, function () {
+                // Beim Verlassen des Hovers: Setzen Sie das Icon zurück
+                if (!favorited) {
+                    $(this).find('i').css({
+                        'color': 'white',
+                        'font-size': '24px'
+                    });
+                } else {
+                    $(this).find('i').css({
+                        'color': 'rgb(254, 77, 77)',
+                        'font-size': '33px'
+                    });
+                }
+            });
             // ...
         });
     </script>
