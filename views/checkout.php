@@ -119,7 +119,7 @@ session_start();
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>
-                <form class="needs-validation was-validated" novalidate="">
+                <form class="needs-validation was-validated" novalidate="" action="thankyou.php" method="post">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Vorname</label>

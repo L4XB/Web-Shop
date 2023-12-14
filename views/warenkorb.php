@@ -53,8 +53,10 @@ session_start();
                 <br>
             </div>
         </div>
-        <div class="row">
-            <!--Rand-->
+
+
+       <!--  <div class="row">
+            
             <div class="col-2"></div>
 
             <div class="col-1"
@@ -75,11 +77,11 @@ session_start();
                         style="height: 2.5vh;">Lieferadresse ändern</button>
             </div>
 
-            <!--Rand-->
+            
             <div class="col-2"></div>
         </div>
         <div class="row">
-            <!--Rand-->
+            
             <div class="col-2"></div>
 
             <div class="col-1"
@@ -100,9 +102,10 @@ session_start();
                         style="height: 2.5vh;">Liefertermin ändern</button>
             </div>
 
-            <!--Rand-->
+            
             <div class="col-2"></div>
-        </div>
+        </div> -->
+        
 
         <?php
         include("../services/userProvider/load_shopping_cart_items.php");

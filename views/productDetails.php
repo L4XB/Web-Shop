@@ -15,6 +15,9 @@ session_start();
     <link rel="stylesheet" href="../style/productDetails.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <?php
     // Serververbindung
     $servername = "localhost";
@@ -211,7 +214,15 @@ session_start();
                     },
                     success: function (response) {
                         // Führen Sie hier Code aus, der ausgeführt werden soll, wenn die Anfrage erfolgreich war
-                        alert("Produkt wurde zum Warenkorb hinzugefügt");
+
+                        Swal.fire({
+                            position: "top-end",
+                            icon: "success",
+                            title: "Artiekl zum Warenkorb hinzugefügt",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+
                     },
                     error: function (jqXHR, textStatus, errorThrown) {
                         console.log(textStatus, errorThrown);
@@ -230,6 +241,10 @@ session_start();
     require '../services/userProvider/favorites.php';
     session_start();
     ?>
+    <div class="col-md-8 order-md-1">
+                <h4 class="mb-3">Produktansicht</h4>
+    </div>
+    
     <div id="content-divs">
         <div id="black-top-box">
             <div id="black-top-box-items">
