@@ -70,8 +70,8 @@ session_start();
             <div class="col-1" style="border-bottom: solid; border-width:thin; border-color: lightgrey;"></div>
 
             <div class="col-2"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <button type="button" class="btn btn-secondary"><img src="../database/images/pen.png"
+                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;width: 250px">
+                <button type="button" style=" " class="btn btn-secondary"><img src="../database/images/pen.png"
                         style="height: 2.5vh;">Lieferadresse ändern</button>
             </div>
 
@@ -95,7 +95,7 @@ session_start();
             <div class="col-1" style="border-bottom: solid; border-width:thin; border-color: lightgrey;"></div>
 
             <div class="col-2"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey; white-space: nowrap;">
+                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey; white-space: nowrap;width: 250px">
                 <button type="button" class="btn btn-secondary"><img src="../database/images/pen.png"
                         style="height: 2.5vh;">Liefertermin ändern</button>
             </div>
@@ -107,8 +107,9 @@ session_start();
         <?php
         include("../services/userProvider/load_shopping_cart_items.php");
         ?>
-        <div class="row container-fluid justify-content-end">
-            <div class="col-2">
+
+        <div class="row container-fluid justify-content-end" style="margin-top:40px;padding-right:190px;">
+            <div class="col-3">
                 <button type="button" class="btn btn-warning" onclick="window.location.href = 'checkout.php';">weiter
                     zur Kasse</button>
             </div>
