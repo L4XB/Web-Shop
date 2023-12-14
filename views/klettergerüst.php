@@ -33,7 +33,7 @@
   // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
   session_start();
   if (!isset($_SESSION['userId'])) {
-    die("Benutzer-ID nicht gefunden");
+
   }
 
   $userId = $_SESSION['userId'];

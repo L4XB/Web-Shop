@@ -47,9 +47,9 @@ while ($row = $result->fetch_assoc()) {
     echo '<p class="text">' . $row['description'] . '</p>';
     echo '</div>';
     echo '<div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-    echo '<div id="counter">';
+    echo '<div id="counter" data-productid="' . $row['productID'] . '">';
     echo '<div id="minus">-</div>';
-    echo '<div id="number">' . $row['amount'] . '</div>';
+    echo '<div id="number">' . $row['amount'] . '</div>'; // Fügen Sie dieses Div hinzu
     echo '<div id="plus">+</div>';
     echo '</div>';
     echo '</div>';
@@ -64,3 +64,48 @@ $stmt->close();
 $conn->close();
 
 ?>
+
+<script>
+    $(document).ready(function () {
+        $("#minus").click(function () {
+            var counter = $(this).parent();
+            var productId = counter.data('productid');
+            var numberDiv = counter.find("#number");
+            var number = parseInt(numberDiv.text());
+            if (number > 1) {
+                number--;
+                numberDiv.text(number);
+                updateAmount(productId, number);
+            }
+        });
+
+        $("#plus").click(function () {
+            var counter = $(this).parent();
+            var productId = counter.data('productid');
+            var numberDiv = counter.find("#number");
+            var number = parseInt(numberDiv.text());
+            number++;
+            numberDiv.text(number);
+            updateAmount(productId, number);
+        });
+
+        function updateAmount(productId, amount) {
+            $.ajax({
+                url: "../services/userProvider/update_amount.php",
+                type: "post",
+                data: {
+                    userId: <?php echo $_SESSION['userId']; ?>,
+                    productId: productId,
+                    amount: amount
+                },
+                success: function (response) {
+                    // Führen Sie hier Code aus, der ausgeführt werden soll, wenn die Anfrage erfolgreich war
+                    alert("Anzahl erfolgreich aktualisiert");
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert(errorThrown);
+                }
+            });
+        }
+    });
+</script>

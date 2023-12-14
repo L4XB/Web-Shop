@@ -15,23 +15,7 @@ session_start();
 
     <link rel="stylesheet" href="../style/warenkorb.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', (event) => {
-            document.getElementById('minus').addEventListener('click', function () {
-                var number = document.getElementById('number');
-                var currentValue = parseInt(number.innerText);
-                if (currentValue > 1) {
-                    number.innerText = currentValue - 1;
-                }
-            });
 
-            document.getElementById('plus').addEventListener('click', function () {
-                var number = document.getElementById('number');
-                var currentValue = parseInt(number.innerText);
-                number.innerText = currentValue + 1;
-            });
-        });
-    </script>
 
     <script>
         $(document).ready(function () {
