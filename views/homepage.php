@@ -74,7 +74,7 @@
                         <div class="carousel-caption text-left text-color">
                             <h1>DevTeam</h1>
                             <p>Lerne die Entwickler des FSI Shops kennen!</p>
-                            <p><a class="btn btn-dark" href="devteam.php" role="button">Visit</a></p>
+                            <p><a class="btn btn-dark" href="devteam.php" role="button">Kennenlernen</a></p>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         <div class="carousel-caption text-right text-color">
                             <h1>Dokumentation</h1>
                             <p>Du interresierst dich für die Entstehung des Webshops?</p>
-                            <p><a class="btn btn-dark" href="doku.php" role="button">check out</a></p>
+                            <p><a class="btn btn-dark" href="doku.php" role="button">Mehr erfahren</a></p>
                         </div>
                     </div>
                 </div>
