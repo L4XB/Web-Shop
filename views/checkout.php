@@ -96,7 +96,7 @@
 
                     echo '<li class="list-group-item d-flex justify-content-between">';
                     echo '<span>Gesamtbetrag (€)</span>';
-                    echo '<strong>' . $total . '</strong>';
+                    echo '<strong>' . $total . '€</strong>';
                     echo '</li>';
 
                     $stmt->close();
