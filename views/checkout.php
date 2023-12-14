@@ -65,10 +65,13 @@
                     $discount = 0;
 
                     while ($row = $result->fetch_assoc()) {
+                        $discount = 0;
                         if ($row['amount'] >= 10) {
                             $discount = 0.2; // 20% Rabatt
                         } elseif ($row['amount'] >= 5) {
                             $discount = 0.1; // 10% Rabatt
+                        } elseif ($row['amount'] <= 5) {
+
                         }
 
                         $price = $row['price'] * (1 - $discount);
