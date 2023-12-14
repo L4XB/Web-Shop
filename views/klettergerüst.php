@@ -31,36 +31,37 @@
 <body>
   <?php
   // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
-  session_start();
   if (!isset($_SESSION['userId'])) {
 
+  } else {
+    $userId = $_SESSION['userId'];
+
+    // Serververbindung
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+      die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+
+    // SQL-Abfrage, um die Anzahl der Elemente im Warenkorb zu ermitteln
+    $stmt = $conn->prepare("SELECT COUNT(DISTINCT productID) AS count FROM shoppingCart WHERE userID = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    $cartCount = $row['count'];
+
+    $stmt->close();
+    $conn->close();
   }
 
-  $userId = $_SESSION['userId'];
 
-  // Serververbindung
-  $servername = "localhost";
-  $username = "root";
-  $password = "";
-  $dbname = "webShopFSI";
-
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  if ($conn->connect_error) {
-    die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-  }
-
-  // SQL-Abfrage, um die Anzahl der Elemente im Warenkorb zu ermitteln
-  $stmt = $conn->prepare("SELECT COUNT(DISTINCT productID) AS count FROM shoppingCart WHERE userID = ?");
-  $stmt->bind_param("i", $userId);
-  $stmt->execute();
-  $result = $stmt->get_result();
-  $row = $result->fetch_assoc();
-
-  $cartCount = $row['count'];
-
-  $stmt->close();
-  $conn->close();
   ?>
   <header class="p-3 bg-dark text-white">
     <div class="container">
