@@ -78,7 +78,7 @@
 
                         echo '<li class="list-group-item d-flex justify-content-between lh-condensed">';
                         echo '<div>';
-                        echo '<h6 class="my-0">' . $row['productName'] . ' (' . $row['amount'] . ')</h6>'; // Zeigt die Anzahl jedes Produkts an
+                        echo '<h6 class="my-0">' . $row['productName'] . ' (' . $row['amount'] . 'x)</h6>'; // Zeigt die Anzahl jedes Produkts an
                         echo '<small class="text-muted">' . $row['description'] . '</small>';
                         echo '</div>';
                         echo '<span class="text-muted">' . number_format($price, 2, '.', '') . '€</span>';
