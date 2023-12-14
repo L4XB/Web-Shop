@@ -1,6 +1,5 @@
 <?php
 
-session_start();
 
 // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
 if (!isset($_SESSION['userId'])) {
