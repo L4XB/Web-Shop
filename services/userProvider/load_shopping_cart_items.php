@@ -48,9 +48,9 @@ while ($row = $result->fetch_assoc()) {
     echo '</div>';
     echo '<div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
     echo '<div id="counter" data-productid="' . $row['productID'] . '">';
-    echo '<div id="minus">-</div>';
-    echo '<div id="number">' . $row['amount'] . '</div>'; // Fügen Sie dieses Div hinzu
-    echo '<div id="plus">+</div>';
+    echo '<div class="minus">-</div>';
+    echo '<div class="number">' . $row['amount'] . '</div>';
+    echo '<div class="plus">+</div>';
     echo '</div>';
     echo '</div>';
     echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
@@ -67,22 +67,22 @@ $conn->close();
 
 <script>
     $(document).ready(function () {
-        $("#minus").click(function () {
+        $(".minus").click(function () {
             var counter = $(this).parent();
             var productId = counter.data('productid');
-            var numberDiv = counter.find("#number");
+            var numberDiv = counter.find(".number");
             var number = parseInt(numberDiv.text());
-            if (number > 1) {
+            if (number > 0) {
                 number--;
                 numberDiv.text(number);
                 updateAmount(productId, number);
             }
         });
 
-        $("#plus").click(function () {
+        $(".plus").click(function () {
             var counter = $(this).parent();
             var productId = counter.data('productid');
-            var numberDiv = counter.find("#number");
+            var numberDiv = counter.find(".number");
             var number = parseInt(numberDiv.text());
             number++;
             numberDiv.text(number);
@@ -90,8 +90,9 @@ $conn->close();
         });
 
         function updateAmount(productId, amount) {
+            var url = amount > 0 ? "../services/userProvider/update_amount.php" : "../services/userProvider/delete_product.php";
             $.ajax({
-                url: "../services/userProvider/update_amount.php",
+                url: url,
                 type: "post",
                 data: {
                     userId: <?php echo $_SESSION['userId']; ?>,
@@ -99,11 +100,13 @@ $conn->close();
                     amount: amount
                 },
                 success: function (response) {
-                    // Führen Sie hier Code aus, der ausgeführt werden soll, wenn die Anfrage erfolgreich war
-                    alert("Anzahl erfolgreich aktualisiert");
+
+                    if (amount == 0) {
+                        location.reload(); // Aktualisieren Sie die Seite, um die Änderungen anzuzeigen
+                    }
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
-                    alert(errorThrown);
+
                 }
             });
         }
