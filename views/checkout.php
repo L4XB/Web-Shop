@@ -75,10 +75,10 @@
 
                         echo '<li class="list-group-item d-flex justify-content-between lh-condensed">';
                         echo '<div>';
-                        echo '<h6 class="my-0">' . $row['productName'] . '</h6>';
+                        echo '<h6 class="my-0">' . $row['productName'] . ' (' . $row['amount'] . ')</h6>'; // Zeigt die Anzahl jedes Produkts an
                         echo '<small class="text-muted">' . $row['description'] . '</small>';
                         echo '</div>';
-                        echo '<span class="text-muted">' . $price . '€</span>';
+                        echo '<span class="text-muted">' . number_format($price, 2, '.', '') . '€</span>';
                         echo '</li>';
 
                         $total += $price * $row['amount'];
@@ -89,29 +89,25 @@
                             echo '<h6 class="my-0">Mengenrabatt</h6>';
                             echo '<small>' . ($discount * 100) . '% Rabatt auf diesen Artikel</small>';
                             echo '</div>';
-                            echo '<span class="text-success">-' . ($row['price'] * $discount * $row['amount']) . '€</span>';
+                            echo '<span class="text-success">-' . number_format($row['price'] * $discount * $row['amount'], 2, '.', '') . '€</span>';
                             echo '</li>';
                         }
                     }
 
                     echo '<li class="list-group-item d-flex justify-content-between">';
                     echo '<span>Gesamtbetrag (€)</span>';
-                    echo '<strong>' . $total . '€</strong>';
+                    echo '<strong>' . number_format($total, 2, '.', '') . '€</strong>';
                     echo '</li>';
 
                     $stmt->close();
                     $conn->close();
                     ?>
 
-
                 </ul>
 
                 <form class="card p-2">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Gutscheincode">
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-secondary">Einlösen</button>
-                        </div>
                     </div>
                 </form>
             </div>
