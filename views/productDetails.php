@@ -228,7 +228,6 @@ session_start();
     include 'klettergerüst.php';
     require '../services/productProvider/loadSpecificProductData.php';
     require '../services/userProvider/favorites.php';
-    session_start();
 
     ?>
     <div id="content-divs">
