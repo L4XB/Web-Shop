@@ -93,7 +93,7 @@ session_start();
             var favorited = <?php echo $isFavorited ? 'true' : 'false'; ?>;
             $("#button1").click(function () {
                 if (!favorited) {
-                    // Führen Sie die Funktion zum Hinzufügen des Favoriten aus
+
                     $.ajax({
                         url: "../services/userProvider/add_favorit.php",
                         type: "post",
@@ -108,7 +108,9 @@ session_start();
                                 'color': 'rgb(254, 77, 77)',
                                 'font-size': '33px'
                             });
+                            location.reload();
                         }
+
                     });
                 } else {
                     // Führen Sie die Funktion zum Entfernen des Favoriten aus
@@ -126,6 +128,8 @@ session_start();
                                 'color': 'white',
                                 'font-size': '24px'
                             });
+                            location.reload();
+
                         }
                     });
                 }

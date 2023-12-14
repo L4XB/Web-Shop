@@ -105,11 +105,11 @@
 
                 </ul>
 
-                <form class="card p-2">
+                <!-- <form class="card p-2">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Gutscheincode">
                     </div>
-                </form>
+                </form> -->
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>
