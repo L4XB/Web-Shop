@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +14,130 @@
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/productDetails.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <?php
+    // Serververbindung
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+
+    // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
+    if (!isset($_SESSION['userId'])) {
+        die("Benutzer-ID nicht gefunden");
+    }
+
+    $userId = $_SESSION['userId'];
+    $productId = $_GET['id'];
+
+    // SQL-Abfrage, um zu überprüfen, ob das Produkt bereits favorisiert ist
+    $stmt = $conn->prepare("SELECT * FROM favorites WHERE productId = ? AND userId = ?");
+    $stmt->bind_param("ii", $productId, $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    $isFavorited = $result->num_rows > 0;
+
+    $stmt->close();
+    $conn->close();
+    ?>
+    <script>
+        $(document).ready(function () {
+            var favorited = <?php echo $isFavorited ? 'true' : 'false'; ?>;
+            if (favorited) {
+                // Wenn das Produkt bereits favorisiert ist, machen Sie das Icon rot
+                $("#button1").find('i').css({
+                    'color': 'rgb(254, 77, 77)',
+                    'font-size': '33px'
+                });
+            } else {
+                // Wenn das Produkt nicht favorisiert ist, machen Sie das Icon weiß
+                $("#button1").find('i').css({
+                    'color': 'white',
+                    'font-size': '24px'
+                });
+            }
+
+            // Fügen Sie einen Hover-Effekt hinzu
+            $("#button1").hover(function () {
+                // Beim Hovern: Machen Sie das Icon größer und rot
+                $(this).find('i').css({
+                    'color': 'rgb(254, 77, 77)',
+                    'font-size': '33px'
+                });
+            }, function () {
+                // Beim Verlassen des Hovers: Setzen Sie das Icon zurück
+                if (!favorited) {
+                    $(this).find('i').css({
+                        'color': 'white',
+                        'font-size': '24px'
+                    });
+                } else {
+                    $(this).find('i').css({
+                        'color': 'rgb(254, 77, 77)',
+                        'font-size': '33px'
+                    });
+                }
+            });
+            // ...
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            var favorited = <?php echo $isFavorited ? 'true' : 'false'; ?>;
+            $("#button1").click(function () {
+                if (!favorited) {
+
+                    $.ajax({
+                        url: "../services/userProvider/add_favorit.php",
+                        type: "post",
+                        data: {
+                            productId: <?php echo $_GET['id']; ?>,
+                            userId: <?php echo 1; ?>
+                        },
+                        success: function (response) {
+
+                            // Ändern Sie das Icon zu rot
+                            $("#button1").find('i').css({
+                                'color': 'rgb(254, 77, 77)',
+                                'font-size': '33px'
+                            });
+                            location.reload();
+                        }
+
+                    });
+                } else {
+                    // Führen Sie die Funktion zum Entfernen des Favoriten aus
+                    $.ajax({
+                        url: "../services/userProvider/remove_favorit.php",
+                        type: "post",
+                        data: {
+                            productId: <?php echo $_GET['id']; ?>,
+                            userId: <?php echo 1; ?>
+                        },
+                        success: function (response) {
+
+                            // Ändern Sie das Icon zurück zu weiß
+                            $("#button1").find('i').css({
+                                'color': 'white',
+                                'font-size': '24px'
+                            });
+                            location.reload();
+
+                        }
+                    });
+                }
+                // Wechseln Sie den Zustand
+                favorited = !favorited;
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', (event) => {
             document.getElementById('minus').addEventListener('click', function () {
@@ -70,6 +197,29 @@
             }
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            $("#button2").click(function () {
+                var amount = $("#number").text();
+                $.ajax({
+                    url: "../services/userProvider/add_to_cart.php",
+                    type: "post",
+                    data: {
+                        productId: <?php echo $_GET['id']; ?>,
+                        userId: <?php echo $_SESSION['userId']; ?>,
+                        amount: amount
+                    },
+                    success: function (response) {
+                        // Führen Sie hier Code aus, der ausgeführt werden soll, wenn die Anfrage erfolgreich war
+                        alert("Produkt wurde zum Warenkorb hinzugefügt");
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus, errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -77,12 +227,15 @@
     <?php
     include 'klettergerüst.php';
     require '../services/productProvider/loadSpecificProductData.php';
+    require '../services/userProvider/favorites.php';
+    session_start();
     ?>
     <div id="content-divs">
         <div id="black-top-box">
             <div id="black-top-box-items">
                 <div id="product-card">
-                    <img style="width: 110%; max-height: 55vh; position: relative;" src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
+                    <img style="width: 110%; max-height: 55vh; position: relative;"
+                        src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
                 </div>
                 <div id="details-products">
                     <p id="product-name">
@@ -90,7 +243,7 @@
                     </p>
                     <div id="details-products-data">
                         <div id="details-products-data-content">
-                        
+
                         </div>
                         <div id="details-products-data-functions">
                             <div class="dropdown">

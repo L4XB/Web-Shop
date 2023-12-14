@@ -30,8 +30,38 @@
 
 <body>
   <?php
-  // Start der Session
-  session_start();
+  // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
+  if (!isset($_SESSION['userId'])) {
+
+  } else {
+    $userId = $_SESSION['userId'];
+
+    // Serververbindung
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+      die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+
+    // SQL-Abfrage, um die Anzahl der Elemente im Warenkorb zu ermitteln
+    $stmt = $conn->prepare("SELECT COUNT(DISTINCT productID) AS count FROM shoppingCart WHERE userID = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    $cartCount = $row['count'];
+
+    $stmt->close();
+    $conn->close();
+  }
+
+
   ?>
   <header class="p-3 bg-dark text-white">
     <div class="container">
@@ -59,7 +89,9 @@
             <li class="me-2">
               <a href="warenkorb.php" class="nav-link px-2 text-white position-relative">
                 Warenkorb
-                <span class="badge">0</span>
+                <span class="badge">
+                  <?php echo $cartCount; ?>
+                </span>
               </a>
             </li>
 

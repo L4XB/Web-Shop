@@ -1,12 +1,14 @@
-.light-text{
+.light-text {
     color: grey;
     font-size: 80%;
 }
-.text{
-    color:black;
+
+.text {
+    color: black;
     font-size: 110%;
 }
-.delete{
+
+.delete {
     border: 0cap;
     background-color: transparent;
     height: 150%;
@@ -18,14 +20,14 @@
 
 }
 
-#number {
+.number {
     background-color: white;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
     text-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);
 }
 
-#minus,
-#plus {
+.minus,
+.plus {
     background-color: #212529;
     color: white;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.1);

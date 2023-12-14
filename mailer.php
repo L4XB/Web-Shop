@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Konfiguration für OAuth2
         $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
         $clientSecret = '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';
-        $refreshToken = '1//09_rXKWr-EZNGCgYIARAAGAkSNwF-L9IrcSEG8XrTQ0r8r2sG4FPrYKvH3AEXjy-O4UTUgXwwn-rGJMvxLHVQ8JOn7lc-cqtr0-4';
+        $refreshToken = '1//090tMqvvfmX7oCgYIARAAGAkSNwF-L9IrZAs5Q_Z7y7TcozSIVO6b15aFwUas2SkmdeQTkuvKEK0BfxVRbX55tt6bcyNZb_izpbQ';
 
         $provider = new Google([
             'clientId' => $clientId,

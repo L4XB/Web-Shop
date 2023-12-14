@@ -1,3 +1,7 @@
+<?php
+session_start();
+$_SESSION['loggedIn'] = false;
+?>
 <!DOCTYPE html>
 <html lang="en">
 

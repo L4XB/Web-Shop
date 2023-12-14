@@ -76,6 +76,7 @@ function createUser($email, $password, $firstName, $lastName)
     $_SESSION['loggedIn'] = true;
     $_SESSION['clearPassword'] = $passwordGenerated;
     $_SESSION['email'] = $email;
+
     $hashedPassword = hash('sha256', $passwordGenerated);
     $currentTimestamp = date('Y-m-d H:i:s');
 
@@ -97,6 +98,17 @@ function createUser($email, $password, $firstName, $lastName)
                 $_SESSION['lastLogIn'] = $user['lastLogin'];
             }
             $userStmt->close();
+
+            $idStmt = $conn->prepare("SELECT userID FROM users WHERE email = ?");
+            $idStmt->bind_param("s", $email);
+            $idStmt->execute();
+            $idResult = $idStmt->get_result();
+            if ($idResult->num_rows > 0) {
+                $idRow = $idResult->fetch_assoc();
+                $_SESSION['userId'] = $idRow['userID'];
+            }
+
+            //Hier
         } else {
 
             echo "Error creating user: " . $stmt->error;
