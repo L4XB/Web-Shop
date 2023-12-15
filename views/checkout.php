@@ -25,19 +25,63 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Verstecken Sie die Divs zu Beginn
-            $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().hide();
-
             // Wenn der ausgewählte Radiobutton geändert wird...
             $('input[name="paymentMethod"]').change(function () {
                 // Wenn der Radiobutton "Kreditkarte" ausgewählt ist...
                 if ($('#credit').is(':checked')) {
-                    // Zeigen Sie die Divs an
+                    // Zeigen Sie die Divs an und fügen Sie das 'required'-Attribut zu den Eingabefeldern hinzu
                     $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().show();
+                    $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').attr('required', '');
                 } else {
-                    // Andernfalls verstecken Sie die Divs
+                    // Andernfalls verstecken Sie die Divs und entfernen Sie das 'required'-Attribut von den Eingabefeldern
                     $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().hide();
+                    $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').removeAttr('required');
                 }
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            // Setzen Sie shippingCost initial auf 0
+            $('#totalPrice').data('shippingCost', 0);
+
+            // Setzen Sie DPD als initial ausgewählte Versandart
+            $('#DPD').prop('checked', true);
+
+            // Aktualisieren Sie den Versandkostenbetrag und den Gesamtpreis initial
+            var shippingCost = 5;
+            var totalPrice = parseFloat($('#totalPrice').text().replace('€', ''));
+            totalPrice += shippingCost;
+            $('#totalPrice').text(totalPrice.toFixed(2) + ' €');
+            $('#totalPrice').data('shippingCost', shippingCost);
+            $('#shippingCost').text(shippingCost.toFixed(2) + '€');
+
+            // Wenn die ausgewählte Versandart geändert wird...
+            $('input[name="shippingMethod"]').change(function () {
+                // Holen Sie den aktuellen Gesamtpreis
+                totalPrice = parseFloat($('#totalPrice').text().replace('€', ''));
+
+                // Subtrahieren Sie den alten Versandkostenbetrag vom Gesamtpreis
+                totalPrice -= parseFloat($('#totalPrice').data('shippingCost'));
+
+                // Aktualisieren Sie den Versandkostenbetrag basierend auf der ausgewählten Versandart
+                if ($('#DPD').is(':checked')) {
+                    shippingCost = 5;
+                } else if ($('#DHL').is(':checked')) {
+                    shippingCost = 10;
+                } else if ($('#dhlexpress').is(':checked')) {
+                    shippingCost = 14;
+                } else {
+                    shippingCost = 0;
+                }
+
+                // Addieren Sie den neuen Versandkostenbetrag zum Gesamtpreis
+                totalPrice += shippingCost;
+
+                // Aktualisieren Sie den angezeigten Gesamtpreis und speichern Sie den Versandkostenbetrag
+                $('#totalPrice').text(totalPrice.toFixed(2) + ' €');
+                $('#totalPrice').data('shippingCost', shippingCost);
+                $('#shippingCost').text(shippingCost.toFixed(2) + '€');
             });
         });
     </script>
@@ -122,10 +166,13 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                             echo '</li>';
                         }
                     }
-
+                    echo '<li class="list-group-item d-flex justify-content-between">';
+                    echo '<span>Versandkosten (€)</span>';
+                    echo '<strong id="shippingCost">0.00€</strong>';
+                    echo '</li>';
                     echo '<li class="list-group-item d-flex justify-content-between">';
                     echo '<span>Gesamtbetrag (€)</span>';
-                    echo '<strong>' . number_format($total, 2, '.', '') . '€</strong>';
+                    echo '<strong id = "totalPrice">' . number_format($total, 2, '.', '') . '€</strong>';
                     echo '</li>';
 
                     $stmt->close();
@@ -142,18 +189,21 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>
-                <form class="needs-validation was-validated" novalidate="" action="thankyou.php" method="post">
+                <form class="needs-validation was-validated" novalidate=""
+                    action="../services/userProvider/checkout_function.php" method="post">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Vorname</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" id="firstName" placeholder="Vorname" value=""
+                                required="">
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Nachname</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                            <input type="text" class="form-control" id="lastName" placeholder="Nachname" value=""
+                                required="">
                             <div class="invalid-feedback">
                                 Valid last name is required.
                             </div>
@@ -199,7 +249,25 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     </div>
                 <hr class="mb-4">
                 -->
+                    <br>
+                    <h4 class="mb-3">Versandarten</h4>
 
+                    <div class="d-block my-3">
+                        <div class="custom-control custom-radio">
+                            <input id="DPD" name="shippingMethod" type="radio" class="custom-control-input" checked=""
+                                required="">
+                            <label class="custom-control-label" for="dpd">DPD</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="DHL" name="shippingMethod" type="radio" class="custom-control-input" required="">
+                            <label class="custom-control-label" for="dhl">DHL</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="dhlexpress" name="shippingMethod" type="radio" class="custom-control-input"
+                                required="">
+                            <label class="custom-control-label" for="dhlexpress">DHL-Express</label>
+                        </div>
+                    </div>
                     <br>
 
                     <h4 class="mb-3">Bezahlung</h4>
@@ -210,11 +278,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                                 required="">
                             <label class="custom-control-label" for="credit">Kreditkarte</label>
                         </div>
-                        <div class="custom-control custom-radio">
-                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"
-                                required="">
-                            <label class="custom-control-label" for="debit">Girokarte</label>
-                        </div>
+
                         <div class="custom-control custom-radio">
                             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input"
                                 required="">
@@ -254,6 +318,16 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                             </div>
                         </div>
                     </div>
+                    <br>
+
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="privacyPolicy" required="">
+                        <label class="custom-control-label" for="privacyPolicy">Ich akzeptiere die
+                            Datenschutzrichtlinien</label>
+                        <div class="invalid-feedback">
+                            Sie müssen die Datenschutzrichtlinien akzeptieren, um fortzufahren.
+                        </div>
+                    </div>
                     <div class="row container-fluid justify-content-end">
                         <hr class="mb-4">
                         <button class="btn btn-warning btn-lg btn-block" type="submit">Zahlungspflichtig
@@ -261,6 +335,10 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     </div>
 
                 </form>
+                <br>
+                <br>
+                <br>
+                <br>
                 <br>
                 <br>
             </div>
