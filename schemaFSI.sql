@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 14. Dez 2023 um 11:37
+-- Erstellungszeit: 15. Dez 2023 um 18:57
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -38,12 +38,8 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`favoritesID`, `userID`, `productID`) VALUES
-(79, 19, 2),
-(82, 19, 1),
-(83, 19, 3),
-(84, 19, 5),
-(98, 19, 9),
-(99, 20, 2);
+(101, 29, 5),
+(102, 29, 6);
 
 -- --------------------------------------------------------
 
@@ -59,6 +55,20 @@ CREATE TABLE `history` (
   `productID` int(11) DEFAULT NULL,
   `transactionID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `history`
+--
+
+INSERT INTO `history` (`historyID`, `timestamp`, `amount`, `userID`, `productID`, `transactionID`) VALUES
+(2, '2023-12-15 16:46:18', 5, 29, 2, 3),
+(3, '2023-12-15 16:47:52', 5, 29, 1, 4),
+(4, '2023-12-15 16:47:52', 4, 29, 3, 4),
+(6, '2023-12-15 17:45:32', 6, 29, 2, 5),
+(7, '2023-12-15 17:45:32', 3, 29, 5, 5),
+(8, '2023-12-15 17:45:32', 6, 29, 2, 5),
+(9, '2023-12-15 17:45:32', 10, 29, 6, 5),
+(13, '2023-12-15 17:56:06', 4, 29, 2, 6);
 
 -- --------------------------------------------------------
 
@@ -104,16 +114,6 @@ CREATE TABLE `shoppingCart` (
   `productID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `shoppingCart`
---
-
-INSERT INTO `shoppingCart` (`cartID`, `amount`, `userID`, `productID`) VALUES
-(18, 3, 19, 2),
-(19, 7, 19, 5),
-(20, 10, 19, 7),
-(21, 4, 20, 2);
-
 -- --------------------------------------------------------
 
 --
@@ -122,8 +122,20 @@ INSERT INTO `shoppingCart` (`cartID`, `amount`, `userID`, `productID`) VALUES
 
 CREATE TABLE `transactions` (
   `transactionID` int(11) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
+  `userID` int(11) DEFAULT NULL,
+  `orderNumber` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Daten für Tabelle `transactions`
+--
+
+INSERT INTO `transactions` (`transactionID`, `timestamp`, `userID`, `orderNumber`) VALUES
+(3, '2023-12-15 16:46:18', NULL, NULL),
+(4, '2023-12-15 16:47:52', NULL, NULL),
+(5, '2023-12-15 17:45:32', NULL, NULL),
+(6, '2023-12-15 17:56:06', 29, '6742866098');
 
 -- --------------------------------------------------------
 
@@ -151,10 +163,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `email`, `passwort`, `firstName`, `lastName`, `lastLogin`, `screenResolution`, `os`, `twoFASecret`, `use2FA`, `isFirstLogin`, `createdAt`) VALUES
-(19, 'Madeleine.buck@online.de', '6d21b366238e644c392b8c8c37fb37f48279f31f5dc8911fbd4af1fd97cd43fd', 'Madeleine', 'Buck', '2023-12-14 05:31:23', 'unknown', 'unknown', '7II545CLE7CMXAFI', 0, 1, '2023-12-14 05:31:23'),
-(20, 'buck.lukas@icloud.com', '5fcc724749296d0a0398482ba32ddac7120209ea5ae78248a916c0e272b4b7cb', 'Madeleine', 'Buck', '2023-12-14 07:12:50', 'unknown', 'unknown', '233SVSAA4E55QTKB', 0, 1, '2023-12-14 07:12:50'),
-(21, 'lukas.buck@e-mail.de', '50b0112b8496beed2d9eb1e6349e3c16702fc5f5121627da55742c07cf427514', 'Madeleine', 'Buck', '2023-12-14 07:35:17', 'unknown', 'unknown', 'J47VSZY5S4N5AAAT', 0, 1, '2023-12-14 07:35:17'),
-(22, 'buck.lukas@icloud.com', 'cf93b2073db715b0d130ec8baca419d6a081ffd1b26886bf00bab5ec2c9fada1', 'Madeleine', 'Buck', '2023-12-14 07:40:56', 'unknown', 'unknown', '6SFIVAKUKYGUZZ2S', 0, 1, '2023-12-14 07:40:56');
+(29, 'lukas.buck@e-mail.de', 'db0dc72dc8aee68904ab238cbb61d03d2baf35b4892d63251d3c2d6e1afe5dee', 'Madeleine', 'Buck', '2023-12-15 16:44:56', 'unknown', 'unknown', 'OQQCUBCHOGLOA42N', 0, 1, '2023-12-15 16:44:56');
 
 --
 -- Indizes der exportierten Tabellen
@@ -195,7 +204,8 @@ ALTER TABLE `shoppingCart`
 -- Indizes für die Tabelle `transactions`
 --
 ALTER TABLE `transactions`
-  ADD PRIMARY KEY (`transactionID`);
+  ADD PRIMARY KEY (`transactionID`),
+  ADD KEY `fk_user` (`userID`);
 
 --
 -- Indizes für die Tabelle `users`
@@ -211,13 +221,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favoritesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `favoritesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
 
 --
 -- AUTO_INCREMENT für Tabelle `history`
 --
 ALTER TABLE `history`
-  MODIFY `historyID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `historyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT für Tabelle `products`
@@ -229,19 +239,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT für Tabelle `shoppingCart`
 --
 ALTER TABLE `shoppingCart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT für Tabelle `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints der exportierten Tabellen
@@ -268,6 +278,12 @@ ALTER TABLE `history`
 ALTER TABLE `shoppingCart`
   ADD CONSTRAINT `shoppingcart_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `shoppingcart_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`);
+
+--
+-- Constraints der Tabelle `transactions`
+--
+ALTER TABLE `transactions`
+  ADD CONSTRAINT `fk_user` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
