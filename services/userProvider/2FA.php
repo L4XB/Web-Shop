@@ -54,7 +54,7 @@ function get2FASecret()
 
     $email = $_SESSION['email'];
     // Vorbereiten der SQL-Anweisung
-    $stmt = $conn->prepare("SELECT 2FASecret FROM users WHERE email = ?");
+    $stmt = $conn->prepare("SELECT twoFASecret FROM users WHERE email = ?");
     $stmt->bind_param("s", $email);
 
     // Ausführen der Anweisung
@@ -66,7 +66,7 @@ function get2FASecret()
         $user = $result->fetch_assoc();
         $stmt->close(); // Close the statement
         $conn->close(); // Close the connection
-        return $user['2FASecret'];
+        return $user['twoFASecret'];
     } else {
         $stmt->close(); // Close the statement
         $conn->close(); // Close the connection

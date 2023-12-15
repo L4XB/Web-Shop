@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateStmt->close();
 
         $user = $result->fetch_assoc();
-        $_SESSION['name'] = $user['vorname'];
+        $_SESSION['name'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
 

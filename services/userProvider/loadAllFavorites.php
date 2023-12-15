@@ -1,4 +1,7 @@
 <?php
+
+session_start();
+
 //Server Connection
 $servername = "localhost";
 $username = "root";
