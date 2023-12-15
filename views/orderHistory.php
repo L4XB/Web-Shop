@@ -35,8 +35,6 @@
       <br>
       <?php
       // Starten Sie die Session
-      error_reporting(E_ALL);
-      ini_set('display_errors', 1);
       session_start();
       $servername = "localhost";
       $username = "root";
@@ -93,7 +91,7 @@
 
       <!-- Optional! Noch zu überlegen ob eine implementierung notwendig ist -->
       <small class="d-block text-right mt-3">
-        <a href="#" class="btn btn-outline-dark">weitere Bestellungen</a>
+        <a href="products.php" class="btn btn-outline-dark">zur Atrikelübersicht</a>
       </small>
     </div>
   </main>
