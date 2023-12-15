@@ -1,5 +1,16 @@
 <?php
 session_start();
+
+
+// Überprüfen, ob der Benutzer eingeloggt ist
+if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
+    // Wenn der Benutzer nicht eingeloggt ist, leiten Sie ihn zur Login-Seite um
+    header('Location: login.php');
+    exit;
+}
+
+// Der Rest Ihres Codes...
+?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +66,7 @@ session_start();
         </div>
 
 
-       <!--  <div class="row">
+        <!--  <div class="row">
             
             <div class="col-2"></div>
 
@@ -105,7 +116,7 @@ session_start();
             
             <div class="col-2"></div>
         </div> -->
-        
+
 
         <?php
         include("../services/userProvider/load_shopping_cart_items.php");
