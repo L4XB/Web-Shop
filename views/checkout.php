@@ -322,6 +322,14 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                             </div>
                         </div>
                     </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="privacyPolicy" required="">
+                        <label class="custom-control-label" for="privacyPolicy">Ich akzeptiere die
+                            Datenschutzrichtlinien</label>
+                        <div class="invalid-feedback">
+                            Sie müssen die Datenschutzrichtlinien akzeptieren, um fortzufahren.
+                        </div>
+                    </div>
                     <div class="row container-fluid justify-content-end">
                         <hr class="mb-4">
                         <button class="btn btn-warning btn-lg btn-block" type="submit">Zahlungspflichtig
