@@ -1,5 +1,10 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
@@ -27,8 +32,11 @@
             <br>
             <br>
             <br>
-            <h1 class="cover-heading" style="color: white;">Vielen Dank für deine Bestellung {userName!} &#127881</h1>
-            <p class="lead" style="color: white;">Sie erhalten von uns, in den nächsten Minuten, eine Bestellbestätigung per Mail!</p>
+            <h1 class="cover-heading" style="color: white;">Vielen Dank für deine Bestellung
+                <?php echo $_SESSION['firstName']; ?> &#127881
+            </h1>
+            <p class="lead" style="color: white;">Sie erhalten von uns, in den nächsten Minuten, eine Bestellbestätigung
+                per Mail!</p>
             <p class="lead">
                 <a href="orderHistory.php" class="btn btn-warning">Meine Bestellungen</a>
             </p>
@@ -36,7 +44,8 @@
             <br>
         </main>
     </div>
-    
 
-    </body>
+
+</body>
+
 </html>
