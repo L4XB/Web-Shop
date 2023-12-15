@@ -91,7 +91,7 @@ h1 {
 }
 
 #headLineTextStyle {
-    margin-left: 300px;
+    margin-left: 0;
     font-size: 45px
 }
 
@@ -101,10 +101,8 @@ h1 {
 }
 
 #add-to-cart-button {
-
     width: 100px;
     height: 100px;
-
 }
 
 

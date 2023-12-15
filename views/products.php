@@ -15,27 +15,22 @@
         }
     </style>
     <script>
-
         document.getElementById('dashboard-Button').addEventListener('click', function () {
             this.classList.toggle('big');
         });
     </script>
-
 </head>
 
 <body>
     <?php include 'klettergerüst.php'; ?>
     <br>
-    
-    <div>
-        <h1 id="headLineTextStyle" style="text-align: left; padding-left: 10px;">Artikelübersicht</h1>
-    </div>
+    <div class="container-fluid">
+        <h1 id="headLineTextStyle" style="text-align: left; padding-left: 16%;">Artikelübersicht</h1>
+    <br>
 
     <?php
     include("../services/productProvider/loadAllProducts.php");
     ?>
-
-
+    </div>
 </body>
-
 </html>

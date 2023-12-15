@@ -19,7 +19,7 @@
     <div class="album py-5 bg-light">
 
         <div class="container">
-        <h1 id="headLineTextStyle">Dokumentation</h1>
+          <h1 id="headLineTextStyle">Dokumentation</h1>
         <br>
 
           <div class="row">
