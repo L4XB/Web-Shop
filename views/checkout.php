@@ -22,7 +22,25 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="../style/checkout.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Verstecken Sie die Divs zu Beginn
+            $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().hide();
 
+            // Wenn der ausgewählte Radiobutton geändert wird...
+            $('input[name="paymentMethod"]').change(function () {
+                // Wenn der Radiobutton "Kreditkarte" ausgewählt ist...
+                if ($('#credit').is(':checked')) {
+                    // Zeigen Sie die Divs an
+                    $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().show();
+                } else {
+                    // Andernfalls verstecken Sie die Divs
+                    $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().hide();
+                }
+            });
+        });
+    </script>
 </head>
 
 
