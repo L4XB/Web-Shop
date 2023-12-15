@@ -278,11 +278,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                                 required="">
                             <label class="custom-control-label" for="credit">Kreditkarte</label>
                         </div>
-                        <div class="custom-control custom-radio">
-                            <input id="debit" name="paymentMethod" type="radio" class="custom-control-input"
-                                required="">
-                            <label class="custom-control-label" for="debit">Girokarte</label>
-                        </div>
+
                         <div class="custom-control custom-radio">
                             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input"
                                 required="">
