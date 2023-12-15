@@ -25,18 +25,17 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-            // Verstecken Sie die Divs zu Beginn
-            $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().hide();
-
             // Wenn der ausgewählte Radiobutton geändert wird...
             $('input[name="paymentMethod"]').change(function () {
                 // Wenn der Radiobutton "Kreditkarte" ausgewählt ist...
                 if ($('#credit').is(':checked')) {
-                    // Zeigen Sie die Divs an
+                    // Zeigen Sie die Divs an und fügen Sie das 'required'-Attribut zu den Eingabefeldern hinzu
                     $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().show();
+                    $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').attr('required', '');
                 } else {
-                    // Andernfalls verstecken Sie die Divs
+                    // Andernfalls verstecken Sie die Divs und entfernen Sie das 'required'-Attribut von den Eingabefeldern
                     $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').parent().hide();
+                    $('#cc-name, #cc-number, #cc-expiration, #cc-cvv').removeAttr('required');
                 }
             });
         });
