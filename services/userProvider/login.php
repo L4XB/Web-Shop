@@ -100,6 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $user = $result->fetch_assoc();
         $_SESSION['name'] = $user['firstName'];
+        $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
 
