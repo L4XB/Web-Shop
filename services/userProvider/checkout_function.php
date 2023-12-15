@@ -9,7 +9,15 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
 }
-$sql = "INSERT INTO transactions (timestamp) VALUES (CURRENT_TIMESTAMP)";
+session_start();
+
+// Holen Sie die aktuelle Benutzer-ID
+$currentUserId = $_SESSION['userId'];
+
+// Generieren Sie eine zufällige Bestellnummer
+$orderNumber = rand(1000000000, 9999999999);
+
+$sql = "INSERT INTO transactions (timestamp, userID, orderNumber) VALUES (CURRENT_TIMESTAMP, $currentUserId, $orderNumber)";
 
 // Führen Sie die SQL-Abfrage aus
 if ($conn->query($sql) === TRUE) {
@@ -19,8 +27,6 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Fehler: " . $sql . "<br>" . $conn->error;
 }
-
-session_start();
 
 // Holen Sie die aktuelle Benutzer-ID
 $currentUserId = $_SESSION['userId'];
