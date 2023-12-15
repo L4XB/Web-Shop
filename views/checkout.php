@@ -322,6 +322,8 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                             </div>
                         </div>
                     </div>
+                    <br>
+
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="privacyPolicy" required="">
                         <label class="custom-control-label" for="privacyPolicy">Ich akzeptiere die
