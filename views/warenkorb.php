@@ -11,7 +11,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
 
 // Der Rest Ihres Codes...
 ?>
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
