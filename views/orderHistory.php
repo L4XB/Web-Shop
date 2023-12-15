@@ -38,23 +38,35 @@
             <button type="button" class="btn btn-warning float-right" onclick="window.location.href = 'checkout.php';">erneut bestellen</button>
           </p>
           <div class="collapse" id="collapse1">
-            <div class="card card-body">
-              {orderDetails!}
+            <div class="card card-body">              
+              <strong class="text-gray-dark">Bestellinformationen</strong>
+              <div class="media text-muted pt-3">
+                <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">Rechnungsadresse: {lieferadresse!}</strong>
+              </div>
+              <div class="media text-muted pt-3">
+              <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block text-gray-dark">Zahlungsart: {payment!} </strong>
+              </div>
+            <br>
+          
+              <strong class="text-gray-dark">Bestellte Produkte</strong>
+                <div class="media text-muted pt-3">
+                  <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">{productFromOrderNR!}</strong>
+                </div>
             </div>
           </div>
-
           <div class="media text-muted pt-3">
             <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
               <strong class="d-block text-gray-dark">vom {orderDate!}</strong></p>
           </div>
+          
         </form>
 
         <!-- Optional! Noch zu überlegen ob eine implementierung notwendig ist -->
         <small class="d-block text-right mt-3">
-          <a href="#" class="btn btn-outline-dark">weitere Bestellungen</a>
+          <a href="products.php" class="btn btn-outline-dark">zur Artikelübersicht</a>
         </small>
       </div>
     </main>
 
-</body>
+  </body>
 </html>
