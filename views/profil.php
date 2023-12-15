@@ -28,6 +28,12 @@
                   </form>';
         }
         ?>
+
+    </div>
+    <div style="display: flex; justify-content: center; align-items: center; margin-top:30px;">
+        <form action="orderHistory.php" method="post" style="margin: 0;">
+            <button type="submit" class="btn btn-warning">Order History</button>
+        </form>
     </div>
 
 
