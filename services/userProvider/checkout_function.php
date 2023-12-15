@@ -46,4 +46,6 @@ if ($conn->query($sql) === TRUE) {
     echo "Fehler beim Löschen der Einträge: " . $conn->error;
 }
 
+header('Location: ../../views/thankyou.php');
+
 ?>
