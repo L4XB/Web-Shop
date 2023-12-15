@@ -6,13 +6,16 @@
     <title>Order history</title>
     <link rel="stylesheet" href="../style/orderHistory.css">
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
+
 <body>
     <?php include 'klettergerüst.php'; ?>
-    
-    <div class="col-md-8 order-md-1">
-                <h4 class="mb-3">Lieferadresse</h4>
-
+    <br>
+    <div>
+        <h1 id="headLineTextStyle" style="text-align: left; padding-left: 10px;">Lieferadresse</h1>
     </div>
 
     <main role="main" class="container">
