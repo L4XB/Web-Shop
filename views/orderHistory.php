@@ -35,6 +35,8 @@
       <br>
       <?php
       // Starten Sie die Session
+      error_reporting(E_ALL);
+      ini_set('display_errors', 1);
       session_start();
       $servername = "localhost";
       $username = "root";
@@ -62,25 +64,27 @@
         while ($row = $result->fetch_assoc()) {
           // Extrahieren Sie die Daten aus der Zeile
           $orderNumber = $row['orderNumber'];
+          $transactionId = $row['transactionID']; // Stellen Sie sicher, dass 'transactionId' der korrekte Spaltenname in Ihrer Tabelle ist
           $orderDate = $row['timestamp'];
 
           // Geben Sie das Layout mit den Daten aus
           echo "<br>";
-          echo '<form class="" novalidate="" action="checkout.php" method="post">
-            <p data-toggle="collapse" href="#collapse' . $orderNumber . '" role="button" aria-expanded="false" aria-controls="collapse' . $orderNumber . '">
-                <strong class="text-gray-dark">Bestellung: ' . $orderNumber . '</strong>
-                <button type="button" class="btn btn-warning float-right" onclick="window.location.href = \'checkout.php\';">erneut bestellen</button>
-            </p>
-            <div class="collapse" id="collapse' . $orderNumber . '">
-                <div class="card card-body">
-                    Order Details
-                </div>
-            </div>
-            <div class="media text-muted pt-3">
-                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                    <strong class="d-block text-gray-dark">vom ' . $orderDate . '</strong></p>
-            </div>
-        </form>';
+          echo '<form class="" novalidate="" action="../services/userProvider/order_again.php" method="post">
+              <input type="hidden" name="transactionId" value="' . $transactionId . '">
+              <p data-toggle="collapse" href="#collapse' . $orderNumber . '" role="button" aria-expanded="false" aria-controls="collapse' . $orderNumber . '">
+                  <strong class="text-gray-dark">Bestellung: ' . $orderNumber . '</strong>
+                  <button type="submit" class="btn btn-warning float-right">erneut bestellen</button>
+              </p>
+              <div class="collapse" id="collapse' . $orderNumber . '">
+                  <div class="card card-body">
+                      Order Details
+                  </div>
+              </div>
+              <div class="media text-muted pt-3">
+                  <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                      <strong class="d-block text-gray-dark">vom ' . $orderDate . '</strong></p>
+              </div>
+          </form>';
         }
       } else {
         echo "Keine Bestellungen gefunden.";
