@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -30,6 +34,7 @@
 
 <body>
   <?php
+
   // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
   if (!isset($_SESSION['userId'])) {
 

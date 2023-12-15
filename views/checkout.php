@@ -233,8 +233,8 @@ session_start();
                     </div>
                     <div class="row container-fluid justify-content-end">
                         <hr class="mb-4">
-                        <button class="btn btn-warning btn-lg btn-block" href="thankyou.php"
-                            type="submit">Zahlungspflichtig bestellen</button>
+                        <button class="btn btn-warning btn-lg btn-block" type="submit">Zahlungspflichtig
+                            bestellen</button>
                     </div>
 
                 </form>
