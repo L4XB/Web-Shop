@@ -18,15 +18,19 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   <style>
-    img {
+    .img {
       height: 60px;
     }
 
-    <style>.flex-column {
+    .flex-column {
       display: flex;
       flex-direction: column;
+      align-items: flex-start;
     }
-  </style>
+
+    .product {
+      padding-right: 50vw;
+    }
   </style>
 
 
@@ -128,8 +132,8 @@
               $productImage = $rowProduct['pathName'];
 
               // Geben Sie das Layout mit den Daten aus
-              echo '<div class="media text-muted pt-3">';
-              echo '<img src="../assets/images/produkts/' . $productImage . '.png" alt="' . $productName . '">';
+              echo '<div class="media text-muted pt-3 product">';
+              echo '<img class="img" src="../assets/images/produkts/' . $productImage . '.png" alt="' . $productName . '">';
               echo '<p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">' . $productName . '</strong> Menge: ' . $quantity . '</p>';
               echo '</div>';
             } else {
