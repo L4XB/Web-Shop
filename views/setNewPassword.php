@@ -61,7 +61,7 @@
                     </div>
                     <br>
                     <br>
-                    <div id="passwordError" style="color: red;"></div>
+                    <div id="passwordError" style="color: red;text-align:center;"></div>
                     <br>
 
                     <div class="form-row">

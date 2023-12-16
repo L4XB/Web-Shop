@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $hashedPassword = hash('sha256', $password);
+    $hashedPassword = hash('sha512', $password);
     // Vorbereiten und Binden
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND passwort = ?");
     $stmt->bind_param("ss", $username, $hashedPassword);
@@ -90,7 +90,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($result->num_rows > 0) {
 
         $_SESSION['loggedIn'] = true;
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "webShopFSI";
+        $userid = $_SESSION['userId'];
+        $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli($servername, $username, $password, $dbname);
 
+        // Überprüfen Sie, ob die Verbindung erfolgreich war
+        if ($conn->connect_error) {
+            die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+        }
+        $stmt = $conn->prepare("UPDATE users SET is_logged_in = 1 WHERE userID = ?");
+
+        if ($stmt === false) {
+            die("Fehler bei der Vorbereitung der SQL-Anweisung: " . $conn->error);
+        }
+
+        $stmt->bind_param("i", $userid);
+        $stmt->execute();
+        $stmt->close();
         // Aktualisieren des lastLogIn Timestamps
         $currentTimestamp = date('Y-m-d H:i:s');
         $updateStmt = $conn->prepare("UPDATE users SET lastLogin = ? WHERE email = ?");

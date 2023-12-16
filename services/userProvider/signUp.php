@@ -33,7 +33,7 @@ function getOSFromUser()
     } elseif (strpos($user_agent, 'Windows NT 5.0') !== false) {
         return 'Windows 2000';
     } elseif (strpos($user_agent, 'Mac') !== false) {
-        return 'Mac';
+        return 'Mac OS';
     } elseif (strpos($user_agent, 'Linux') !== false) {
         return 'Linux';
     } elseif (strpos($user_agent, 'Unix') !== false) {
@@ -78,13 +78,13 @@ function createUser($email, $password, $firstName, $lastName)
     $_SESSION['email'] = $email;
     $_SESSION['firstName'] = $firstName;
 
-    $hashedPassword = hash('sha256', $passwordGenerated);
+    $hashedPassword = hash('sha512', $passwordGenerated);
     $currentTimestamp = date('Y-m-d H:i:s');
     $getCurrentOS = getOSFromUser();
     $getScreenResolution = getScreenResolution();
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, false, true, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt, is_logged_in) VALUES (?, ?, ?, ?, ?, ?, ?, ?, false, true, ?,true)");
     $stmt->bind_param("sssssssss", $email, $hashedPassword, $lastName, $firstName, $currentTimestamp, $getScreenResolution, $getCurrentOS, $twoFASecret, $currentTimestamp);
     try {
         if ($stmt->execute()) {

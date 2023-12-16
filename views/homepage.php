@@ -22,6 +22,7 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         window.onload = function () {
@@ -36,9 +37,48 @@ session_start();
         };
     </script>
 
+    <style>
+        .blink-dot {
+            height: 13px;
+            width: 13px;
+            background: radial-gradient(circle at center, lightgreen, green);
+            border: 1px solid silver;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
+
+
 </head>
 
 <body>
+    <script>
+        $.noConflict();
+        jQuery(document).ready(function ($) {
+            setInterval(function () {
+                $.get('../services/userProvider/getLoggedInUserAmount.php', function (data) {
+                    $('#loggedInUsers').text(data);
+                });
+            }, 1000);
+        });
+
+    </script>
     <?php include 'klettergerüst.php'; ?>
     <br>
     <div class="container-fluid" id="fa-items">
@@ -59,6 +99,11 @@ session_start();
                     echo "<p style='text-align:center;'>Herzlich Willkommen, $name! Ihr letzter Besuch war am: $date um $time</p>";
                 }
                 ?>
+                <p>
+                <div style='text-align:center;'>
+                    <span class="blink-dot"></span> Eingeloggte Benutzer: <span id="loggedInUsers">0</span>
+                </div>
+                </p>
             </span>
         </div>
     </div>
