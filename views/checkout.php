@@ -189,7 +189,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>
-                <form class="needs-validation was-validated" novalidate=""
+                <form class="needs-validation was-validated" novalidate="" onsubmit="combineAddress()"
                     action="../services/userProvider/checkout_function.php" method="post">
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -228,7 +228,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                             Bitte geben Sie ihre Straße sowie Hausnummer an.
                         </div>
                     </div>
-
+                    <input type="hidden" id="fullAddress" name="fullAddress">
                     <div class="mb-3">
                         <label for="address2">PLZ, Stadt</label>
                         <input type="text" class="form-control" id="address2" placeholder="72762 Reutlingen"
@@ -275,13 +275,13 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     <div class="d-block my-3">
                         <div class="custom-control custom-radio">
                             <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked=""
-                                required="">
+                                value="Kreditkarte" required="">
                             <label class="custom-control-label" for="credit">Kreditkarte</label>
                         </div>
 
                         <div class="custom-control custom-radio">
                             <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input"
-                                required="">
+                                value="PayPal" required="">
                             <label class="custom-control-label" for="paypal">Paypal</label>
                         </div>
                     </div>
@@ -333,6 +333,13 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                         <button class="btn btn-warning btn-lg btn-block" type="submit">Zahlungspflichtig
                             bestellen</button>
                     </div>
+                    <script>
+                        function combineAddress() {
+                            var address = document.getElementById('address').value;
+                            var address2 = document.getElementById('address2').value;
+                            document.getElementById('fullAddress').value = address + ', ' + address2;
+                        }
+                    </script>
 
                 </form>
                 <br>

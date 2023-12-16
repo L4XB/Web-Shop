@@ -17,7 +17,11 @@ $currentUserId = $_SESSION['userId'];
 // Generieren Sie eine zufällige Bestellnummer
 $orderNumber = rand(1000000000, 9999999999);
 
-$sql = "INSERT INTO transactions (timestamp, userID, orderNumber) VALUES (CURRENT_TIMESTAMP, $currentUserId, $orderNumber)";
+// Extrahieren Sie die vollständige Adresse und die Zahlungsmethode aus dem POST-Array
+$fullAddress = $conn->real_escape_string($_POST['fullAddress']);
+$paymentMethod = $conn->real_escape_string($_POST['paymentMethod']);
+
+$sql = "INSERT INTO transactions (timestamp, userID, orderNumber, adress, paymentMethod) VALUES (CURRENT_TIMESTAMP, $currentUserId, $orderNumber, '$fullAddress', '$paymentMethod')";
 
 // Führen Sie die SQL-Abfrage aus
 if ($conn->query($sql) === TRUE) {
