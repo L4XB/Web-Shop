@@ -22,6 +22,7 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <script>
         window.onload = function () {
@@ -36,9 +37,22 @@ session_start();
         };
     </script>
 
+
+
 </head>
 
 <body>
+    <script>
+        $.noConflict();
+        jQuery(document).ready(function ($) {
+            setInterval(function () {
+                $.get('../services/userProvider/getLoggedInUserAmount.php', function (data) {
+                    $('#loggedInUsers').text(data);
+                });
+            }, 1000);
+        });
+
+    </script>
     <?php include 'klettergerüst.php'; ?>
     <br>
     <div class="container-fluid" id="fa-items">
@@ -59,6 +73,7 @@ session_start();
                     echo "<p style='text-align:center;'>Herzlich Willkommen, $name! Ihr letzter Besuch war am: $date um $time</p>";
                 }
                 ?>
+                <p>Eingeloggte Benutzer: <span id="loggedInUsers">0</span></p>
             </span>
         </div>
     </div>
