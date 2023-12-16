@@ -30,7 +30,7 @@ if ($result->num_rows > 0) {
         echo '<div class="product-card-text" >';
         echo '<div class="product-card" data-product-id="' . $row['productID'] . '" onclick="redirectToPage(event)">';
 
-        echo '<img id="../../assets/images/produkts/' . $row['pathName'] . '.png" alt="">';
+        echo '<img id="product-img" src="../assets/images/produkts/' . $row['pathName'] . '.png" alt="">';
         echo "<div id='add-to-cart-button'></div>";
         echo "<div id='add-to-cart-wishlist'></div>";
         echo '</div>';
