@@ -84,7 +84,7 @@ function createUser($email, $password, $firstName, $lastName)
     $getScreenResolution = getScreenResolution();
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, ?, ?, ?, false, true, ?)");
+    $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt, is_logged_in) VALUES (?, ?, ?, ?, ?, ?, ?, ?, false, true, ?,true)");
     $stmt->bind_param("sssssssss", $email, $hashedPassword, $lastName, $firstName, $currentTimestamp, $getScreenResolution, $getCurrentOS, $twoFASecret, $currentTimestamp);
     try {
         if ($stmt->execute()) {
