@@ -76,7 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     session_start();
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $hashedPassword = hash('sha256', $password);
+    $hashedPassword = hash('sha512', $password);
     // Vorbereiten und Binden
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND passwort = ?");
     $stmt->bind_param("ss", $username, $hashedPassword);

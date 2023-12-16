@@ -78,7 +78,7 @@ function createUser($email, $password, $firstName, $lastName)
     $_SESSION['email'] = $email;
     $_SESSION['firstName'] = $firstName;
 
-    $hashedPassword = hash('sha256', $passwordGenerated);
+    $hashedPassword = hash('sha512', $passwordGenerated);
     $currentTimestamp = date('Y-m-d H:i:s');
     $getCurrentOS = getOSFromUser();
     $getScreenResolution = getScreenResolution();

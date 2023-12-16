@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $confirmPassword = $_POST['confirmPassword'];
 
     if ($newPassword === $confirmPassword) {
-        $hashedPassword = hash('sha256', $newPassword);
+        $hashedPassword = hash('sha512', $newPassword);
         session_start();
         $_SESSION['loggedIn'] = true;
         $sql = "UPDATE users SET passwort = ? WHERE email = ?";
