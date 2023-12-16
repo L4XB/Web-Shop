@@ -33,7 +33,7 @@ session_start();
             <br>
             <br>
             <h1 class="cover-heading" style="color: white;">Vielen Dank für deine Bestellung
-                <?php echo $_SESSION['firstName']; ?> &#127881
+                <?php echo $_SESSION['name']; ?> &#127881
             </h1>
             <p class="lead" style="color: white;">Sie erhalten von uns, in den nächsten Minuten, eine Bestellbestätigung
                 per Mail!</p>
