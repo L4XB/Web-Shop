@@ -241,70 +241,76 @@ session_start();
     require '../services/userProvider/favorites.php';
     session_start();
     ?>
-    <div class="col-md-8 order-md-1">
-                <h4 class="mb-3">Produktansicht</h4>
-    </div>
-    
-    <div id="content-divs">
-        <div id="black-top-box">
-            <div id="black-top-box-items">
-                <div id="product-card">
-                    <img style="width: 110%; max-height: 55vh; position: relative;"
-                        src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
-                </div>
-                <div id="details-products">
-                    <p id="product-name">
-                        <?php echo htmlspecialchars(getProductName()); ?>
-                    </p>
-                    <div id="details-products-data">
-                        <div id="details-products-data-content">
 
-                        </div>
-                        <div id="details-products-data-functions">
-                            <div class="dropdown">
-                                <button class="dropbtn" id="dropbtn">Größe wählen <i class="arrow down"></i></button>
-                                <div class="dropdown-content" id="dropdown-content">
-                                    <a href="#" onclick="selectSize('S')">S</a>
-                                    <a href="#" onclick="selectSize('M')">M</a>
-                                    <a href="#" onclick="selectSize('L')">L</a>
-                                    <a href="#" onclick="selectSize('XL')">XL</a>
-                                </div>
+    <div class="container">
+        <div class="col-md-8 order-md-1">
+            <h1 id="headLineTextStyle" style="margin-left: 10px;">Produktansicht</h1>
+        </div>
+
+        <div id="content-divs">
+            <div id="black-top-box">
+                <div id="black-top-box-items">
+                    <div id="product-card">
+                        <img style="width: 110%; max-height: 55vh; position: relative;"
+                            src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="">
+                    </div>
+                    <div id="details-products">
+                        <p id="product-name">
+                            <?php echo htmlspecialchars(getProductName()); ?>
+                        </p>
+                        <div id="details-products-data">
+                            <div id="details-products-data-content">
+
                             </div>
-                            <p id="product-price">
-                                <?php echo htmlspecialchars(getProductPrice()) . " €"; ?>
-                            </p>
+                            <div id="details-products-data-functions">
+                                <div class="dropdown">
+                                    <button class="dropbtn" id="dropbtn">Größe wählen <i class="arrow down"></i></button>
+                                    <div class="dropdown-content" id="dropdown-content">
+                                        <a href="#" onclick="selectSize('S')">S</a>
+                                        <a href="#" onclick="selectSize('M')">M</a>
+                                        <a href="#" onclick="selectSize('L')">L</a>
+                                        <a href="#" onclick="selectSize('XL')">XL</a>
+                                    </div>
+                                </div>
+                                <p id="product-price">
+                                    <?php echo htmlspecialchars(getProductPrice()) . " €"; ?>
+                                </p>
+                            </div>
                         </div>
-                    </div>
-                    <div id="actions">
+                        <div id="actions">
 
-                        <div id="counter">
-                            <div id="minus">-</div>
-                            <div id="number">1</div>
-                            <div id="plus">+</div>
+                            <div id="counter">
+                                <div id="minus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
+                                </svg></div>
+                                <div id="number">1</div>
+                                <div id="plus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                                </svg></div>
+                            </div>
+                            <div class="button" id="button1">
+                                <i class="icon fas fa-heart"></i>
+                            </div>
+                            <div class="button" id="button2">
+                                <i class="icon fas fa-shopping-cart"></i>
+                            </div>
                         </div>
-                        <div class="button" id="button1">
-                            <i class="icon fas fa-heart"></i>
-                        </div>
-                        <div class="button" id="button2">
-                            <i class="icon fas fa-shopping-cart"></i>
-                        </div>
+
                     </div>
 
                 </div>
+                <!-- <div id="product-description-container">
 
-            </div>
-            <!-- <div id="product-description-container">
+                </div>
+                <div id="placeholder">
 
+                </div> -->
             </div>
-            <div id="placeholder">
+            <!-- <div id="white-bottom-box">
 
             </div> -->
         </div>
-        <!-- <div id="white-bottom-box">
-
-        </div> -->
     </div>
-
 </body>
 
 </html>
