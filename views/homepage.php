@@ -37,6 +37,32 @@ session_start();
         };
     </script>
 
+    <style>
+        .blink-dot {
+            height: 13px;
+            width: 13px;
+            background: radial-gradient(circle at center, lightgreen, green);
+            border: 1px solid silver;
+            border-radius: 50%;
+            display: inline-block;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+
 
 
 </head>
@@ -73,7 +99,11 @@ session_start();
                     echo "<p style='text-align:center;'>Herzlich Willkommen, $name! Ihr letzter Besuch war am: $date um $time</p>";
                 }
                 ?>
-                <p>Eingeloggte Benutzer: <span id="loggedInUsers">0</span></p>
+                <p>
+                <div style='text-align:center;'>
+                    <span class="blink-dot"></span> Eingeloggte Benutzer: <span id="loggedInUsers">0</span>
+                </div>
+                </p>
             </span>
         </div>
     </div>
