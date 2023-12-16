@@ -33,41 +33,44 @@
     <div class="my-3 p-3 bg-white rounded box-shadow">
       <h6 class="border-bottom border-gray pb-2 mb-0">Meine Bestellhistorie:</h6>
       <br>
-      <?php
-      // Starten Sie die Session
-      session_start();
-      $servername = "localhost";
-      $username = "root";
-      $password = "";
-      $dbname = "webShopFSI";
+    </div>
+    <?php
+    // Starten Sie die Session
+    session_start();
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
 
-      $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn = new mysqli($servername, $username, $password, $dbname);
 
-      if ($conn->connect_error) {
-        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-      }
+    if ($conn->connect_error) {
+      die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
 
-      // Holen Sie die aktuelle Benutzer-ID
-      $currentUserId = $_SESSION['userId'];
+    // Holen Sie die aktuelle Benutzer-ID
+    $currentUserId = $_SESSION['userId'];
 
-      // Erstellen Sie eine SQL-Abfrage, um die Bestellungen des aktuellen Benutzers zu holen
-      $sql = "SELECT * FROM transactions WHERE userID = $currentUserId ORDER BY timestamp DESC";
+    // Erstellen Sie eine SQL-Abfrage, um die Bestellungen des aktuellen Benutzers zu holen
+    $sql = "SELECT * FROM transactions WHERE userID = $currentUserId ORDER BY timestamp DESC";
 
-      // Führen Sie die SQL-Abfrage aus
-      $result = $conn->query($sql);
+    // Führen Sie die SQL-Abfrage aus
+    $result = $conn->query($sql);
 
-      // Überprüfen Sie, ob die Abfrage erfolgreich war
-      if ($result->num_rows > 0) {
-        // Durchlaufen Sie jede Zeile im Ergebnis
-        while ($row = $result->fetch_assoc()) {
-          // Extrahieren Sie die Daten aus der Zeile
-          $orderNumber = $row['orderNumber'];
-          $transactionId = $row['transactionID']; // Stellen Sie sicher, dass 'transactionId' der korrekte Spaltenname in Ihrer Tabelle ist
-          $orderDate = $row['timestamp'];
+    // Überprüfen Sie, ob die Abfrage erfolgreich war
+    if ($result->num_rows > 0) {
+      // Durchlaufen Sie jede Zeile im Ergebnis
+      while ($row = $result->fetch_assoc()) {
+        // Extrahieren Sie die Daten aus der Zeile
+        $orderNumber = $row['orderNumber'];
+        $transactionId = $row['transactionID']; // Stellen Sie sicher, dass 'transactionId' der korrekte Spaltenname in Ihrer Tabelle ist
+        $orderDate = $row['timestamp'];
+        $adress = $row['adress'];
+        $paymentMethod = $row['paymentMethod'];
 
-          // Geben Sie das Layout mit den Daten aus
-          echo "<br>";
-          echo '<form class="" novalidate="" action="../services/userProvider/order_again.php" method="post">
+        // Geben Sie das Layout mit den Daten aus
+        echo "<br>";
+        echo '<form class="" novalidate="" action="../services/userProvider/order_again.php" method="post">
                 <input type="hidden" name="transactionId" value="' . $transactionId . '">
                 <p data-toggle="collapse" href="#collapse' . $orderNumber . '" role="button" aria-expanded="false" aria-controls="collapse' . $orderNumber . '">
                     <strong class="text-gray-dark">Bestellung: ' . $orderNumber . '</strong>
@@ -77,10 +80,10 @@
                     <div class="card card-body">
                         <strong class="text-gray-dark">Bestellinformationen</strong>
                         <div class="media text-muted pt-3">
-                          <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">Rechnungsadresse:  </strong>
+                          <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">Rechnungsadresse:  ' . $adress . '</strong>
                         </div>
                         <div class="media text-muted pt-3">
-                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block text-gray-dark">Zahlungsart:  </strong>
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block text-gray-dark">Zahlungsart:  ' . $paymentMethod . '</strong>
                         </div>
                       <br>
                     
@@ -96,17 +99,17 @@
                         <strong class="d-block text-gray-dark">vom ' . $orderDate . '</strong></p>
                 </div>
             </form>';
-        }
-      } else {
-        echo "Keine Bestellungen gefunden.";
       }
-      ?>
+    } else {
+      echo "Keine Bestellungen gefunden.";
+    }
+    ?>
 
-      <!-- Optional! Noch zu überlegen ob eine implementierung notwendig ist -->
-      <small class="d-block text-right mt-3">
-        <a href="products.php" class="btn btn-outline-dark">zur Atrikelübersicht</a>
-      </small>
-    </div>
+    <!-- Optional! Noch zu überlegen ob eine implementierung notwendig ist -->
+    <small class="d-block text-right mt-3">
+      <a href="products.php" class="btn btn-outline-dark">zur Atrikelübersicht</a>
+    </small>
+
   </main>
 
 </body>
