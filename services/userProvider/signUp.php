@@ -80,10 +80,11 @@ function createUser($email, $password, $firstName, $lastName)
 
     $hashedPassword = hash('sha256', $passwordGenerated);
     $currentTimestamp = date('Y-m-d H:i:s');
+    $getCurrentOS = getOSFromUser();
 
     // Prepare and bind
-    $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, 'unknown', 'unknown', ?, false, true, ?)");
-    $stmt->bind_param("sssssss", $email, $hashedPassword, $lastName, $firstName, $currentTimestamp, $twoFASecret, $currentTimestamp);
+    $stmt = $conn->prepare("INSERT INTO users (email, passwort, firstName, lastName, lastLogin, screenResolution, os, twoFASecret, use2Fa, isFirstLogin, createdAt) VALUES (?, ?, ?, ?, ?, 'unknown', ?, ?, false, true, ?)");
+    $stmt->bind_param("ssssssss", $email, $hashedPassword, $lastName, $firstName, $currentTimestamp, $getCurrentOS, $twoFASecret, $currentTimestamp);
     try {
         if ($stmt->execute()) {
             echo "New user created successfully.";
