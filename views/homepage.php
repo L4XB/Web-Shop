@@ -23,15 +23,17 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-
     <script>
         window.onload = function () {
-            var width = window.screen.width;
-            var height = window.screen.height;
-            var resolution = width + 'x' + height;
+            // Ermitteln Sie die Bildschirmauflösung
+            var screenResolution = window.screen.width + 'x' + window.screen.height;
 
-
-        }
+            // Senden Sie die Bildschirmauflösung an eine PHP-Seite
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '../services/userProvider/saveScreenResolution.php', true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send('resolution=' + screenResolution);
+        };
     </script>
 
 </head>
