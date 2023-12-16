@@ -343,12 +343,12 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     </div>
 
                     <div class="row container-fluid justify-content-end">
-                        <hr class="mb-4">
+                        <hr class="mb-2 border-0">
                         <a href="warenkorb.php" class="btn btn-dark btn-lg btn-block">zurück zum Warenkorb</a>
                     </div>
 
                     <div class="row container-fluid justify-content-end">
-                        <hr class="mb-4">
+                        <hr class="mb-2 border-0">
                         <button class="btn btn-outline-dark btn-lg btn-block" type="submit"
                             onclick="window.location.href = '../services/userProvider/cancel_checkout.php';">Kauf
                             abbrechen</button>
