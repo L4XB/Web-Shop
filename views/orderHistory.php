@@ -17,6 +17,17 @@
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <style>
+    img {
+      height: 60px;
+    }
+
+    <style>.flex-column {
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
+  </style>
 
 
 </head>
@@ -70,35 +81,74 @@
 
         // Geben Sie das Layout mit den Daten aus
         echo "<br>";
-        echo '<form class="" novalidate="" action="../services/userProvider/order_again.php" method="post">
-                <input type="hidden" name="transactionId" value="' . $transactionId . '">
-                <p data-toggle="collapse" href="#collapse' . $orderNumber . '" role="button" aria-expanded="false" aria-controls="collapse' . $orderNumber . '">
-                    <strong class="text-gray-dark">Bestellung: ' . $orderNumber . '</strong>
-                    <button type="submit" class="btn btn-warning float-right">erneut bestellen</button>
-                </p>
-                <div class="collapse" id="collapse' . $orderNumber . '">
-                    <div class="card card-body">
-                        <strong class="text-gray-dark">Bestellinformationen</strong>
-                        <div class="media text-muted pt-3">
-                          <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">Rechnungsadresse:  ' . $adress . '</strong>
-                        </div>
-                        <div class="media text-muted pt-3">
-                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block text-gray-dark">Zahlungsart:  ' . $paymentMethod . '</strong>
-                        </div>
-                      <br>
-                    
-                        <strong class="text-gray-dark">Bestellte Produkte</strong>
-                          <div class="media text-muted pt-3">
-                            <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark"></strong>
-                          </div>
-                      </div>
-                    </div>
-                </div>
-                <div class="media text-muted pt-3">
-                    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                        <strong class="d-block text-gray-dark">vom ' . $orderDate . '</strong></p>
-                </div>
-            </form>';
+        echo '<form class="" novalidate="" action="../services/userProvider/order_again.php" method="post">';
+        echo '<input type="hidden" name="transactionId" value="' . $transactionId . '">';
+        echo '<p data-toggle="collapse" href="#collapse' . $orderNumber . '" role="button" aria-expanded="false" aria-controls="collapse' . $orderNumber . '">';
+        echo '<strong class="text-gray-dark">Bestellung: ' . $orderNumber . '</strong>';
+        echo '<button type="submit" class="btn btn-warning float-right">erneut bestellen</button>';
+        echo '</p>';
+        echo '<div class="collapse" id="collapse' . $orderNumber . '">';
+        echo '<div class="card card-body">';
+        echo '<strong class="text-gray-dark">Bestellinformationen</strong>';
+        echo '<div class="media text-muted pt-3">';
+        echo '<p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">Rechnungsadresse:  ' . $adress . '</strong>';
+        echo '</div>';
+        echo '<div class="media text-muted pt-3">';
+        echo '<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block text-gray-dark">Zahlungsart:  ' . $paymentMethod . '</strong>';
+        echo '</div>';
+        echo '<br>';
+        echo '<strong class="text-gray-dark">Bestellte Produkte</strong>';
+        echo '<div class="media text-muted pt-3">';
+        echo '<p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark"></strong>';
+        $sqlHistory = "SELECT productID, SUM(amount) as totalQuantity FROM history WHERE transactionID = $transactionId GROUP BY productID";
+
+        // Führen Sie die SQL-Abfrage aus
+        $resultHistory = $conn->query($sqlHistory);
+
+        // Überprüfen Sie, ob die Abfrage erfolgreich war
+        if ($resultHistory->num_rows > 0) {
+          // Durchlaufen Sie jede Zeile im Ergebnis
+          echo "<div class='flex-column'>";
+          while ($rowHistory = $resultHistory->fetch_assoc()) {
+            // Extrahieren Sie die productId und die Menge aus der Zeile
+            $productId = $rowHistory['productID'];
+            $quantity = $rowHistory['totalQuantity'];
+
+            // Erstellen Sie eine SQL-Abfrage, um das Produkt aus der products-Tabelle zu holen
+            $sqlProduct = "SELECT * FROM products WHERE productID = $productId";
+
+            // Führen Sie die SQL-Abfrage aus
+            $resultProduct = $conn->query($sqlProduct);
+
+            // Überprüfen Sie, ob die Abfrage erfolgreich war
+            if ($resultProduct->num_rows > 0) {
+              // Holen Sie die Daten des Produkts
+              $rowProduct = $resultProduct->fetch_assoc();
+              $productName = $rowProduct['productName'];
+              $productImage = $rowProduct['pathName'];
+
+              // Geben Sie das Layout mit den Daten aus
+              echo '<div class="media text-muted pt-3">';
+              echo '<img src="../assets/images/produkts/' . $productImage . '.png" alt="' . $productName . '">';
+              echo '<p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">' . $productName . '</strong> Menge: ' . $quantity . '</p>';
+              echo '</div>';
+            } else {
+              echo "Produkt nicht gefunden.";
+            }
+          }
+          echo "</div>";
+        } else {
+          echo "Keine Einträge in der history-Tabelle für diese Transaktion gefunden.";
+        }
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="media text-muted pt-3">';
+        echo '<p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">';
+        echo '<strong class="d-block text-gray-dark">vom ' . $orderDate . '</strong></p>';
+        echo '</div>';
+        echo '</form>';
       }
     } else {
       echo "Keine Bestellungen gefunden.";
