@@ -333,6 +333,17 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                         <button class="btn btn-warning btn-lg btn-block" type="submit">Zahlungspflichtig
                             bestellen</button>
                     </div>
+
+                    <div class="row container-fluid justify-content-end">
+                        <hr class="mb-4">
+                        <a href="warenkorb.php" class="btn btn-dark btn-lg btn-block">zurück zum Warenkorb</a>
+                    </div>
+
+                    <div class="row container-fluid justify-content-end">
+                        <hr class="mb-4">
+                        <button class="btn btn-outline-dark btn-lg btn-block" type="submit" onclick="window.location.href = 'homepage.php';">Kauf abbrechen</button>
+                    </div>
+
                     <script>
                         function combineAddress() {
                             var address = document.getElementById('address').value;
