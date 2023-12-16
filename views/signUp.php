@@ -13,6 +13,27 @@
 
     <!--Scripts-->
     <script src="../scripts/navigation.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#signUpForm').on('submit', function (e) {
+                e.preventDefault();
+                var email = $('#email').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '../services/userProvider/checkMail.php',
+                    data: { email: email },
+                    success: function (data) {
+                        if (data == 'exists') {
+                            $('#emailError').text('E-Mail schon vorhanden');
+                        } else {
+                            $('#signUpForm').unbind('submit').submit();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -53,6 +74,7 @@
                     </div>
                     <br>
                     <br>
+                    <div id="emailError" style="color: red;text-align:center;"></div>
                     <br>
                     <div class="form-row">
                         <a id="rejectText" href="login.php">
