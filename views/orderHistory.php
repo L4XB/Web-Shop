@@ -68,21 +68,34 @@
           // Geben Sie das Layout mit den Daten aus
           echo "<br>";
           echo '<form class="" novalidate="" action="../services/userProvider/order_again.php" method="post">
-              <input type="hidden" name="transactionId" value="' . $transactionId . '">
-              <p data-toggle="collapse" href="#collapse' . $orderNumber . '" role="button" aria-expanded="false" aria-controls="collapse' . $orderNumber . '">
-                  <strong class="text-gray-dark">Bestellung: ' . $orderNumber . '</strong>
-                  <button type="submit" class="btn btn-warning float-right">erneut bestellen</button>
-              </p>
-              <div class="collapse" id="collapse' . $orderNumber . '">
-                  <div class="card card-body">
-                      Order Details
-                  </div>
-              </div>
-              <div class="media text-muted pt-3">
-                  <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
-                      <strong class="d-block text-gray-dark">vom ' . $orderDate . '</strong></p>
-              </div>
-          </form>';
+                <input type="hidden" name="transactionId" value="' . $transactionId . '">
+                <p data-toggle="collapse" href="#collapse' . $orderNumber . '" role="button" aria-expanded="false" aria-controls="collapse' . $orderNumber . '">
+                    <strong class="text-gray-dark">Bestellung: ' . $orderNumber . '</strong>
+                    <button type="submit" class="btn btn-warning float-right">erneut bestellen</button>
+                </p>
+                <div class="collapse" id="collapse' . $orderNumber . '">
+                    <div class="card card-body">
+                        <strong class="text-gray-dark">Bestellinformationen</strong>
+                        <div class="media text-muted pt-3">
+                          <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark">Rechnungsadresse:  </strong>
+                        </div>
+                        <div class="media text-muted pt-3">
+                        <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray"><strong class="d-block text-gray-dark">Zahlungsart:  </strong>
+                        </div>
+                      <br>
+                    
+                        <strong class="text-gray-dark">Bestellte Produkte</strong>
+                          <div class="media text-muted pt-3">
+                            <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark"></strong>
+                          </div>
+                      </div>
+                    </div>
+                </div>
+                <div class="media text-muted pt-3">
+                    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <strong class="d-block text-gray-dark">vom ' . $orderDate . '</strong></p>
+                </div>
+            </form>';
         }
       } else {
         echo "Keine Bestellungen gefunden.";
