@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 15. Dez 2023 um 18:57
+-- Erstellungszeit: 16. Dez 2023 um 18:34
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -39,7 +39,9 @@ CREATE TABLE `favorites` (
 
 INSERT INTO `favorites` (`favoritesID`, `userID`, `productID`) VALUES
 (101, 29, 5),
-(102, 29, 6);
+(102, 29, 6),
+(103, 30, 1),
+(104, 31, 1);
 
 -- --------------------------------------------------------
 
@@ -61,14 +63,15 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`historyID`, `timestamp`, `amount`, `userID`, `productID`, `transactionID`) VALUES
-(2, '2023-12-15 16:46:18', 5, 29, 2, 3),
-(3, '2023-12-15 16:47:52', 5, 29, 1, 4),
-(4, '2023-12-15 16:47:52', 4, 29, 3, 4),
-(6, '2023-12-15 17:45:32', 6, 29, 2, 5),
-(7, '2023-12-15 17:45:32', 3, 29, 5, 5),
-(8, '2023-12-15 17:45:32', 6, 29, 2, 5),
-(9, '2023-12-15 17:45:32', 10, 29, 6, 5),
-(13, '2023-12-15 17:56:06', 4, 29, 2, 6);
+(39, '2023-12-16 14:52:57', 11, 31, 2, 13),
+(40, '2023-12-16 14:52:57', 4, 31, 7, 13),
+(41, '2023-12-16 14:52:57', 5, 31, 4, 13),
+(42, '2023-12-16 14:52:57', 1, 31, 7, 13),
+(46, '2023-12-16 15:31:50', 4, 31, 2, 14),
+(47, '2023-12-16 16:45:06', 5, 31, 1, 15),
+(48, '2023-12-16 16:45:06', 5, 31, 7, 15),
+(50, '2023-12-16 17:30:13', 5, 31, 2, 16),
+(51, '2023-12-16 17:30:13', 10, 31, 7, 16);
 
 -- --------------------------------------------------------
 
@@ -114,6 +117,15 @@ CREATE TABLE `shoppingCart` (
   `productID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Daten für Tabelle `shoppingCart`
+--
+
+INSERT INTO `shoppingCart` (`cartID`, `amount`, `userID`, `productID`) VALUES
+(48, 7, 29, 2),
+(49, 6, 29, 5),
+(51, 4, 30, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -124,18 +136,20 @@ CREATE TABLE `transactions` (
   `transactionID` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT current_timestamp(),
   `userID` int(11) DEFAULT NULL,
-  `orderNumber` varchar(255) DEFAULT NULL
+  `orderNumber` varchar(255) DEFAULT NULL,
+  `adress` varchar(255) DEFAULT NULL,
+  `paymentMethod` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `transactions`
 --
 
-INSERT INTO `transactions` (`transactionID`, `timestamp`, `userID`, `orderNumber`) VALUES
-(3, '2023-12-15 16:46:18', NULL, NULL),
-(4, '2023-12-15 16:47:52', NULL, NULL),
-(5, '2023-12-15 17:45:32', NULL, NULL),
-(6, '2023-12-15 17:56:06', 29, '6742866098');
+INSERT INTO `transactions` (`transactionID`, `timestamp`, `userID`, `orderNumber`, `adress`, `paymentMethod`) VALUES
+(13, '2023-12-16 14:52:57', 31, '5054059972', 'Linsenhoferstraße 49, 82392 Beuren', 'PayPal'),
+(14, '2023-12-16 15:31:50', 31, '1381305391', 'Linsenhoferstraße 49, 82392 Beuren', 'PayPal'),
+(15, '2023-12-16 16:45:06', 31, '1547254552', 'Linsenhoferstraße 49, 82392 Beuren', 'PayPal'),
+(16, '2023-12-16 17:30:13', 31, '5156305669', 'Linsenhoferstraße 49, 82392 Beuren', 'PayPal');
 
 -- --------------------------------------------------------
 
@@ -163,7 +177,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `email`, `passwort`, `firstName`, `lastName`, `lastLogin`, `screenResolution`, `os`, `twoFASecret`, `use2FA`, `isFirstLogin`, `createdAt`) VALUES
-(29, 'lukas.buck@e-mail.de', 'db0dc72dc8aee68904ab238cbb61d03d2baf35b4892d63251d3c2d6e1afe5dee', 'Madeleine', 'Buck', '2023-12-15 16:44:56', 'unknown', 'unknown', 'OQQCUBCHOGLOA42N', 0, 1, '2023-12-15 16:44:56');
+(29, 'lukas.buck@e-mail.de', 'db0dc72dc8aee68904ab238cbb61d03d2baf35b4892d63251d3c2d6e1afe5dee', 'Madeleine', 'Buck', '2023-12-15 16:44:56', 'unknown', 'unknown', 'OQQCUBCHOGLOA42N', 0, 1, '2023-12-15 16:44:56'),
+(30, 'Madeleine.buck@online.de', '01e872f647c44fb41465904d88770786f66920ffbc405a29a03e13e66df0e8cf', 'Madeleine', 'Buck', '2023-12-16 07:46:52', 'unknown', 'unknown', '3JB3FMXUVCOGTLKD', 1, 1, '2023-12-16 07:46:52'),
+(31, 'buck.lukas@icloud.com', '46b47fb88e9bfb31db08a3587a3e89b40ba14b5c1f644270593a987b70f9eda5', 'Madeleine', 'Buck', '2023-12-16 13:35:04', 'unknown', 'unknown', 'AIDWOP4Z2UGAR36Y', 0, 1, '2023-12-16 13:35:04');
 
 --
 -- Indizes der exportierten Tabellen
@@ -221,13 +237,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favoritesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=103;
+  MODIFY `favoritesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 
 --
 -- AUTO_INCREMENT für Tabelle `history`
 --
 ALTER TABLE `history`
-  MODIFY `historyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `historyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT für Tabelle `products`
@@ -239,19 +255,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT für Tabelle `shoppingCart`
 --
 ALTER TABLE `shoppingCart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT für Tabelle `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- Constraints der exportierten Tabellen
