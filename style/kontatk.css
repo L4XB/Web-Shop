@@ -1,0 +1,19 @@
+.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(-45deg);
+}
+
+.up {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(45deg);
+}
+
+.arrow {
+    position: absolute;
+    top: 41%;
+    right: 23px;
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    float: right;
+    padding: 3px;
+}

@@ -39,7 +39,7 @@
             </div>
 
             <p data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false" aria-controls="collapse2">
-                > Wo finde ich mein Retourenlabel?
+            <button class="dropbtn" id="dropbtn"><i class="arrow down"></i></button> Wo finde ich mein Retourenlabel?
             </p>
             <div class="collapse" id="collapse2">
                 <div class="card card-body">
