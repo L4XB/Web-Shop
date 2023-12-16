@@ -1,5 +1,5 @@
 .container {
-    width: 99% !important;
+    width: 98% !important;
     max-width: 99% !important;
 }
 
@@ -180,7 +180,7 @@
 }
 
 #button1 {
-    margin-left: 40px;
+    margin-left: 32px;
 }
 
 #button2 {
@@ -247,12 +247,12 @@
 
 .down {
     transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    -webkit-transform: rotate(-45deg);
 }
 
 .up {
     transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
+    -webkit-transform: rotate(45deg);
 }
 
 .dropdown-content a {
