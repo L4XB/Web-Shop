@@ -44,11 +44,11 @@
             $('[data-toggle="collapse"]').click(function () {
                 var arrow = $(this).find('.fas');
                 if ($(this).attr('aria-expanded') == 'false') {
-                    arrow.removeClass('fa-chevron-right');
-                    arrow.addClass('fa-chevron-down');
+                    arrow.removeClass('fa-angle-right');
+                    arrow.addClass('fa-angle-down');
                 } else {
-                    arrow.removeClass('fa-chevron-down');
-                    arrow.addClass('fa-chevron-right');
+                    arrow.removeClass('fa-angle-down');
+                    arrow.addClass('fa-angle-right');
                 }
             });
         });
@@ -67,7 +67,7 @@
 
                 <p data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false"
                     aria-controls="collapse1">
-                    <i class="fas fa-chevron-right"></i> Wo finde ich meine Bestellungen? Wo finde ich meine
+                    <i class="fas fa-angle-right"></i> Wo finde ich meine Bestellungen? Wo finde ich meine
                     Bestellungen?
                 </p>
                 <div class="collapse" id="collapse1">
@@ -80,7 +80,7 @@
 
                 <p data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false"
                     aria-controls="collapse2">
-                    <i class="fas fa-chevron-right"></i> Wie kann ich 2FA wieder deaktivieren
+                    <i class="fas fa-angle-right"></i> Wie kann ich 2FA wieder deaktivieren
                 </p>
                 <div class="collapse" id="collapse2">
                     <div class="card card-body">
@@ -91,7 +91,7 @@
 
                 <p data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false"
                     aria-controls="collapse3">
-                    <i class="fas fa-chevron-right"></i> Wo finde ich meine Rechnung?
+                    <i class="fas fa-angle-right"></i> Wo finde ich meine Rechnung?
                 </p>
                 <div class="collapse" id="collapse3">
                     <div class="card card-body">
