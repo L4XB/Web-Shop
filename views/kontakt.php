@@ -80,7 +80,7 @@
 
                 <p data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false"
                     aria-controls="collapse2">
-                    <i class="fas fa-angle-right"></i> Wie kann ich 2FA wieder deaktivieren
+                    <i class="fas fa-angle-right"></i> Wie kann ich 2FA wieder deaktivieren?
                 </p>
                 <div class="collapse" id="collapse2">
                     <div class="card card-body">
