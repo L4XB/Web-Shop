@@ -235,11 +235,50 @@ session_start();
 
 <body>
 
+
     <?php
     include 'klettergerüst.php';
     require '../services/productProvider/loadSpecificProductData.php';
     require '../services/userProvider/favorites.php';
     session_start();
+    ?>
+
+    <?php
+    function getSizes()
+    {
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "webShopFSI";
+
+        $db = new mysqli($servername, $username, $password, $dbname);
+
+        if ($db->connect_error) {
+            die("Verbindung fehlgeschlagen: " . $db->connect_error);
+        }
+        // Verbindung zur Datenbank herstelle
+    
+        $productId = $_GET['id'];
+        // SQL-Abfrage ausführen
+        $result = $db->query("SELECT size FROM products WHERE productID = $productId");
+
+        if ($result->num_rows > 0) {
+            // Größen aus dem ersten Datensatz abrufen
+            $sizes = explode(';', $result->fetch_assoc()['size']);
+
+            // Verbindung schließen
+            $db->close();
+
+            return $sizes;
+        } else {
+            // Verbindung schließen
+            $db->close();
+
+            return null;
+        }
+    }
+
+    $sizes = getSizes();
     ?>
 
     <div class="container">
@@ -264,12 +303,18 @@ session_start();
                             </div>
                             <div id="details-products-data-functions">
                                 <div class="dropdown">
-                                    <button class="dropbtn" id="dropbtn">Größe wählen <i class="arrow down"></i></button>
+                                    <button class="dropbtn" id="dropbtn">Größe wählen <i
+                                            class="arrow down"></i></button>
                                     <div class="dropdown-content" id="dropdown-content">
-                                        <a href="#" onclick="selectSize('S')">S</a>
-                                        <a href="#" onclick="selectSize('M')">M</a>
-                                        <a href="#" onclick="selectSize('L')">L</a>
-                                        <a href="#" onclick="selectSize('XL')">XL</a>
+                                        <?php
+                                        if ($sizes === null) {
+                                            echo '<a href="#" onclick="selectSize(\'one size\')">one size</a>';
+                                        } else {
+                                            foreach ($sizes as $size) {
+                                                echo '<a href="#" onclick="selectSize(\'' . $size . '\')">' . $size . '</a>';
+                                            }
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                                 <p id="product-price">
@@ -280,13 +325,17 @@ session_start();
                         <div id="actions">
 
                             <div id="counter">
-                                <div id="minus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
-                                </svg></div>
+                                <div id="minus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8" />
+                                    </svg></div>
                                 <div id="number">1</div>
-                                <div id="plus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
-                                </svg></div>
+                                <div id="plus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                        fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd"
+                                            d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+                                    </svg></div>
                             </div>
                             <div class="button" id="button1">
                                 <i class="icon fas fa-heart"></i>
