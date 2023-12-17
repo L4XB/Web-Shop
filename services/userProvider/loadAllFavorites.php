@@ -54,7 +54,17 @@ if ($result->num_rows > 0) {
         }
         </script>';
 } else {
-    echo "Keine Produkte gefunden.";
+    echo '<br>';
+    echo '<br>';
+    echo '<br>';
+    echo '<p style="text-align:center;">Aktuell hast du keine Favoriten, schau dir jetzt unsere Produkte an:</p>';
+    echo '<div style=" display: flex;
+    justify-content: center;
+    align-items: center;">
+    
+    <small class="d-block text-right mt-3">
+      <a href="products.php" class="btn btn-outline-dark">zur Atrikelübersicht</a>
+    </small></div>';
 }
 
 // Verbindung schließen
