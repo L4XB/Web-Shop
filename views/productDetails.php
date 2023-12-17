@@ -259,6 +259,8 @@ session_start();
             });
         }
     </script>
+
+
 </head>
 
 <body>
@@ -341,6 +343,7 @@ session_start();
                                         } else {
                                             foreach ($sizes as $size) {
                                                 echo '<a href="#" onclick="selectSize(\'' . $size . '\')">' . $size . '</a>';
+
                                             }
                                         }
                                         ?>
