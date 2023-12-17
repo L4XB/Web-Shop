@@ -67,8 +67,7 @@
 
                 <p data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false"
                     aria-controls="collapse1">
-                    <i class="fas fa-angle-right"></i> Wo finde ich meine Bestellungen? Wo finde ich meine
-                    Bestellungen?
+                    <i class="fas fa-angle-right"></i> Wo finde ich meine Bestellungen?
                 </p>
                 <div class="collapse" id="collapse1">
                     <div class="card card-body">
