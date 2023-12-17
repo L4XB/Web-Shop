@@ -329,7 +329,10 @@ session_start();
                         </p>
                         <div id="details-products-data">
                             <div id="details-products-data-content">
-
+                                <p id="product-detailedDescription">
+                                    <?php echo htmlspecialchars(getDetailedDescription()); ?>
+                                </p>
+                                <?php echo getDescriptionPoints(); ?>
                             </div>
                             <div id="details-products-data-functions">
                                 <div class="dropdown" id="dropdown">

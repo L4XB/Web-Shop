@@ -77,6 +77,26 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#pointslist {
+    padding-top: 20px;
+    margin-left: 70px;
+}
+
+#pointsItem {
+    padding-top: 20px;
+    font-size: 1.1vw;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#product-detailedDescription {
+    font-size: 1.3vw;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    padding-left: 30px;
+    padding-top: 30px;
+}
+
 @media screen and (max-width: 768px) {
     #product-name {
         font-size: 2.5vw;
