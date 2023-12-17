@@ -231,6 +231,34 @@ session_start();
             });
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            if ($('#dropdown .selected').length > 0) {
+                $('#dropbtn').prop('disabled', true);
+                $('#dropdown').css('opacity', '0.5');
+            }
+        });
+    </script>
+    <script>
+        var selectedSize = null;
+
+        function selectSize(size) {
+            selectedSize = size;
+
+            // Aktualisieren Sie das Dropdown-Menü, um die ausgewählte Größe anzuzeigen
+            $('#dropbtn').text('Größe: ' + size);
+
+            // Entfernen Sie die 'selected'-Klasse von allen Elementen im Dropdown-Menü
+            $('#dropdown-content a').removeClass('selected');
+
+            // Fügen Sie die 'selected'-Klasse zum ausgewählten Element hinzu
+            $('#dropdown-content a').each(function () {
+                if ($(this).text() == size) {
+                    $(this).addClass('selected');
+                }
+            });
+        }
+    </script>
 </head>
 
 <body>
@@ -302,13 +330,14 @@ session_start();
 
                             </div>
                             <div id="details-products-data-functions">
-                                <div class="dropdown">
+                                <div class="dropdown" id="dropdown">
                                     <button class="dropbtn" id="dropbtn">Größe wählen <i
                                             class="arrow down"></i></button>
                                     <div class="dropdown-content" id="dropdown-content">
                                         <?php
-                                        if ($sizes === null) {
-                                            echo '<a href="#" onclick="selectSize(\'one size\')">one size</a>';
+                                        if ($sizes === null || $sizes[0] == 'default') {
+                                            echo '<a href="#" class="selected" onclick="selectSize(\'one size\')">one size</a>';
+                                            echo '<script>selectSize(\'one size\');</script>';
                                         } else {
                                             foreach ($sizes as $size) {
                                                 echo '<a href="#" onclick="selectSize(\'' . $size . '\')">' . $size . '</a>';
