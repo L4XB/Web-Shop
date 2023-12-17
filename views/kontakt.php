@@ -39,6 +39,20 @@
             }
         });
     </script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="collapse"]').click(function () {
+                var arrow = $(this).find('.fas');
+                if ($(this).attr('aria-expanded') == 'false') {
+                    arrow.removeClass('fa-chevron-right');
+                    arrow.addClass('fa-chevron-down');
+                } else {
+                    arrow.removeClass('fa-chevron-down');
+                    arrow.addClass('fa-chevron-right');
+                }
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -50,10 +64,11 @@
                 <h1>Kontakt</h1>
                 <p>Wir versuchen, jede Anfrage schnellstmöglich zu beantworten!</p>
                 <br>
-                <!--die Krokodilmäuler verändern sich beim öffnen noch nicht falls uns langweilig ist haha-->
+
                 <p data-toggle="collapse" href="#collapse1" role="button" aria-expanded="false"
                     aria-controls="collapse1">
-                    > Wo finde ich meine Bestellungen?
+                    <i class="fas fa-chevron-right"></i> Wo finde ich meine Bestellungen? Wo finde ich meine
+                    Bestellungen?
                 </p>
                 <div class="collapse" id="collapse1">
                     <div class="card card-body">
@@ -65,7 +80,7 @@
 
                 <p data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false"
                     aria-controls="collapse2">
-                    > Wie kann ich 2FA wieder deaktivieren
+                    <i class="fas fa-chevron-right"></i> Wie kann ich 2FA wieder deaktivieren
                 </p>
                 <div class="collapse" id="collapse2">
                     <div class="card card-body">
@@ -76,7 +91,7 @@
 
                 <p data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false"
                     aria-controls="collapse3">
-                    > Wo finde ich meine Rechnung?
+                    <i class="fas fa-chevron-right"></i> Wo finde ich meine Rechnung?
                 </p>
                 <div class="collapse" id="collapse3">
                     <div class="card card-body">
