@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Erstellungszeit: 16. Dez 2023 um 18:34
+-- Erstellungszeit: 18. Dez 2023 um 12:56
 -- Server-Version: 10.4.28-MariaDB
 -- PHP-Version: 8.2.4
 
@@ -38,8 +38,6 @@ CREATE TABLE `favorites` (
 --
 
 INSERT INTO `favorites` (`favoritesID`, `userID`, `productID`) VALUES
-(101, 29, 5),
-(102, 29, 6),
 (103, 30, 1),
 (104, 31, 1);
 
@@ -86,23 +84,26 @@ CREATE TABLE `products` (
   `size` varchar(20) DEFAULT NULL,
   `fit` varchar(50) DEFAULT NULL,
   `pathName` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL
+  `description` text DEFAULT NULL,
+  `stock` int(11) DEFAULT NULL,
+  `detailedDescription` text DEFAULT NULL,
+  `descriptionPoints` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `products`
 --
 
-INSERT INTO `products` (`productID`, `productName`, `price`, `size`, `fit`, `pathName`, `description`) VALUES
-(1, 'Product1', 19.99, 'M', 'Regular', 'FSI_beanie', 'Description for Product1'),
-(2, 'Product2', 29.99, 'L', 'Slim Fit', 'FSI-Coffee-to-go', 'Description for Product2'),
-(3, 'Product3', 39.99, 'S', 'Loose Fit', 'FSI-Fahne', 'Description for Product3'),
-(4, 'Product4', 49.99, 'XL', 'Regular', 'FSI-Tasche', 'Description for Product4'),
-(5, 'Product5', 59.99, 'M', 'Slim Fit', 'tasse_fsi', 'Description for Product5'),
-(6, 'Product6', 69.99, 'L', 'Loose Fit', 'Hoody_back_fsi', 'Description for Product6'),
-(7, 'Product7', 79.99, 'S', 'Regular', 'hoody_front_women_fsi-tiger', 'Description for Product7'),
-(8, 'Product8', 89.99, 'XL', 'Slim Fit', 'hoody_front_men_fsi-tiger', 'Description for Product8'),
-(9, 'Product9', 99.99, 'M', 'Loose Fit', 'Tiger-Tasche', 'Description for Product9');
+INSERT INTO `products` (`productID`, `productName`, `price`, `size`, `fit`, `pathName`, `description`, `stock`, `detailedDescription`, `descriptionPoints`) VALUES
+(1, 'ProdÜct1', 19.99, 'default', 'Regular', 'FSI_beanie', 'Description for Product1', 100, 'Das ist eine detalierte Beschreibung des Produkts', 'Punkt 1;Punkt 2;Punkt 3;Punkt 4'),
+(2, 'Product2', 29.99, 'default', 'Slim Fit', 'FSI-Coffee-to-go', 'Description for Product2', 30, NULL, NULL),
+(3, 'Product3', 39.99, 'default', 'Loose Fit', 'FSI-Fahne', 'Description for Product3', 40, NULL, NULL),
+(4, 'Product4', 49.99, 'default', 'Regular', 'FSI-Tasche', 'Description for Product4', 120, NULL, NULL),
+(5, 'Product5', 59.99, 'default', 'Slim Fit', 'tasse_fsi', 'Description for Product5', 300, NULL, NULL),
+(6, 'Product6', 69.99, 'S;M;L;XL', 'Loose Fit', 'Hoody_back_fsi', 'Description for Product6', 60, NULL, NULL),
+(7, 'Product7', 79.99, 'S;M;L;XL', 'Regular', 'hoody_front_women_fsi-tiger', 'Description for Product7', 90, NULL, NULL),
+(8, 'Product8', 89.99, 'S;M;L;XL', 'Slim Fit', 'hoody_front_men_fsi-tiger', 'Description for Product8', 10, NULL, NULL),
+(9, 'Product9', 99.99, 'default', 'Loose Fit', 'Tiger-Tasche', 'Description for Product9', 50, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -122,9 +123,8 @@ CREATE TABLE `shoppingCart` (
 --
 
 INSERT INTO `shoppingCart` (`cartID`, `amount`, `userID`, `productID`) VALUES
-(48, 7, 29, 2),
-(49, 6, 29, 5),
-(51, 4, 30, 2);
+(51, 4, 30, 2),
+(85, 5, 37, 1);
 
 -- --------------------------------------------------------
 
@@ -169,17 +169,18 @@ CREATE TABLE `users` (
   `twoFASecret` varchar(255) DEFAULT NULL,
   `use2FA` tinyint(1) DEFAULT NULL,
   `isFirstLogin` tinyint(1) DEFAULT NULL,
-  `createdAt` timestamp NOT NULL DEFAULT current_timestamp()
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
+  `is_logged_in` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Daten für Tabelle `users`
 --
 
-INSERT INTO `users` (`userID`, `email`, `passwort`, `firstName`, `lastName`, `lastLogin`, `screenResolution`, `os`, `twoFASecret`, `use2FA`, `isFirstLogin`, `createdAt`) VALUES
-(29, 'lukas.buck@e-mail.de', 'db0dc72dc8aee68904ab238cbb61d03d2baf35b4892d63251d3c2d6e1afe5dee', 'Madeleine', 'Buck', '2023-12-15 16:44:56', 'unknown', 'unknown', 'OQQCUBCHOGLOA42N', 0, 1, '2023-12-15 16:44:56'),
-(30, 'Madeleine.buck@online.de', '01e872f647c44fb41465904d88770786f66920ffbc405a29a03e13e66df0e8cf', 'Madeleine', 'Buck', '2023-12-16 07:46:52', 'unknown', 'unknown', '3JB3FMXUVCOGTLKD', 1, 1, '2023-12-16 07:46:52'),
-(31, 'buck.lukas@icloud.com', '46b47fb88e9bfb31db08a3587a3e89b40ba14b5c1f644270593a987b70f9eda5', 'Madeleine', 'Buck', '2023-12-16 13:35:04', 'unknown', 'unknown', 'AIDWOP4Z2UGAR36Y', 0, 1, '2023-12-16 13:35:04');
+INSERT INTO `users` (`userID`, `email`, `passwort`, `firstName`, `lastName`, `lastLogin`, `screenResolution`, `os`, `twoFASecret`, `use2FA`, `isFirstLogin`, `createdAt`, `is_logged_in`) VALUES
+(30, 'Madeleine.buck@online.de', '01e872f647c44fb41465904d88770786f66920ffbc405a29a03e13e66df0e8cf', 'Madeleine', 'Buck', '2023-12-16 07:46:52', 'unknown', 'unknown', '3JB3FMXUVCOGTLKD', 1, 1, '2023-12-16 07:46:52', 1),
+(31, 'buck.lukas@icloud.com', '46b47fb88e9bfb31db08a3587a3e89b40ba14b5c1f644270593a987b70f9eda5', 'Madeleine', 'Buck', '2023-12-16 13:35:04', 'unknown', 'unknown', 'AIDWOP4Z2UGAR36Y', 0, 1, '2023-12-16 13:35:04', 1),
+(37, 'lukas.buck@e-mail.de', '90e47ddcd1835ae7b7f0f0c0391372be72660f0c91c3f2be39d8b783e4fc33057cc63c8ef1fb3d4014f1e25eb3848e3b3bf5c8dfc2318d3a8d28010b6c970f80', 'Madeleine', 'Buck', '2023-12-17 14:27:02', '2560x1440', 'Mac OS', 'FCXOGJ2YTM4E3SMH', 0, 1, '2023-12-17 14:27:02', 1);
 
 --
 -- Indizes der exportierten Tabellen
@@ -237,7 +238,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT für Tabelle `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favoritesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `favoritesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=108;
 
 --
 -- AUTO_INCREMENT für Tabelle `history`
@@ -255,19 +256,19 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT für Tabelle `shoppingCart`
 --
 ALTER TABLE `shoppingCart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=86;
 
 --
 -- AUTO_INCREMENT für Tabelle `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT für Tabelle `users`
 --
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Constraints der exportierten Tabellen
