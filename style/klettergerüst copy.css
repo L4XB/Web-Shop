@@ -1,0 +1,18 @@
+.dropdown-divider {
+    background-color: #ffffff; /* Replace with the color you want */
+}
+
+.dropdown-menu {
+    width: 50px; /* Replace with the width you want */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: none;
+}
+
+body {
+    min-height: 100vh;
+}

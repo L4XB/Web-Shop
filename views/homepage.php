@@ -7,7 +7,18 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico"> 
+    <!-- 
+    <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/icons/favicon-16x16.png">
+    <link rel="manifest" href="../assets/icons/site.webmanifest">
+    <link rel="mask-icon" href="../assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#212529">
+    <meta name="theme-color" content="#212529"> -->
+
     <title>Homepage</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
 
