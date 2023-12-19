@@ -8,9 +8,9 @@ session_start();
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klettergerüst</title>
+  <title>KlettergerüstV2</title>
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
-  <link rel="stylesheet" href="../style/klettergerüst copy.css">
+  <link rel="stylesheet" href="../style/klettergerüstV2.css">
 
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -68,7 +68,7 @@ session_start();
           <div class="col d-flex justify-content-center">
             <ul class="nav justify-content-end nav-underline">
               <li class="nav-item">
-                <a class="nav-link px-2 text-white" href="#">
+                <a class="nav-link px-2 text-white" href="products.php">
                   <div class="d-flex flex-column align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                       class="bi bi-shop" viewBox="0 0 16 16">
@@ -80,7 +80,7 @@ session_start();
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-2 text-white" href="#">
+                <a class="nav-link px-2 text-white" href="favorits.php">
                   <div class="d-flex flex-column align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                       class="bi bi-heart" viewBox="0 0 16 16">
@@ -92,7 +92,7 @@ session_start();
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link px-2 text-white " href="#">
+                <a class="nav-link px-2 text-white " href="warenkorb.php">
                   <div class="d-flex flex-column align-items-center">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                       class="bi bi-cart3" viewBox="0 0 16 16">
