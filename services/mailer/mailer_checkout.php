@@ -13,7 +13,7 @@ require '../../vendor/autoload.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesamtbetrag)
+function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesamtbetrag, $name, $email)
 {
     $mail = new PHPMailer(true);
     $mail->isSMTP();
@@ -73,7 +73,7 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
 
 
 
-    $email = "buck.lukas@icloud.com";
+
     $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
     $clientSecret = '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';
     $refreshToken = '1//090tMqvvfmX7oCgYIARAAGAkSNwF-L9IrZAs5Q_Z7y7TcozSIVO6b15aFwUas2SkmdeQTkuvKEK0BfxVRbX55tt6bcyNZb_izpbQ';
@@ -108,7 +108,6 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
     $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
     $mail->Subject = 'Bestellung';
     session_start();
-    $name = $_SESSION['name'];
 
 
     $mail->Body = "<!DOCTYPE html>

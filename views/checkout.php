@@ -201,7 +201,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Vorname</label>
                             <input type="text" class="form-control" id="firstName" placeholder="Vorname" value=""
-                                required="">
+                                name="firstName" required="">
                             <div class="invalid-feedback">
                                 Valid first name is required.
                             </div>
@@ -219,7 +219,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     <div class="mb-3">
                         <label for="email">Email </label>
                         <input type="email" class="form-control" id="email"
-                            placeholder="inf.fachschaft@reutlingen-university.de" required="">
+                            placeholder="inf.fachschaft@reutlingen-university.de" required="" name="email">
                         <div class="invalid-feedback">
                             Bitte geben Sie eine korrekte Emailadresse an, damit wir Sie über Ihre Lieferung informieren
                             können.
