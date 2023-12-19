@@ -41,10 +41,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
         });
     </script>
     <script>
-        document.querySelector('form').addEventListener('submit', function (e) {
-            var totalAmount = document.querySelector('#totalPrice').textContent;
-            document.querySelector('#totalAmount').value = totalAmount;
-        });
+
     </script>
     <script>
         $(document).ready(function () {
@@ -181,7 +178,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     echo '</li>';
                     echo '<li class="list-group-item d-flex justify-content-between">';
                     echo '<span>Gesamtbetrag (€)</span>';
-                    echo '<strong name="gesamtbetrag" id = "totalPrice">' . number_format($total, 2, '.', '') . '€</strong>';
+                    echo '<strong name="totalPrice" id = "totalPrice">' . number_format($total, 2, '.', '') . '€</strong>';
                     echo '</li>';
 
                     $stmt->close();
@@ -402,12 +399,15 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                 'use strict';
 
                 window.addEventListener('load', function () {
+
                     // Fetch all the forms we want to apply custom Bootstrap validation styles to
                     var forms = document.getElementsByClassName('needs-validation');
 
                     // Loop over them and prevent submission
                     var validation = Array.prototype.filter.call(forms, function (form) {
                         form.addEventListener('submit', function (event) {
+                            var totalAmount = document.querySelector('#totalPrice').textContent;
+                            document.querySelector('#totalAmount').value = totalAmount;
                             if (form.checkValidity() === false) {
                                 event.preventDefault();
                                 event.stopPropagation();
