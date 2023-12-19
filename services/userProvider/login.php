@@ -94,6 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $username = "root";
         $password = "";
         $dbname = "webShopFSI";
+        $_SESSION['email'] = $username;
         $userid = $_SESSION['userId'];
         $conn = new mysqli($servername, $username, $password, $dbname);
         $conn = new mysqli($servername, $username, $password, $dbname);
@@ -123,10 +124,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
-
         if (isFirstLogin()) {
             header('Location: ../../views/setNewPassword.php');
             setFirstLoginToFalse($username);
+            if (is2FAEnabled()) {
+                header('Location: ../../views/check_2fa.php');
+            } else {
+                header('Location: ../../views/homepage.php');
+            }
         } else {
             if (is2FAEnabled()) {
                 header('Location: ../../views/check_2fa.php');
