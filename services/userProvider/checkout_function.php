@@ -23,6 +23,9 @@ $fullAddress = $conn->real_escape_string($_POST['fullAddress']);
 $paymentMethod = $conn->real_escape_string($_POST['paymentMethod']);
 $versandart = $conn->real_escape_string($_POST['shippingMethod']);
 $gesamtBetrag = $conn->real_escape_string($_POST['totalAmount']);
+$name = $conn->real_escape_string($_POST['firstName']);
+$email = $conn->real_escape_string($_POST['email']);
+
 
 $sql = "INSERT INTO transactions (timestamp, userID, orderNumber, adress, paymentMethod) VALUES (CURRENT_TIMESTAMP, $currentUserId, $orderNumber, '$fullAddress', '$paymentMethod')";
 
@@ -60,7 +63,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 require '../mailer/mailer_checkout.php';
-sendConfirmationMail($orderNumber, $versandart, $last_id, $gesamtBetrag);
+sendConfirmationMail($orderNumber, $versandart, $last_id, $gesamtBetrag, $name, $email);
 
 header('Location: ../../views/thankyou.php');
 
