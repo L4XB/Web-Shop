@@ -9,7 +9,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
 
     <!-- Favicons -->
-    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico"> 
+    <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
     <!-- 
     <link rel="apple-touch-icon" sizes="180x180" href="../assets/icons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="../assets/icons/favicon-32x32.png">
@@ -79,6 +79,7 @@ session_start();
 </head>
 
 <body>
+
     <script>
         $.noConflict();
         jQuery(document).ready(function ($) {
@@ -91,6 +92,7 @@ session_start();
 
     </script>
     <?php include 'klettergerüst.php'; ?>
+
     <br>
     <div class="container-fluid" id="fa-items">
         <div class="d-flex align-items-center">
