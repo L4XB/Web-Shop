@@ -23,6 +23,7 @@ $fullAddress = $conn->real_escape_string($_POST['fullAddress']);
 $paymentMethod = $conn->real_escape_string($_POST['paymentMethod']);
 $versandart = $conn->real_escape_string($_POST['shippingMethod']);
 $gesamtBetrag = $conn->real_escape_string($_POST['totalAmount']);
+$betrag = str_replace(['€', ' '], '', $gesamtBetrag);
 $name = $conn->real_escape_string($_POST['firstName']);
 $email = $conn->real_escape_string($_POST['email']);
 
@@ -63,7 +64,7 @@ if ($conn->query($sql) === TRUE) {
 }
 
 require '../mailer/mailer_checkout.php';
-sendConfirmationMail($orderNumber, $versandart, $last_id, $gesamtBetrag, $name, $email);
+sendConfirmationMail($orderNumber, $versandart, $last_id, $betrag, $name, $email);
 
 header('Location: ../../views/thankyou.php');
 
