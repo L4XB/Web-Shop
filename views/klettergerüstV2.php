@@ -181,7 +181,7 @@ session_start();
         <div class="col justify-content-start">
           <ul class="nav nav-underline">
             <li class="nav-item">
-              <a class="nav-link px-2 text-white" href="#">
+              <a class="nav-link px-2 text-white" href="doku.php">
                 <div class="d-flex flex-column align-items-center">
                 </div>
                 <div><img height="20px" src="https://cdn.icon-icons.com/icons2/2429/PNG/512/figma_logo_icon_147289.png">
@@ -189,7 +189,7 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-2 text-white" href="#">
+              <a class="nav-link px-2 text-white" href="devteam.php">
                 <div class="d-flex flex-column align-items-center">
                 </div>
                 <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -200,7 +200,7 @@ session_start();
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-2 text-white " href="#">
+              <a class="nav-link px-2 text-white " href="kontakt.php">
                 <div class="d-flex flex-column align-items-center">
                 </div>
                 <div><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
