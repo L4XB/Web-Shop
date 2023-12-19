@@ -37,6 +37,9 @@
 
                 </form>
                 <button onclick="navigateToSignUpPage()">SignUp</button>
+                <br>
+                <br>
+                <button class="cancel" onclick="window.location.href='homepage.php'">Abbruch</button>
             </div>
         </div>
         <!--right Side-->

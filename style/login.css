@@ -70,7 +70,19 @@ input::placeholder {
 
 button {
     padding: 10px;
-    background-color: rgb(229, 174, 22);
+    background-color: rgb(247, 188, 26); 
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    border-radius: 35px;
+    width: 100%;
+    font-size: 21px;
+}
+
+.cancel {
+    padding: 10px;
+    background-color: #dadada;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -81,7 +93,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(247, 188, 26)
+    background-color: rgb(229, 174, 22)
 }
 
 .signUp {
