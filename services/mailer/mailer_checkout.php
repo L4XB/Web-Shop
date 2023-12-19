@@ -15,8 +15,58 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transactionId)
 {
+    $mail = new PHPMailer(true);
+    $mail->isSMTP();
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+    $sql = "SELECT history.amount, products.pathName, products.productName 
+    FROM history 
+    JOIN products ON history.productID = products.productID 
+    WHERE history.transactionID = ?";
+
+    // Bereiten Sie die SQL-Abfrage vor.
+    $stmt = $conn->prepare($sql);
+
+    // Binden Sie den Wert an den Platzhalter.
+    $stmt->bind_param("i", $transactionId);
+
+    // Führen Sie die Abfrage aus.
+    $stmt->execute();
+
+    // Binden Sie das Ergebnis an Variablen.
+    $stmt->bind_result($amount, $productPath, $productName);
+
+    // Initialisieren Sie die Produktliste.
+    $productList = '';
+
+    // Holen Sie die Ergebnisse.
+    while ($stmt->fetch()) {
+        // Erstellen Sie das Produkt-Element.
+        $productElement = "<div class='media text-muted pt-3 product'>
+    <img style='height: 60px;' class='img' src='cid:$productName' alt='$productName'>
+    <p class='media-body pb-3 mb-0 small'><strong class='d-block text-gray-dark'>$productName</strong> Menge: $amount</p>
+</div>";
+
+        // Fügen Sie das Produkt-Element zur Produktliste hinzu.
+        $productList .= $productElement;
+
+        // Fügen Sie das Bild als eingebettetes Bild zur E-Mail hinzu
+        $mail->AddEmbeddedImage("../../assets/images/produkts/$productPath.png", $productName);
+    }
 
 
+    // Schließen Sie die Anweisung und die Verbindung.
+    $stmt->close();
+    $conn->close();
 
 
 
@@ -37,8 +87,7 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
     $token = $provider->getAccessToken($grant, ['refresh_token' => $refreshToken]);
 
     // Konfiguration für PHPMailer
-    $mail = new PHPMailer(true);
-    $mail->isSMTP();
+
     $mail->Host = 'smtp.gmail.com';
     $mail->SMTPAuth = true;
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
@@ -58,8 +107,7 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
 
     $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
     $mail->Subject = 'Regestrierung';
-    $products = loadProducts($transactionId);
-    $mail->AddEmbeddedImage('../../assets/images/produkts/FSI-Coffee-to-go.png', 'logo');
+
     $mail->Body = "<!DOCTYPE html>
     <html lang='en'>
     
@@ -123,10 +171,10 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
                 <h4 style='padding-top: 60px;'>
                     Deine Produkte:
                 </h4>
-                <div class='media text-muted pt-3 product'>
-                $products
+                
+                $productList
                     
-                </div>
+   
                 <p style='padding-top: 60px; font-size: larger;'>Gesamtsumme: 200 Euro</p>
             </div>
     
@@ -147,58 +195,6 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
 sendConfirmationMail("12345", "Lukas", "DHL", 18);
 
 
-function loadProducts($transactionId)
-{
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "webShopFSI";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
-    }
-    $sql = "SELECT history.amount, products.pathName, products.productName 
-    FROM history 
-    JOIN products ON history.productID = products.productID 
-    WHERE history.transactionID = ?";
-
-    // Bereiten Sie die SQL-Abfrage vor.
-    $stmt = $conn->prepare($sql);
-
-    // Binden Sie den Wert an den Platzhalter.
-    $stmt->bind_param("i", $transactionId);
-
-    // Führen Sie die Abfrage aus.
-    $stmt->execute();
-
-    // Binden Sie das Ergebnis an Variablen.
-    $stmt->bind_result($amount, $productPath, $productName);
-
-    // Initialisieren Sie die Produktliste.
-    $productList = '';
-
-    // Holen Sie die Ergebnisse.
-    while ($stmt->fetch()) {
-        // Erstellen Sie das Produkt-Element.
-        $productElement = "<div class='media text-muted pt-3 product'>
-    <img style='height: 60px;' class='img' src='cid:$productPath' alt='$productName'>
-    <p class='media-body pb-3 mb-0 small'><strong class='d-block text-gray-dark'>$productName</strong> Menge: $amount</p>
-</div>";
-
-        // Fügen Sie das Produkt-Element zur Produktliste hinzu.
-        $productList .= $productElement;
-
-        // Fügen Sie das Bild als eingebettetes Bild zur E-Mail hinzu
-    }
-
-
-    // Schließen Sie die Anweisung und die Verbindung.
-    $stmt->close();
-    $conn->close();
-    return $productList;
-}
 
 
 ?>
