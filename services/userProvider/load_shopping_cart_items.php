@@ -31,33 +31,47 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("i", $userId);
 $stmt->execute();
 $result = $stmt->get_result();
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        // Hier können Sie den HTML-Code für jedes Produkt ausgeben
+        echo '<div class="row">';
+        echo '<div class="col-2"></div>';
+        echo '<div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
+        echo '<button class="delete" data-productid="' . $row['productID'] . '"><img src="../database/images/trash.png" style="height: 30%;"></button>';
+        echo '</div>';
+        echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
+        echo '<img style="height:45px;" src="../assets/images/produkts/' . $row['pathName'] . '.png">';
+        echo '</div>';
+        echo '<div class="col-2" style="border-bottom: solid; border-width:thin; border-color: lightgrey;">';
+        echo '<p class="light-text">' . $row['productName'] . '</p>';
+        echo '<p class="text">' . $row['description'] . '</p>';
+        echo '</div>';
+        echo '<div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
+        echo '<div id="counter" data-productid="' . $row['productID'] . '">';
+        echo '<div class="minus">-</div>';
+        echo '<div class="number">' . $row['amount'] . '</div>';
+        echo '<div class="plus">+</div>';
+        echo '</div>';
+        echo '</div>';
+        echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
+        echo '<p>' . $row['price'] . ' €</p>';
+        echo '</div>';
+        echo '<div class="col-2"></div>';
+        echo '</div>';
+        echo '<div class="row container-fluid justify-content-end" style="margin-top:40px;padding-right:190px;">
+            <div class="col-3">
+                <button type="button" class="btn btn-warning" onclick="window.location.href = \'checkout.php\';">weiter
+                    zur Kasse</button>
+            </div>
+        </div>';
 
-while ($row = $result->fetch_assoc()) {
-    // Hier können Sie den HTML-Code für jedes Produkt ausgeben
-    echo '<div class="row">';
-    echo '<div class="col-2"></div>';
-    echo '<div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-    echo '<button class="delete" data-productid="' . $row['productID'] . '"><img src="../database/images/trash.png" style="height: 30%;"></button>';
-    echo '</div>';
-    echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-    echo '<img style="height:45px;" src="../assets/images/produkts/' . $row['pathName'] . '.png">';
-    echo '</div>';
-    echo '<div class="col-2" style="border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-    echo '<p class="light-text">' . $row['productName'] . '</p>';
-    echo '<p class="text">' . $row['description'] . '</p>';
-    echo '</div>';
-    echo '<div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-    echo '<div id="counter" data-productid="' . $row['productID'] . '">';
-    echo '<div class="minus">-</div>';
-    echo '<div class="number">' . $row['amount'] . '</div>';
-    echo '<div class="plus">+</div>';
-    echo '</div>';
-    echo '</div>';
-    echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-    echo '<p>' . $row['price'] . ' €</p>';
-    echo '</div>';
-    echo '<div class="col-2"></div>';
-    echo '</div>';
+    }
+
+} else {
+    echo '<p style="text-align:center;">Keine Produkte im Warenkorb. </p>
+    <p style="text-align:center;"><small class="d-block text-right mt-3">
+      <a href="products.php" class="btn btn-outline-dark">Artikel hinzufügen</a>
+    </small></div></p>';
 }
 
 $stmt->close();

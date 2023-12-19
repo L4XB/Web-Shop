@@ -122,12 +122,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
         include("../services/userProvider/load_shopping_cart_items.php");
         ?>
 
-        <div class="row container-fluid justify-content-end" style="margin-top:40px;padding-right:190px;">
-            <div class="col-3">
-                <button type="button" class="btn btn-warning" onclick="window.location.href = 'checkout.php';">weiter
-                    zur Kasse</button>
-            </div>
-        </div>
+
 
         <!--warenkorb insert-->
 
