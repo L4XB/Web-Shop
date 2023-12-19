@@ -88,6 +88,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
             });
         });
     </script>
+
 </head>
 
 
@@ -105,7 +106,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                 <br>
             </div>
         </div>
-        <input type="hidden" id="totalAmount" name="totalAmount" value="">
+
         <div class="row">
             <div class="col-md-4 order-md-2 mb-4">
                 <h4 class="d-flex justify-content-between align-items-center mb-3">
@@ -181,11 +182,21 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     echo '<strong name="totalPrice" id = "totalPrice">' . number_format($total, 2, '.', '') . '€</strong>';
                     echo '</li>';
 
+
                     $stmt->close();
                     $conn->close();
                     ?>
 
                 </ul>
+
+                <script>
+                    document.querySelector('#form').addEventListener('submit', function (e) {
+                        var totalAmount = document.querySelector('#totalPrice').innerText;
+                        document.querySelector('#totalAmount').value = totalAmount;
+                        console.log("Value:")
+                        console.log(document.querySelector('#totalAmount').value)
+                    });
+                </script>
 
                 <!-- <form class="card p-2">
                     <div class="input-group">
@@ -195,8 +206,9 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>
-                <form class="needs-validation was-validated" novalidate="" onsubmit="combineAddress()"
+                <form id="#form" class="needs-validation was-validated" novalidate="" onsubmit="combineAddress()"
                     action="../services/userProvider/checkout_function.php" method="post">
+
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Vorname</label>
@@ -206,6 +218,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                                 Valid first name is required.
                             </div>
                         </div>
+                        <input type="hidden" id="totalAmount" name="totalAmount" value="">
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Nachname</label>
                             <input type="text" class="form-control" id="lastName" placeholder="Nachname" value=""
@@ -369,6 +382,11 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                             var address = document.getElementById('address').value;
                             var address2 = document.getElementById('address2').value;
                             document.getElementById('fullAddress').value = address + ', ' + address2;
+
+                            var totalAmount = document.querySelector('#totalPrice').innerText;
+                            document.querySelector('#totalAmount').value = totalAmount;
+                            console.log("Value:")
+                            console.log(document.querySelector('#totalAmount').value)
                         }
                     </script>
 
@@ -403,8 +421,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     // Loop over them and prevent submission
                     var validation = Array.prototype.filter.call(forms, function (form) {
                         form.addEventListener('submit', function (event) {
-                            var totalAmount = document.querySelector('#totalPrice').textContent;
-                            document.querySelector('#totalAmount').value = totalAmount;
+
                             if (form.checkValidity() === false) {
                                 event.preventDefault();
                                 event.stopPropagation();
