@@ -58,14 +58,15 @@ if ($result->num_rows > 0) {
         echo '</div>';
         echo '<div class="col-2"></div>';
         echo '</div>';
-        echo '<div class="row container-fluid justify-content-end" style="margin-top:40px;padding-right:190px;">
-            <div class="col-3">
-                <button type="button" class="btn btn-warning" onclick="window.location.href = \'checkout.php\';">weiter
-                    zur Kasse</button>
-            </div>
-        </div>';
+
 
     }
+    echo '<div class="row container-fluid justify-content-end" style="margin-top:40px;padding-right:190px;">
+    <div class="col-3">
+        <button type="button" class="btn btn-warning" onclick="window.location.href = \'checkout.php\';">weiter
+            zur Kasse</button>
+    </div>
+</div>';
 
 } else {
     echo '<p style="text-align:center;">Keine Produkte im Warenkorb. </p>

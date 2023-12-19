@@ -13,9 +13,17 @@ require '../../vendor/autoload.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-function sendConfirmationMail($bestellnummer, $firstName, $versandArt)
+function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transactionId)
 {
-    $email = "Lukas.Buck@e-mail.de";
+
+
+
+
+
+
+
+
+    $email = "buck.lukas@icloud.com";
     $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
     $clientSecret = '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';
     $refreshToken = '1//090tMqvvfmX7oCgYIARAAGAkSNwF-L9IrZAs5Q_Z7y7TcozSIVO6b15aFwUas2SkmdeQTkuvKEK0BfxVRbX55tt6bcyNZb_izpbQ';
@@ -50,6 +58,7 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt)
 
     $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
     $mail->Subject = 'Regestrierung';
+    $products = loadProducts($transactionId);
     $mail->AddEmbeddedImage('../../assets/images/produkts/FSI-Coffee-to-go.png', 'logo');
     $mail->Body = "<!DOCTYPE html>
     <html lang='en'>
@@ -88,6 +97,11 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt)
                 padding: 10px;
                 text-align: center;
             }
+            img{
+                padding-right: 30px;
+                padding-left: 20px;
+
+            }
         </style>
     </head>
     
@@ -110,13 +124,8 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt)
                     Deine Produkte:
                 </h4>
                 <div class='media text-muted pt-3 product'>
-    
-                    <img style='height: 60px;' class='img' src='cid:logo'
-                        alt='FSI CUP '>
-    
-    
-                    <p class='media-body pb-3 mb-0 small'><strong class='d-block text-gray-dark'> FSI CUP
-                        </strong> Menge: 2</p>
+                $products
+                    
                 </div>
                 <p style='padding-top: 60px; font-size: larger;'>Gesamtsumme: 200 Euro</p>
             </div>
@@ -135,8 +144,61 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt)
 }
 
 
-sendConfirmationMail("12345", "Lukas", "DHL");
+sendConfirmationMail("12345", "Lukas", "DHL", 18);
 
+
+function loadProducts($transactionId)
+{
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+    $sql = "SELECT history.amount, products.pathName, products.productName 
+    FROM history 
+    JOIN products ON history.productID = products.productID 
+    WHERE history.transactionID = ?";
+
+    // Bereiten Sie die SQL-Abfrage vor.
+    $stmt = $conn->prepare($sql);
+
+    // Binden Sie den Wert an den Platzhalter.
+    $stmt->bind_param("i", $transactionId);
+
+    // Führen Sie die Abfrage aus.
+    $stmt->execute();
+
+    // Binden Sie das Ergebnis an Variablen.
+    $stmt->bind_result($amount, $productPath, $productName);
+
+    // Initialisieren Sie die Produktliste.
+    $productList = '';
+
+    // Holen Sie die Ergebnisse.
+    while ($stmt->fetch()) {
+        // Erstellen Sie das Produkt-Element.
+        $productElement = "<div class='media text-muted pt-3 product'>
+    <img style='height: 60px;' class='img' src='cid:$productPath' alt='$productName'>
+    <p class='media-body pb-3 mb-0 small'><strong class='d-block text-gray-dark'>$productName</strong> Menge: $amount</p>
+</div>";
+
+        // Fügen Sie das Produkt-Element zur Produktliste hinzu.
+        $productList .= $productElement;
+
+        // Fügen Sie das Bild als eingebettetes Bild zur E-Mail hinzu
+    }
+
+
+    // Schließen Sie die Anweisung und die Verbindung.
+    $stmt->close();
+    $conn->close();
+    return $productList;
+}
 
 
 ?>
