@@ -28,10 +28,11 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
     if ($conn->connect_error) {
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
-    $sql = "SELECT history.amount, products.pathName, products.productName 
-    FROM history 
-    JOIN products ON history.productID = products.productID 
-    WHERE history.transactionID = ?";
+    $sql = "SELECT SUM(history.amount) AS totalAmount, products.pathName, products.productName 
+            FROM history 
+            JOIN products ON history.productID = products.productID 
+            WHERE history.transactionID = ?
+            GROUP BY products.productID";
 
     // Bereiten Sie die SQL-Abfrage vor.
     $stmt = $conn->prepare($sql);
@@ -43,7 +44,7 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
     $stmt->execute();
 
     // Binden Sie das Ergebnis an Variablen.
-    $stmt->bind_result($amount, $productPath, $productName);
+    $stmt->bind_result($totalAmount, $productPath, $productName);
 
     // Initialisieren Sie die Produktliste.
     $productList = '';
@@ -52,8 +53,8 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
     while ($stmt->fetch()) {
         // Erstellen Sie das Produkt-Element.
         $productElement = "<div class='media text-muted pt-3 product'>
-    <img style='height: 60px;' class='img' src='cid:$productName' alt='$productName'>
-    <p class='media-body pb-3 mb-0 small'><strong class='d-block text-gray-dark'>$productName</strong> Menge: $amount</p>
+<img style='height: 60px;' class='img' src='cid:$productName' alt='$productName'>
+<p class='media-body pb-3 mb-0 small'><strong class='d-block text-gray-dark'>$productName</strong> Menge: $totalAmount</p>
 </div>";
 
         // Fügen Sie das Produkt-Element zur Produktliste hinzu.
