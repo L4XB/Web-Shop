@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Your Business Email</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: rgb(247, 188, 26);
+            color: #000000;
+            text-align: center;
+            padding: 20px;
+        }
+
+        section {
+            padding-top: 40px;
+            padding-bottom: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
+        <h1>Vielen Dank für deine Bestellung!</h1>
+        <h2>Deine Bestellnummer : <u>$bestellnummer</u></h2>
+    </header>
+
+    <section style="margin-left: auto;margin-right: auto;">
+        <div style="max-width: 600px; width: 100%; text-align: left;">
+            <h2>Hi $firstName,</h2>
+            <p>
+                anbei findest du alle wichtigen Informationen zu deiner Bestellung!
+            </p>
+            <p>
+                der Versand findet über $versandArt statt!
+            </p>
+            <h4 style="padding-top: 60px;">
+                Deine Produkte:
+            </h4>
+            <div class="media text-muted pt-3 product">
+
+                <img style="height: 60px;" class="img" src="../../assets/images/produkts/FSI-Coffee-to-go.png"
+                    alt="' . $productName . '">
+
+
+                <p class="media-body pb-3 mb-0 small"><strong class="d-block text-gray-dark"> $productName
+                    </strong> Menge: $menge</p>
+            </div>
+            <p style="padding-top: 60px; font-size: larger;">Gesamtsumme: $gesamtsumme</p>
+        </div>
+
+
+    </section>
+
+    <footer>
+        <p>kontaktiere uns: inf.fachschaft@gmail.com | Phone: (123) 456-7890</p>
+    </footer>
+</body>
+
+</html>
