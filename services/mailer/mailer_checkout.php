@@ -13,7 +13,7 @@ require '../../vendor/autoload.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transactionId)
+function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesamtbetrag)
 {
     $mail = new PHPMailer(true);
     $mail->isSMTP();
@@ -106,7 +106,10 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
     $mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
 
     $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
-    $mail->Subject = 'Regestrierung';
+    $mail->Subject = 'Bestellung';
+    session_start();
+    $name = $_SESSION['name'];
+
 
     $mail->Body = "<!DOCTYPE html>
     <html lang='en'>
@@ -155,18 +158,18 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
     
     <body>
         <header>
-            <h1>Vielen Dank fuer deine Bestellung!</h1>
+            <h1>Vielen Dank f&uuml;r deine Bestellung!</h1>
             <h2>Deine Bestellnummer : <u>$bestellnummer</u></h2>
         </header>
     
         <section style='margin-left: auto;margin-right: auto;'>
             <div style='max-width: 600px; width: 100%; text-align: left;'>
-                <h2>Hi $firstName,</h2>
+                <h2>Hi $name,</h2>
                 <p>
                     anbei findest du alle wichtigen Informationen zu deiner Bestellung!
                 </p>
                 <p>
-                    der Versand findet ueber $versandArt statt!
+                    der Versand findet &uuml;ber $versandArt statt!
                 </p>
                 <h4 style='padding-top: 60px;'>
                     Deine Produkte:
@@ -175,7 +178,7 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
                 $productList
                     
    
-                <p style='padding-top: 60px; font-size: larger;'>Gesamtsumme: 200 Euro</p>
+                <p style='padding-top: 60px; font-size: larger;'>Gesamtsumme: $gesamtbetrag Euro</p>
             </div>
     
     
@@ -190,9 +193,6 @@ function sendConfirmationMail($bestellnummer, $firstName, $versandArt, $transact
     $mail->send();
     echo 'Email sent successfully';
 }
-
-
-sendConfirmationMail("12345", "Lukas", "DHL", 18);
 
 
 

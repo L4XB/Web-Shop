@@ -20,6 +20,8 @@ $orderNumber = rand(1000000000, 9999999999);
 // Extrahieren Sie die vollständige Adresse und die Zahlungsmethode aus dem POST-Array
 $fullAddress = $conn->real_escape_string($_POST['fullAddress']);
 $paymentMethod = $conn->real_escape_string($_POST['paymentMethod']);
+$versandart = $conn->real_escape_string($_POST['shippingMethod']);
+$gesamtBetrag = $conn->real_escape_string($_POST['gesamtbetrag']);
 
 $sql = "INSERT INTO transactions (timestamp, userID, orderNumber, adress, paymentMethod) VALUES (CURRENT_TIMESTAMP, $currentUserId, $orderNumber, '$fullAddress', '$paymentMethod')";
 
@@ -55,6 +57,9 @@ if ($conn->query($sql) === TRUE) {
 } else {
     echo "Fehler beim Löschen der Einträge: " . $conn->error;
 }
+
+require '../mailer/mailer_checkout.php';
+sendConfirmationMail($orderNumber, $versandart, $last_id, 123);
 
 header('Location: ../../views/thankyou.php');
 

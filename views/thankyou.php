@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +26,11 @@ session_start();
 </head>
 
 <body class="text-center">
-    <?php include 'klettergerüst.php'; ?>
+    <?php
+    include 'klettergerüst.php';
+
+    ?>
+
     <div class="cover-container d-flex flex-column align-items-center justify-content-center">
         <main role="main" class="inner cover">
             <br>
