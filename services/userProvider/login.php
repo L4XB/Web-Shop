@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 function isFirstLogin()
@@ -73,7 +73,7 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    session_start();
+
     $username = $_POST['username'];
     $password = $_POST['password'];
     $hashedPassword = hash('sha512', $password);
@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bind_param("i", $userid);
         $stmt->execute();
         $stmt->close();
-        // Aktualisieren des lastLogIn Timestamps
+
         $currentTimestamp = date('Y-m-d H:i:s');
         $updateStmt = $conn->prepare("UPDATE users SET lastLogin = ? WHERE email = ?");
         $updateStmt->bind_param("ss", $currentTimestamp, $username);
@@ -120,12 +120,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateStmt->close();
 
         $user = $result->fetch_assoc();
+
         $_SESSION['name'] = $user['firstName'];
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
-        if (isFirstLogin()) {
-            header('Location: ../../views/setNewPassword.php');
+        if ($isFirstLogin) {
             setFirstLoginToFalse($username);
             if (is2FAEnabled()) {
                 header('Location: ../../views/check_2fa.php');
