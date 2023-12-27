@@ -31,9 +31,8 @@ session_start();
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
 
-    // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
     if (!isset($_SESSION['userId'])) {
-        die("Benutzer-ID nicht gefunden");
+        header('Location: login.php');
     }
 
     $userId = $_SESSION['userId'];
