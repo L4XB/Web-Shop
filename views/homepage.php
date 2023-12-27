@@ -100,7 +100,6 @@ session_start();
                 <h1 style='text-align:center;'>Fachschaft Informatik Merchstore</h1>
 
                 <?php
-
                 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
                     $name = $_SESSION['name'];
                     $lastLogIn = $_SESSION['lastLogIn'];
@@ -112,11 +111,14 @@ session_start();
                     echo "<p style='text-align:center;'>Herzlich Willkommen, $name! Ihr letzter Besuch war am: $date um $time</p>";
                 }
                 ?>
-                <p>
-                <div style='text-align:center;'>
-                    <span class="blink-dot"></span> Eingeloggte Benutzer: <span id="loggedInUsers">0</span>
-                </div>
-                </p>
+
+                <?php
+                if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
+                    echo "<p style='text-align:center;'>
+                        <span class=\"blink-dot\"></span> Eingeloggte Benutzer: <span id=\"loggedInUsers\">0</span>
+                    </div></p>";
+                }
+                ?>
             </span>
         </div>
     </div>
