@@ -16,3 +16,7 @@
 body {
     min-height: 100vh;
 }
+
+nav.navbar {
+    background-color: #212529 !important;
+}
