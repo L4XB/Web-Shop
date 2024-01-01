@@ -119,6 +119,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateStmt->close();
 
         $user = $result->fetch_assoc();
+        $_SESSION['userId'] = "id";
 
         $_SESSION['name'] = $user['firstName'];
         $_SESSION['firstName'] = $user['firstName'];
