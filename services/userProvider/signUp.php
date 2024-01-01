@@ -33,7 +33,7 @@ function getOSFromUser()
     } elseif (strpos($user_agent, 'Windows NT 5.0') !== false) {
         return 'Windows 2000';
     } elseif (strpos($user_agent, 'Mac') !== false) {
-        return 'Mac OS';
+        return 'MacOS';
     } elseif (strpos($user_agent, 'Linux') !== false) {
         return 'Linux';
     } elseif (strpos($user_agent, 'Unix') !== false) {
