@@ -39,7 +39,10 @@
                 <button onclick="navigateToSignUpPage()">SignUp</button>
                 <br>
                 <br>
-                <button class="cancel" onclick="window.location.href='homepage.php'">Abbruch</button>
+                <div class="form-row">
+                    <button class="backHome" onclick="window.location.href='homepage.php'">abbrechen</button> <br><br>
+                    <a href="#" class="password">Passwort vergessen?</a>
+                </div>
             </div>
         </div>
         <!--right Side-->

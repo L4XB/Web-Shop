@@ -95,7 +95,7 @@
                             </ul>
 
                             <div style="d-flex flex-column align-items-center">
-                                <form action="orderHistory.php" method="post" style="margin: 0;">
+                                <form action="" method="post" style="margin: 0;">
                                     <button type="submit" class="btn btn-lg btn-block btn-outline-warning">Passwort ändern</button>
                                 </form>
                             </div>

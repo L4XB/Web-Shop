@@ -80,16 +80,21 @@ button {
     font-size: 21px;
 }
 
-.cancel {
-    padding: 10px;
-    background-color: #dadada;
-    color: #fff;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    border-radius: 35px;
+.password {
     width: 100%;
-    font-size: 21px;
+    padding: 10px;
+    color: #1f1f1f;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    font-size: 12px;
+    text-align: right;
+}
+
+.password:hover {
+    background-color: #f1af00;
+    color: #ffffff;
+    border-radius: 35px;
 }
 
 button:hover {
@@ -113,4 +118,13 @@ button:hover {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+}
+
+.backHome {
+    width: 100%;
+    background-color: #e5e5e5;
+}
+
+.backHome:hover {
+    background-color: #f1af00;
 }
