@@ -30,7 +30,7 @@
         <?php
         if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
             $name = $_SESSION['name'];
-            echo "<h3 style='text-align:left;'>Welcome back $name!</h3>";
+            echo "<h3 style='text-align:left;'>Willkommen zurück $name!</h3>";
         }
         ?>
         <br>
@@ -55,8 +55,8 @@
                                 </svg>
                             </div>
                             <ul class="list-unstyled mt-3 mb-4">
-                                <li>"Aktivieren Sie die Zwei-Faktor-Authentifizierung (2FA), um die Sicherheit Ihres
-                                    Kontos zu erhöhen und Ihre persönlichen Daten vor unbefugtem Zugriff zu schützen."
+                                <li>Aktivieren Sie die Zwei-Faktor-Authentifizierung (2FA), um die Sicherheit Ihres
+                                    Kontos zu erhöhen und Ihre persönlichen Daten vor unbefugtem Zugriff zu schützen.
                                 </li>
                             </ul>
 
@@ -81,7 +81,30 @@
 
                     <div class="card mb-4 box-shadow">
                         <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Order History</h4>
+                            <h4 class="my-0 font-weight-normal">Passwort</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-key" viewBox="0 0 16 16">
+                                    <path d="M0 8a4 4 0 0 1 7.465-2H14a.5.5 0 0 1 .354.146l1.5 1.5a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0L13 9.207l-.646.647a.5.5 0 0 1-.708 0L11 9.207l-.646.647a.5.5 0 0 1-.708 0L9 9.207l-.646.647A.5.5 0 0 1 8 10h-.535A4 4 0 0 1 0 8m4-3a3 3 0 1 0 2.712 4.285A.5.5 0 0 1 7.163 9h.63l.853-.854a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.646-.647a.5.5 0 0 1 .708 0l.646.647.793-.793-1-1h-6.63a.5.5 0 0 1-.451-.285A3 3 0 0 0 4 5"/>
+                                    <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0"/>
+                                </svg>
+                            </div>
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Hier haben Sie die Möglichkeit Ihr Passwort zu Ändern. Beachten Sie, dass das neue Passwort min. 9 Zeichen lang ist, sowie Großbuchstaben, Kleinbuchstaben und Zahlen beinhalten muss.</li>
+                            </ul>
+
+                            <div style="d-flex flex-column align-items-center">
+                                <form action="orderHistory.php" method="post" style="margin: 0;">
+                                    <button type="submit" class="btn btn-lg btn-block btn-outline-warning">Passwort ändern</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4 box-shadow">
+                        <div class="card-header">
+                            <h4 class="my-0 font-weight-normal">Bestellhistorie</h4>
                         </div>
                         <div class="card-body">
                             <div class="d-flex flex-column align-items-center">
@@ -94,18 +117,16 @@
                                 </svg>
                             </div>
                             <ul class="list-unstyled mt-3 mb-4">
-                                <li>"Sehen Sie sich Ihre Bestellhistorie an, um einem umfassenden Überblick über Ihre
+                                <li>Sehen Sie sich Ihre Bestellhistorie an, um einem umfassenden Überblick über Ihre
                                     vergangenen Bestellungen bekommen. Hier haben Sie zudem die Möglichkeit diese erneut
-                                    zu bestellen."</li>
+                                    zu bestellen.</li>
                             </ul>
 
                             <div style="d-flex flex-column align-items-center">
                                 <form action="orderHistory.php" method="post" style="margin: 0;">
-                                    <button type="submit" class="btn btn-lg btn-block btn-outline-warning">Order
-                                        History</button>
+                                    <button type="submit" class="btn btn-lg btn-block btn-outline-warning">Bestellhistorie ansehen</button>
                                 </form>
                             </div>
-
                         </div>
                     </div>
                 </div>
