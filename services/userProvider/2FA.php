@@ -13,7 +13,6 @@ function createSecret()
     $ga = new PHPGangsta_GoogleAuthenticator();
     $secret = $ga->createSecret();
     echo "Secret is: " . $secret . "\n\n";
-
     return $secret;
 }
 
@@ -21,14 +20,13 @@ function getQRCode($secret)
 {
     $ga = new PHPGangsta_GoogleAuthenticator();
     $qrCodeUrl = $ga->getQRCodeGoogleUrl('INF-Webshop', $secret);
-
     return $qrCodeUrl;
 }
 
 function isCodeValid($secret, $oneCode)
 {
     $ga = new PHPGangsta_GoogleAuthenticator();
-    $checkResult = $ga->verifyCode($secret, $oneCode, 2);    // 2 = 2*30sec clock tolerance
+    $checkResult = $ga->verifyCode($secret, $oneCode, 2);
     if ($checkResult) {
         return true;
     } else {
