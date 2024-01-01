@@ -48,14 +48,25 @@ h1 {
 
 
 .backHome {
-    width: 47%;
+    width: 100%;
     background-color: #e5e5e5;
+    margin-right: 3%;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
 }
 
 .backHome:hover {
     background-color: #f1af00;
 }
 
+.weiter {
+    width: 100%;
+    background-color: #f1af00;
+    padding: 10px;
+    border: none;
+    box-sizing: border-box;
+}
 
 .input-numbers {
     text-align: center;
