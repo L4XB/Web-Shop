@@ -13,9 +13,35 @@ if ($conn->connect_error) {
 }
 session_start();
 
-
 // Holen Sie die aktuelle Benutzer-ID
 $currentUserId = $_SESSION['userId'];
+// Holen Sie alle Elemente aus der `shoppingCart`-Tabelle für den aktuellen Benutzer
+$sql = "SELECT productID, amount FROM shoppingCart WHERE userID = $currentUserId";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Durchlaufen Sie alle zurückgegebenen Zeilen
+    while ($row = $result->fetch_assoc()) {
+        $productID = $row['productID'];
+        $amount = $row['amount'];
+
+        // Überprüfen Sie den Lagerbestand für jedes Produkt
+        $sql = "SELECT stock FROM products WHERE productID = $productID";
+        $stockResult = $conn->query($sql);
+        $stockRow = $stockResult->fetch_assoc();
+        $stock = $stockRow['stock'];
+
+        // Wenn nicht genügend Produkte auf Lager sind, leiten Sie den Benutzer auf eine Fehlerseite um
+        if ($stock < $amount) {
+            header('Location: ../../views/error.php');
+            exit();
+        }
+    }
+} else {
+    echo "Keine Einträge in der ShoppingCart-Tabelle für den aktuellen Benutzer.";
+}
+
+
 
 // Generieren Sie eine zufällige Bestellnummer
 $orderNumber = rand(1000000000, 9999999999);
