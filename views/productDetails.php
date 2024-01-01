@@ -202,6 +202,7 @@ session_start();
     <script>
         $(document).ready(function () {
             $("#button2").click(function () {
+                location.reload();
                 var amount = $("#number").text();
                 $.ajax({
                     url: "../services/userProvider/add_to_cart.php",
