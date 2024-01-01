@@ -79,11 +79,9 @@
                     <div id="emailError" style="color: red;text-align:center;"></div>
                     <br>
                     <div class="form-row">
-                        <a id="rejectText" href="login.php">
-                            <p>abbrechen</p>
-                        </a>
+                        <button class="backHome" onclick="window.location.href='homepage.php'">abbrechen</button>
 
-                        <button style="width: 50%;" name="submit" type="submit">Weiter</button>
+                        <button style="width: 47%;" name="submit" type="submit">Weiter</button>
                     </div>
 
                     <hr class="thin-black-line">

@@ -46,6 +46,17 @@ h1 {
     color: rgb(229, 205, 22);
 }
 
+
+.backHome {
+    width: 47%;
+    background-color: #e5e5e5;
+}
+
+.backHome:hover {
+    background-color: #f1af00;
+}
+
+
 .input-numbers {
     text-align: center;
 }
