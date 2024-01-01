@@ -103,8 +103,8 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
         'refreshToken' => $refreshToken,
         'userName' => 'inf.fachschaft@gmail.com',
     ]));
-    $mail->addAddress("$email", 'Lukas');
-    $mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
+    $mail->addAddress("$email", "$name");
+    /*$mail->addAddress('moenchstalweg@gmail.com', 'Jochum');*/
 
     $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
     $mail->Subject = 'Bestellung';
