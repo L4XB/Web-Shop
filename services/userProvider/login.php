@@ -2,7 +2,7 @@
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-function isFirstLogin()
+function isFirstLogin($email)
 {
     //Server Connection
     $servername = "localhost";
@@ -16,14 +16,12 @@ function isFirstLogin()
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
 
-    $email = $_SESSION['email'];
     $sql = "SELECT isFirstLogin FROM users WHERE email = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
     $user = $result->fetch_assoc();
-
     return $user['isFirstLogin'] == 1;
 }
 function setFirstLoginToFalse($email)
@@ -62,11 +60,11 @@ function setFirstLoginToFalse($email)
 include '2fa.php';
 //Server Connection
 $servername = "localhost";
-$username = "root";
+$usernamed = "root";
 $password = "";
 $dbname = "webShopFSI";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $usernamed, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Verbindung fehlgeschlagen: " . $conn->connect_error);
@@ -91,13 +89,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $_SESSION['loggedIn'] = true;
         $servername = "localhost";
-        $username = "root";
+        $usernamed = "root";
         $password = "";
         $dbname = "webShopFSI";
         $_SESSION['email'] = $username;
         $userid = $_SESSION['userId'];
-        $conn = new mysqli($servername, $username, $password, $dbname);
-        $conn = new mysqli($servername, $username, $password, $dbname);
+        $conn = new mysqli($servername, $usernamed, $password, $dbname);
+
 
         // Überprüfen Sie, ob die Verbindung erfolgreich war
         if ($conn->connect_error) {
@@ -125,12 +123,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
+        $isFirstLogin = isFirstLogin($_SESSION['email']);
         if ($isFirstLogin) {
-            setFirstLoginToFalse($username);
+            setFirstLoginToFalse($_SESSION['email']);
             if (is2FAEnabled()) {
                 header('Location: ../../views/check_2fa.php');
             } else {
-                header('Location: ../../views/homepage.php');
+                header('Location: ../../views/setNewPassword.php');
             }
         } else {
             if (is2FAEnabled()) {

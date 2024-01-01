@@ -191,7 +191,8 @@ session_start();
             <div class="row featurette">
                 <div class="col-md-7">
                     <h2 class="featurette-heading">INFormatiger Hoodie für Männer <br>
-                        <span class="text-muted">Mehr als nur einfacher Merch</span></h2>
+                        <span class="text-muted">Mehr als nur einfacher Merch</span>
+                    </h2>
                     <p class="lead">Der Premium Men's Brushed Kangaroo Pocket Hoodie vereint erstklassige Qualität mit
                         stilvollem Design, und hebt sich damit deutlich von herkömmlicher Merchandise-Kleidung ab.
                         Dieser Hoodie verkörpert mehr als nur Merchandise – er ist ein Statement für anspruchsvollen
@@ -213,8 +214,9 @@ session_start();
 
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Frauen INFormatiger Hoodie  <br>
-                        <span class="text-muted">Für die wahren coders</span></h2>
+                    <h2 class="featurette-heading">Frauen INFormatiger Hoodie <br>
+                        <span class="text-muted">Für die wahren coders</span>
+                    </h2>
                     <p class="lead">Der Women's Kangaroo Pocket Hoodie bietet nicht nur bequeme Alltagskleidung, sondern
                         seinen Schnitt auch einen besonderen Ausdruck von Weiblichkeit und Individualität. Dieser Hoodie
                         ist mehr als nur Bekleidung - er ist eine persönliche Aussage für selbstbewusste Frauen mit
@@ -237,7 +239,8 @@ session_start();
             <div class="row featurette">
                 <div class="col-md-7">
                     <h2 class="featurette-heading">Black FSI Mug <br>
-                        <span class="text-muted">Der Kaffee für die Extrasession...</span></h2>
+                        <span class="text-muted">Der Kaffee für die Extrasession...</span>
+                    </h2>
                     <p class="lead">Die schwarze FSI-Tasse ist ein echter alrounder, da sie für weit mehr als nur für
                         Kaffee geeignet ist. Diese Tasse aus bestem Porzelan steht für vielseitigen Genuss und lädt dazu
                         ein, mehr als nur das übliche Getränk daraus zu erleben.</p>
