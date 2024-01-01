@@ -33,6 +33,8 @@
                 });
             });
         });
+
+
     </script>
 </head>
 
@@ -100,6 +102,27 @@
             <img height="550px" src="../assets/images/inf-logo.png" alt="">
         </div>
     </div>
+
+    <script>
+        document.getElementById('email').addEventListener('blur', function () {
+            var email = this.value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', '../services/userProvider/check_email_real_time.php', true);
+            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    var response = JSON.parse(this.responseText);
+                    if (response.exists) {
+                        document.getElementById('emailError').textContent = 'Nutzername schon vergeben';
+                    } else {
+                        document.getElementById('emailError').textContent = '';
+                    }
+                }
+            };
+            xhr.send('email=' + email);
+        });
+    </script>
 </body>
 
 </html>
