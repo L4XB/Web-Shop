@@ -38,7 +38,7 @@ session_start();
 
 
   <!-- Header -->
-  <header>
+  <header class="p-3 bg-dark text-white">
     <div>
       <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body">
 
