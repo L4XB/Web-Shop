@@ -30,6 +30,21 @@
                 return false;
             }
 
+            if (!/[a-z]/.test(password)) {
+                document.getElementById('passwordError').textContent = 'Passwort muss mindestens einen Kleinbuchstaben enthalten';
+                return false;
+            }
+
+            if (!/[A-Z]/.test(password)) {
+                document.getElementById('passwordError').textContent = 'Passwort muss mindestens einen Großbuchstaben enthalten';
+                return false;
+            }
+
+            if (!/\d/.test(password)) {
+                document.getElementById('passwordError').textContent = 'Passwort muss mindestens eine Zahl enthalten';
+                return false;
+            }
+
             // Wenn die Validierung erfolgreich war, lassen Sie das Formular absenden
             return true;
         }
