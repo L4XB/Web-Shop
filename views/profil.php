@@ -30,7 +30,7 @@
         <?php
         if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
             $name = $_SESSION['name'];
-            echo "<h3 style='text-align:left;'> $name!</h3>";
+            echo "<h3 style='text-align:left;'>Welcome back $name!</h3>";
         }
         ?>
         <br>
