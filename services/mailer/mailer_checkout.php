@@ -77,7 +77,7 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
 
     $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
     $clientSecret = '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';
-    $refreshToken = '1//090tMqvvfmX7oCgYIARAAGAkSNwF-L9IrZAs5Q_Z7y7TcozSIVO6b15aFwUas2SkmdeQTkuvKEK0BfxVRbX55tt6bcyNZb_izpbQ';
+    $refreshToken = '1//09JfiyNKe6i5DCgYIARAAGAkSNwF-L9Ir0v835pgjloCraX7LXwIjfyY3grjCe0oDc83Q9fFCucNQK96ozBrDvFb953arCpg-vnI';
 
     $provider = new Google([
         'clientId' => $clientId,
