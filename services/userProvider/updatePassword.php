@@ -15,21 +15,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($conn->connect_error) {
         die("Verbindung fehlgeschlagen: " . $conn->connect_error);
     }
-    $newPassword = $_POST['newPassword'];
-    $confirmPassword = $_POST['confirmPassword'];
+    $password = $_POST['password'];
+    $confirmPassword = $_POST['passwordSe'];
 
-    if ($newPassword === $confirmPassword) {
-        $hashedPassword = hash('sha512', $newPassword);
+    if ($password === $confirmPassword) {
+        $hashedPassword = hash('sha512', $password);
         session_start();
         $_SESSION['loggedIn'] = true;
+        $mail = $_SESSION['email'];
+        $_SESSION['alert'] = "Hashed: " . $hashedPassword . "   new Password:" . $password;
         $sql = "UPDATE users SET passwort = ? WHERE email = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $hashedPassword, $_SESSION['email']);
+        $stmt->bind_param("ss", $hashedPassword, $mail);
         $stmt->execute();
 
         $sql = "UPDATE users SET isFirstLogin = false WHERE email = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("s", $_SESSION['email']);
+        $stmt->bind_param("s", $mail);
         $stmt->execute();
 
 
