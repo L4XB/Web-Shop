@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 $servername = "localhost";
 $username = "root";
 $password = "";
@@ -54,6 +56,28 @@ if ($conn->query($sql) === TRUE) {
     echo "Fehler beim Verschieben der Einträge: " . $conn->error;
 }
 
+$sql = "SELECT productID, amount FROM shoppingCart WHERE userID = $currentUserId";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Durchlaufen Sie alle zurückgegebenen Zeilen
+    while ($row = $result->fetch_assoc()) {
+        $productID = $row['productID'];
+        $amount = $row['amount'];
+
+        // Aktualisieren Sie den Lagerbestand in der `products`-Tabelle
+        $sql = "UPDATE products SET stock = stock - $amount WHERE productID = $productID";
+        if ($conn->query($sql) === TRUE) {
+            echo "Lagerbestand erfolgreich aktualisiert.";
+        } else {
+            echo "Fehler beim Aktualisieren des Lagerbestands: " . $conn->error;
+        }
+    }
+} else {
+    echo "Keine Einträge in der ShoppingCart-Tabelle für den aktuellen Benutzer.";
+}
+
+
 // Löschen Sie die Daten aus der `shoppingCart` Tabelle für den aktuellen Benutzer
 $sql = "DELETE FROM shoppingCart WHERE userID = $currentUserId";
 
@@ -67,5 +91,9 @@ require '../mailer/mailer_checkout.php';
 sendConfirmationMail($orderNumber, $versandart, $last_id, $betrag, $name, $email);
 
 header('Location: ../../views/thankyou.php');
+
+
+
+
 
 ?>
