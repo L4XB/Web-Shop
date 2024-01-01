@@ -18,12 +18,7 @@ session_start();
 </head>
 
 <body>
-    <?php if (isset($_SESSION['alert'])): ?>
-        <script type='text/javascript'>
-            alert('<?php echo $_SESSION['alert']; ?>');
-        </script>
-        <?php unset($_SESSION['alert']); ?>
-    <?php endif; ?>
+
     <div class="container-body">
         <!--left Side-->
         <div id="container-left-side">

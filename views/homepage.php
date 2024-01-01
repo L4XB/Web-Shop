@@ -79,12 +79,7 @@ session_start();
 </head>
 
 <body>
-    <?php if (isset($_SESSION['alert'])): ?>
-        <script type='text/javascript'>
-            alert('<?php echo $_SESSION['alert']; ?>');
-        </script>
-        <?php unset($_SESSION['alert']); ?>
-    <?php endif; ?>
+
     <script>
         $.noConflict();
         jQuery(document).ready(function ($) {

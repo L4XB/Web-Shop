@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $servername = "localhost";
     $username = "root";
     $dbpassword = "";
-    $dbname = "webshop";
+    $dbname = "webshopFSI";
 
     // Erstellen der Verbindung
     $conn = new mysqli($servername, $username, $dbpassword, $dbname);
@@ -23,7 +23,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         session_start();
         $_SESSION['loggedIn'] = true;
         $mail = $_SESSION['email'];
-        $_SESSION['alert'] = "Hashed: " . $hashedPassword . "   new Password:" . $password;
         $sql = "UPDATE users SET passwort = ? WHERE email = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("ss", $hashedPassword, $mail);
