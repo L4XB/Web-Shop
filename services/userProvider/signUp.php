@@ -117,7 +117,7 @@ function createUser($email, $password, $firstName, $lastName)
             echo "Error creating user: " . $stmt->error;
         }
     } catch (Exception $e) {
-        echo $e;
+        header('Location: ../../views/error.php');
     }
     // Execute statement
 

@@ -140,7 +140,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
     } else {
-        echo "Error";
+        header('Location: ../../views/error.php');
     }
 
 
