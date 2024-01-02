@@ -70,7 +70,7 @@ input::placeholder {
 
 button {
     padding: 10px;
-    background-color: rgb(247, 188, 26); 
+    background-color: rgb(247, 188, 26);
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -87,14 +87,13 @@ button {
     border: none;
     cursor: pointer;
     width: 100%;
-    font-size: 12px;
+    font-size: 15px;
     text-align: right;
+    text-align: center;
 }
 
 .password:hover {
-    background-color: #f1af00;
-    color: #ffffff;
-    border-radius: 35px;
+    color: #f1af00;
 }
 
 button:hover {
@@ -127,4 +126,8 @@ button:hover {
 
 .backHome:hover {
     background-color: #f1af00;
+}
+
+#password-reset {
+    text-align: center;
 }

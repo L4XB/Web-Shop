@@ -41,7 +41,8 @@
                 <br>
                 <div class="form-row">
                     <button class="backHome" onclick="window.location.href='homepage.php'">abbrechen</button> <br><br>
-                    <a href="#" class="password">Passwort vergessen?</a>
+                    <p id="password-reset"><a href="#" class="password">Passwort vergessen?</a></p>
+
                 </div>
             </div>
         </div>
