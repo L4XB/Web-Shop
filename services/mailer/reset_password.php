@@ -10,8 +10,13 @@ ini_set('display_errors', 1);
 
 // Include PHPMailer autoload.php and other required libraries
 require '../../vendor/autoload.php';
+session_start();
 
-$userMail = "lukas.buck@e-mail.de";
+// Abrufen der Variable aus der Sessio
+$userMail = $_POST['username'];
+$_SESSION['emailUser'] = $userMail;
+$_SESSION['email'] = $userMail;
+
 $mail = new PHPMailer(true);
 $mail->isSMTP();
 $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
@@ -98,9 +103,7 @@ $mail->Body = "<!DOCTYPE html>
             </body>
             </html>";
 $mail->send();
-echo 'Email sent successfully';
-print "Successfully";
-
+header('Location: ../../views/reset_password/enter_code.php');
 
 
 

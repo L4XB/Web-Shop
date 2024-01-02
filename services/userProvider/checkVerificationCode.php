@@ -23,10 +23,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $servername = "localhost";
         $username = "root";
         $password = "";
-        $dbname = "webshop";
+        $dbname = "webShopFSI";
         $conn = new mysqli($servername, $username, $password, $dbname);
         // Vorbereiten und Binden
-        $stmt = $conn->prepare("SELECT verificationCode FROM users WHERE email = ?");
+        $stmt = $conn->prepare("SELECT resetCode FROM users WHERE email = ?");
         $stmt->bind_param("s", $emailUser);
 
         // Ausführen der Anweisung
@@ -39,15 +39,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->fetch();
 
         if ($codeFromDb == $codeFromInput) {
-            $_SESSION['loggedIn'] = true;
+
             echo "Der eingegebene Code ist korrekt.";
-            updateVerificationStatus();
-            header('Location: ../../views/homepage.php');
+            header('Location: ../../views/setNewPassword.php');
         } else {
-            echo "Der eingegebene Code ist nicht korrekt.";
-            echo $codeFromInput;
-            echo $codeFromDb;
-            echo $emailUser;
+            header('Location: ../../views/error.php');
         }
 
         // Schließen der Anweisung und der Verbindung
