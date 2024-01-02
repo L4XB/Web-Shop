@@ -60,8 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'userName' => 'inf.fachschaft@gmail.com',
         ]));
         $code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
-        $mail->addAddress("$email", 'Lukas');
-        $mail->addAddress('moenchstalweg@gmail.com', 'Jochum');
+        $mail->addAddress("$email", 'Kunde');
         $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
         $mail->Subject = 'Regestrierung';
 
