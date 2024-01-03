@@ -335,8 +335,9 @@ session_start();
                             </div>
                             <div id="details-products-data-functions">
                                 <div class="dropdown" id="dropdown">
-                                    <button class="dropbtn" id="dropbtn">Größe wählen <i
-                                            class="arrow down"></i></button>
+                                    <button class="dropbtn" id="dropbtn">
+                                        <?php echo "Größe:" . $sizes[0]; ?><i class="arrow down"></i>
+                                    </button>
                                     <div class="dropdown-content" id="dropdown-content">
                                         <?php
                                         if ($sizes === null || $sizes[0] == 'default') {
