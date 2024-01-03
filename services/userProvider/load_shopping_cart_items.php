@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
         echo '<div class="row">';
         echo '<div class="col-2"></div>';
         echo '<div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-        echo '<button class="delete" data-productid="' . $row['productID'] . '"><img src="../database/images/trash.png" style="height: 30%;"></button>';
+        echo '<button class="delete" data-productid="' . $row['productID'] . '"><img src="../database/images/trash.png" style="height: 40px;"></button>';
         echo '</div>';
         echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
         echo '<img style="height:45px;" src="../assets/images/produkts/' . $row['pathName'] . '.png">';
