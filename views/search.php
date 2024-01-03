@@ -23,10 +23,17 @@
 
 <body>
     <?php include 'klettergerüst.php'; ?>
-    <br>
-    <div class="container-fluid">
-        <h1 id="headLineTextStyle" style="text-align: left; padding-left: 16%;">Artikelsuche</h1>
-    <br>
+
+
+    <div class="container pt-4" style="margin-left: 12%;">
+        <div class="col-lg-6 order-2 order-lg-1">
+            <h1>Artikelsuche</h1>
+        </div>
+        <ul class="breadcrumb undefined">
+            <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
+            <li class="breadcrumb-item active">Artikelsuche</li>
+        </ul>
+    </div>
 
     <?php 
     include '../services/productProvider/searchbar.php'; 

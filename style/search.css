@@ -45,18 +45,6 @@
     }
 }
 
-.product-card h1 {
-    color: grey;
-}
-
-.product-card p,
-h2,
-h1 {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif
-}
-
-
 #headNavBar {
     width: 95%;
     height: 10vh;
@@ -65,7 +53,6 @@ h1 {
     margin-right: auto;
     border-radius: 10px;
 }
-
 
 #product_images {
     width: 100%;
@@ -91,8 +78,6 @@ h1 {
     margin-right: auto;
     width: 95%;
     height: 6vh;
-
-
 }
 
 #headLineTextStyle {
@@ -120,5 +105,4 @@ h1 {
 #dashboard-Button.big {
     width: 500px;
     height: 100px;
-
 }
