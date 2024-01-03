@@ -199,7 +199,7 @@ session_start();
                         Stil und Komfort.</p>
                     <div>
                         <p class="lead">
-                            <a href="productDetails.php?id=8" class="btn btn-warning">zum Artikel</a>
+                            <a href="productDetailsV2.php?id=8" class="btn btn-warning">zum Artikel</a>
                         </p>
                     </div>
                 </div>
@@ -223,7 +223,7 @@ session_start();
                         einem Sinn für Stil.</p>
                     <div>
                         <p class="lead">
-                            <a href="productDetails.php?id=7" class="btn btn-warning">zum Artikel</a>
+                            <a href="productDetailsV2.php?id=7" class="btn btn-warning">zum Artikel</a>
                         </p>
                     </div>
                 </div>
@@ -246,7 +246,7 @@ session_start();
                         ein, mehr als nur das übliche Getränk daraus zu erleben.</p>
                     <div>
                         <p class="lead">
-                            <a href="productDetails.php?id=5" class="btn btn-warning">zum Artikel</a>
+                            <a href="productDetailsV2.php?id=5" class="btn btn-warning">zum Artikel</a>
                         </p>
                     </div>
                 </div>
