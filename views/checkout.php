@@ -6,6 +6,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -40,8 +41,59 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
             });
         });
     </script>
-    <script>
+    <style>
+        #discount {
+            display: none;
+        }
 
+        #errorDiscount {
+            margin-top: 15px;
+            text-align: center;
+            color: red;
+            font-size: 15px;
+        }
+    </style>
+    <script>
+        $(document).ready(function () {
+            // Speichern Sie den ursprünglichen Gesamtpreis
+            var originalTotalPrice = parseFloat($('#totalPrice').text().replace('€', ''));
+
+            $('#discountButton').on('click', function (event) {
+                event.preventDefault();
+
+                var discountInput = $('#discountInput').val();
+
+                $.ajax({
+                    url: '../services/productProvider/validateDiscountCode.php',
+                    type: 'post',
+                    data: { discountCode: discountInput },
+                    success: function (response) {
+                        if (response != 0) {
+                            $('#errorDiscount').text('');
+                            var discount = parseInt(response);
+                            var discountText = discount + "% Rabatt auf diesen Artikel";
+                            $('#discountAmount').text(discountText);
+                            $('#discount').show();
+
+                            // Berechnen Sie den Rabattbetrag basierend auf dem ursprünglichen Gesamtpreis
+                            var discountAmount = originalTotalPrice * (discount / 100);
+
+                            // Verringern Sie den ursprünglichen Gesamtpreis um den Rabattbetrag
+                            var totalPrice = originalTotalPrice - discountAmount;
+
+                            // Aktualisieren Sie den Gesamtpreis im Element
+                            $('#totalPrice').text(totalPrice.toFixed(2) + ' €');
+
+                            // Speichern Sie den Rabattbetrag im Element #discountSum
+                            $('#discountSum').text(discountAmount.toFixed(2) + ' €');
+                        } else {
+                            // Aktualisieren Sie das Element errorDiscount, wenn die Antwort 0 ist
+                            $('#errorDiscount').text('Gutscheincode ungültig');
+                        }
+                    }
+                });
+            });
+        });
     </script>
     <script>
         $(document).ready(function () {
@@ -177,6 +229,20 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     echo '<span>Versandkosten</span>';
                     echo '<strong id="shippingCost">0.00€</strong>';
                     echo '</li>';
+
+                    echo "<div id='discount'>";
+                    echo '<li  class="list-group-item d-flex justify-content-between bg-light">';
+                    echo '<div  class="text-success">';
+                    echo '<h6 class="my-0">Rabatt <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed-fill" viewBox="0 0 16 16">
+                    <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zm4 1a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5m0 5a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 0-1h-7a.5.5 0 0 0-.5.5M4 8a1 1 0 0 0 1 1h6a1 1 0 1 0 0-2H5a1 1 0 0 0-1 1"/>
+                  </svg></h6>';
+                    echo '<small id="discountAmount">' . 0 . '% Rabatt auf diesen Artikel</small>';
+                    echo '</div>';
+                    echo '<span id="discountSum" class="text-success">-' . 0 . '€</span>';
+                    echo '</li>';
+                    echo "</div>";
+
+
                     echo '<li class="list-group-item d-flex justify-content-between">';
                     echo '<span>Gesamtbetrag</span>';
                     echo '<strong name="totalPrice" id = "totalPrice">' . number_format($total, 2, '.', '') . '€</strong>';
@@ -199,10 +265,11 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
 
                 <form class="card p-2">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Gutscheincode">
-                        <button type="submit" class="btn btn-dark">Einlösen</button>
+                        <input id="discountInput" type="text" class="form-control" placeholder="Gutscheincode">
+                        <button id="discountButton" class="btn btn-dark">Einlösen</button>
                     </div>
-                </form> 
+                </form>
+                <p id="errorDiscount"></p>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>
@@ -401,36 +468,32 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="../../dist/js/bootstrap.min.js"></script>
     <script src="../../assets/js/vendor/holder.min.js"></script>
     <script>
-            // Example starter JavaScript for disabling form submissions if there are invalid fields
-            (function () {
-                'use strict';
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function () {
+            'use strict';
 
-                window.addEventListener('load', function () {
+            window.addEventListener('load', function () {
 
-                    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-                    var forms = document.getElementsByClassName('needs-validation');
+                // Fetch all the forms we want to apply custom Bootstrap validation styles to
+                var forms = document.getElementsByClassName('needs-validation');
 
-                    // Loop over them and prevent submission
-                    var validation = Array.prototype.filter.call(forms, function (form) {
-                        form.addEventListener('submit', function (event) {
+                // Loop over them and prevent submission
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
 
-                            if (form.checkValidity() === false) {
-                                event.preventDefault();
-                                event.stopPropagation();
-                            }
-                            form.classList.add('was-validated');
-                        }, false);
-                    });
-                }, false);
-            })();
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
     </script>
 
 </body>
