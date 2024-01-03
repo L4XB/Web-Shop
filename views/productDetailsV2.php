@@ -272,7 +272,7 @@ session_start();
 </head>
 <body>
     <?php
-    include 'klettergerüstV2.php';
+    include 'klettergerüst.php';
     require '../services/productProvider/loadSpecificProductData.php';
     require '../services/userProvider/favorites.php';
     ?>
