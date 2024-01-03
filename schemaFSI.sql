@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Datenbank: `webShopFSI`
+-- Datenbank: =====> `webShopFSI` <=====
 --
 
 -- --------------------------------------------------------
@@ -170,7 +170,8 @@ CREATE TABLE `users` (
   `use2FA` tinyint(1) DEFAULT NULL,
   `isFirstLogin` tinyint(1) DEFAULT NULL,
   `createdAt` timestamp NOT NULL DEFAULT current_timestamp(),
-  `is_logged_in` tinyint(1) DEFAULT NULL
+  `is_logged_in` tinyint(1) DEFAULT NULL,
+  `resetCode` VARCHAR(255)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
