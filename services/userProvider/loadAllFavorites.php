@@ -50,7 +50,7 @@ if ($result->num_rows > 0) {
     echo '<script>
         function redirectToPage() {
             var productId = event.currentTarget.getAttribute("data-product-id");
-            window.location.href = "../views/productDetails.php?id=" + productId;
+            window.location.href = "../views/productDetailsV2.php?id=" + productId;
         }
         </script>';
 } else {
