@@ -45,6 +45,13 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
         #discount {
             display: none;
         }
+
+        #errorDiscount {
+            margin-top: 15px;
+            text-align: center;
+            color: red;
+            font-size: 15px;
+        }
     </style>
     <script>
         $(document).ready(function () {
@@ -62,6 +69,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     data: { discountCode: discountInput },
                     success: function (response) {
                         if (response != 0) {
+                            $('#errorDiscount').text('');
                             var discount = parseInt(response);
                             var discountText = discount + "% Rabatt auf diesen Artikel";
                             $('#discountAmount').text(discountText);
@@ -78,6 +86,9 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
 
                             // Speichern Sie den Rabattbetrag im Element #discountSum
                             $('#discountSum').text(discountAmount.toFixed(2) + ' €');
+                        } else {
+                            // Aktualisieren Sie das Element errorDiscount, wenn die Antwort 0 ist
+                            $('#errorDiscount').text('Gutscheincode ungültig');
                         }
                     }
                 });
@@ -258,6 +269,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                         <button id="discountButton" class="btn btn-dark">Einlösen</button>
                     </div>
                 </form>
+                <p id="errorDiscount"></p>
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>
