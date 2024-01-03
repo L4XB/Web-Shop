@@ -86,13 +86,6 @@ h1 {
     margin-right: auto;
     width: 95%;
     height: 6vh;
-
-
-}
-
-#headLineTextStyle {
-    margin-left: 0;
-    font-size: 45px
 }
 
 #img-head {
@@ -115,5 +108,4 @@ h1 {
 #dashboard-Button.big {
     width: 500px;
     height: 100px;
-
 }

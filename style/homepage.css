@@ -2,3 +2,13 @@
 .text-color {
     color: #1E1E1E !important;
 }
+
+.carousel .slide {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.carousel {
+    width: 100%;
+}
