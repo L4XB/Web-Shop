@@ -34,7 +34,6 @@
 
 <body>
 
-
   <!-- Header -->
   <header class="p-3 bg-dark text-white">
     <div>
@@ -132,7 +131,7 @@
   
 
   <!-- Footer -->
-  <footer class="footer">
+  <footer class="footer p-3 bg-dark text-white">
     <nav class="navbar sticky-bottom navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body"
       data-bs-theme="dark">
       <div class="container-fluid">

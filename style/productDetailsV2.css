@@ -1,9 +1,4 @@
 
-.fixed-width {
-    max-width: 100%;
-    overflow-x: auto;
-}
-
 #counter {
     display: flex;
     justify-content: space-around;

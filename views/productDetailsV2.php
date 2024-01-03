@@ -315,85 +315,85 @@ session_start();
     ?>
 
 
-    <div class= "container pt-4" style="margin-left: 12%;">
-        <div class="col-lg-6 order-2 order-lg-1">
-            <h1 id="headLineTextStyle">Produktansicht</h1>
-        </div>
-        <ul class="breadcrumb undefined">
-            <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item"><a href="products.php"class="text-dark">Artikelübersicht</a></li>
-            <li class="breadcrumb-item active"><span class="text-dark"><?php echo htmlspecialchars(getProductName()); ?></span></li>
-        </ul>
-    </div>
-    <br>
-    <br>
-
-    <div class="row d-flex justify-content-center align-items-center fixed-width" style="padding-bottom: 60px;">
-        <!-- product image (left side) -->
-        <div class="col-lg-6">
-            <img style="width: 100%; max-height: 55vh; position: relative; object-fit: contain;"
-                src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="<?php echo htmlspecialchars(getProductName()); ?>">
-        </div>
-
-        <!-- product details (right side) -->
-        <div class="col-lg-5 ps-lg-4">
-            <h1 class="mb-4"><?php echo htmlspecialchars(getProductName()); ?></h1>
-            <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between mb-4">
-                <ul class="list-inline mb-2 mb-sm-0">
-                    <li class="list-inline-item h4 fw-light mb-0"><?php echo htmlspecialchars(getProductPrice()) . " €"; ?></li>
-                    <li class="list-inline-item text-muted fw-light"> 
-                    </li>
-                </ul>
+        <div class= "container pt-4" style="margin-left: 12%;">
+            <div class="col-lg-6 order-2 order-lg-1">
+                <h1 id="headLineTextStyle">Produktansicht</h1>
             </div>
-            <p class="mb-4 text-muted"><?php echo htmlspecialchars(getDetailedDescription()); ?></p>
-            <form id="buyForm" action="#">
+            <ul class="breadcrumb undefined">
+                <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.php"class="text-dark">Artikelübersicht</a></li>
+                <li class="breadcrumb-item active"><span class="text-dark"><?php echo htmlspecialchars(getProductName()); ?></span></li>
+            </ul>
+        </div>
+        <br>
+        <br>
 
-            <!-- actions -->
-            <div id="details-products-data-functions">
-                <!-- Product size selection-->
-                <div class="dropdown" id="dropdown">
-                    <button class="dropbtn" id="dropbtn">Größe wählen <i
-                            class="arrow down"></i></button>
-                    <div class="dropdown-content" id="dropdown-content">
-                        <?php
-                        if ($sizes === null || $sizes[0] == 'default') {
-                            echo '<a href="#" class="selected" onclick="selectSize(\'one size\')">one size</a>';
-                            echo '<script>selectSize(\'one size\');</script>';
-                        } else {
-                            foreach ($sizes as $size) {
-                                echo '<a href="#" onclick="selectSize(\'' . $size . '\')">' . $size . '</a>';
+        <div class="row d-flex justify-content-center align-items-center" style="padding-bottom: 60px;">
+            <!-- product image (left side) -->
+            <div class="col-lg-6">
+                <img style="width: 100%; max-height: 55vh; position: relative; object-fit: contain;"
+                    src="<?php echo htmlspecialchars(getProductImage()); ?>" alt="<?php echo htmlspecialchars(getProductName()); ?>">
+            </div>
 
+            <!-- product details (right side) -->
+            <div class="col-lg-5 ps-lg-4">
+                <h1 class="mb-4"><?php echo htmlspecialchars(getProductName()); ?></h1>
+                <div class="d-flex flex-column flex-sm-row align-items-sm-center justify-content-sm-between mb-4">
+                    <ul class="list-inline mb-2 mb-sm-0">
+                        <li class="list-inline-item h4 fw-light mb-0"><?php echo htmlspecialchars(getProductPrice()) . " €"; ?></li>
+                        <li class="list-inline-item text-muted fw-light"> 
+                        </li>
+                    </ul>
+                </div>
+                <p class="mb-4 text-muted"><?php echo htmlspecialchars(getDetailedDescription()); ?></p>
+                <form id="buyForm" action="#">
+
+                <!-- actions -->
+                <div id="details-products-data-functions">
+                    <!-- Product size selection-->
+                    <div class="dropdown" id="dropdown">
+                        <button class="dropbtn" id="dropbtn">Größe wählen <i
+                                class="arrow down"></i></button>
+                        <div class="dropdown-content" id="dropdown-content">
+                            <?php
+                            if ($sizes === null || $sizes[0] == 'default') {
+                                echo '<a href="#" class="selected" onclick="selectSize(\'one size\')">one size</a>';
+                                echo '<script>selectSize(\'one size\');</script>';
+                            } else {
+                                foreach ($sizes as $size) {
+                                    echo '<a href="#" onclick="selectSize(\'' . $size . '\')">' . $size . '</a>';
+
+                                }
                             }
-                        }
-                        ?>
+                            ?>
+                        </div>
+                    </div>
+                
+                    <!-- Action Buttons-->
+                    <div id="actions">
+
+                    <div id="counter">
+                        <div id="minus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8" />
+                            </svg></div>
+                        <div id="number">1</div>
+                        <div id="plus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
+                            </svg></div>
+                    </div>
+                    <div class="button" id="button1">
+                        <i class="icon fas fa-heart"></i>
+                    </div>
+                    <div class="button" id="button2">
+                        <i class="icon fas fa-shopping-cart"></i>
                     </div>
                 </div>
-            
-                <!-- Action Buttons-->
-                <div id="actions">
-
-                <div id="counter">
-                    <div id="minus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8" />
-                        </svg></div>
-                    <div id="number">1</div>
-                    <div id="plus"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                            fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                            <path fill-rule="evenodd"
-                                d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2" />
-                        </svg></div>
-                </div>
-                <div class="button" id="button1">
-                    <i class="icon fas fa-heart"></i>
-                </div>
-                <div class="button" id="button2">
-                    <i class="icon fas fa-shopping-cart"></i>
-                </div>
             </div>
-        </div>
-    </div>
 
+    </div>
 </body>
 </html>
