@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -40,7 +38,7 @@ session_start();
   <!-- Header -->
   <header class="p-3 bg-dark text-white">
     <div>
-      <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary bg-dark border-bottom border-body">
+      <nav class="navbar sticky-top navbar-expand-lg bg-body-tertiary bg-dark border-body">
 
         <div class="container-fluid">
           <!-- logo -->
@@ -131,45 +129,7 @@ session_start();
   </header>
 
   <!-- Content -->
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+  
 
   <!-- Footer -->
   <footer class="footer">
