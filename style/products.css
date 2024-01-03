@@ -40,18 +40,6 @@
     }
 }
 
-.product-card h1 {
-    color: grey;
-}
-
-.product-card p,
-h2,
-h1 {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif
-}
-
-
 #headNavBar {
     width: 95%;
     height: 10vh;

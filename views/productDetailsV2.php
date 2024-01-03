@@ -316,7 +316,7 @@ require '../services/userProvider/favorites.php';
 
     <div class="container pt-4" style="margin-left: 12%;">
         <div class="col-lg-6 order-2 order-lg-1">
-            <h1 id="headLineTextStyle">Produktansicht</h1>
+            <h1>Produktansicht</h1>
         </div>
         <ul class="breadcrumb undefined">
             <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
