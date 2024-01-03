@@ -174,11 +174,11 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                         }
                     }
                     echo '<li class="list-group-item d-flex justify-content-between">';
-                    echo '<span>Versandkosten (€)</span>';
+                    echo '<span>Versandkosten</span>';
                     echo '<strong id="shippingCost">0.00€</strong>';
                     echo '</li>';
                     echo '<li class="list-group-item d-flex justify-content-between">';
-                    echo '<span>Gesamtbetrag (€)</span>';
+                    echo '<span>Gesamtbetrag</span>';
                     echo '<strong name="totalPrice" id = "totalPrice">' . number_format($total, 2, '.', '') . '€</strong>';
                     echo '</li>';
 
@@ -186,7 +186,6 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     $stmt->close();
                     $conn->close();
                     ?>
-
                 </ul>
 
                 <script>
@@ -198,11 +197,12 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     });
                 </script>
 
-                <!-- <form class="card p-2">
+                <form class="card p-2">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="Gutscheincode">
+                        <button type="submit" class="btn btn-dark">Einlösen</button>
                     </div>
-                </form> -->
+                </form> 
             </div>
             <div class="col-md-8 order-md-1">
                 <h4 class="mb-3">Lieferadresse</h4>

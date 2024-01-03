@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
         echo '<div class="row">';
         echo '<div class="col-2"></div>';
         echo '<div class="col-1" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
-        echo '<button class="delete" data-productid="' . $row['productID'] . '"><img src="../database/images/trash.png" style="height: 40px;"></button>';
+        echo '<button class="delete" data-productid="' . $row['productID'] . '" style="display: flex; justify-content: center; align-items: center;"><img src="../database/images/trash.png" style="height: 30px;"></button>';
         echo '</div>';
         echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
         echo '<img style="height:45px;" src="../assets/images/produkts/' . $row['pathName'] . '.png">';
@@ -48,9 +48,15 @@ if ($result->num_rows > 0) {
         echo '</div>';
         echo '<div class="col-2" style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
         echo '<div id="counter" data-productid="' . $row['productID'] . '">';
-        echo '<div class="minus">-</div>';
+        echo '<div class="minus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8"/>
+                    </svg>
+                </div>';
         echo '<div class="number">' . $row['amount'] . '</div>';
-        echo '<div class="plus">+</div>';
+        echo '<div class="plus"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                </div>';
         echo '</div>';
         echo '</div>';
         echo '<div class="col-1" style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">';
