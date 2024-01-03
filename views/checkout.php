@@ -48,6 +48,9 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     </style>
     <script>
         $(document).ready(function () {
+            // Speichern Sie den ursprünglichen Gesamtpreis
+            var originalTotalPrice = parseFloat($('#totalPrice').text().replace('€', ''));
+
             $('#discountButton').on('click', function (event) {
                 event.preventDefault();
 
@@ -64,14 +67,11 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                             $('#discountAmount').text(discountText);
                             $('#discount').show();
 
-                            // Holen Sie den aktuellen Gesamtpreis
-                            var totalPrice = parseFloat($('#totalPrice').text().replace('€', ''));
+                            // Berechnen Sie den Rabattbetrag basierend auf dem ursprünglichen Gesamtpreis
+                            var discountAmount = originalTotalPrice * (discount / 100);
 
-                            // Berechnen Sie den Rabattbetrag
-                            var discountAmount = totalPrice * (discount / 100);
-
-                            // Verringern Sie den Gesamtpreis um den Rabattbetrag
-                            totalPrice -= discountAmount;
+                            // Verringern Sie den ursprünglichen Gesamtpreis um den Rabattbetrag
+                            var totalPrice = originalTotalPrice - discountAmount;
 
                             // Aktualisieren Sie den Gesamtpreis im Element
                             $('#totalPrice').text(totalPrice.toFixed(2) + ' €');
