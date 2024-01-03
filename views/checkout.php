@@ -130,7 +130,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     $userId = $_SESSION['userId'];
 
                     // SQL-Abfrage, um die Produkte im Warenkorb zu holen
-                    $stmt = $conn->prepare("SELECT p.productName, p.description, p.price, s.amount FROM shoppingCart s JOIN products p ON s.productID = p.productID WHERE s.userID = ?");
+                    $stmt = $conn->prepare("SELECT p.productName, p.description, p.price, SUM(s.amount) as amount FROM shoppingCart s JOIN products p ON s.productID = p.productID WHERE s.userID = ? GROUP BY p.productID");
                     $stmt->bind_param("i", $userId);
                     $stmt->execute();
                     $result = $stmt->get_result();
