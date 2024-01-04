@@ -1,0 +1,73 @@
+- Startseite
+	- Carousel
+	- Nachuntenscrollen
+	- Hochscrollen Sign-up (1. Click)
+- Sign-up
+	- Testmail sollte nicht in der DB sein hehe
+	- 2. Click log In
+- Startseite
+	- Oben Funktion zeigen(ich würde sagen wir stellen keinen Nutzer auf Online
+	- 3. Click Logout
+	- 4. Click LogIn
+- LogInPage
+[Kurzer Wechsel zu den Mails]
+	[Pw kopieren]
+	- einloggen
+	- 5. Click Log in
+- PW erstellen Page
+	- PW erstellen und dabei zeigen, dass Großbuchstaben Zahlen und 9 Zeichen benötigt werden
+	- 6. Click speichern
+- Startseite
+	- 7. Click Artikelübersicht
+- Artikelübersicht
+	- nachunten Scrollen "ein Absatz mehr unten auf Artikelseite"
+	- zeigen das ä in umhängetasche
+	- Beliebigen Artikel auswählen 8. CLick
+- Artikelseite 
+	- Favorit hinzufügen 9. Click (Vorsicht Anzahl wird bei FavClick zurück gesetzt)
+	- zu Warenkorb hinzufügen 10. Click
+	- Größen Auswahl zeigen
+
+Das ganze 3x Einmal beliebige Anzahl einmal 5 einmal 10 wegen den Rabatten
+
+	- Favoriten Click 11
+- Favoriten Seite
+	- Warenkorb Click 12
+- Warenkorb Seite
+	- weiter zur Kasse Click 13
+- Kasse Seite
+	- Daten Eintragen
+	- Mengenrabatte zeigen 
+	- Gutscheincode eingeben bestätigen Click 14
+	- Zahlungspflichtig bestellen Click 15
+- Thank You Page
+	- Meine Bestellungen Click 16
+- Bestellverlauf
+	- Öffnen und Zeigen
+[Bestellbestätigung Mail]
+	- Doku Click 17
+- Doku 
+	- zeigen
+	- DevTeam Click 18
+- DevTeam 
+	- zeigen
+	- Kontakt Click 19
+- Kontakt
+	- Tipps zeigen
+	- Ausfüllen und absenden
+	- Startseite Click 20
+- Startseite
+	
+THE END
+
+	
+	
+	
+
+
+
+	
+	
+
+
+	
