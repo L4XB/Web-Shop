@@ -421,7 +421,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="privacyPolicy" required="">
                         <label class="custom-control-label" for="privacyPolicy">Ich akzeptiere die
-                            Datenschutzrichtlinien</label>
+                        <a href="datenschutz.php" class="text-dark">Datenschutzrichtlinien</a></label>
                         <div class="invalid-feedback">
                             Sie müssen die Datenschutzrichtlinien akzeptieren, um fortzufahren.
                         </div>
