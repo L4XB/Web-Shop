@@ -19,8 +19,9 @@
     
 </head>
 <body>
-    <?php include 'klettergerüst.php'; ?>
 
+    <?php include 'header.php'; ?>
+ 
     <div class="container pt-4" style="margin-left: 12%;">
         <div class="col-lg-6 order-2 order-lg-1">
             <h1>Datenschutz</h1>
@@ -115,10 +116,13 @@
             <h5>3.2.1 Zahlungsdienstleister</h5>
             <p class="lead">Zur Durchführung Ihrer Bestellungen übermitteln wir – außer im Fall einer Zahlung per Vorkasse/Banküberweisung - Zahlungsinformationen an Zahlungsdienstleister, die die mit den Bestellungen verbundenen Zahlungsvorgänge abwickeln. Welche der genannten Zahlungsdienste Ihnen angeboten werden, erkennen Sie auf der Shopseite, die Sie nutzen. <br><br>
                 (1) PayPal <br><br>
-                Bei einer Zahlung per PayPal übermitteln wir die Zahlungsinformationen an PayPal (Europe) S.a`r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg. Rechtsgrundlage für die Übermittlung ist die Durchführung des Vertrags mit Ihnen, Art. 6 (1) lit. b DSGVO. <br><br>
+                Bei einer Zahlung per PayPal übermitteln wir die Zahlungsinformationen an PayPal (Europe) S.a r.l. et Cie, S.C.A., 22-24 Boulevard Royal, L-2449 Luxembourg. Rechtsgrundlage für die Übermittlung ist die Durchführung des Vertrags mit Ihnen, Art. 6 (1) lit. b DSGVO. <br><br>
                 Die Datenschutzhinweise von Paypal zu deren Verarbeitung Ihrer personenbezogenen Daten als Verantwortlicher finden sie hier.               
             </p>
         </div>
     </main> 
+
+    <?php include 'footer.php'; ?>
+
 </body>
 </html>
