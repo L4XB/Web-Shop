@@ -29,7 +29,9 @@
 	- Größen Auswahl zeigen
 
 Das ganze 3x Einmal beliebige Anzahl einmal 5 einmal 10 wegen den Rabatten
-
+	
+Produktsuche noch zeigen
+	
 	- Favoriten Click 11
 - Favoriten Seite
 	- Warenkorb Click 12

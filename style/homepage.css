@@ -4,11 +4,40 @@
 }
 
 .carousel .slide {
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
     width: 100%;
 }
 
 .carousel {
     width: 100%;
+}
+
+.carousel-inner {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+.blink-dot {
+    height: 13px;
+    width: 13px;
+    background: radial-gradient(circle at center, lightgreen, green);
+    border: 1px solid silver;
+    border-radius: 50%;
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
