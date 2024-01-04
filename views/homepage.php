@@ -63,7 +63,9 @@ session_start();
         });
 
     </script>
-    <?php include 'klettergerüst.php'; ?>
+
+    <!-- header -->
+    <?php include 'header.php'; ?>
 
     <br>
     <div class="container-fluid" id="fa-items">
@@ -227,6 +229,8 @@ session_start();
         </div><!-- /.container -->
     </main>
 
+    <!-- FOOTER -->
+    <?php include 'footer.php'; ?>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

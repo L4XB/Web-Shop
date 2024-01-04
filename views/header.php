@@ -17,8 +17,59 @@
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+        var button2 = document.getElementById("button2");
+        var badge = document.querySelector(".badge");
+
+        // Verstecke den Info-Kreis, wenn die Seite geladen wird und der Wert 0 ist
+        badge.style.display = badge.textContent > 0 ? "inline" : "none";
+
+        button2.onclick = function () {
+            var badgeValue = parseInt(badge.textContent, 10);
+            badgeValue++;
+            badge.textContent = badgeValue;
+            badge.style.display = badgeValue > 0 ? "inline" : "none";
+        }
+        });
+    </script>
+
 </head>
 <body>
+
+    <?php
+    // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
+    if (!isset($_SESSION['userId'])) {
+
+    } else {
+    $userId = $_SESSION['userId'];
+
+    // Serververbindung
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+
+    // SQL-Abfrage, um die Anzahl der Elemente im Warenkorb zu ermitteln
+    $stmt = $conn->prepare("SELECT COUNT(DISTINCT productID) AS count FROM shoppingCart WHERE userID = ?");
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $row = $result->fetch_assoc();
+
+    $cartCount = $row['count'];
+
+    $stmt->close();
+    $conn->close();
+    }
+    ?>
+
     <header>
         <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark mb-4">
             <div class="container-fluid">
@@ -43,7 +94,7 @@
 
                 <!-- right alligned nav buttons -->
                 <div class="col d-flex justify-content-center">
-                    <ul class="nav justify-content-end nav-underline">
+                    <ul class="nav justify-content-end nav-underline" style=" <?php echo isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true ? ' ' : ''; ?>">
                         <li class="nav-item">
                             <a class="nav-link px-2 text-white" href="products.php">
                             <div class="d-flex flex-column align-items-center">
