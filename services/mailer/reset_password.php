@@ -16,6 +16,7 @@ session_start();
 $userMail = $_POST['username'];
 $_SESSION['emailUser'] = $userMail;
 $_SESSION['email'] = $userMail;
+$userMail = $_SESSION['email'];
 
 $mail = new PHPMailer(true);
 $mail->isSMTP();
