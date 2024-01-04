@@ -48,34 +48,6 @@ session_start();
         };
     </script>
 
-    <style>
-        .blink-dot {
-            height: 13px;
-            width: 13px;
-            background: radial-gradient(circle at center, lightgreen, green);
-            border: 1px solid silver;
-            border-radius: 50%;
-            display: inline-block;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            0% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0;
-            }
-
-            100% {
-                opacity: 1;
-            }
-        }
-    </style>
-
-
-
 </head>
 
 <body>
@@ -133,37 +105,28 @@ session_start();
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item">
-                    <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide"
-                        style="width: 100%; height:40vh;">
-                    <div class="container">
+                    <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide" style="width: 100%; height: 40vh">
                         <div class="carousel-caption text-left text-color">
                             <h1>DevTeam</h1>
                             <p>Lerne die Entwickler des FSI Shops kennen!</p>
                             <p><a class="btn btn-dark" href="devteam.php" role="button">Kennenlernen</a></p>
-                        </div>
                     </div>
                 </div>
                 <div class="carousel-item active">
-                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide"
-                        style="width: 100%; height:40vh;">
-                    <div class="container">
+                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide" style="width: 100%; height: 40vh">
                         <div class="carousel-caption text-color">
                             <h1>Herzlich Willkommen</h1>
                             <p>Hier findest du den besten Merch der Hochschule Reutlingen!</p>
                             <p><a class="btn btn-dark" href="products.php" role="button">Artikelübersicht</a></p>
-                        </div>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" img src="..//assets/images/homepage/banner.png" alt="Third slide"
-                        style="width: 100%; height:40vh;">
-                    <div class="container">
+                    <img class="third-slide" img src="..//assets/images/homepage/banner.png" alt="Third slide" style="width: 100%; height: 40vh"> 
                         <div class="carousel-caption text-right text-color">
                             <h1>Dokumentation</h1>
                             <p>Du interresierst dich für die Entstehung des Webshops?</p>
                             <p><a class="btn btn-dark" href="doku.php" role="button">Mehr erfahren</a></p>
                         </div>
-                    </div>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -268,9 +231,6 @@ session_start();
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
 
     <!-- Bootstrap core JavaScript
             ================================================== -->

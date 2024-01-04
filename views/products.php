@@ -44,10 +44,13 @@ session_start()
             </ul>
         </div>
 
+        <br>
+        
         <?php
         include("../services/productProvider/loadAllProducts.php");
         ?>
     </div>
+    <br>
 </body>
 
 </html>
