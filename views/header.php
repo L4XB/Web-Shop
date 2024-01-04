@@ -41,6 +41,21 @@
             margin-left: 11px;
 
         }
+
+        .badge {
+            position: absolute;
+            top: -5px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 50%;
+            background-color: rgb(197, 145, 0);
+            color: white;
+            font-size: 14px;
+        }
+
+        .position-relative {
+            position: relative;
+        }
     </style>
 </head>
 
@@ -132,7 +147,12 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link px-2 text-white " href="warenkorb.php">
+                            <a class="nav-link px-2 text-white position-relative" href="warenkorb.php">
+                                <?php if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true): ?>
+                                    <span class="badge">
+                                        <?php echo $cartCount; ?>
+                                    </span>
+                                <?php endif; ?>
                                 <div class="d-flex flex-column align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                                         class="bi bi-cart3" viewBox="0 0 16 16">
@@ -174,6 +194,7 @@
                 </div>
             </div>
         </nav>
+        </div>
     </header>
 </body>
 
