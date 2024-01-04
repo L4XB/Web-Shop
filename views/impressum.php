@@ -58,5 +58,8 @@
             <p class="lead"><a href="https://getbootstrap.com/" class="text-dark">https://getbootstrap.com/</a>, <a href="https://sweetalert2.github.io/" class="text-dark">https://sweetalert2.github.io/</a></p>
         </div>
     </main>
+
+    <?php include 'footer.php'; ?>
+    
 </body>
 </html>
