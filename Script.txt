@@ -6,7 +6,7 @@
 	- Testmail sollte nicht in der DB sein hehe
 	- 2. Click log In
 - Startseite
-	- Oben Funktion zeigen(ich würde sagen wir stellen keinen Nutzer auf Online
+	- Oben Funktion zeigen(ich würde sagen wir stellen keinen Nutzer auf Online)
 	- 3. Click Logout
 	- 4. Click LogIn
 - LogInPage
@@ -38,6 +38,7 @@ Das ganze 3x Einmal beliebige Anzahl einmal 5 einmal 10 wegen den Rabatten
 - Kasse Seite
 	- Daten Eintragen
 	- Mengenrabatte zeigen 
+	- Datenschutz zeigen
 	- Gutscheincode eingeben bestätigen Click 14
 	- Zahlungspflichtig bestellen Click 15
 - Thank You Page
