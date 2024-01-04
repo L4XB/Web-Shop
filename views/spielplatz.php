@@ -160,7 +160,7 @@
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Kontakt & Retouren</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-light">AGB</a></li>
                     <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Impressum</a></li>
-                    <li class="nav-item"><a href="#" class="nav-link px-2 text-light">Datenschutz</a></li>
+                    <li class="nav-item"><a href="datenschutz.php" class="nav-link px-2 text-light">Datenschutz</a></li>
                     </ul>
                     <p class="text-center text-light">&copy; <?php echo date('Y'); ?> Fachschaft Informatik Reutlingen</p>
                 </div>
