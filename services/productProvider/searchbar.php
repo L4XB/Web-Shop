@@ -48,7 +48,7 @@ if ($result->num_rows > 0) {
         }
         </script>';
 } else {
-    echo "Keine Produkte gefunden.";
+    echo "<p style='text-align:center;'>Keine Produkte gefunden. </p>";
 }
 
 
