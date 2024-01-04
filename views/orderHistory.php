@@ -159,13 +159,16 @@ session_start();
       }
     } else {
       echo "Keine Bestellungen gefunden.";
+      echo "
+      <small class='d-block text-right mt-3'>
+      <a href='products.php' class='btn btn-outline-dark'>zur Atrikelübersicht</a>
+    </small>
+      ";
     }
     ?>
 
     <!-- Optional! Noch zu überlegen ob eine implementierung notwendig ist -->
-    <small class="d-block text-right mt-3">
-      <a href="products.php" class="btn btn-outline-dark">zur Atrikelübersicht</a>
-    </small>
+
 
   </main>
 
