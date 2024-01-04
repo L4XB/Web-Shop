@@ -158,16 +158,16 @@ session_start();
         echo '</form>';
       }
     } else {
-      echo "Keine Bestellungen gefunden.";
+      echo "<p style='text-align:center;'>Keine Bestellungen gefunden.</p>";
       echo "
       <small class='d-block text-right mt-3'>
-      <a href='products.php' class='btn btn-outline-dark'>zur Atrikelübersicht</a>
+      <div style='text-align:center;'>
+        <a href='products.php' class='btn btn-outline-dark'>zur Atrikelübersicht</a>
+      </div>
     </small>
       ";
     }
     ?>
-
-    <!-- Optional! Noch zu überlegen ob eine implementierung notwendig ist -->
 
 
   </main>
