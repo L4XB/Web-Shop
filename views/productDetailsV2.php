@@ -229,7 +229,7 @@ require '../services/userProvider/favorites.php';
                         Swal.fire({
                             position: "top-end",
                             icon: "success",
-                            title: "Artiekl zum Warenkorb hinzugefügt",
+                            title: "Artikel zum Warenkorb hinzugefügt",
                             showConfirmButton: false,
                             timer: 1500
                         });
