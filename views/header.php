@@ -38,9 +38,11 @@
     </script>
     <style>
         .profile-icon {
-            margin-left: 11px;
+            margin-left: 14px;
+
 
         }
+
 
         .badge {
             position: absolute;
