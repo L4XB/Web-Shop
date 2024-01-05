@@ -1,51 +1,26 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Erstellungszeit: 03. Jan 2024 um 16:26
--- Server-Version: 10.4.28-MariaDB
--- PHP-Version: 8.2.4
+-- Hallo Herr Gutbrod
+-- Führen Sie bitte folgende Schritte aus, um die Datenbank für das Proejtkl aufzusetzen:
+--    1. Datenbank mit dem Namen webShopFSI erstellen
+--    2. Alles aus dieser Datei kopieren und in der SQL query einfügen und auführen
+
+-- Anermkung -> Es werden direkt 2 weitere Test-Benutzer ertstellt, dass die Flag "Aktuelle Anzahl der online Nutzer" aussagekräftiger ist.
+-- LG und viel Spaß mit dem WebShop
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Datenbank: `webShopFSI`
---
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `discount`
---
-
 CREATE TABLE `discount` (
   `discountID` int(11) NOT NULL,
   `discountCode` varchar(255) NOT NULL,
   `discountInPercent` decimal(5,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `discount`
---
 
 INSERT INTO `discount` (`discountID`, `discountCode`, `discountInPercent`) VALUES
 (3, 'FSI15', 15.00),
-(4, 'QUENTIN20', 20.00);
+(4, 'QUENTIN20', 20.00),
+(5, 'FELIX25', 25.00);
 
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `favorites`
---
 
 CREATE TABLE `favorites` (
   `favoritesID` int(11) NOT NULL,
@@ -53,19 +28,6 @@ CREATE TABLE `favorites` (
   `productID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `favorites`
---
-
-INSERT INTO `favorites` (`favoritesID`, `userID`, `productID`) VALUES
-(114, 49, 2),
-(117, 49, 3);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `history`
---
 
 CREATE TABLE `history` (
   `historyID` int(11) NOT NULL,
@@ -76,19 +38,12 @@ CREATE TABLE `history` (
   `transactionID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `history`
---
+
 
 INSERT INTO `history` (`historyID`, `timestamp`, `amount`, `userID`, `productID`, `transactionID`) VALUES
-(112, '2024-01-03 10:49:44', 10, 49, 7, 46),
-(113, '2024-01-03 10:49:44', 3, 49, 2, 46);
+(115, '2024-01-05 18:43:01', 3, 53, 2, 48);
 
--- --------------------------------------------------------
 
---
--- Tabellenstruktur für Tabelle `products`
---
 
 CREATE TABLE `products` (
   `productID` int(11) NOT NULL,
@@ -103,13 +58,10 @@ CREATE TABLE `products` (
   `descriptionPoints` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `products`
---
 
 INSERT INTO `products` (`productID`, `productName`, `price`, `size`, `fit`, `pathName`, `description`, `stock`, `detailedDescription`, `descriptionPoints`) VALUES
 (1, 'FSI Beanie (schwarz)', 19.99, 'default', 'Regular', 'FSI_beanie', 'Stilvoller Logo-Beanie', 95, 'Unsere schwarze Logo-Beanie vereint Stil und Komfort. Die hochwertige Stickerei verleiht dem Beanie einen einzigartigen Touch.', 'Hochwertige Stickerei; Bequemer Sitz; Wärmendes Material; Zeitloses Design'),
-(2, 'FSI Coffee-to-go Becher', 12.99, 'default', NULL, 'FSI-Coffee-to-go', 'Stylischer Logo-Kaffeebecher', 21, 'Genießen Sie Ihren Kaffee unterwegs mit unserem Logo Coffee-to-go Becher.', 'Hochwertiges Material; Auslaufsicherer Deckel; Stylisches Design; Nachhaltig/Umweltfreundlich'),
+(2, 'FSI Coffee-to-go Becher', 12.99, 'default', NULL, 'FSI-Coffee-to-go', 'Stylischer Logo-Kaffeebecher', 15, 'Genießen Sie Ihren Kaffee unterwegs mit unserem Logo Coffee-to-go Becher.', 'Hochwertiges Material; Auslaufsicherer Deckel; Stylisches Design; Nachhaltig/Umweltfreundlich'),
 (3, 'FSI Fahne (schwarz)', 24.99, 'default', NULL, 'FSI-Fahne', 'Strapazierfähige Logo-Fahne', 40, 'Zeigen Sie Flagge mit unserer schwarzen Logo-Fahne! Ein Must-have für alle, die Flagge zeigen wollen.', 'Strapazierfähiges Material; Lebendige Farben; Leicht zu befestigen; Vielseitig einsetzbar'),
 (4, 'FSI Umhängetasche', 29.99, 'default', NULL, 'FSI-Tasche', ' Geräumige Logo-Umhängetasche', 117, 'Unsere Logo Baumwoll-Umhängetasche ist der ideale Begleiter für den Alltag.', 'Geräumiges Hauptfach; Lange Schulterbändern; Robuste Baumwolle; Großes aufgedrucktes Logo'),
 (5, 'FSI Tasse', 14.99, 'default', NULL, 'tasse_fsi', 'Elegante Logo-Tasse', 300, 'Genießen Sie Ihre Lieblingsgetränke in unserer Logo Tasse!', 'Hochwertige Keramik; Spülmaschinenfest; Elegantes Design; Perfekt für Heißgetränke'),
@@ -118,11 +70,7 @@ INSERT INTO `products` (`productID`, `productName`, `price`, `size`, `fit`, `pat
 (8, 'INFormatiger Kapuzenpullover (men)', 59.99, 'S;M;L', 'Oversize fit', 'hoody_front_men_fsi-tiger', 'Stylischer Men-Hoody', 45, 'Unser Heavy-Kapuzenpullover für Männer in Schwarz mit Iconic INFormatiger auf der Brust verleiht dem Hoody einen lässigen Style und macht ihn zum absoluten Blickfang.', 'Moderner Schnitt; Strapazierfähiges Material; Iconic INFormatiger Design; Lässiger Style'),
 (9, 'INFormatiger Umhängetasche', 29.99, 'default', NULL, 'Tiger-Tasche', 'Praktische INFormatige Tasche', 80, 'Unsere INFormatige Baumwoll-Umhängetasche überzeugt nicht durch lange Schulterbändern. Hergestellt aus robuster Baumwolle ist sie der ideale Begleiter für den Alltag.', 'Praktisches Format; Lange Schulterbändern; Robuste Baumwolle; Großes INFormatiger Design');
 
--- --------------------------------------------------------
 
---
--- Tabellenstruktur für Tabelle `shoppingCart`
---
 
 CREATE TABLE `shoppingCart` (
   `cartID` int(11) NOT NULL,
@@ -131,22 +79,7 @@ CREATE TABLE `shoppingCart` (
   `productID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `shoppingCart`
---
 
-INSERT INTO `shoppingCart` (`cartID`, `amount`, `userID`, `productID`) VALUES
-(154, 3, 49, 2),
-(155, 1, 49, 6),
-(156, 3, 49, 8),
-(157, 3, 49, 8),
-(158, 3, 49, 5);
-
--- --------------------------------------------------------
-
---
--- Tabellenstruktur für Tabelle `transactions`
---
 
 CREATE TABLE `transactions` (
   `transactionID` int(11) NOT NULL,
@@ -157,18 +90,12 @@ CREATE TABLE `transactions` (
   `paymentMethod` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `transactions`
---
+
 
 INSERT INTO `transactions` (`transactionID`, `timestamp`, `userID`, `orderNumber`, `adress`, `paymentMethod`) VALUES
-(46, '2024-01-03 10:49:44', 49, '7709564660', 'Linsenhoferstraße 49, 82392 Beuren', 'PayPal');
+(48, '2024-01-05 18:43:01', 53, '1190544566', 'Linsenhoferstraße 49, 82392 Beuren', 'PayPal');
 
--- --------------------------------------------------------
 
---
--- Tabellenstruktur für Tabelle `users`
---
 
 CREATE TABLE `users` (
   `userID` int(11) NOT NULL,
@@ -187,149 +114,94 @@ CREATE TABLE `users` (
   `resetCode` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Daten für Tabelle `users`
---
+
 
 INSERT INTO `users` (`userID`, `email`, `passwort`, `firstName`, `lastName`, `lastLogin`, `screenResolution`, `os`, `twoFASecret`, `use2FA`, `isFirstLogin`, `createdAt`, `is_logged_in`, `resetCode`) VALUES
-(30, 'Madeleine.buck@online.de', '01e872f647c44fb41465904d88770786f66920ffbc405a29a03e13e66df0e8cf', 'Madeleine', 'Buck', '2023-12-16 07:46:52', 'unknown', 'unknown', '3JB3FMXUVCOGTLKD', 1, 1, '2023-12-16 07:46:52', 1, NULL),
-(31, 'buck.lukas@icloud.com', '46b47fb88e9bfb31db08a3587a3e89b40ba14b5c1f644270593a987b70f9eda5', 'Madeleine', 'Buck', '2023-12-16 13:35:04', 'unknown', 'unknown', 'AIDWOP4Z2UGAR36Y', 0, 1, '2023-12-16 13:35:04', 1, NULL),
-(49, 'lukas.buck@e-mail.de', 'd72ac459599db16af557a18f0164214b6a9f267c04f88818bf55446ef4fc631a52e9ec76ff04c5ea36d32480a90fd351c69963f4e269774a1de1e2a31e03ed61', 'Lukas', 'Buck', '2024-01-03 15:01:59', '2560x1440', 'MacOS', 'PG5EWNB3FU4XQC6C', 1, 0, '2024-01-03 10:13:31', 1, '744712');
+(53, 'test123@example.com', '3f4d435f60b7d5eefa6212f80e7280d19fcf7499a555ddf2ae32431b559149e7aa72093cd94705b5be972ed93405cdf92db69087c66c71f2fed6c4166964a0cd', 'Test', 'test', '2024-01-05 18:42:35', '2560x1440', 'MacOS', '2RE7AGD6JHXAZ7BU', 0, 1, '2024-01-05 18:42:35', 1, NULL),
+(54, 'test@example.com', 'fc7c7a1fd0476261159c8f5bc9c7431512dafb6077807e20d0c0b7c8888e2fc2b4145ff0ee5e2aa792bf1f129c5000d3fe66aee198e93104a21ccf3f87e2d1f3', 'test', 'test', '2024-01-05 18:43:50', '2560x1440', 'MacOS', 'N5TJNPRJBLRPYQS2', 0, 1, '2024-01-05 18:43:50', 0, NULL);
 
---
--- Indizes der exportierten Tabellen
---
-
---
--- Indizes für die Tabelle `discount`
---
 ALTER TABLE `discount`
   ADD PRIMARY KEY (`discountID`),
   ADD UNIQUE KEY `discountCode` (`discountCode`);
 
---
--- Indizes für die Tabelle `favorites`
---
+
 ALTER TABLE `favorites`
   ADD PRIMARY KEY (`favoritesID`),
   ADD KEY `userID` (`userID`),
   ADD KEY `productID` (`productID`);
 
---
--- Indizes für die Tabelle `history`
---
 ALTER TABLE `history`
   ADD PRIMARY KEY (`historyID`),
   ADD KEY `userID` (`userID`),
   ADD KEY `productID` (`productID`),
   ADD KEY `transactionID` (`transactionID`);
 
---
--- Indizes für die Tabelle `products`
---
+
 ALTER TABLE `products`
   ADD PRIMARY KEY (`productID`);
 
---
--- Indizes für die Tabelle `shoppingCart`
---
+
 ALTER TABLE `shoppingCart`
   ADD PRIMARY KEY (`cartID`),
   ADD KEY `userID` (`userID`),
   ADD KEY `productID` (`productID`);
 
---
--- Indizes für die Tabelle `transactions`
---
+
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transactionID`),
   ADD KEY `fk_user` (`userID`);
 
---
--- Indizes für die Tabelle `users`
---
+
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userID`);
 
---
--- AUTO_INCREMENT für exportierte Tabellen
---
 
---
--- AUTO_INCREMENT für Tabelle `discount`
---
 ALTER TABLE `discount`
-  MODIFY `discountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `discountID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
---
--- AUTO_INCREMENT für Tabelle `favorites`
---
+
 ALTER TABLE `favorites`
   MODIFY `favoritesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=118;
 
---
--- AUTO_INCREMENT für Tabelle `history`
---
-ALTER TABLE `history`
-  MODIFY `historyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
---
--- AUTO_INCREMENT für Tabelle `products`
---
+ALTER TABLE `history`
+  MODIFY `historyID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=116;
+
+
 ALTER TABLE `products`
   MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
---
--- AUTO_INCREMENT für Tabelle `shoppingCart`
---
+
 ALTER TABLE `shoppingCart`
-  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `cartID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=172;
 
---
--- AUTO_INCREMENT für Tabelle `transactions`
---
+
 ALTER TABLE `transactions`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
---
--- AUTO_INCREMENT für Tabelle `users`
---
+
 ALTER TABLE `users`
-  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
---
--- Constraints der exportierten Tabellen
---
 
---
--- Constraints der Tabelle `favorites`
---
 ALTER TABLE `favorites`
   ADD CONSTRAINT `favorites_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`);
 
---
--- Constraints der Tabelle `history`
---
+
 ALTER TABLE `history`
   ADD CONSTRAINT `history_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `history_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`),
   ADD CONSTRAINT `history_ibfk_3` FOREIGN KEY (`transactionID`) REFERENCES `transactions` (`transactionID`);
 
---
--- Constraints der Tabelle `shoppingCart`
---
+
 ALTER TABLE `shoppingCart`
   ADD CONSTRAINT `shoppingcart_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`),
   ADD CONSTRAINT `shoppingcart_ibfk_2` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`);
 
---
--- Constraints der Tabelle `transactions`
---
+
 ALTER TABLE `transactions`
   ADD CONSTRAINT `fk_user` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`);
 COMMIT;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
