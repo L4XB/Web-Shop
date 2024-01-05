@@ -185,24 +185,29 @@
                                         if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true):
                                             ?>
                                             <!-- Login und SignUp Buttons -->
-                                            <div style="padding-left: 10px;">
-                                                <a href="login.php"><button type="button"
-                                                        class="btn btn-outline-light me-2">Login</button></a>
-                                                <a href="signUp.php"><button type="button"
-                                                        class="btn btn-warning">Sign-up</button></a>
+                                            <div>
+                                                <p style="text-align:center; padding-left:5px;"><a href="login.php"><button
+                                                            type="button"
+                                                            class="btn btn-outline-light me-2">Login</button></a></p>
+                                                <p style="text-align:center;"> <a href="signUp.php"><button type="button"
+                                                            class="btn btn-warning">Sign-up</button></a></p>
                                             </div>
                                             <?php
                                         else:
                                             ?>
                                             <!-- Anderer Button -->
-                                            <div style="padding-left: 10px;">
-                                                <a href="profil.php">
-                                                    <button type="button" class="btn btn-outline-light me-2">Profil</button>
-                                                </a>
+                                            <div style="padding-left: 5px;">
+                                                <p style="text-align:center;"><a href="profil.php">
+                                                        <button type="button"
+                                                            class="btn btn-outline-light me-2">Profil</button>
+                                                    </a></p>
 
-                                                <form action="../services/userProvider/logout.php" method="post" style=" ">
-                                                    <button type="submit" class="btn btn-warning">Logout</button>
-                                                </form>
+                                                <p style="text-align:center;">
+                                                    <a href="../services/userProvider/logout.php">
+                                                        <button type="submit" class="btn btn-warning">Logout</button>
+                                                    </a>
+                                                </p>
+
                                             </div>
                                             <?php
                                         endif;

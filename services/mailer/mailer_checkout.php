@@ -61,7 +61,7 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
         $productList .= $productElement;
 
         // Fügen Sie das Bild als eingebettetes Bild zur E-Mail hinzu
-        $mail->AddEmbeddedImage("../../assets/images/produkts/$productPath.png", $productPath);
+        $mail->AddEmbeddedImage("../../assets/images/produkts/$productPath.png", $productName);
     }
 
 
