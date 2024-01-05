@@ -8,18 +8,26 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Order history</title>
+
+  <!-- Favicons -->
   <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
-  <!-- Bootstrap core CSS -->
-  <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- CSS -->
+  <!-- bootstrap css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- JS -->
+  <!-- custom css -->
+  <link rel="stylesheet" href="../style/#.css">
+  
+  <!-- bootstrap js -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+  <!-- other JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
   <style>
     .img {
       height: 60px;
@@ -40,18 +48,23 @@ session_start();
 </head>
 
 <body>
-  <?php include 'klettergerüst.php'; ?>
-  <br>
+    
+  <!-- header -->
+  <?php include 'header.php'; ?>
+
+  <div class="container pt-4" style="margin-left: 12%;">
+        <div class="col-lg-6 order-2 order-lg-1">
+            <h1>Bestellverlauf</h1>
+        </div>
+        <ul class="breadcrumb undefined">
+            <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
+            <li class="breadcrumb-item"><a href="profil.php" class="text-dark">Profil</a></li>
+            <li class="breadcrumb-item active"><span class="text-dark">Bestellverlauf</span></li>
+        </ul>
+    </div>
+    
   <main role="main" class="container">
 
-    <div>
-      <h1 id="headLineTextStyle" style="text-align: left; padding-left: 10px;">Bestellverlauf</h1>
-    </div>
-
-    <div class="my-3 p-3 bg-white rounded box-shadow">
-      <h6 class="border-bottom border-gray pb-2 mb-0">Meine Bestellhistorie:</h6>
-      <br>
-    </div>
     <?php
     // Starten Sie die Session
     session_start();
@@ -169,8 +182,21 @@ session_start();
     }
     ?>
 
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   </main>
+
+  <!-- footer -->
+  <?php include 'footer.php'; ?>
 
 </body>
 

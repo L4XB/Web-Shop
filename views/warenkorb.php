@@ -19,12 +19,20 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Warenkorb</title>
+    <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
+    <!-- bootstrap css -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
+    <!-- custom css -->
     <link rel="stylesheet" href="../style/warenkorb.css">
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        
+    <!-- ajax -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
@@ -54,118 +62,37 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
 </head>
 
 <body>
-    <?php include 'klettergerüst.php'; ?>
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <br>
-                <h1>Warenkorb</h1>
-                <br>
-                <br>
-            </div>
+
+    <!-- header -->
+    <?php include 'header.php'; ?>
+
+    <div class="container pt-4" style="margin-left: 12%;">
+        <div class="col-lg-6 order-2 order-lg-1">
+            <h1>Dein Warenkorb</h1>
         </div>
+        <ul class="breadcrumb undefined">
+            <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
+            <li class="breadcrumb-item active"><span class="text-dark">Warenkorb</span></li>
+        </ul>
+    </div>
 
-
-        <!--  <div class="row">
-            
-            <div class="col-2"></div>
-
-            <div class="col-1"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <img src="../database/images/pin.png" style="height: 50%;">
-            </div>
-
-            <div class="col-3" style="border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <p class="light-text">Lieferadresse</p>
-                <p class="text">$var:Adresse</p>
-            </div>
-
-            <div class="col-1" style="border-bottom: solid; border-width:thin; border-color: lightgrey;"></div>
-
-            <div class="col-2"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;width: 250px">
-                <button type="button" style=" " class="btn btn-secondary"><img src="../database/images/pen.png"
-                        style="height: 2.5vh;">Lieferadresse ändern</button>
-            </div>
-
-            
-            <div class="col-2"></div>
-        </div>
-        <div class="row">
-            
-            <div class="col-2"></div>
-
-            <div class="col-1"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <img src="../database/images/pin.png" style="height: 50%;">
-            </div>
-
-            <div class="col-3" style="border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <p class="light-text">Liefertermin</p>
-                <p class="text">$var:Termin</p>
-            </div>
-
-            <div class="col-1" style="border-bottom: solid; border-width:thin; border-color: lightgrey;"></div>
-
-            <div class="col-2"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey; white-space: nowrap;width: 250px">
-                <button type="button" class="btn btn-secondary"><img src="../database/images/pen.png"
-                        style="height: 2.5vh;">Liefertermin ändern</button>
-            </div>
-
-            
-            <div class="col-2"></div>
-        </div> -->
-
-
+    <main class="container">
         <?php
         include("../services/userProvider/load_shopping_cart_items.php");
         ?>
+    </main>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
+    <!-- footer -->
+    <?php include 'footer.php'; ?>
 
-
-        <!--warenkorb insert-->
-
-
-
-
-
-
-        <!-- <div class="row">
-
-            <div class="col-2"></div>
-
-            <div class="col-1"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <button class="delete"><img src="../database/images/trash.png" style="height: 30%;"></button>
-            </div>
-
-            <div class="col-1"
-                style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <img src="../database/images/trash.png">
-            </div>
-
-            <div class="col-2" style="border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <p class="light-text">$var:Produktname</p>
-                <p class="text">$var:ProductShortDescription</p>
-            </div>
-
-            <div class="col-2"
-                style="justify-content: center; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <div id="counter">
-                    <div id="minus">-</div>
-                    <div id="number">1</div>
-                    <div id="plus">+</div>
-                </div>
-            </div>
-
-            <div class="col-1"
-                style="justify-content: right; align-items: center; display: flex; border-bottom: solid; border-width:thin; border-color: lightgrey;">
-                <p>Price</p>
-            </div>
-            <div class="col-2"></div>
-        </div>
-    </div> -->
 </body>
 
 </html>
