@@ -1,10 +1,8 @@
 <?php
 session_start();
 
-include 'klettergerüst.php';
 require '../services/productProvider/loadSpecificProductData.php';
 require '../services/userProvider/favorites.php';
-
 ?>
 
 <!DOCTYPE html>
@@ -275,6 +273,8 @@ require '../services/userProvider/favorites.php';
 
 <body>
 
+    <!-- header -->
+    <?php include 'header.php'; ?>
 
     <?php
     function getSizes()
@@ -312,7 +312,6 @@ require '../services/userProvider/favorites.php';
     }
     $sizes = getSizes();
     ?>
-
 
     <div class="container pt-4" style="margin-left: 12%;">
         <div class="col-lg-6 order-2 order-lg-1">
@@ -354,7 +353,6 @@ require '../services/userProvider/favorites.php';
             <p class="mb-4 text-muted">
                 <?php echo htmlspecialchars(getDetailedDescription()); ?>
             </p>
-
 
             <!-- actions -->
             <div id="details-products-data-functions">
@@ -402,8 +400,12 @@ require '../services/userProvider/favorites.php';
                     </div>
                 </div>
             </div>
-
         </div>
+    </div>
+
+    <!-- footer -->
+    <?php include 'footer.php'; ?>
+
 </body>
 
 </html>
