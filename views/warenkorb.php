@@ -89,6 +89,11 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <!-- footer -->
     <?php include 'footer.php'; ?>
