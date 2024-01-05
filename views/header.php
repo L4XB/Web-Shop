@@ -184,10 +184,7 @@
                                         <li><button class="btn btn-sm btn-outline-light mb-2" type="button"> Login
                                             </button></li>
                                         <li><button class="btn btn-sm btn-warning" type="button">Sign-up</button></li>
-                                        <!--
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Platzhalter</a></li>
-                      -->
+
                                     </div>
                                 </ul>
                             </li>

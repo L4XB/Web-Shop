@@ -34,6 +34,16 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- custom css -->
+    <link rel="stylesheet" href="../style/header.css">
+
+    <!-- bootstrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
 
     <script>
         window.onload = function () {
@@ -65,6 +75,7 @@ session_start();
     </script>
 
     <!-- header -->
+
     <?php include 'header.php'; ?>
 
     <br>
@@ -107,28 +118,31 @@ session_start();
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item">
-                    <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide" style="width: 100%; height: 40vh">
-                        <div class="carousel-caption text-left text-color">
-                            <h1>DevTeam</h1>
-                            <p>Lerne die Entwickler des FSI Shops kennen!</p>
-                            <p><a class="btn btn-dark" href="devteam.php" role="button">Kennenlernen</a></p>
+                    <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide"
+                        style="width: 100%; height: 40vh">
+                    <div class="carousel-caption text-left text-color">
+                        <h1>DevTeam</h1>
+                        <p>Lerne die Entwickler des FSI Shops kennen!</p>
+                        <p><a class="btn btn-dark" href="devteam.php" role="button">Kennenlernen</a></p>
                     </div>
                 </div>
                 <div class="carousel-item active">
-                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide" style="width: 100%; height: 40vh">
-                        <div class="carousel-caption text-color">
-                            <h1>Herzlich Willkommen</h1>
-                            <p>Hier findest du den besten Merch der Hochschule Reutlingen!</p>
-                            <p><a class="btn btn-dark" href="products.php" role="button">Artikelübersicht</a></p>
+                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide"
+                        style="width: 100%; height: 40vh">
+                    <div class="carousel-caption text-color">
+                        <h1>Herzlich Willkommen</h1>
+                        <p>Hier findest du den besten Merch der Hochschule Reutlingen!</p>
+                        <p><a class="btn btn-dark" href="products.php" role="button">Artikelübersicht</a></p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" img src="..//assets/images/homepage/banner.png" alt="Third slide" style="width: 100%; height: 40vh"> 
-                        <div class="carousel-caption text-right text-color">
-                            <h1>Dokumentation</h1>
-                            <p>Du interresierst dich für die Entstehung des Webshops?</p>
-                            <p><a class="btn btn-dark" href="doku.php" role="button">Mehr erfahren</a></p>
-                        </div>
+                    <img class="third-slide" img src="..//assets/images/homepage/banner.png" alt="Third slide"
+                        style="width: 100%; height: 40vh">
+                    <div class="carousel-caption text-right text-color">
+                        <h1>Dokumentation</h1>
+                        <p>Du interresierst dich für die Entstehung des Webshops?</p>
+                        <p><a class="btn btn-dark" href="doku.php" role="button">Mehr erfahren</a></p>
+                    </div>
                 </div>
             </div>
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
@@ -232,16 +246,7 @@ session_start();
     <!-- FOOTER -->
     <?php include 'footer.php'; ?>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
 
-    <!-- Bootstrap core JavaScript
-            ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
