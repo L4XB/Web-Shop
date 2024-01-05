@@ -38,7 +38,7 @@
     </script>
     <style>
         .profile-icon {
-            margin-left: 14px;
+            margin-left: 9.5px;
 
 
         }
