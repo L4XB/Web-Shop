@@ -8,11 +8,12 @@
     <!-- Favicons -->
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">
 
-     <!-- bootstrap css -->
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- bootstrap css -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    
     <!-- custom css -->
-    <link rel="stylesheet" href="../style/spielplatz.css">
+    <link rel="stylesheet" href="../style/#.css">
 
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
@@ -29,7 +30,7 @@
         </div>
         <ul class="breadcrumb undefined">
             <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item active"><span class="text-dark">Datenschutzhinweise</span></li>
+            <li class="breadcrumb-item active"><span class="text-dark">Datenschutz</span></li>
         </ul>
     </div>
 
@@ -123,6 +124,7 @@
         </div>
     </main> 
 
+    <!-- footer -->
     <?php include 'footer.php'; ?>
 
 </body>
