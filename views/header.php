@@ -179,11 +179,34 @@
 
                                     <br>Profil
                                 </a>
-                                <ul class="dropdown-menu">
+                                <ul class="dropdown-menu bg-dark">
                                     <div class="d-flex flex-column align-items-center">
-                                        <li><button class="btn btn-sm btn-outline-light mb-2" type="button"> Login
-                                            </button></li>
-                                        <li><button class="btn btn-sm btn-warning" type="button">Sign-up</button></li>
+                                        <?php
+                                        if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true):
+                                            ?>
+                                            <!-- Login und SignUp Buttons -->
+                                            <div style="padding-left: 10px;">
+                                                <a href="login.php"><button type="button"
+                                                        class="btn btn-outline-light me-2">Login</button></a>
+                                                <a href="signUp.php"><button type="button"
+                                                        class="btn btn-warning">Sign-up</button></a>
+                                            </div>
+                                            <?php
+                                        else:
+                                            ?>
+                                            <!-- Anderer Button -->
+                                            <div style="padding-left: 10px;">
+                                                <a href="profil.php">
+                                                    <button type="button" class="btn btn-outline-light me-2">Profil</button>
+                                                </a>
+
+                                                <form action="../services/userProvider/logout.php" method="post" style=" ">
+                                                    <button type="submit" class="btn btn-warning">Logout</button>
+                                                </form>
+                                            </div>
+                                            <?php
+                                        endif;
+                                        ?>
 
                                     </div>
                                 </ul>
