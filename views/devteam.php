@@ -18,6 +18,31 @@
     <!-- bootstrap js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     
+    <style>
+        body {
+            overflow-y: scroll;
+        }
+
+        .card-img-wrapper {
+            height: 30%;
+
+        }
+
+        .bottom-image {
+            width: 100%;
+            height: auto;
+        }
+
+        .top-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 30%;
+            height: auto;
+            z-index: 2;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -55,7 +80,13 @@
             <!-- Developer 2 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="../assets/images/devteam/dev_felix.jpg" class="card-img-top" alt="Developer 2">
+
+                    <img src="../assets/images/devteam/dev_felix.jpg" class="card-img-top bottom-image"
+                        alt="Developer 1">
+                    <div class="card-img-wrapper">
+                        <img src="../assets/images/mdm.png" class="top-image" alt="Developer 1">
+                    </div>
+
                     <div class="card-body">
                         <h5 class="card-title">Felix Johannes Jochum: <a
                                 href="https://github.com/moechtegernmoench">DerMoench</a></h5>
