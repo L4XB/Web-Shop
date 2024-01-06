@@ -1,5 +1,13 @@
 <?php
 session_start();
+$shwoAlert = false;
+if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
+    $shwoAlert = true;
+    $_SESSION['previous_page'] = "notlogin";
+
+} else {
+    $shwoAlert = false;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -241,7 +249,7 @@ session_start();
 
 
     <?php
-    if ($_SESSION['loggedIn'] === true && $_SESSION['previous_page'] == "login") {
+    if ($shwoAlert) {
         echo "
         <script>
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -264,10 +272,10 @@ session_start();
     </script>
         ";
 
-        $_SESSION['previous_page'] == "";
+
     }
 
-    $_SESSION['previous_page'] == "";
+
 
     ?>
 
