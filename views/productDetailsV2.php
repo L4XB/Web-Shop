@@ -129,11 +129,20 @@ require '../services/userProvider/favorites.php';
                                 'color': 'rgb(254, 77, 77)',
                                 'font-size': '33px'
                             });
-                            location.reload();
+
                         }
 
+
+                    });
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Artikel wurde zu Favoriten hinzugefügt",
+                        showConfirmButton: false,
+                        timer: 1500
                     });
                 } else {
+
                     // Führen Sie die Funktion zum Entfernen des Favoriten aus
                     $.ajax({
                         url: "../services/userProvider/remove_favorit.php",
@@ -149,9 +158,16 @@ require '../services/userProvider/favorites.php';
                                 'color': 'white',
                                 'font-size': '24px'
                             });
-                            location.reload();
+
 
                         }
+                    });
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "info",
+                        title: "Artikel wurde aus Favoriten entfernt",
+                        showConfirmButton: false,
+                        timer: 1500
                     });
                 }
                 // Wechseln Sie den Zustand
