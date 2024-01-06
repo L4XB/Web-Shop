@@ -23,6 +23,7 @@ if ($_SESSION['loggedIn'] === true) {
     $stmt->execute();
     $stmt->close();
     $_SESSION['loggedIn'] = false;
+    $_SESSION['userId'] = "";
     header('Location: ../../views/homepage.php');
     // session_destroy();
     exit;

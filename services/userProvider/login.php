@@ -125,6 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
+        $_SESSION['userId'] = $user['userID'];
         $isFirstLogin = isFirstLogin($_SESSION['email']);
         if ($isFirstLogin) {
             setFirstLoginToFalse($_SESSION['email']);
