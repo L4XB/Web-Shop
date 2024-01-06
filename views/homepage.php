@@ -267,6 +267,8 @@ session_start();
         $_SESSION['previous_page'] == "";
     }
 
+    $_SESSION['previous_page'] == "";
+
     ?>
 
 

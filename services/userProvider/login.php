@@ -88,7 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-
+        $user = $result->fetch_assoc();
+        $_SESSION['userId'] = $user['userID'];
         $_SESSION['loggedIn'] = true;
         $servername = "localhost";
         $usernamed = "root";
@@ -120,14 +121,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateStmt->execute();
         $updateStmt->close();
 
-        $user = $result->fetch_assoc();
+
 
 
         $_SESSION['name'] = $user['firstName'];
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
-        $_SESSION['userId'] = $user['userID'];
+
         $isFirstLogin = isFirstLogin($_SESSION['email']);
         if ($isFirstLogin) {
             setFirstLoginToFalse($_SESSION['email']);
