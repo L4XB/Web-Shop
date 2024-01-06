@@ -58,13 +58,16 @@
         .position-relative {
             position: relative;
         }
+
+        header {
+            isolation: isolate;
+        }
     </style>
 </head>
 
 <body>
 
     <?php
-    // Stellen Sie sicher, dass die Benutzer-ID in der Session gespeichert ist
     if (!isset($_SESSION['userId'])) {
 
     } else {

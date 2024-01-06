@@ -279,9 +279,9 @@ require '../services/userProvider/favorites.php';
     </style>
     <script>
         $(document).ready(function () {
-            if ($('#dropdown .selected').length > 0) {
+            if ($('#dropdownone .selected').length > 0) {
                 $('#dropbtn').prop('disabled', true);
-                $('#dropdown').css('opacity', '0.5');
+                $('#dropdownone').css('opacity', '0.5');
             }
         });
     </script>
@@ -394,7 +394,7 @@ require '../services/userProvider/favorites.php';
             <!-- actions -->
             <div id="details-products-data-functions">
                 <!-- Product size selection-->
-                <div class="dropdown" id="dropdown">
+                <div class="dropdownone" id="dropdownone">
                     <button class="dropbtn" id="dropbtn">
                         <?php echo "Größe: " . $sizes[0]; ?><i class="arrow down"></i>
                     </button>
