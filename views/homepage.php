@@ -78,7 +78,6 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
 
     <?php include 'header.php'; ?>
 
-    <br>
     <div class="container-fluid" id="fa-items">
         <div class="d-flex align-items-center">
             <span style="margin-left:auto;margin-right:auto;">
@@ -108,7 +107,8 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
         </div>
     </div>
 
-    <main role="main">
+
+
         <!-- Carousel -->
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -118,7 +118,7 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
             </ol>
             <div class="carousel-inner">
                 <div class="carousel-item">
-                    <img class="first-slide" img src="..//assets/images/homepage/banner.png" alt="First slide"
+                    <img class="first-slide" img src="..//assets/images/homepage/banner2.png" alt="First slide"
                         style="width: 100%; height: 40vh">
                     <div class="carousel-caption text-left text-color">
                         <h1>DevTeam</h1>
@@ -127,7 +127,7 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
                     </div>
                 </div>
                 <div class="carousel-item active">
-                    <img class="second-slide" img src="..//assets/images/homepage/banner.png" alt="Second slide"
+                    <img class="second-slide" img src="..//assets/images/homepage/banner2.png" alt="Second slide"
                         style="width: 100%; height: 40vh">
                     <div class="carousel-caption text-color">
                         <h1>Herzlich Willkommen</h1>
@@ -136,7 +136,7 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img class="third-slide" img src="..//assets/images/homepage/banner.png" alt="Third slide"
+                    <img class="third-slide" img src="..//assets/images/homepage/banner2.png" alt="Third slide"
                         style="width: 100%; height: 40vh">
                     <div class="carousel-caption text-right text-color">
                         <h1>Dokumentation</h1>
@@ -145,6 +145,8 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
                     </div>
                 </div>
             </div>
+
+            <!-- Carousel Control buttons -->
             <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                 <span class="sr-only">Previous</span>
@@ -155,10 +157,7 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
             </a>
         </div>
         </div>
-
         <br>
-        <br>
-
 
         <!-- Marketing messaging and featurettes -->
         <div class="container marketing">
@@ -238,10 +237,7 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
             </div>
 
             <hr class="featurette-divider">
-
-            <!-- /END THE FEATURETTES -->
-        </div><!-- /.container -->
-    </main>
+        </div>
 
     <!-- FOOTER -->
     <?php include 'footer.php'; ?>
