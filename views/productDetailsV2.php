@@ -250,6 +250,17 @@ require '../services/userProvider/favorites.php';
             });
         });
     </script>
+    <style>
+        .push {
+            flex-grow: 9999;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+    </style>
     <script>
         $(document).ready(function () {
             if ($('#dropdown .selected').length > 0) {
@@ -412,6 +423,7 @@ require '../services/userProvider/favorites.php';
             </div>
         </div>
     </div>
+    <div class="push"></div>
 
     <!-- footer -->
     <?php include 'footer.php'; ?>

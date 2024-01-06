@@ -22,9 +22,9 @@
 
     <style>
         body {
-            overflow-y: scroll;
-            height: 100%;
-            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .card-img-wrapper {
@@ -44,6 +44,10 @@
             width: 30%;
             height: auto;
             z-index: 2;
+        }
+
+        .push {
+            flex-grow: 9999;
         }
     </style>
 
@@ -120,6 +124,7 @@
             </div>
         </div>
     </main>
+    <div class="push"></div>
     <!-- footer -->
     <?php include 'footer.php'; ?>
 
