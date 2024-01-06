@@ -36,6 +36,7 @@
 
                 document.getElementById('myForm').reset();
                 Swal.fire({
+                    confirmButtonColor: '#ffc107',
                     title: "Abgesendet!",
                     text: "Wir melden uns bei dir sobald wie möglich!",
                     icon: "success"

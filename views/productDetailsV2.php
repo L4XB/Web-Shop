@@ -396,7 +396,7 @@ require '../services/userProvider/favorites.php';
                 <!-- Product size selection-->
                 <div class="dropdown" id="dropdown">
                     <button class="dropbtn" id="dropbtn">
-                        <?php echo "Größe:" . $sizes[0]; ?><i class="arrow down"></i>
+                        <?php echo "Größe: " . $sizes[0]; ?><i class="arrow down"></i>
                     </button>
                     <div class="dropdown-content" id="dropdown-content">
                         <?php
