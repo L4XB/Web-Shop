@@ -437,6 +437,7 @@ require '../services/userProvider/favorites.php';
                     </div>
                 </div>
             </div>
+            <br>
         </div>
     </div>
     <div class="push"></div>
