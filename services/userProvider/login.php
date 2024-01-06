@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $hashedPassword = hash('sha512', $password);
     $_SESSION['alert'] = "Hash: " . $hashedPassword . "  Clear: " . $password;
+
     // Vorbereiten und Binden
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND passwort = ?");
     $stmt->bind_param("ss", $username, $hashedPassword);
@@ -95,6 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbname = "webShopFSI";
         $_SESSION['email'] = $username;
         $userid = $_SESSION['userId'];
+        $_SESSION['previous_page'] = "login";
         $conn = new mysqli($servername, $usernamed, $password, $dbname);
 
 

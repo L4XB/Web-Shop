@@ -35,7 +35,7 @@ session_start();
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <script>
         window.onload = function () {
@@ -237,6 +237,39 @@ session_start();
 
     <!-- FOOTER -->
     <?php include 'footer.php'; ?>
+
+
+
+    <?php
+    if ($_SESSION['loggedIn'] === true && $_SESSION['previous_page'] == "login") {
+        echo "
+        <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.onmouseenter = Swal.stopTimer;
+                    toast.onmouseleave = Swal.resumeTimer;
+                }
+            });
+            Toast.fire({
+                icon: 'success',
+                title: 'Signed in successfully'
+            });
+        });
+    </script>
+        ";
+
+        $_SESSION['previous_page'] == "";
+    }
+
+    ?>
+
+
 
 
 </body>
