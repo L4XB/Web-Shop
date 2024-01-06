@@ -53,7 +53,7 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
     while ($stmt->fetch()) {
         // Erstellen Sie das Produkt-Element.
         $productElement = "<div class='media text-muted pt-3 product'>
-<img style='height: 60px;' class='img' src='cid:$productName' alt='$productName'>
+<img style='height: 60px;' class='img' src='cid:$productPath' alt='$productName'>
 <p class='media-body pb-3 mb-0 small'><strong class='d-block text-gray-dark'>$productName</strong> Menge: $totalAmount</p>
 </div>";
 
@@ -61,7 +61,7 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
         $productList .= $productElement;
 
         // Fügen Sie das Bild als eingebettetes Bild zur E-Mail hinzu
-        $mail->AddEmbeddedImage("../../assets/images/produkts/$productPath.png", $productName);
+        $mail->AddEmbeddedImage("../../assets/images/produkts/$productPath.png", $productPath);
     }
 
 

@@ -77,6 +77,7 @@ function createUser($email, $password, $firstName, $lastName)
     $_SESSION['clearPassword'] = $passwordGenerated;
     $_SESSION['email'] = $email;
     $_SESSION['firstName'] = $firstName;
+    $_SESSION['previous_page'] = "login";
 
     $hashedPassword = hash('sha512', $passwordGenerated);
     $currentTimestamp = date('Y-m-d H:i:s');

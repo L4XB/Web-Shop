@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
     $hashedPassword = hash('sha512', $password);
     $_SESSION['alert'] = "Hash: " . $hashedPassword . "  Clear: " . $password;
+
     // Vorbereiten und Binden
     $stmt = $conn->prepare("SELECT * FROM users WHERE email = ? AND passwort = ?");
     $stmt->bind_param("ss", $username, $hashedPassword);
@@ -87,7 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-
+        $user = $result->fetch_assoc();
+        $_SESSION['userId'] = $user['userID'];
         $_SESSION['loggedIn'] = true;
         $servername = "localhost";
         $usernamed = "root";
@@ -95,6 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dbname = "webShopFSI";
         $_SESSION['email'] = $username;
         $userid = $_SESSION['userId'];
+        $_SESSION['previous_page'] = "login";
         $conn = new mysqli($servername, $usernamed, $password, $dbname);
 
 
@@ -118,14 +121,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $updateStmt->execute();
         $updateStmt->close();
 
-        $user = $result->fetch_assoc();
+
 
 
         $_SESSION['name'] = $user['firstName'];
         $_SESSION['firstName'] = $user['firstName'];
         $_SESSION['lastLogIn'] = $user['lastLogIn'];
         $_SESSION['email'] = $username;
-        $_SESSION['userId'] = $user['userID'];
+
         $isFirstLogin = isFirstLogin($_SESSION['email']);
         if ($isFirstLogin) {
             setFirstLoginToFalse($_SESSION['email']);

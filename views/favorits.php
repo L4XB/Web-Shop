@@ -1,5 +1,6 @@
 <?php
-session_start();
+    session_start();
+
 if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     // Wenn der Benutzer nicht eingeloggt ist, leiten Sie ihn zur Login-Seite um
     header('Location: login.php');
