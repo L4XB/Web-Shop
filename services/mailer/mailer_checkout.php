@@ -52,7 +52,11 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
 
     // Holen Sie die Ergebnisse.
     while ($stmt->fetch()) {
-        $imageName = iconv('UTF-8', 'ASCII//TRANSLIT', $productName);
+        $imageName = strtolower(iconv('UTF-8', 'ASCII//TRANSLIT', $productName));
+        $imageName = str_replace(' ', '_', $imageName);
+
+        // Entfernen Sie alle nicht-alphanumerischen Zeichen außer Unterstrichen
+        $imageName = preg_replace('/[^a-z0-9_]/', '', $imageName);
         // Erstellen Sie das Produkt-Element.
         $productElement = "<div class='media text-muted pt-3 product'>
 <img style='height: 60px;' class='img' src='cid:$imageName' alt='$productName'>
@@ -71,11 +75,6 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
     // Schließen Sie die Anweisung und die Verbindung.
     $stmt->close();
     $conn->close();
-
-
-
-
-
 
 
     $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
