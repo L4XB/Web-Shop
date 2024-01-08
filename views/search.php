@@ -14,6 +14,16 @@
         .product-card {
             cursor: pointer;
         }
+
+        .push {
+            flex-grow: 9999;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
     </style>
     <script>
         document.getElementById('dashboard-Button').addEventListener('click', function () {
