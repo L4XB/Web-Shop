@@ -61,6 +61,7 @@ $code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
 
 
 updateResetCode($userMail, $code);
+setLoginProperties($userMail);
 $mail->Body = "<!DOCTYPE html>
             <html lang='en'>
             <head>
@@ -134,6 +135,52 @@ function updateResetCode($mail, $code)
     }
 
     // Schließen Sie die Verbindung
+    $stmt->close();
+    $conn->close();
+}
+
+
+
+function setLoginProperties($email)
+{
+    session_start();
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "webShopFSI";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    // Überprüfen Sie, ob die Verbindung erfolgreich war
+    if ($conn->connect_error) {
+        die("Verbindung fehlgeschlagen: " . $conn->connect_error);
+    }
+
+    // Erstes Statement vorbereiten
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
+    $stmt->bind_param("s", $email);
+
+    // Ausführen der Anweisung
+    $stmt->execute();
+
+    // Ergebnis abrufen
+    $result = $stmt->get_result();
+
+    $user = $result->fetch_assoc();
+    $_SESSION['userId'] = $user['userID'];
+    $_SESSION['loggedIn'] = true;
+
+    // Zweites Statement vorbereiten
+    $stmt = $conn->prepare("UPDATE users SET is_logged_in = 1 WHERE userID = ?");
+    $stmt->bind_param("s", $_SESSION['userId']);
+
+    // Ausführen der Anweisung
+    if ($stmt->execute()) {
+        echo "Benutzer erfolgreich eingeloggt.";
+    } else {
+        echo "Fehler beim Einloggen des Benutzers: " . $stmt->error;
+    }
+
     $stmt->close();
     $conn->close();
 }
