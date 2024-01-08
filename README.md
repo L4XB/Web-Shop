@@ -23,7 +23,13 @@ This webshop project is a collaborative effort by Reutlingen University students
     - [MySQL](www.mysql.com) 🗄️
     - [Apache](apache.org) 🌐
 
-
+## How to run it yourself
+- Install XAMPP and VS-Code
+- open the *htdocs* folder inside VS-Code as well as an Terminal (make shure your there as well in the htdocs folder)
+- run the comand *git clone "URL of the repository"*
+- start XAMPP and go to *[localhost/phpmyadmin](http://localhost/phpmyadmin/index.php) (can vary)* to set up the database of the webshop
+- Start by creating an database called: **webShopFSI**
+- insert the SQL file: **schemaFSI.sql**
 
 ## Contributing
 
