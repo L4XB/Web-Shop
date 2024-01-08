@@ -54,6 +54,6 @@ If you encounter any issues or find bugs, please open an issue on the [GitHub re
 
 ## License
 
-This project is licensed under the [AGPLv3 License](../../LICENSE). See the [LICENSE](../../LICENSE) file for details.
+This project is licensed under the [AGPLv3 License](https://github.com/L4XB/webShop/blob/main/LICENCE). See the [LICENSE](https://github.com/L4XB/webShop/blob/main/LICENCE) file for details.
 
 Happy coding! 🚀
