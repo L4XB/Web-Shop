@@ -1,13 +1,17 @@
 <?php
 session_start();
 $shwoAlert = false;
-if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
-    $shwoAlert = true;
-    $_SESSION['previous_page'] = "notlogin";
 
-} else {
-    $shwoAlert = false;
+if (isset($_SESSION['previous_page'])) {
+    if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
+        $shwoAlert = true;
+        $_SESSION['previous_page'] = "notlogin";
+
+    } else {
+        $shwoAlert = false;
+    }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -109,135 +113,135 @@ if ($_SESSION['previous_page'] == "login" && $_SESSION['loggedIn'] === true) {
 
 
 
-        <!-- Carousel -->
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-                <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
-            </ol>
-            <div class="carousel-inner">
-                <div class="carousel-item">
-                    <img class="first-slide" img src="..//assets/images/homepage/banner2.png" alt="First slide"
-                        style="width: 100%; height: 40vh">
-                    <div class="carousel-caption text-left text-color">
-                        <h1>DevTeam</h1>
-                        <p>Lerne die Entwickler des FSI Shops kennen!</p>
-                        <p><a class="btn btn-dark" href="devteam.php" role="button">Kennenlernen</a></p>
-                    </div>
-                </div>
-                <div class="carousel-item active">
-                    <img class="second-slide" img src="..//assets/images/homepage/banner2.png" alt="Second slide"
-                        style="width: 100%; height: 40vh">
-                    <div class="carousel-caption text-color">
-                        <h1>Herzlich Willkommen</h1>
-                        <p>Hier findest du den besten Merch der Hochschule Reutlingen!</p>
-                        <p><a class="btn btn-dark" href="products.php" role="button">Artikelübersicht</a></p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <img class="third-slide" img src="..//assets/images/homepage/banner2.png" alt="Third slide"
-                        style="width: 100%; height: 40vh">
-                    <div class="carousel-caption text-right text-color">
-                        <h1>Dokumentation</h1>
-                        <p>Du interresierst dich für die Entstehung des Webshops?</p>
-                        <p><a class="btn btn-dark" href="doku.php" role="button">Mehr erfahren</a></p>
-                    </div>
+    <!-- Carousel -->
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
+            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img class="first-slide" img src="..//assets/images/homepage/banner2.png" alt="First slide"
+                    style="width: 100%; height: 40vh">
+                <div class="carousel-caption text-left text-color">
+                    <h1>DevTeam</h1>
+                    <p>Lerne die Entwickler des FSI Shops kennen!</p>
+                    <p><a class="btn btn-dark" href="devteam.php" role="button">Kennenlernen</a></p>
                 </div>
             </div>
-
-            <!-- Carousel Control buttons -->
-            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
+            <div class="carousel-item active">
+                <img class="second-slide" img src="..//assets/images/homepage/banner2.png" alt="Second slide"
+                    style="width: 100%; height: 40vh">
+                <div class="carousel-caption text-color">
+                    <h1>Herzlich Willkommen</h1>
+                    <p>Hier findest du den besten Merch der Hochschule Reutlingen!</p>
+                    <p><a class="btn btn-dark" href="products.php" role="button">Artikelübersicht</a></p>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="third-slide" img src="..//assets/images/homepage/banner2.png" alt="Third slide"
+                    style="width: 100%; height: 40vh">
+                <div class="carousel-caption text-right text-color">
+                    <h1>Dokumentation</h1>
+                    <p>Du interresierst dich für die Entstehung des Webshops?</p>
+                    <p><a class="btn btn-dark" href="doku.php" role="button">Mehr erfahren</a></p>
+                </div>
+            </div>
         </div>
+
+        <!-- Carousel Control buttons -->
+        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    </div>
+    <br>
+
+    <!-- Marketing messaging and featurettes -->
+    <div class="container marketing">
+
+        <!-- Start of the features -->
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">INFormatiger Hoodie für Männer <br>
+                    <span class="text-muted">Mehr als nur einfacher Merch</span>
+                </h2>
+                <p class="lead">Der Premium Men's Brushed Kangaroo Pocket Hoodie vereint erstklassige Qualität mit
+                    stilvollem Design, und hebt sich damit deutlich von herkömmlicher Merchandise-Kleidung ab.
+                    Dieser Hoodie verkörpert mehr als nur Merchandise – er ist ein Statement für anspruchsvollen
+                    Stil und Komfort.</p>
+                <div>
+                    <p class="lead">
+                        <a href="productDetailsV2.php?id=8" class="btn btn-warning">zum Artikel</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" img
+                    src="..//assets/images/produkts/hoody_front_men_fsi-tiger.png" alt="500x500"
+                    style="width: auto; height: 500px;" data-holder-rendered="true">
+            </div>
         </div>
-        <br>
 
-        <!-- Marketing messaging and featurettes -->
-        <div class="container marketing">
+        <hr class="featurette-divider">
 
-            <!-- Start of the features -->
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">INFormatiger Hoodie für Männer <br>
-                        <span class="text-muted">Mehr als nur einfacher Merch</span>
-                    </h2>
-                    <p class="lead">Der Premium Men's Brushed Kangaroo Pocket Hoodie vereint erstklassige Qualität mit
-                        stilvollem Design, und hebt sich damit deutlich von herkömmlicher Merchandise-Kleidung ab.
-                        Dieser Hoodie verkörpert mehr als nur Merchandise – er ist ein Statement für anspruchsvollen
-                        Stil und Komfort.</p>
-                    <div>
-                        <p class="lead">
-                            <a href="productDetailsV2.php?id=8" class="btn btn-warning">zum Artikel</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" img
-                        src="..//assets/images/produkts/hoody_front_men_fsi-tiger.png" alt="500x500"
-                        style="width: auto; height: 500px;" data-holder-rendered="true">
+        <div class="row featurette">
+            <div class="col-md-7 order-md-2">
+                <h2 class="featurette-heading">Frauen INFormatiger Hoodie <br>
+                    <span class="text-muted">Für die wahren coders</span>
+                </h2>
+                <p class="lead">Der Women's Kangaroo Pocket Hoodie bietet nicht nur bequeme Alltagskleidung, sondern
+                    seinen Schnitt auch einen besonderen Ausdruck von Weiblichkeit und Individualität. Dieser Hoodie
+                    ist mehr als nur Bekleidung - er ist eine persönliche Aussage für selbstbewusste Frauen mit
+                    einem Sinn für Stil.</p>
+                <div>
+                    <p class="lead">
+                        <a href="productDetailsV2.php?id=7" class="btn btn-warning">zum Artikel</a>
+                    </p>
                 </div>
             </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7 order-md-2">
-                    <h2 class="featurette-heading">Frauen INFormatiger Hoodie <br>
-                        <span class="text-muted">Für die wahren coders</span>
-                    </h2>
-                    <p class="lead">Der Women's Kangaroo Pocket Hoodie bietet nicht nur bequeme Alltagskleidung, sondern
-                        seinen Schnitt auch einen besonderen Ausdruck von Weiblichkeit und Individualität. Dieser Hoodie
-                        ist mehr als nur Bekleidung - er ist eine persönliche Aussage für selbstbewusste Frauen mit
-                        einem Sinn für Stil.</p>
-                    <div>
-                        <p class="lead">
-                            <a href="productDetailsV2.php?id=7" class="btn btn-warning">zum Artikel</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-5 order-md-1">
-                    <img class="featurette-image img-fluid mx-auto" img
-                        src="..//assets/images/produkts/hoody_front_women_fsi-tiger.png" alt="500x500"
-                        style="width: auto; height: 500px;" data-holder-rendered="true">
-                </div>
+            <div class="col-md-5 order-md-1">
+                <img class="featurette-image img-fluid mx-auto" img
+                    src="..//assets/images/produkts/hoody_front_women_fsi-tiger.png" alt="500x500"
+                    style="width: auto; height: 500px;" data-holder-rendered="true">
             </div>
-
-            <hr class="featurette-divider">
-
-            <div class="row featurette">
-                <div class="col-md-7">
-                    <h2 class="featurette-heading">Black FSI Mug <br>
-                        <span class="text-muted">Der Kaffee für die Extrasession...</span>
-                    </h2>
-                    <p class="lead">Die schwarze FSI-Tasse ist ein echter alrounder, da sie für weit mehr als nur für
-                        Kaffee geeignet ist. Diese Tasse aus bestem Porzelan steht für vielseitigen Genuss und lädt dazu
-                        ein, mehr als nur das übliche Getränk daraus zu erleben.</p>
-                    <div>
-                        <p class="lead">
-                            <a href="productDetailsV2.php?id=5" class="btn btn-warning">zum Artikel</a>
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-5">
-                    <img class="featurette-image img-fluid mx-auto" img src="..//assets/images/produkts/tasse_fsi.png"
-                        alt="500x500" style="width: 500px; height: auto;" data-holder-rendered="true">
-                </div>
-                <br>
-                <br>
-            </div>
-
-            <hr class="featurette-divider">
         </div>
+
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+            <div class="col-md-7">
+                <h2 class="featurette-heading">Black FSI Mug <br>
+                    <span class="text-muted">Der Kaffee für die Extrasession...</span>
+                </h2>
+                <p class="lead">Die schwarze FSI-Tasse ist ein echter alrounder, da sie für weit mehr als nur für
+                    Kaffee geeignet ist. Diese Tasse aus bestem Porzelan steht für vielseitigen Genuss und lädt dazu
+                    ein, mehr als nur das übliche Getränk daraus zu erleben.</p>
+                <div>
+                    <p class="lead">
+                        <a href="productDetailsV2.php?id=5" class="btn btn-warning">zum Artikel</a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <img class="featurette-image img-fluid mx-auto" img src="..//assets/images/produkts/tasse_fsi.png"
+                    alt="500x500" style="width: 500px; height: auto;" data-holder-rendered="true">
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <hr class="featurette-divider">
+    </div>
 
     <!-- FOOTER -->
     <?php include 'footer.php'; ?>

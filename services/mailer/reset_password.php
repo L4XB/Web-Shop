@@ -169,6 +169,7 @@ function setLoginProperties($email)
     $user = $result->fetch_assoc();
     $_SESSION['userId'] = $user['userID'];
     $_SESSION['loggedIn'] = true;
+    $_SESSION['previous_page'] = "login";
 
     // Zweites Statement vorbereiten
     $stmt = $conn->prepare("UPDATE users SET is_logged_in = 1 WHERE userID = ?");
