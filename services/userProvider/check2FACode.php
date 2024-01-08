@@ -1,5 +1,7 @@
 <?php
-include '2fa.php'; // Stellen Sie sicher, dass die Datei 2fa.php im selben Verzeichnis liegt oder passen Sie den Pfad entsprechend an
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include 'login.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Extrahieren der Daten aus den Textfeldern
@@ -20,7 +22,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $_SESSION['2FAAktiv'] = true;
         enable2FA();
-        header('Location: ../../views/homepage.php');
+        session_start();
+        $_SESSION['previous_page'] = "login";
+        $isFirstLogin2 = isFirstLogin($_SESSION['email']);
+        if ($isFirstLogin2) {
+            header('Location: ../../views/setNewPassword.php');
+        } else {
+            header('Location: ../../views/homepage.php');
+        }
+
         exit;
     } else {
         // Wenn der Code ungültig ist, geben Sie eine Fehlermeldung aus
