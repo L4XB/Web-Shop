@@ -11,16 +11,18 @@ This webshop project is a collaborative effort by Reutlingen University students
 ## Technologies Used
 
 - **Frontend:**
-  - HTML5
-  - CSS3
-  - JavaScript
-  - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
+  - HTML5 🌐
+  - [php](www.php.net) 🐘
+  - CSS3 🎨
+  - JavaScript 🚀
+  - [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/) 🅱️
 
 - **Backend:**
-  - [php](www.php.net)
-  - [SQL](www.mysql.com) for the database
-  - [Apache](apache.org)
-  - [XAMP](www.apachefriends.org)
+  - [XAMP](www.apachefriends.org) 🚀
+  with
+    - [MySQL](www.mysql.com) 🗄️
+    - [Apache](apache.org) 🌐
+
 
 
 ## Contributing
