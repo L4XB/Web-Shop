@@ -30,7 +30,7 @@ This webshop project is a collaborative effort by Reutlingen University students
 - start XAMPP and go to *[http://localhost/phpmyadmin/index.php](http://localhost/phpmyadmin/index.php) (can vary)* to set up the database of the webshop
 - start by creating an database called: **webShopFSI**
 - insert the SQL file: **schemaFSI.sql**
-- you can find the shop under *[http://localhost/webShop/views/homepage.php](http://localhost/webShop/views/homepage.php)*
+- you can find the shop under *[http://localhost/webShop/views/homepage.php](http://localhost/webShop/views/homepage.php) (can vary)*
 
 ## Contributing
 
