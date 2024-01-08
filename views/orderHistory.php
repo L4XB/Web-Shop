@@ -81,8 +81,6 @@ if (session_status() == PHP_SESSION_NONE) {
   <main role="main" class="container">
 
     <?php
-    // Starten Sie die Session
-    session_start();
     $servername = "localhost";
     $username = "root";
     $password = "";
