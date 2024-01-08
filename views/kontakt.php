@@ -91,6 +91,7 @@
                             Durch einen Klick auf die einzelnen Bestellungen erhältst du genauere Informationen zu deiner
                             Bestellungen.
                         </div>
+                        <br>
                     </div>
 
                     <p data-toggle="collapse" href="#collapse2" role="button" aria-expanded="false"
@@ -102,6 +103,7 @@
                             2FA kannst du ganz einfach über deine Profilseite deaktivieren -> vorrausgesetzt ,du hast es
                             davor aktiviert. ;)
                         </div>
+                        <br>
                     </div>
 
                     <p data-toggle="collapse" href="#collapse3" role="button" aria-expanded="false"
@@ -113,6 +115,7 @@
                             Die Rechnung findest Du in ihren Mails, nach der Bestellung wurde Dir eine Mail mit allen
                             wichtig Informationen zugeschickt.
                         </div>
+                        <br>
                     </div>
 
                     <p>Vielleicht hast Du Deine Antwort schon in unseren FAQ gefunden. Ansonsten freuen wir uns über Deine
