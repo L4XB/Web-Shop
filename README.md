@@ -54,6 +54,6 @@ If you encounter any issues or find bugs, please open an issue on the [GitHub re
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE.md). See the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the [AGPLv3 License](LICENSE.md). See the [LICENSE.md](LICENSE.md) file for details.
 
 Happy coding! 🚀
