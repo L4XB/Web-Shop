@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 $shwoAlert = false;
 
 if (isset($_SESSION['previous_page'])) {
