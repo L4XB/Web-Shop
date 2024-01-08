@@ -41,6 +41,11 @@ if (session_status() == PHP_SESSION_NONE) {
             flex-direction: column;
             min-height: 100vh;
         }
+
+        .no-padding {
+            padding-left: 0;
+            padding-right: 0;
+        }
     </style>
 </head>
 
@@ -50,7 +55,7 @@ if (session_status() == PHP_SESSION_NONE) {
     <?php include 'header.php'; ?>
 
     <div class="container pt-4" style="margin-left: 12%;">
-        <div class="col-lg-6 order-2 order-lg-1">
+        <div class="col-lg-6 order-2 order-lg-1 no-padding">
             <h1>Mein Konto:</h1>
         </div>
         <ul class="breadcrumb undefined">
@@ -58,6 +63,7 @@ if (session_status() == PHP_SESSION_NONE) {
             <li class="breadcrumb-item active"><span class="text-dark">Konto</span></li>
         </ul>
     </div>
+    <br>
 
     <div class="container">
         <?php

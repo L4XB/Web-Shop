@@ -20,7 +20,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- custom css -->
-  <link rel="stylesheet" href="../style/#.css">
+  <link rel="stylesheet" href="../style/orderHistory.css">
 
   <!-- bootstrap js -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
@@ -32,34 +32,6 @@ if (session_status() == PHP_SESSION_NONE) {
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-  <style>
-    .img {
-      height: 60px;
-    }
-
-    .flex-column {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .product {
-      padding-right: 50vw;
-    }
-  </style>
-  <style>
-    .push {
-      flex-grow: 9999;
-    }
-
-    body {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-  </style>
-
-
 </head>
 
 <body>
@@ -68,7 +40,7 @@ if (session_status() == PHP_SESSION_NONE) {
   <?php include 'header.php'; ?>
 
   <div class="container pt-4" style="margin-left: 12%;">
-    <div class="col-lg-6 order-2 order-lg-1">
+    <div class="col-lg-6 order-2 order-lg-1 no-padding">
       <h1>Bestellverlauf</h1>
     </div>
     <ul class="breadcrumb undefined">
