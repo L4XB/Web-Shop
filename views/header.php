@@ -62,6 +62,10 @@
         header {
             isolation: isolate;
         }
+
+        .layout {
+            z-index: 99999999;
+        }
     </style>
 </head>
 
@@ -182,7 +186,7 @@
 
                                     <br>Profil
                                 </a>
-                                <ul class="dropdown-menu bg-dark">
+                                <ul class="dropdown-menu bg-dark layout">
                                     <div class="d-flex flex-column align-items-center">
                                         <?php
                                         if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true):
