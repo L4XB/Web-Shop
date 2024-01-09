@@ -1,5 +1,5 @@
 <?php
-    session_start();
+session_start();
 
 if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
     // Wenn der Benutzer nicht eingeloggt ist, leiten Sie ihn zur Login-Seite um
@@ -46,21 +46,23 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
 
     <!-- header -->
     <?php include 'header.php'; ?>
-
-    <div class="container pt-4" style="margin-left: 12%;">
-        <div class="col-lg-6 order-2 order-lg-1">
-            <h1>Favoriten</h1>
+    <div class="container-fluid">
+        <div class="container pt-4" style="margin-left: 12%;">
+            <div class="col-lg-6 order-2 order-lg-1">
+                <h1>Favoriten</h1>
+            </div>
+            <ul class="breadcrumb undefined">
+                <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.php" class="text-dark">Artikelübersicht</a></li>
+                <li class="breadcrumb-item active"><span class="text-dark">Favoriten</span></li>
+            </ul>
         </div>
-        <ul class="breadcrumb undefined">
-            <li class="breadcrumb-item"><a href="homepage.php" class="text-dark">Home</a></li>
-            <li class="breadcrumb-item"><a href="products.php" class="text-dark">Artikelübersicht</a></li>
-            <li class="breadcrumb-item active"><span class="text-dark">Favoriten</span></li>
-        </ul>
+
+        <br>
+
+        <?php include '../services/userProvider/loadAllFavorites.php'; ?>
     </div>
 
-    <main class="container">
-        <?php include '../services/userProvider/loadAllFavorites.php'; ?>
-    </main>
     <div class="push"></div>
     <!-- footer -->
     <?php include 'footer.php'; ?>
