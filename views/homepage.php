@@ -88,7 +88,7 @@ if (isset($_SESSION['previous_page'])) {
         <div class="d-flex align-items-center">
             <span style="margin-left:auto;margin-right:auto;">
                 <h1 style='text-align:center;'>Fachschaft Informatik Merchstore</h1>
-
+                <br>
                 <?php
                 if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] === true) {
                     $name = $_SESSION['name'];
