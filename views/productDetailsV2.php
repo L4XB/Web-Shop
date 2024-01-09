@@ -15,7 +15,7 @@ require '../services/userProvider/favorites.php';
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="productDetails" content="width=device-width, initial-scale=1.0">
     <title>Products V2</title>
     <!-- favicon -->
     <link rel="icon" type="image/x-icon" href="../assets/icons/favicon-192x192.ico">

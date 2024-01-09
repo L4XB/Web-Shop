@@ -12,7 +12,7 @@ if (!isset($_SESSION['loggedIn']) || $_SESSION['loggedIn'] !== true) {
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="favorit" content="width=device-width, initial-scale=1.0">
     <title>Favoriten</title>
 
     <!-- Favicons -->
