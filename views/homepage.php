@@ -118,12 +118,12 @@ if (isset($_SESSION['previous_page'])) {
     <!-- Carousel -->
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class=""></li>
-            <li data-target="#myCarousel" data-slide-to="1" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1" class=""></li>
             <li data-target="#myCarousel" data-slide-to="2" class=""></li>
         </ol>
         <div class="carousel-inner">
-            <div class="carousel-item">
+            <div class="carousel-item active">
                 <img class="first-slide" img src="..//assets/images/homepage/banner2.png" alt="First slide"
                     style="width: 100%; height: 40vh">
                 <div class="carousel-caption text-left text-color">
@@ -132,7 +132,7 @@ if (isset($_SESSION['previous_page'])) {
                     <p><a class="btn btn-dark" href="devteam.php" role="button">Kennenlernen</a></p>
                 </div>
             </div>
-            <div class="carousel-item active">
+            <div class="carousel-item ">
                 <img class="second-slide" img src="..//assets/images/homepage/banner2.png" alt="Second slide"
                     style="width: 100%; height: 40vh">
                 <div class="carousel-caption text-color">
@@ -141,7 +141,7 @@ if (isset($_SESSION['previous_page'])) {
                     <p><a class="btn btn-dark" href="products.php" role="button">Artikelübersicht</a></p>
                 </div>
             </div>
-            <div class="carousel-item">
+            <div class="carousel-item ">
                 <img class="third-slide" img src="..//assets/images/homepage/banner2.png" alt="Third slide"
                     style="width: 100%; height: 40vh">
                 <div class="carousel-caption text-right text-color">

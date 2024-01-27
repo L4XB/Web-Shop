@@ -13,7 +13,7 @@ if ($conn->connect_error) {
 
 }
 
-/////////////////
+
 $sql = "SELECT * FROM products";
 $result = $conn->query($sql);
 
