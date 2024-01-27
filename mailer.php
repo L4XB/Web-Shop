@@ -19,6 +19,7 @@ ini_set('display_errors', 1);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['submit'])) {
         session_start();
+        $config = new AppConfig();
 
         $email = $_POST['email'];
         $firstName = $_POST['firstName'];
@@ -30,9 +31,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
         // Konfiguration für OAuth2
-        $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
-        $clientSecret = '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';
-        $refreshToken = '1//09Q6-lAnWpLcYCgYIARAAGAkSNwF-L9IrNsI44_zOWcR9oMZPQgfeyG5yYVQtZhx14I05IypynWaUZ42Okt8-mcW9KfDe77cPJhU';
+
+        $clientId = $config->clientId;
+        $clientSecret = $config->clientSecret;
+        $refreshToken = $config->refreshToken;
 
         $provider = new Google([
             'clientId' => $clientId,
@@ -57,11 +59,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'clientId' => $clientId,
             'clientSecret' => $clientSecret,
             'refreshToken' => $refreshToken,
-            'userName' => 'inf.fachschaft@gmail.com',
+            'userName' => $config->emailToSendMail,
         ]));
         $code = str_pad(rand(0, 999999), 6, '0', STR_PAD_LEFT);
         $mail->addAddress("$email", 'Kunde');
-        $mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
+        $mail->setFrom($config->emailToSendMail, $config->emailSender);
         $mail->Subject = 'Regestrierung';
 
 
@@ -119,7 +121,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </section>
             
                 <footer>
-                    <p>kontaktiere uns: inf.fachschaft@gmail.com | Phone: (123) 456-7890</p>
+                    <p>kontaktiere uns:$config->emailToSendMail | Phone: </p>
                 </footer>
             </body>
             </html>";
