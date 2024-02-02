@@ -130,4 +130,3 @@ function createUser($email, $password, $firstName, $lastName)
     $conn->close();
 }
 
-?>

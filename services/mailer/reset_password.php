@@ -184,4 +184,3 @@ function setLoginProperties($email)
     $stmt->close();
     $conn->close();
 }
-?>

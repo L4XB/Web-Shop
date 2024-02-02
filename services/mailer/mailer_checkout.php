@@ -198,5 +198,3 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
 
 
 
-
-?>
