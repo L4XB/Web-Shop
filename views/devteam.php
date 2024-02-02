@@ -80,8 +80,8 @@ session_start()
                 <div class="card">
                     <img src="../assets/images/devteam/dev_lukas.jpg" class="card-img-top" alt="Developer 1">
                     <div class="card-body">
-                        <h5 class="card-title">Lukas Buck: <a href="https://github.com/L4XB">L4XB</a></h5>
-                        <p class="card-text">Lukas, der mutige König des versehentlichen Selbstvergessens - er
+                        <h5 class="card-title">L4XB: <a href="https://github.com/L4XB">L4XB</a></h5>
+                        <p class="card-text">L4XB, der mutige König des versehentlichen Selbstvergessens - er
                             beherrscht die hohe Kunst, den USB-Stecker nie richtig herum einzustecken und findet stets
                             neue Wege, um mit seinem Schuh an der Türschwelle hängenzubleiben. Seine furchtlose Mission,
                             immer die Fernbedienung zu suchen, während sie in seiner Hand liegt, ist eine Huldigung an
@@ -101,9 +101,10 @@ session_start()
                     </div>
 
                     <div class="card-body">
-                        <h5 class="card-title">Felix Johannes Jochum: <a
-                                href="https://github.com/moechtegernmoench">DerMoench</a></h5>
-                        <p class="card-text">Felix, der unangefochtene Meister im Sammeln von Staubflusen unter dem Bett
+                        <h5 class="card-title">DerMoench: <a href="https://github.com/moechtegernmoench">DerMoench</a>
+                        </h5>
+                        <p class="card-text">DerMoench, der unangefochtene Meister im Sammeln von Staubflusen unter dem
+                            Bett
                             - seine passionierte Hingabe für den Stillstand könnte ihn zum offiziellen Botschafter der
                             trägen Gemüter ernennen. Seine beeindruckende Fähigkeit, jedes Gerät in einen unerklärlichen
                             Zustand des Nichtfunktionierns zu verwandeln, ist eine wahre Ode an die unergründlichen
@@ -117,8 +118,9 @@ session_start()
                 <div class="card">
                     <img src="../assets/images/devteam/dev_quentin.jpg" class="card-img-top" alt="Developer 3">
                     <div class="card-body">
-                        <h5 class="card-title">Quentin Walz: <a href="https://github.com/QWellCOD">QWellCODe</a></h5>
-                        <p class="card-text">Quentin, der glorreiche Sonnenkönig des Nichtstuns, erlangte Ruhm durch den
+                        <h5 class="card-title">QWellCODe: <a href="https://github.com/QWellCOD">QWellCODe</a></h5>
+                        <p class="card-text">QWellCODe, der glorreiche Sonnenkönig des Nichtstuns, erlangte Ruhm durch
+                            den
                             Weltrekord für die ausgedehnteste Mittagspause. Seine bewundernswerte Fähigkeit, im
                             Arrangement seiner Socken die Essenz des Lebens zu erkennen, zeichnet ihn als einen wahren
                             Helden des Alltags aus, der die Welt durch seine Abwesenheit auf wundervolle Weise

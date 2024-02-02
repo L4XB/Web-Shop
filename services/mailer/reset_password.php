@@ -20,9 +20,9 @@ $userMail = $_SESSION['email'];
 
 $mail = new PHPMailer(true);
 $mail->isSMTP();
-$clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
-$clientSecret = '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';
-$refreshToken = '1//09Q6-lAnWpLcYCgYIARAAGAkSNwF-L9IrNsI44_zOWcR9oMZPQgfeyG5yYVQtZhx14I05IypynWaUZ42Okt8-mcW9KfDe77cPJhU';
+$clientId = $config->clientId;
+$clientSecret = $config->clientSecret;
+$refreshToken = $config->refreshToken;
 
 $provider = new Google([
     'clientId' => $clientId,
@@ -47,12 +47,12 @@ $mail->setOAuth(new OAuth([
     'clientId' => $clientId,
     'clientSecret' => $clientSecret,
     'refreshToken' => $refreshToken,
-    'userName' => 'inf.fachschaft@gmail.com',
+    'userName' => $config->emailSender,
 ]));
 $mail->addAddress($userMail, "Kunde");
 /*$mail->addAddress('moenchstalweg@gmail.com', 'Jochum');*/
 
-$mail->setFrom('inf.fachschaft@gmail.com', 'Fachschaft INF');
+$mail->setFrom($config->emailSender, 'Name');
 $mail->Subject = 'Passwort zurücksetzen';
 session_start();
 
@@ -100,7 +100,6 @@ $mail->Body = "<!DOCTYPE html>
             
             
                 <footer>
-                    <p>kontaktiere uns: inf.fachschaft@gmail.com | Phone: (123) 456-7890</p>
                 </footer>
             </body>
             </html>";
