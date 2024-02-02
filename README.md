@@ -59,4 +59,22 @@ This project is licensed under the [AGPLv3 License](https://github.com/L4XB/webS
 ## Homepage
 
 ![Homepage](docimages/Bild1.png)
+
+
+## Profile
+
+![Profile](docimages/Bild3.png)
+
+
+## Products
+
+![Profile](docimages/Bild2.png)
+
+
+## Checkout
+
+![Profile](docimages/Bild4.png)
+
+
+![Profile](docimages/Bild3.png)
 Happy coding! 🚀
