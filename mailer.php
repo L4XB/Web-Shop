@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <body>
                 <header>
                     <img height='90px' src='../../assets/images/inf-logo.png' alt=''>
-                    <h1>Wilkommen im Online-Shop der Fachschaft Informatik!</h1>
+                    <h1>Wilkommen im Online-Shop der Team!</h1>
                     <h2>Dein Passwort : <u>$passwordClear</u></h2>
                 </header>
             
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         Jetzt musst du nur noch deinen Code auf unserer <a href='../../index.html'>Webseite</a> eingeben und schon kann es los gehen.
                     </p>
             
-                    <p>Bis bald dein Fachschaftsteam!</p>
+                    <p>Bis bald dein Team!</p>
                 </section>
             
                 <footer>

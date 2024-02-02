@@ -11,6 +11,8 @@ class AppConfig
 
     public $emailSender = "";
 
+    public $shopName = "";
+
 }
 
 ?>

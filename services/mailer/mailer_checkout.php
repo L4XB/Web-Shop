@@ -13,6 +13,7 @@ require '../../vendor/autoload.php';
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
+
 function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesamtbetrag, $name, $email)
 {
     $mail = new PHPMailer(true);
@@ -75,11 +76,10 @@ function sendConfirmationMail($bestellnummer, $versandArt, $transactionId, $gesa
     // Schließen Sie die Anweisung und die Verbindung.
     $stmt->close();
     $conn->close();
-
-
-    $clientId = '851169708159-jbgg5qsegn64hkh0qh8flb0kskt3muii.apps.googleusercontent.com';
-    $clientSecret = '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';
-    $refreshToken = '1//09Q6-lAnWpLcYCgYIARAAGAkSNwF-L9IrNsI44_zOWcR9oMZPQgfeyG5yYVQtZhx14I05IypynWaUZ42Okt8-mcW9KfDe77cPJhU';
+    $config = new AppConfig();
+    $clientId = $config->clientId;
+    $clientSecret = $config->clientSecret;
+    $refreshToken = $config->refreshToken;
 
     $provider = new Google([
         'clientId' => $clientId,

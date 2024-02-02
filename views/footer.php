@@ -48,7 +48,7 @@
                             class="nav-link px-2 text-light">Datenschutz</a></li>
                 </ul>
                 <p class="text-center text-light">&copy;
-                    <?php echo date('Y'); ?> Fachschaft Informatik Reutlingen
+                    <?php echo date('Y'); ?> WebShop Team
                 </p>
             </div>
         </nav>
