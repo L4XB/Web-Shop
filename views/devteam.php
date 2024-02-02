@@ -78,7 +78,7 @@ session_start()
             <!-- Developer 1 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="../assets/images/devteam/dev_lukas.jpg" class="card-img-top" alt="Developer 1">
+                    <img src="../assets/images/devteam/userPlaceholder.jpg" class="card-img-top" alt="Developer 1">
                     <div class="card-body">
                         <h5 class="card-title">L4XB: <a href="https://github.com/L4XB">L4XB</a></h5>
                         <p class="card-text">L4XB, der mutige König des versehentlichen Selbstvergessens - er
@@ -94,7 +94,7 @@ session_start()
             <div class="col-md-4">
                 <div class="card">
 
-                    <img src="../assets/images/devteam/dev_felix.jpg" class="card-img-top bottom-image"
+                    <img src="../assets/images/devteam/userPlaceholder.jpg" class="card-img-top bottom-image"
                         alt="Developer 1">
                     <div class="card-img-wrapper">
                         <img src="../assets/images/mdm.png" class="top-image" alt="Developer 1">
@@ -116,7 +116,7 @@ session_start()
             <!-- Developer 3 -->
             <div class="col-md-4">
                 <div class="card">
-                    <img src="../assets/images/devteam/dev_quentin.jpg" class="card-img-top" alt="Developer 3">
+                    <img src="../assets/images/devteam/userPlaceholder.jpg" class="card-img-top" alt="Developer 3">
                     <div class="card-body">
                         <h5 class="card-title">QWellCODe: <a href="https://github.com/QWellCOD">QWellCODe</a></h5>
                         <p class="card-text">QWellCODe, der glorreiche Sonnenkönig des Nichtstuns, erlangte Ruhm durch
