@@ -75,6 +75,4 @@ This project is licensed under the [AGPLv3 License](https://github.com/L4XB/webS
 
 ![Profile](docimages/Bild4.png)
 
-
-![Profile](docimages/Bild3.png)
 Happy coding! 🚀
